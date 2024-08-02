@@ -3,7 +3,7 @@ import { Toaster, toast } from "@/components/ui/toaster";
 import { useEffect } from "react";
 
 const meta = {
-  title: "Toast/Toaster",
+  title: "Toast",
   component: Toaster,
 } satisfies Meta<typeof Toaster>;
 
