@@ -1,4 +1,4 @@
-import { PageLoader } from "@/components/ui/page-loader";
+import { PageLoader } from "~/components/ui/page-loader";
 import type { Meta } from "@storybook/react";
 
 export const Default = () => {

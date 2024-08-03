@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react";
-import { Toaster, toast } from "@/components/ui/toaster";
+import { Toaster, toast } from "~/components/ui/toaster";
 import { useEffect } from "react";
 
 const meta = {

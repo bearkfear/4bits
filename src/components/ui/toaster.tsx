@@ -11,7 +11,7 @@ import {
   TriangleAlert,
 } from "lucide-react";
 import { cva } from "class-variance-authority";
-import { cn } from "@/lib/utils";
+import { cn } from "~/lib/utils";
 
 type ToasterProps = React.ComponentProps<typeof Sonner>;
 
