@@ -3,7 +3,7 @@ import tailwindcssRadixColors from "tailwindcss-radix-colors";
 
 export default {
   darkMode: "class",
-  content: ["./src/**/*.{ts,tsx}"],
+  content: ["./src/**/*.{ts,tsx}", "./.storybook/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
     container: {

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Textarea } from '~/components/ui/textarea';
+import { Input } from '~/components/ui/form/input';
 
 const meta = {
-  component: Textarea,
-  title: "Form/Textarea"
-} satisfies Meta<typeof Textarea>;
+  component: Input,
+  title: "Form/Checkbox"
+} satisfies Meta<typeof Input>;
 
 export default meta;
 

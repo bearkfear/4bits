@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Label } from '~/components/ui/label';
 
+import { Input } from '~/components/ui/form/input';
 
 const meta = {
-  component: Label,
-  title: "Form/Label"
-} satisfies Meta<typeof Label>;
+  component: Input,
+  title: "Form/Input"
+} satisfies Meta<typeof Input>;
 
 export default meta;
 
@@ -13,6 +13,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: "Label value"
+    placeholder: "Placeholder Text"
   }
 };

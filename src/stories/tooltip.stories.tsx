@@ -11,7 +11,7 @@ export const Default = () => {
     <Tooltip.Provider skipDelayDuration={0} delayDuration={0}>
       <Tooltip.Root>
         <Tooltip.Trigger>
-          <span>Elemento de exemplo</span>
+          <span className="dark:text-white text-black">Elemento de exemplo</span>
         </Tooltip.Trigger>
         <Tooltip.Content>
           O que o Batman foi fazer na igreja? se Batzar...
