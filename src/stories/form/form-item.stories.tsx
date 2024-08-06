@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { FormBuilder, FormFields } from "~/components/ui/form/form-builder";
+import { FormBuilder } from "~/components/ui/form/form-builder";
 import { useForm } from "react-hook-form";
 
 const meta = {
   title: "Form/FormItem",
-  component: FormFields,
-} satisfies Meta<typeof FormFields>;
+  component: FormBuilder.FormFields,
+} satisfies Meta<typeof FormBuilder.FormFields>;
 
 type Story = StoryObj<typeof meta>;
 
 export default meta;
 
-export const Text: Story = (args) => {
+export const Text = () => {
   const form = useForm({
     defaultValues: {
       username: "",
@@ -21,7 +21,6 @@ export const Text: Story = (args) => {
   return (
     <FormBuilder.Root>
       <FormBuilder.FormFields
-        {...args}
         control={form.control}
         fields={[
           {
@@ -39,7 +38,7 @@ export const Text: Story = (args) => {
   );
 };
 
-export const Selector: Story = (args) => {
+export const Selector = () => {
   const form = useForm({
     defaultValues: {
       person: "",
@@ -49,7 +48,6 @@ export const Selector: Story = (args) => {
   return (
     <FormBuilder.Root>
       <FormBuilder.FormFields
-        {...args}
         control={form.control}
         fields={[
           {

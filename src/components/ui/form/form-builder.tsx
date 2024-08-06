@@ -77,7 +77,7 @@ function FormItem(props: FormRenderProps) {
   );
 }
 
-const FormFields = (props: FormConfig) => {
+const FormFields = (props: Omit<FormConfig, "render">) => {
   return (
     <FF
       {...props}

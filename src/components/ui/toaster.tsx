@@ -2,7 +2,6 @@
 
 import { useTheme } from "next-themes";
 import { Toaster as Sonner } from "sonner";
-export { toast } from "sonner";
 import {
   BadgeCheck,
   Info,
@@ -12,6 +11,8 @@ import {
 } from "lucide-react";
 import { cva } from "class-variance-authority";
 import { cn } from "~/lib/utils";
+
+export { toast } from "sonner";
 
 type ToasterProps = React.ComponentProps<typeof Sonner>;
 

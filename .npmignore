@@ -1,0 +1,34 @@
+# Ignore node_modules since they are not needed in the package
+node_modules
+
+# Ignore build scripts and configs
+dist/
+.next/
+.github/
+.storybook/
+.vscode/
+
+storybook-static/
+
+biome.json
+components.json
+pnpm-lock.yaml
+postcss.config.mjs
+tailwind.config.ts
+tailwind.config.ts
+tsconfig.json
+tsup.config.ts
+
+# Ignore test directories and files
+test/
+tests/
+*.test.js
+*.spec.js
+
+# Ignore local development files
+.DS_Store
+.env
+*.log
+
+# Ignore source files if you only want to publish the dist folder
+src/
