@@ -22,7 +22,7 @@ const Label = React.forwardRef<
       className={cn(labelVariants(), className)}
       {...props}
     />
-    {required && <LuAsterisk className="text-red-9 dark:text-reddark-9" />}
+    {required && <LuAsterisk className="text-red-9 dark:text-reddark-9 text-xs" />}
   </div>
 ));
 Label.displayName = LabelPrimitive.Root.displayName;

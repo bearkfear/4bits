@@ -8,7 +8,7 @@ const meta = {
   argTypes: {
     color: {
       options: ["danger", "success", "default"],
-      type: "radio",
+      control: "radio"
     },
   },
   args: {

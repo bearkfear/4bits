@@ -1,18 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react';
-
-import { Input } from '~/components/ui/form/input';
+import type { Meta, StoryObj } from "@storybook/react";
+import { Checkbox } from "~/components/ui/form/checkbox";
 
 const meta = {
-  component: Input,
-  title: "Form/Checkbox"
-} satisfies Meta<typeof Input>;
+  component: Checkbox,
+  title: "Form/Checkbox",
+} satisfies Meta<typeof Checkbox>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    placeholder: "Placeholder Text"
-  }
+  args: {},
 };
