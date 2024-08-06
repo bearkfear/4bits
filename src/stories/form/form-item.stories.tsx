@@ -11,7 +11,6 @@ type Story = StoryObj<typeof meta>;
 
 export default meta;
 
-
 export const Text: Story = (args) => {
   const form = useForm({
     defaultValues: {
@@ -34,13 +33,11 @@ export const Text: Story = (args) => {
             placeholder: "placeholder text",
             required: true,
           },
-
         ]}
       />
     </FormBuilder.Root>
   );
 };
-
 
 export const Selector: Story = (args) => {
   const form = useForm({
@@ -64,13 +61,12 @@ export const Selector: Story = (args) => {
             placeholder: "selecting a person",
             required: true,
             options: [
-              { label: "Person 1", value: 1},
-              { label: "Person 2", value: 2},
-              { label: "Person 3", value: 3},
-              { label: "Person 4", value: 4},
-            ]
+              { label: "Person 1", value: 1 },
+              { label: "Person 2", value: 2 },
+              { label: "Person 3", value: 3 },
+              { label: "Person 4", value: 4 },
+            ],
           },
-
         ]}
       />
     </FormBuilder.Root>

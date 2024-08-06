@@ -8,16 +8,33 @@ import { Input } from "./input";
 import { HelperText } from "./helper-text";
 import type { PropsWithChildren } from "react";
 import { cn } from "~/lib/utils";
+import { Selector } from "./selector";
 
 function FormControl(props: FormRenderProps) {
+  const disabled = props.field.disabled || props.fieldConfig.disabled;
+
   if (props.fieldConfig.type === "text") {
     return (
       <Input
         {...props.field}
         type="text"
         placeholder={props.fieldConfig.placeholder}
-        disabled={props.field.disabled || props.fieldConfig.disabled}
+        disabled={disabled}
         required={props.fieldConfig.required}
+      />
+    );
+  }
+
+  if (props.fieldConfig.type === "select") {
+    return (
+      <Selector
+        options={props.fieldConfig.options || []}
+        value={props.field.value}
+        onChange={props.field.onChange}
+        onBlur={props.field.onBlur}
+        disabled={disabled}
+        labelPath="label"
+        valuePath="value"
       />
     );
   }
