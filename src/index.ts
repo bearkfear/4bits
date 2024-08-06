@@ -5,6 +5,6 @@ export * as Command from "./components/ui/command";
 export * from "./components/ui/loader";
 export * from "./components/ui/page-loader";
 export * as Popover from "./components/ui/popover";
-export * as Toaster from "./components/ui/toaster";
+export * from "./components/ui/toaster";
 export * as Toltip from "./components/ui/tooltip";
 export * from "./components/ui/separator";

@@ -1,6 +1,6 @@
 {
   "name": "@continha/ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "repository": {
     "url": "https://github.com/bearkfear/ui"
@@ -12,6 +12,7 @@
     "build:lib": "tsup"
   },
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
