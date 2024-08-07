@@ -10,6 +10,7 @@ import { Input } from "./input";
 import { Label } from "./label";
 import { MultiSelector, SingleSelector } from "./selector";
 import { Textarea } from "./textarea";
+import { Checkbox } from "./checkbox";
 
 function FormControl(props: FormRenderProps) {
 	const disabled = props.field.disabled || props.fieldConfig.disabled;
@@ -21,6 +22,7 @@ function FormControl(props: FormRenderProps) {
 				type="text"
 				placeholder={props.fieldConfig.placeholder}
 				disabled={disabled}
+				id={props.field.name}
 				required={props.fieldConfig.required}
 			/>
 		);
@@ -33,6 +35,7 @@ function FormControl(props: FormRenderProps) {
 				type={props.fieldConfig.type}
 				placeholder={props.fieldConfig.placeholder}
 				disabled={disabled}
+				id={props.field.name}
 				required={props.fieldConfig.required}
 			/>
 		);
@@ -44,6 +47,7 @@ function FormControl(props: FormRenderProps) {
 				{...props.field}
 				placeholder={props.fieldConfig.placeholder}
 				disabled={disabled}
+				id={props.field.name}
 				required={props.fieldConfig.required}
 			/>
 		);
@@ -89,6 +93,12 @@ function FormControl(props: FormRenderProps) {
 		);
 	}
 
+	if (props.fieldConfig.type === "checkbox") {
+		return (
+			<Checkbox {...props.field} id={props.field.name} disabled={disabled} />
+		);
+	}
+
 	return null;
 }
 
@@ -112,17 +122,47 @@ function FormControl(props: FormRenderProps) {
  */
 
 function FormItem(props: FormRenderProps) {
+	const FormItemLabel = (
+		<Label
+			required={props.fieldConfig.required}
+			htmlFor={props.fieldConfig.name}
+		>
+			{props.fieldConfig.label}
+		</Label>
+	);
+
+	const FormItemControl = <FormControl {...props} />;
+
+	const FormItemHelperText = (
+		<HelperText color={props.fieldState.invalid ? "danger" : "default"}>
+			{props.fieldState.invalid
+				? props.fieldState.error?.message
+				: props.fieldConfig.helperText}
+		</HelperText>
+	);
+
+	if (props.fieldConfig.type === "checkbox") {
+		return (
+			<div
+				className={cn(
+					"space-x-2 flex items-start",
+					`col-span-${props.fieldConfig.size}`,
+				)}
+			>
+				{FormItemControl}
+				<div className="space-y-2">
+					{FormItemLabel}
+					{FormItemHelperText}
+				</div>
+			</div>
+		);
+	}
+
 	return (
 		<div className={cn("space-y-2", `col-span-${props.fieldConfig.size}`)}>
-			<Label required={props.fieldConfig.required}>
-				{props.fieldConfig.label}
-			</Label>
-			<FormControl {...props} />
-			<HelperText color={props.fieldState.invalid ? "danger" : "default"}>
-				{props.fieldState.invalid
-					? props.fieldState.error?.message
-					: props.fieldConfig.helperText}
-			</HelperText>
+			{FormItemLabel}
+			{FormItemControl}
+			{FormItemHelperText}
 		</div>
 	);
 }

@@ -185,3 +185,29 @@ export const Textarea = () => {
 		</FormBuilder.Root>
 	);
 };
+
+export const Checkbox = () => {
+	const form = useForm({
+		defaultValues: {
+			person: "",
+		},
+	});
+
+	return (
+		<FormBuilder.Root>
+			<FormBuilder.FormFields
+				control={form.control}
+				fields={[
+					{
+						name: "terms_ok",
+						type: "checkbox",
+						label: "Accept terms and agreements",
+						size: 12,
+						helperText: "You must agree with terms to proceed",
+						required: true,
+					},
+				]}
+			/>
+		</FormBuilder.Root>
+	);
+};
