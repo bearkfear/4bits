@@ -10,7 +10,7 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-gray-3 text-primary-foreground shadow hover:bg-gray-4 text-gray-12 dark:bg-graydark-3 dark:hover:bg-graydark-4 dark:text-graydark-12",
+          "bg-gray-3 shadow hover:bg-gray-4 text-gray-12 dark:bg-graydark-3 dark:hover:bg-graydark-4 dark:text-graydark-12",
         danger:
           "bg-red-9 text-white hover:bg-red-10 dark:hover:bg-reddark-10 dark:bg-reddark-9",
         danger__light:
@@ -28,6 +28,7 @@ export const buttonVariants = cva(
           "bg-blue-3 text-blue-11 dark:text-bluedark-11 hover:bg-blue-4 dark:hover:bg-bluedark-4 border border-blue-6 dark:border-bluedark-6 dark:bg-bluedark-3",
 
         link: "text-primary underline-offset-4 hover:underline",
+        outline: "bg-transparent text-gray-12 dark:text-graydark-12 border border-gray-6 dark:border-graydark-6",
       },
       size: {
         default: "h-8 px-4 py-2",
@@ -62,4 +63,3 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 Button.displayName = "Button";
- 
