@@ -9,6 +9,7 @@ import { HelperText } from "./helper-text";
 import { Input } from "./input";
 import { Label } from "./label";
 import { MultiSelector, SingleSelector } from "./selector";
+import { Textarea } from "./textarea";
 
 function FormControl(props: FormRenderProps) {
 	const disabled = props.field.disabled || props.fieldConfig.disabled;
@@ -18,6 +19,29 @@ function FormControl(props: FormRenderProps) {
 			<Input
 				{...props.field}
 				type="text"
+				placeholder={props.fieldConfig.placeholder}
+				disabled={disabled}
+				required={props.fieldConfig.required}
+			/>
+		);
+	}
+
+	if (["email", "password"].includes(props.fieldConfig.type)) {
+		return (
+			<Input
+				{...props.field}
+				type={props.fieldConfig.type}
+				placeholder={props.fieldConfig.placeholder}
+				disabled={disabled}
+				required={props.fieldConfig.required}
+			/>
+		);
+	}
+
+	if (props.fieldConfig.type === "textarea") {
+		return (
+			<Textarea
+				{...props.field}
 				placeholder={props.fieldConfig.placeholder}
 				disabled={disabled}
 				required={props.fieldConfig.required}

@@ -2,7 +2,6 @@ import type { Preview } from "@storybook/react";
 import "../src/styles/globals.css";
 import { gray, grayDark } from "@radix-ui/colors";
 import { Inter } from "next/font/google";
-import { cn } from "../src/lib/utils";
 
 const backgrounds = {
 	dark: {

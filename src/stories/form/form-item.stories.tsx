@@ -105,3 +105,83 @@ export const MultiSelector = () => {
 		</FormBuilder.Root>
 	);
 };
+
+export const Email = () => {
+	const form = useForm({
+		defaultValues: {
+			person: "",
+		},
+	});
+
+	return (
+		<FormBuilder.Root>
+			<FormBuilder.FormFields
+				control={form.control}
+				fields={[
+					{
+						name: "useremail",
+						type: "email",
+						label: "E-mail",
+						size: 12,
+						helperText: "You must provide an email",
+						placeholder: "Type your email",
+						required: true,
+					},
+				]}
+			/>
+		</FormBuilder.Root>
+	);
+};
+export const Password = () => {
+	const form = useForm({
+		defaultValues: {
+			person: "",
+		},
+	});
+
+	return (
+		<FormBuilder.Root>
+			<FormBuilder.FormFields
+				control={form.control}
+				fields={[
+					{
+						name: "userpass",
+						type: "password",
+						label: "Password",
+						size: 12,
+						helperText: "You must a secure password",
+						placeholder: "Type your password",
+						required: true,
+					},
+				]}
+			/>
+		</FormBuilder.Root>
+	);
+};
+
+export const Textarea = () => {
+	const form = useForm({
+		defaultValues: {
+			person: "",
+		},
+	});
+
+	return (
+		<FormBuilder.Root>
+			<FormBuilder.FormFields
+				control={form.control}
+				fields={[
+					{
+						name: "userbio",
+						type: "textarea",
+						label: "Bio",
+						size: 12,
+						helperText: "Provide a user bio",
+						placeholder: "You can tell something about you",
+						required: true,
+					},
+				]}
+			/>
+		</FormBuilder.Root>
+	);
+};

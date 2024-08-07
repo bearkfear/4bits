@@ -82,12 +82,12 @@ export function MultiSelector<O extends TOption, VP extends FieldPath<O>>(
 					role="combobox"
 					className={cn(
 						"w-full justify-between",
-						!selectedOptions && "text-gray-9 dark:text-graydark-9",
+						!selectedOptions.length && "text-gray-9 dark:text-graydark-9",
 					)}
 					ref={(ref) => setWidth(ref?.getBoundingClientRect().width || 1)}
 				>
 					<span>
-						{selectedOptions
+						{selectedOptions.length > 0
 							? selectedOptions.map((option) => getLabel(option)).join(", ")
 							: props.placeholder}
 					</span>
