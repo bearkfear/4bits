@@ -8,7 +8,7 @@ import { cn } from "~/lib/utils";
 import { HelperText } from "./helper-text";
 import { Input } from "./input";
 import { Label } from "./label";
-import { Selector } from "./selector";
+import { MultiSelector, SingleSelector } from "./selector";
 
 function FormControl(props: FormRenderProps) {
 	const disabled = props.field.disabled || props.fieldConfig.disabled;
@@ -27,7 +27,7 @@ function FormControl(props: FormRenderProps) {
 
 	if (props.fieldConfig.type === "select") {
 		return (
-			<Selector
+			<SingleSelector
 				options={props.fieldConfig.options || []}
 				value={props.field.value}
 				onChange={props.field.onChange}
@@ -37,6 +37,30 @@ function FormControl(props: FormRenderProps) {
 				valuePath="value"
 				placeholder={props.fieldConfig.placeholder}
 				searchable={props.fieldConfig.searchable}
+				messages={{
+					empty: "Nenhuma opcao disponível",
+					searchPlaceholder: "Pesquisar por um item",
+				}}
+			/>
+		);
+	}
+
+	if (props.fieldConfig.type === "multi-select") {
+		return (
+			<MultiSelector
+				options={props.fieldConfig.options || []}
+				value={props.field.value}
+				onChange={props.field.onChange}
+				onBlur={props.field.onBlur}
+				disabled={disabled}
+				labelPath="label"
+				valuePath="value"
+				placeholder={props.fieldConfig.placeholder}
+				searchable={props.fieldConfig.searchable}
+				messages={{
+					empty: "Nenhuma opcao disponível",
+					searchPlaceholder: "Pesquisar por um item",
+				}}
 			/>
 		);
 	}

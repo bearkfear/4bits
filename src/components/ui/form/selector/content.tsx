@@ -1,8 +1,6 @@
-import { Check } from "lucide-react";
-import { cn } from "~/lib/utils";
 import * as Command from "../../command";
 import * as Popover from "../../popover";
-import type { SelectorCommonProps, TOption } from "./model";
+import type { SelectorCommonProps, SelectorMessages, TOption } from "./model";
 
 type SelectorContentProps<Option> = {
 	onSelect(option?: Option): void;
@@ -11,6 +9,7 @@ type SelectorContentProps<Option> = {
 	getIsSelect(option: Option): boolean;
 	options: Option[];
 	width: number;
+	message: SelectorMessages;
 } & Pick<SelectorCommonProps, "searchable">;
 
 export function SelectorContent<Option extends TOption>(
@@ -24,11 +23,16 @@ export function SelectorContent<Option extends TOption>(
 		>
 			<Command.Root>
 				{props.searchable && (
-					<Command.Input className="text-xs" placeholder="Search" />
+					<Command.Input
+						className="text-xs"
+						placeholder={props.message.searchPlaceholder}
+					/>
 				)}
 
 				<Command.List>
-					<Command.Empty className="text-xs">No language found.</Command.Empty>
+					<Command.Empty className="text-xs">
+						{props.message.empty}
+					</Command.Empty>
 					<Command.Group>
 						{props.options.map((option) => {
 							const optionValue = props.getValue(option);
@@ -40,12 +44,9 @@ export function SelectorContent<Option extends TOption>(
 									className="text-xs"
 									onSelect={() => props.onSelect(option)}
 								>
-									<Check
-										className={cn(
-											"mr-2 h-4 w-4",
-											props.getIsSelect(option) ? "opacity-100" : "opacity-0",
-										)}
-									/>
+									{props.getIsSelect(option)
+										? props.message.optionSelected
+										: props.message.optionUnselected}
 									{props.getLabel(option)}
 								</Command.Item>
 							);

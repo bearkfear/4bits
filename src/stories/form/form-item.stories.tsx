@@ -38,7 +38,7 @@ export const Text = () => {
 	);
 };
 
-export const Selector = () => {
+export const SingleSelector = () => {
 	const form = useForm({
 		defaultValues: {
 			person: "",
@@ -53,6 +53,40 @@ export const Selector = () => {
 					{
 						name: "person",
 						type: "select",
+						label: "Person",
+						size: 12,
+						helperText: "You must select a person",
+						placeholder: "selecting a person",
+						searchable: true,
+						required: true,
+						options: [
+							{ label: "Person 1", value: 1 },
+							{ label: "Person 2", value: 2 },
+							{ label: "Person 3", value: 3 },
+							{ label: "Person 4", value: 4 },
+						],
+					},
+				]}
+			/>
+		</FormBuilder.Root>
+	);
+};
+
+export const MultiSelector = () => {
+	const form = useForm({
+		defaultValues: {
+			person: "",
+		},
+	});
+
+	return (
+		<FormBuilder.Root>
+			<FormBuilder.FormFields
+				control={form.control}
+				fields={[
+					{
+						name: "person",
+						type: "multi-select",
 						label: "Person",
 						size: 12,
 						helperText: "You must select a person",
