@@ -1,7 +1,7 @@
 import get from "lodash.get";
 import isEqual from "lodash.isequal";
 import { ChevronsUpDown } from "lucide-react";
-import { createContext, useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import type { FieldPath } from "react-hook-form";
 import { cn } from "~/lib/utils";
 import { Button } from "../../button";
@@ -23,6 +23,7 @@ export interface SelectorProps<
 
 export function Selector<O extends TOption, VP extends FieldPath<O>>(
 	{ extraActions, onChange = () => {}, value, ...props }: SelectorProps<O, VP>,
+	// TODO: verificar onde por esse ref dentro do button
 	ref: React.ForwardedRef<HTMLButtonElement>,
 ) {
 	const [width, setWidth] = useState(1);

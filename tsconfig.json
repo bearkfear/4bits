@@ -1,6 +1,9 @@
 {
 	"compilerOptions": {
-		"lib": ["dom", "esnext"],
+		"lib": [
+			"dom",
+			"esnext"
+		],
 		"allowJs": true,
 		"skipLibCheck": true,
 		"strict": true,
@@ -11,16 +14,23 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"target": "esnext",
-		// "emitDecoratorMetadata": true,
 		"declaration": true,
 		"downlevelIteration": true,
 		"jsx": "react-jsx",
 		"allowSyntheticDefaultImports": true,
 		"baseUrl": ".",
 		"paths": {
-			"~/*": ["./src/*"]
+			"~/*": [
+				"./src/*"
+			]
 		}
 	},
-	"include": ["**/*.ts", "**/*.tsx", "**/*.stories.tsx"],
-	"exclude": ["node_modules"]
+	"include": [
+		"**/*.ts",
+		"**/*.tsx",
+		"**/*.stories.tsx"
+	],
+	"exclude": [
+		"node_modules"
+	]
 }
