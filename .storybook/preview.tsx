@@ -1,33 +1,39 @@
-import { withThemeByClassName } from "@storybook/addon-themes";
 import type { Preview } from "@storybook/react";
 import "../src/styles/globals.css";
 import { gray, grayDark } from "@radix-ui/colors";
 import { Inter } from "next/font/google";
 import { cn } from "../src/lib/utils";
 
-const inter = Inter({ subsets: ["latin"] });
+const backgrounds = {
+	dark: {
+		name: "dark",
+		value: grayDark.gray1,
+	},
+	light: {
+		name: "light",
+		value: gray.gray1,
+	},
+};
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 const preview: Preview = {
-	parameters: {
-		backgrounds: { disable: true },
-	},
 	decorators: [
-		withThemeByClassName({
-			themes: {
-				light: "",
-				dark: "dark",
-			},
-			defaultTheme: "light",
-		}),
-		(story) => (
-			<div className={cn(inter.className, "bg-gray-1 dark:bg-graydark-1 p-10")}>
-				{story()}
-			</div>
-		),
+		(story, ctx) => {
+			const isDarkTheme =
+				ctx.globals.backgrounds && ctx.globals.backgrounds.value === backgrounds.dark.value;
+
+			return (
+				<div className={cn(inter.variable, isDarkTheme && "dark", "font-sans")}>
+					{story()}
+				</div>
+			);
+		},
 	],
-	globalTypes: {
-		darkMode: {
-			defaultValue: true, // Enable dark mode by default on all stories
+	parameters: {
+		backgrounds: {
+			default: "light",
+			values: [backgrounds.light, backgrounds.dark],
 		},
 	},
 	//👇 Enables auto-generated documentation for all stories

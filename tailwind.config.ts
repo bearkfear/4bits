@@ -13,6 +13,9 @@ export default {
 				"2xl": "1400px",
 			},
 		},
+		fontFamily: {
+			sans: ["var(--font-sans)"],
+		},
 		extend: {
 			keyframes: {
 				"accordion-down": {
