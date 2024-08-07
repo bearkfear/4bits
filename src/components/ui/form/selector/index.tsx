@@ -2,7 +2,7 @@ import { cn } from "~/lib/utils";
 import { Button } from "../../button";
 import * as Popover from "../../popover";
 import { ChevronsUpDown } from "lucide-react";
-import { useCallback, useMemo } from "react";
+import { createContext, useCallback, useMemo, useState } from "react";
 import type { FieldPath } from "react-hook-form";
 import get from "lodash.get";
 import isEqual from "lodash.isequal";
@@ -25,6 +25,7 @@ export function Selector<O extends TOption, VP extends FieldPath<O>>(
 	{ extraActions, onChange = () => {}, value, ...props }: SelectorProps<O, VP>,
 	ref: React.ForwardedRef<HTMLButtonElement>,
 ) {
+	const [width, setWidth] = useState(1);
 	const getValue = useCallback(
 		(option: O) => {
 			return get(option, props.valuePath);
@@ -65,9 +66,10 @@ export function Selector<O extends TOption, VP extends FieldPath<O>>(
 					variant="outline"
 					role="combobox"
 					className={cn(
-						"w-[200px] justify-between",
+						"w-full justify-between",
 						!selectedOption && "text-gray-9 dark:text-graydark-9",
 					)}
+					ref={(ref) => setWidth(ref?.getBoundingClientRect().width || 1)}
 				>
 					<span>
 						{selectedOption ? getLabel(selectedOption) : props.placeholder}
@@ -82,6 +84,7 @@ export function Selector<O extends TOption, VP extends FieldPath<O>>(
 				onSelect={onSelect}
 				getIsSelect={getIsSelected}
 				searchable={props.searchable}
+				width={width}
 			/>
 		</Popover.Root>
 	);

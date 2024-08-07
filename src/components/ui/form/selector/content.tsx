@@ -10,13 +10,18 @@ type SelectorContentProps<Option> = {
 	getLabel<T>(option: Option): T;
 	getIsSelect(option: Option): boolean;
 	options: Option[];
+	width: number;
 } & Pick<SelectorCommonProps, "searchable">;
 
 export function SelectorContent<Option extends TOption>(
 	props: SelectorContentProps<Option>,
 ) {
 	return (
-		<Popover.Content className="w-[200px] p-0" align="start">
+		<Popover.Content
+			className="p-0"
+			style={{ width: props.width }}
+			align="start"
+		>
 			<Command.Root>
 				{props.searchable && (
 					<Command.Input className="text-xs" placeholder="Search" />
