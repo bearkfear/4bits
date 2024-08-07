@@ -57,6 +57,7 @@ export const Selector = () => {
             size: 12,
             helperText: "You must select a person",
             placeholder: "selecting a person",
+            searchable: true,
             required: true,
             options: [
               { label: "Person 1", value: 1 },

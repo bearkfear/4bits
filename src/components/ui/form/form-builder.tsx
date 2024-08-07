@@ -35,6 +35,8 @@ function FormControl(props: FormRenderProps) {
         disabled={disabled}
         labelPath="label"
         valuePath="value"
+        placeholder={props.fieldConfig.placeholder}
+        searchable={props.fieldConfig.searchable}
       />
     );
   }
