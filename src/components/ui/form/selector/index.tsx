@@ -8,6 +8,7 @@ import { Button } from "../../button";
 import * as Popover from "../../popover";
 import { SelectorContent } from "./content";
 import type { SelectorCommonProps, TOption } from "./model";
+import { useSelectorHelpers } from "./hooks";
 
 export interface SelectorProps<
 	O extends TOption,
@@ -27,18 +28,12 @@ export function Selector<O extends TOption, VP extends FieldPath<O>>(
 	ref: React.ForwardedRef<HTMLButtonElement>,
 ) {
 	const [width, setWidth] = useState(1);
-	const getValue = useCallback(
-		(option: O) => {
-			return get(option, props.valuePath);
-		},
-		[props.valuePath],
+	const { getLabel, getValue } = useSelectorHelpers<O>(
+		props.labelPath,
+		props.valuePath,
 	);
-	const getLabel = useCallback(
-		(option: O) => {
-			return get(option, props.labelPath);
-		},
-		[props.labelPath],
-	);
+
+	const item = (option: O) => get(option, props.labelPath);
 
 	const selectedOption = useMemo(() => {
 		return props.options.find((option) => isEqual(getValue(option), value));

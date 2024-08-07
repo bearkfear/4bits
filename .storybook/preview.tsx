@@ -30,6 +30,8 @@ const preview: Preview = {
 			defaultValue: true, // Enable dark mode by default on all stories
 		},
 	},
+	//👇 Enables auto-generated documentation for all stories
+	tags: ["autodocs"],
 };
 
 export default preview;
