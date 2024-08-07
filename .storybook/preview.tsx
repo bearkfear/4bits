@@ -15,19 +15,34 @@ const backgrounds = {
 	},
 };
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const interFont = Inter({
+	subsets: ["latin"],
+	variable: "--font-sans",
+});
 
 const preview: Preview = {
 	decorators: [
 		(story, ctx) => {
 			const isDarkTheme =
-				ctx.globals.backgrounds && ctx.globals.backgrounds.value === backgrounds.dark.value;
+				ctx.globals.backgrounds &&
+				ctx.globals.backgrounds.value === backgrounds.dark.value;
 
-			return (
-				<div className={cn(inter.variable, isDarkTheme && "dark", "font-sans")}>
-					{story()}
-				</div>
-			);
+			if (isDarkTheme) {
+				if (document.documentElement.classList.contains("dark") === false) {
+					document.documentElement.classList.add("dark");
+				}
+			} else {
+				document.documentElement.classList.remove("dark");
+			}
+
+			if (
+				document.documentElement.classList.contains(interFont.variable) ===
+				false
+			) {
+				document.documentElement.classList.add(interFont.variable);
+			}
+
+			return story();
 		},
 	],
 	parameters: {
