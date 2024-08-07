@@ -1,4 +1,4 @@
-import { LoaderCircle } from "lucide-react";
+import { Loader as LucideLoader } from "lucide-react";
 import { cn } from "~/lib/utils";
 
 export type LoaderProps = {
@@ -7,7 +7,7 @@ export type LoaderProps = {
 
 export function Loader({ className }: LoaderProps) {
 	return (
-		<LoaderCircle
+		<LucideLoader
 			className={cn("animate-spin text-black dark:text-white", className)}
 			size={18}
 		/>

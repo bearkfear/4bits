@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react";
-import * as Tooltip from "~/components/ui/tooltip";
+import { Tooltip } from "~/index";
 
 export default {
 	title: "Tooltip",

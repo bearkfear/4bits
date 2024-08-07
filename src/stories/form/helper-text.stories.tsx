@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { HelperText } from "~/components/ui/form/helper-text";
+import { HelperText } from "~/index";
 
 const meta = {
 	component: HelperText,

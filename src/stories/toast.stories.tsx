@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
 import { useEffect } from "react";
-import { Toaster, toast } from "~/components/ui/toaster";
+import { Toaster, toast } from "~/index";
 
 const meta = {
 	title: "Toast",

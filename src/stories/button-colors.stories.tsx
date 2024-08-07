@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react";
-import { Button } from "~/components/ui/button";
+import { Button } from "~/index";
 
 export default {
 	title: "Button/Colors",
