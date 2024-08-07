@@ -1,4 +1,4 @@
-import "./styles/globals.css"
+import "./styles/globals.css";
 export * from "./lib/utils";
 export * as AlertDialog from "./components/ui/alert-dialog";
 export * from "./components/ui/button";

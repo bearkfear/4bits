@@ -1,13 +1,13 @@
-import { cn } from "~/lib/utils";
-import { Button } from "../../button";
-import * as Popover from "../../popover";
+import get from "lodash.get";
+import isEqual from "lodash.isequal";
 import { ChevronsUpDown } from "lucide-react";
 import { createContext, useCallback, useMemo, useState } from "react";
 import type { FieldPath } from "react-hook-form";
-import get from "lodash.get";
-import isEqual from "lodash.isequal";
-import type { SelectorCommonProps, TOption } from "./model";
+import { cn } from "~/lib/utils";
+import { Button } from "../../button";
+import * as Popover from "../../popover";
 import { SelectorContent } from "./content";
+import type { SelectorCommonProps, TOption } from "./model";
 
 export interface SelectorProps<
 	O extends TOption,

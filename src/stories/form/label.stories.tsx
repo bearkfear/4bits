@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Label } from "~/components/ui/form/label";
 
 const meta = {
-  component: Label,
-  title: "Form/Label",
-  args: {
-    required: false,
-  },
+	component: Label,
+	title: "Form/Label",
+	args: {
+		required: false,
+	},
 } satisfies Meta<typeof Label>;
 
 export default meta;
@@ -14,14 +14,14 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    children: "Label value",
-  },
+	args: {
+		children: "Label value",
+	},
 };
 
 export const Required: Story = {
-  args: {
-    children: "Label value",
-    required: true,
-  },
+	args: {
+		children: "Label value",
+		required: true,
+	},
 };

@@ -1,8 +1,8 @@
-import type { SelectorCommonProps, TOption } from "./model";
-import * as Popover from "../../popover";
-import * as Command from "../../command";
 import { Check } from "lucide-react";
 import { cn } from "~/lib/utils";
+import * as Command from "../../command";
+import * as Popover from "../../popover";
+import type { SelectorCommonProps, TOption } from "./model";
 
 type SelectorContentProps<Option> = {
 	onSelect(option?: Option): void;
@@ -28,7 +28,7 @@ export function SelectorContent<Option extends TOption>(
 				)}
 
 				<Command.List>
-					<Command.Empty>No language found.</Command.Empty>
+					<Command.Empty className="text-xs">No language found.</Command.Empty>
 					<Command.Group>
 						{props.options.map((option) => {
 							const optionValue = props.getValue(option);

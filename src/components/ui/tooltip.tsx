@@ -1,22 +1,22 @@
 import {
-  TooltipArrow,
-  TooltipContent,
-  type TooltipContentProps,
+	TooltipArrow,
+	TooltipContent,
+	type TooltipContentProps,
 } from "@radix-ui/react-tooltip";
 
 export { Trigger, Root, Provider } from "@radix-ui/react-tooltip";
 
 export function Content({ children, ...props }: TooltipContentProps) {
-  return (
-    <TooltipContent {...props}>
-      {typeof children === "string" || typeof children === "number" ? (
-        <div className="mx-2 bg-gray-12 dark:bg-graydark-1 text-white rounded border-gray-12 dark:border-graydark-1 border text-xs py-1 px-1">
-          {children}
-        </div>
-      ) : (
-        children
-      )}
-      <TooltipArrow className="fill-gray-12 dark:fill-graydark-1" />
-    </TooltipContent>
-  );
+	return (
+		<TooltipContent {...props}>
+			{typeof children === "string" || typeof children === "number" ? (
+				<div className="mx-2 bg-gray-12 dark:bg-graydark-1 text-white rounded border-gray-12 dark:border-graydark-1 border text-xs py-1 px-1">
+					{children}
+				</div>
+			) : (
+				children
+			)}
+			<TooltipArrow className="fill-gray-12 dark:fill-graydark-1" />
+		</TooltipContent>
+	);
 }

@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Input } from '~/components/ui/form/input';
+import { Input } from "~/components/ui/form/input";
 
 const meta = {
-  component: Input,
-  title: "Form/Input"
+	component: Input,
+	title: "Form/Input",
 } satisfies Meta<typeof Input>;
 
 export default meta;
@@ -12,7 +12,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    placeholder: "Placeholder Text"
-  }
+	args: {
+		placeholder: "Placeholder Text",
+	},
 };

@@ -1,64 +1,60 @@
 import type { Meta } from "@storybook/react";
-import { Toaster, toast } from "~/components/ui/toaster";
 import { useEffect } from "react";
+import { Toaster, toast } from "~/components/ui/toaster";
 
 const meta = {
-  title: "Toast",
-  component: Toaster,
+	title: "Toast",
+	component: Toaster,
 } satisfies Meta<typeof Toaster>;
 
 export default meta;
 
 export const Loading = () => {
-  useEffect(() => {
-    toast.loading("Loading toast title", {
-      description: "description in loading title",
-    });
-  }, []);
+	useEffect(() => {
+		toast.loading("Loading toast title", {
+			description: "description in loading title",
+		});
+	}, []);
 
-  return <Toaster />;
+	return <Toaster />;
 };
 
 export const Success = () => {
-  useEffect(() => {
-    toast.success("Success toast title", {
-      description: "description in Success title",
-    });
-  }, []);
+	useEffect(() => {
+		toast.success("Success toast title", {
+			description: "description in Success title",
+		});
+	}, []);
 
-  return <Toaster />;
+	return <Toaster />;
 };
-
 
 export const Info = () => {
-  useEffect(() => {
-    toast.info("Info toast title", {
-      description: "description in Info title",
-    });
-  }, []);
+	useEffect(() => {
+		toast.info("Info toast title", {
+			description: "description in Info title",
+		});
+	}, []);
 
-  return <Toaster />;
+	return <Toaster />;
 };
-
-
 
 export const Danger = () => {
-  useEffect(() => {
-    toast.error("Danger toast title", {
-      description: "description in Danger title",
-    });
-  }, []);
+	useEffect(() => {
+		toast.error("Danger toast title", {
+			description: "description in Danger title",
+		});
+	}, []);
 
-  return <Toaster />;
+	return <Toaster />;
 };
 
-
 export const Warning = () => {
-  useEffect(() => {
-    toast.warning("Warning toast title", {
-      description: "description in Warning title",
-    });
-  }, []);
+	useEffect(() => {
+		toast.warning("Warning toast title", {
+			description: "description in Warning title",
+		});
+	}, []);
 
-  return <Toaster />;
+	return <Toaster />;
 };
