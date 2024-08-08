@@ -11,6 +11,7 @@ import { Label } from "./label";
 import { MultiSelector, SingleSelector } from "./selector";
 import { Textarea } from "./textarea";
 import { Checkbox } from "./checkbox";
+import * as Radio from "./radio";
 
 function FormControl(props: FormRenderProps) {
 	const disabled = props.field.disabled || props.fieldConfig.disabled;
@@ -96,6 +97,34 @@ function FormControl(props: FormRenderProps) {
 	if (props.fieldConfig.type === "checkbox") {
 		return (
 			<Checkbox {...props.field} id={props.field.name} disabled={disabled} />
+		);
+	}
+
+	if (props.fieldConfig.type === "radio") {
+		const options = props.fieldConfig.options || [];
+
+		return (
+			<Radio.Group
+				{...props.field}
+				value={`${props.field.value}`}
+				onValueChange={(newValue) =>
+					props.field.onChange(
+						options.find((option) => `${option.value}` === newValue)?.value,
+					)
+				}
+			>
+				{props.fieldConfig.options?.map((option) => {
+					const id = `radio-${props.fieldConfig.name}-option${option.value}`;
+					return (
+						<div className="flex space-x-2 items-center" key={option.value}>
+							<Radio.Item id={id} value={`${option.value}`} />
+							<Label htmlFor={id} className="font-medium">
+								{option.label}
+							</Label>
+						</div>
+					);
+				})}
+			</Radio.Group>
 		);
 	}
 

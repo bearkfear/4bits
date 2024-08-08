@@ -211,3 +211,33 @@ export const Checkbox = () => {
 		</FormBuilder.Root>
 	);
 };
+
+export const Radio = () => {
+	const form = useForm({
+		defaultValues: {
+			gender: "",
+		},
+	});
+
+	return (
+		<FormBuilder.Root>
+			<FormBuilder.FormFields
+				control={form.control}
+				fields={[
+					{
+						name: "gender",
+						type: "radio",
+						label: "Your gender",
+						size: 12,
+						helperText: "You can select a gender",
+						required: true,
+						options: [
+							{ label: "Male", value: 1 },
+							{ label: "Female", value: 2 },
+						],
+					},
+				]}
+			/>
+		</FormBuilder.Root>
+	);
+};
