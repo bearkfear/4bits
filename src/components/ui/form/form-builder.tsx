@@ -176,8 +176,15 @@ const FormFields = (props: Omit<FormConfig, "render">) => {
 	);
 };
 
-const Root = ({ children }: PropsWithChildren<{ className?: string }>) => {
-	return <div className="grid grid-cols-12 grid-rows-1">{children}</div>;
+const Root = ({
+	children,
+	className,
+}: PropsWithChildren<{ className?: string }>) => {
+	return (
+		<div className={cn("grid grid-cols-12 grid-rows-1 gap-2", className)}>
+			{children}
+		</div>
+	);
 };
 
 export const FormBuilder = {
