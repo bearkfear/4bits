@@ -267,3 +267,28 @@ export const Switch = () => {
 		</FormBuilder.Root>
 	);
 };
+
+export const Calendar = () => {
+	const form = useForm({
+		defaultValues: {
+			date: null,
+		},
+	});
+
+	return (
+		<FormBuilder.Root>
+			<FormBuilder.FormFields
+				control={form.control}
+				fields={[
+					{
+						name: "date",
+						type: "date",
+						label: "date of birth",
+						size: 12,
+						helperText: "Date of birth is used to determine your age",
+					},
+				]}
+			/>
+		</FormBuilder.Root>
+	);
+};

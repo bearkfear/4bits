@@ -13,6 +13,7 @@ import { Textarea } from "./textarea";
 import { Checkbox } from "./checkbox";
 import * as Radio from "./radio";
 import { Switch } from "./switch";
+import { Calendar } from "./calendar";
 
 function FormControl(props: FormRenderProps) {
 	const disabled = props.field.disabled || props.fieldConfig.disabled;
@@ -110,6 +111,18 @@ function FormControl(props: FormRenderProps) {
 				disabled={disabled}
 				checked={props.field.value}
 				onCheckedChange={props.field.onChange}
+			/>
+		);
+	}
+
+	if (props.fieldConfig.type === "date") {
+		return (
+			<Calendar
+				selected={props.field.value}
+				onSelect={props.field.onChange}
+				disabled={disabled}
+				mode="single"
+				required={props.fieldConfig.required}
 			/>
 		);
 	}
