@@ -241,3 +241,29 @@ export const Radio = () => {
 		</FormBuilder.Root>
 	);
 };
+
+export const Switch = () => {
+	const form = useForm({
+		defaultValues: {
+			acceptReceiveNotifications: "",
+		},
+	});
+
+	return (
+		<FormBuilder.Root>
+			<FormBuilder.FormFields
+				control={form.control}
+				fields={[
+					{
+						name: "acceptReceiveNotifications",
+						type: "switch",
+						label: "Notify new users?",
+						size: 12,
+						helperText:
+							"When a new user is created, you will receive an notification",
+					},
+				]}
+			/>
+		</FormBuilder.Root>
+	);
+};

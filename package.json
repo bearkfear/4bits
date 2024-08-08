@@ -1,6 +1,6 @@
 {
 	"name": "@continha/ui",
-	"version": "1.4.0",
+	"version": "1.5.0",
 	"private": false,
 	"repository": {
 		"url": "https://github.com/bearkfear/ui"
@@ -65,6 +65,7 @@
 		"@radix-ui/react-radio-group": "^1.2.0",
 		"@radix-ui/react-separator": "^1.1.0",
 		"@radix-ui/react-slot": "^1.1.0",
+		"@radix-ui/react-switch": "^1.1.0",
 		"@radix-ui/react-tooltip": "^1.1.2",
 		"cmdk": "^1.0.0",
 		"input-otp": "^1.2.4",

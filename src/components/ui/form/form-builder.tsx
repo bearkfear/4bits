@@ -12,6 +12,7 @@ import { MultiSelector, SingleSelector } from "./selector";
 import { Textarea } from "./textarea";
 import { Checkbox } from "./checkbox";
 import * as Radio from "./radio";
+import { Switch } from "./switch";
 
 function FormControl(props: FormRenderProps) {
 	const disabled = props.field.disabled || props.fieldConfig.disabled;
@@ -100,6 +101,19 @@ function FormControl(props: FormRenderProps) {
 		);
 	}
 
+	if (props.fieldConfig.type === "switch") {
+		return (
+			// TODO: Verificar porque nao está conseguindo animar o input quando tem o checked e o onCheckedChange
+			<Switch
+				{...props.field}
+				id={props.field.name}
+				disabled={disabled}
+				checked={props.field.value}
+				onCheckedChange={props.field.onChange}
+			/>
+		);
+	}
+
 	if (props.fieldConfig.type === "radio") {
 		const options = props.fieldConfig.options || [];
 
@@ -170,7 +184,10 @@ function FormItem(props: FormRenderProps) {
 		</HelperText>
 	);
 
-	if (props.fieldConfig.type === "checkbox") {
+	if (
+		props.fieldConfig.type === "checkbox" ||
+		props.fieldConfig.type === "switch"
+	) {
 		return (
 			<div
 				className={cn(
