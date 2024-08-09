@@ -1,14 +1,14 @@
 import {
+	type ChangeEvent,
 	type ForwardedRef,
 	type HTMLProps,
-	forwardRef,
-	type ChangeEvent,
 	type KeyboardEvent,
+	forwardRef,
 	useCallback,
 } from "react";
-import { humanFormat, machineFormat } from "./money-helpers";
 import { cn } from "~/lib/utils";
 import { inputVariants } from "../input";
+import { humanFormat, machineFormat } from "./money-helpers";
 
 export type InputMoneyProps = HTMLProps<
 	Omit<HTMLInputElement, "value" | "onChange">

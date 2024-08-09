@@ -6,9 +6,9 @@ import type { FieldPath } from "react-hook-form";
 import { cn } from "~/lib/utils";
 import { Button } from "../../button";
 import * as Popover from "../../popover";
+import { inputVariants } from "../input";
 import { SelectorContent } from "./content";
 import type { SelectorCommonProps, TOption } from "./model";
-import { inputVariants } from "../input";
 
 export type MultiSelectorProps<
 	O extends TOption,

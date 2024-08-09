@@ -3,12 +3,12 @@
 import { CalendarIcon } from "lucide-react";
 import { DayPicker, type DayPickerProps } from "react-day-picker";
 
-import { cn } from "~/lib/utils";
 import { buttonVariants } from "~/components/ui/button";
+import { cn } from "~/lib/utils";
 
-import * as Popover from "../popover";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale/pt-BR";
+import * as Popover from "../popover";
 import { inputVariants } from "./input";
 
 export type CalendarProps = DayPickerProps;

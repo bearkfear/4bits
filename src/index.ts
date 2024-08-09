@@ -12,6 +12,7 @@ export * as Popover from "./components/ui/popover";
 export * from "./components/ui/toaster";
 export * as Tooltip from "./components/ui/tooltip";
 export * from "./components/ui/separator";
+export * as Dialog from "./components/ui/dialog";
 
 // export forms
 

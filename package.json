@@ -1,12 +1,13 @@
 {
 	"name": "@continha/ui",
-	"version": "1.7.1",
+	"version": "1.8.0",
 	"private": false,
 	"repository": {
 		"url": "https://github.com/bearkfear/ui"
 	},
 	"scripts": {
 		"lint": "biome check",
+		"lint:fix": "biome check --fix",
 		"dev": "storybook dev -p 6006",
 		"build": "storybook build",
 		"build:lib": "tsup"
