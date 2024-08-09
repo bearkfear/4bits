@@ -4,7 +4,7 @@ import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 import * as React from "react";
 
-import { buttonVariants } from "dist";
+import { buttonVariants } from "./button";
 import { cn } from "~/lib/utils";
 import { Separator } from "./separator";
 
