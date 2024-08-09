@@ -16,6 +16,7 @@ import * as Popover from "../popover";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale/pt-BR";
 import "react-day-picker/style.css";
+import { inputVariants } from "./input";
 
 export type CalendarProps = DayPickerProps;
 
@@ -23,26 +24,23 @@ function Calendar({
 	className,
 	classNames,
 	showOutsideDays = true,
-
 	...props
-}: DayPickerProps) {
+}: DayPickerProps & { placeholder?: string }) {
 	return (
 		<Popover.Root>
-			<Popover.Trigger asChild>
-				<Button
-					variant={"outline"}
-					className={cn(
-						"w-[240px] pl-3 text-left font-normal",
-						props.mode === "single" && !props.selected && "text-gray-9",
-					)}
-				>
-					{props.mode === "single" && props.selected ? (
-						format(props.selected, "dd/MM/yyyy")
-					) : (
-						<span>Pick a date</span>
-					)}
-					<CalendarIcon className="ml-auto h-4 w-4 text-gray-9" />
-				</Button>
+			<Popover.Trigger
+				className={cn(
+					inputVariants(),
+					"text-left font-normal",
+					props.mode === "single" && !props.selected && "text-gray-9",
+				)}
+			>
+				{props.mode === "single" && props.selected ? (
+					format(props.selected, "dd/MM/yyyy")
+				) : (
+					<span>{props.placeholder || "pick a date"}</span>
+				)}
+				<CalendarIcon className="ml-auto h-4 w-4 text-gray-9" />
 			</Popover.Trigger>
 			<Popover.Content className="w-auto p-0" align="start">
 				<DayPicker
@@ -56,10 +54,7 @@ function Calendar({
 						),
 						selected: "text-blue-11 text-sm border rounded font-bold",
 						today: "text-blue-9 text-sm",
-						// caption_label: "text-xs uppercase",
-						// month_caption: "flex text-sm font-bold py-1 text-gray-12",
 						day: "text-sm",
-						// focused: "border",
 						weekday: "text-xs uppercase text-gray-11 font-medium py-2",
 					}}
 					// components={{

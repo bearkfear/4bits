@@ -14,6 +14,7 @@ import { Checkbox } from "./checkbox";
 import * as Radio from "./radio";
 import { Switch } from "./switch";
 import { Calendar } from "./calendar";
+import { Money } from "./money";
 
 function FormControl(props: FormRenderProps) {
 	const disabled = props.field.disabled || props.fieldConfig.disabled;
@@ -23,6 +24,19 @@ function FormControl(props: FormRenderProps) {
 			<Input
 				{...props.field}
 				type="text"
+				placeholder={props.fieldConfig.placeholder}
+				disabled={disabled}
+				id={props.field.name}
+				required={props.fieldConfig.required}
+			/>
+		);
+	}
+
+	if (props.fieldConfig.type === "number") {
+		return (
+			<Input
+				{...props.field}
+				type="number"
 				placeholder={props.fieldConfig.placeholder}
 				disabled={disabled}
 				id={props.field.name}
@@ -123,6 +137,7 @@ function FormControl(props: FormRenderProps) {
 				disabled={disabled}
 				mode="single"
 				required={props.fieldConfig.required}
+				placeholder={props.fieldConfig.placeholder}
 			/>
 		);
 	}
@@ -152,6 +167,18 @@ function FormControl(props: FormRenderProps) {
 					);
 				})}
 			</Radio.Group>
+		);
+	}
+
+	if (props.fieldConfig.type === "money") {
+		return (
+			<Money
+				{...props.field}
+				id={props.fieldConfig.name}
+				placeholder={props.fieldConfig.placeholder}
+				disabled={disabled}
+				required={props.fieldConfig.required}
+			/>
 		);
 	}
 

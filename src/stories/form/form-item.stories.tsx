@@ -285,7 +285,60 @@ export const Calendar = () => {
 						type: "date",
 						label: "date of birth",
 						size: 12,
+						placeholder: "User calendar placeholder",
 						helperText: "Date of birth is used to determine your age",
+					},
+				]}
+			/>
+		</FormBuilder.Root>
+	);
+};
+
+export const Money = () => {
+	const form = useForm({
+		defaultValues: {
+			money: null,
+		},
+	});
+
+	return (
+		<FormBuilder.Root>
+			<FormBuilder.FormFields
+				control={form.control}
+				fields={[
+					{
+						name: "money",
+						type: "money",
+						label: "User payment",
+						size: 12,
+						placeholder: "user payment placeholder",
+						helperText: "Describe how much you want to pay",
+					},
+				]}
+			/>
+		</FormBuilder.Root>
+	);
+};
+
+export const Numeric = () => {
+	const form = useForm({
+		defaultValues: {
+			money: null,
+		},
+	});
+
+	return (
+		<FormBuilder.Root>
+			<FormBuilder.FormFields
+				control={form.control}
+				fields={[
+					{
+						name: "age",
+						type: "number",
+						label: "User Age",
+						size: 12,
+						placeholder: "Age placeholder",
+						helperText: "Tell your age to the others",
 					},
 				]}
 			/>

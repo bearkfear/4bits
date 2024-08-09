@@ -8,6 +8,7 @@ import { Button } from "../../button";
 import * as Popover from "../../popover";
 import { SelectorContent } from "./content";
 import type { SelectorCommonProps, TOption } from "./model";
+import { inputVariants } from "../input";
 
 export type MultiSelectorProps<
 	O extends TOption,
@@ -76,23 +77,21 @@ export function MultiSelector<O extends TOption, VP extends FieldPath<O>>(
 
 	return (
 		<Popover.Root>
-			<Popover.Trigger asChild>
-				<Button
-					variant="outline"
-					role="combobox"
-					className={cn(
-						"w-full justify-between",
-						!selectedOptions.length && "text-gray-9 dark:text-graydark-9",
-					)}
-					ref={(ref) => setWidth(ref?.getBoundingClientRect().width || 1)}
-				>
-					<span>
-						{selectedOptions.length > 0
-							? selectedOptions.map((option) => getLabel(option)).join(", ")
-							: props.placeholder}
-					</span>
-					<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-				</Button>
+			<Popover.Trigger
+				role="combobox"
+				className={cn(
+					inputVariants(),
+					"justify-between",
+					selectedOptions.length === 0 && "text-gray-11 dark:text-graydark-11",
+				)}
+				ref={(ref) => setWidth(ref?.getBoundingClientRect().width || 1)}
+			>
+				<span>
+					{selectedOptions.length > 0
+						? selectedOptions.map((option) => getLabel(option)).join(", ")
+						: props.placeholder}
+				</span>
+				<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 			</Popover.Trigger>
 			<SelectorContent
 				getLabel={getLabel}

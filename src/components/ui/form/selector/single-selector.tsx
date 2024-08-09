@@ -8,6 +8,7 @@ import { Button } from "../../button";
 import * as Popover from "../../popover";
 import { SelectorContent } from "./content";
 import type { SelectorCommonProps, TOption } from "./model";
+import { inputVariants } from "../input";
 
 export type SingleSelectorProps<
 	O extends TOption,
@@ -67,21 +68,19 @@ export function SingleSelector<O extends TOption, VP extends FieldPath<O>>(
 
 	return (
 		<Popover.Root>
-			<Popover.Trigger asChild>
-				<Button
-					variant="outline"
-					role="combobox"
-					className={cn(
-						"w-full justify-between",
-						!selectedOption && "text-gray-9 dark:text-graydark-9",
-					)}
-					ref={(ref) => setWidth(ref?.getBoundingClientRect().width || 1)}
-				>
-					<span>
-						{selectedOption ? getLabel(selectedOption) : props.placeholder}
-					</span>
-					<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-				</Button>
+			<Popover.Trigger
+				role="combobox"
+				className={cn(
+					inputVariants(),
+					"justify-between",
+					!selectedOption && "text-gray-11 dark:text-graydark-11",
+				)}
+				ref={(ref) => setWidth(ref?.getBoundingClientRect().width || 1)}
+			>
+				<span>
+					{selectedOption ? getLabel(selectedOption) : props.placeholder}
+				</span>
+				<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 			</Popover.Trigger>
 			<SelectorContent
 				getLabel={getLabel}
