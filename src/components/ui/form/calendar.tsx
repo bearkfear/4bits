@@ -1,21 +1,14 @@
 "use client";
 
-import {
-	CalendarIcon,
-	ChevronDown,
-	ChevronLeft,
-	ChevronRight,
-	ChevronUp,
-} from "lucide-react";
+import { CalendarIcon } from "lucide-react";
 import { DayPicker, type DayPickerProps } from "react-day-picker";
 
 import { cn } from "~/lib/utils";
-import { Button, buttonVariants } from "~/components/ui/button";
-import { Fragment } from "react";
+import { buttonVariants } from "~/components/ui/button";
+
 import * as Popover from "../popover";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale/pt-BR";
-import "react-day-picker/style.css";
 import { inputVariants } from "./input";
 
 export type CalendarProps = DayPickerProps;
