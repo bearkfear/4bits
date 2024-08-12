@@ -1,6 +1,6 @@
 {
 	"name": "@continha/ui",
-	"version": "1.8.0",
+	"version": "1.9.0",
 	"private": false,
 	"repository": {
 		"url": "https://github.com/bearkfear/ui"
@@ -15,7 +15,9 @@
 	"main": "dist/index.js",
 	"module": "dist/index.mjs",
 	"types": "dist/index.d.ts",
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"peerDependencies": {
 		"@continha/formbuilder": "^1.0.2",
 		"@radix-ui/colors": "^3.0.0",
@@ -59,6 +61,7 @@
 		"@radix-ui/react-alert-dialog": "^1.1.1",
 		"@radix-ui/react-checkbox": "^1.1.1",
 		"@radix-ui/react-dialog": "^1.1.1",
+		"@radix-ui/react-dropdown-menu": "^2.1.1",
 		"@radix-ui/react-label": "^2.1.0",
 		"@radix-ui/react-popover": "^1.1.1",
 		"@radix-ui/react-radio-group": "^1.2.0",

@@ -13,6 +13,7 @@ export * from "./components/ui/toaster";
 export * as Tooltip from "./components/ui/tooltip";
 export * from "./components/ui/separator";
 export * as Dialog from "./components/ui/dialog";
+export * as Dropdown from "./components/ui/dropdown";
 
 // export forms
 
