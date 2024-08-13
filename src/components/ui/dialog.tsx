@@ -4,8 +4,8 @@ import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 import * as React from "react";
 
-import { buttonVariants } from "./button";
 import { cn } from "~/lib/utils";
+import { buttonVariants } from "./button";
 import { Separator } from "./separator";
 
 const Root = DialogPrimitive.Root;
