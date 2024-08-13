@@ -109,7 +109,7 @@ export const MultiSelector = () => {
 export const Email = () => {
 	const form = useForm({
 		defaultValues: {
-			person: "",
+			useremail: "",
 		},
 	});
 
@@ -135,7 +135,7 @@ export const Email = () => {
 export const Password = () => {
 	const form = useForm({
 		defaultValues: {
-			person: "",
+			userpass: "",
 		},
 	});
 
@@ -162,7 +162,7 @@ export const Password = () => {
 export const Textarea = () => {
 	const form = useForm({
 		defaultValues: {
-			person: "",
+			userbio: "",
 		},
 	});
 
@@ -189,7 +189,7 @@ export const Textarea = () => {
 export const Checkbox = () => {
 	const form = useForm({
 		defaultValues: {
-			person: "",
+			terms_ok: "",
 		},
 	});
 
@@ -323,7 +323,7 @@ export const Money = () => {
 export const Numeric = () => {
 	const form = useForm({
 		defaultValues: {
-			money: null,
+			age: null,
 		},
 	});
 

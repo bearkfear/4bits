@@ -15,8 +15,12 @@ import * as Radio from "./radio";
 import { MultiSelector, SingleSelector } from "./selector";
 import { Switch } from "./switch";
 import { Textarea } from "./textarea";
+import type { FieldPath, FieldValues } from "react-hook-form";
 
-function FormControl(props: FormRenderProps) {
+function FormControl<
+	TFieldValues extends FieldValues = FieldValues,
+	TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+>(props: FormRenderProps<TFieldValues, TName>) {
 	const disabled = props.field.disabled || props.fieldConfig.disabled;
 
 	if (props.fieldConfig.type === "text") {
@@ -204,7 +208,10 @@ function FormControl(props: FormRenderProps) {
  * @returns
  */
 
-function FormItem(props: FormRenderProps) {
+function FormItem<
+	TFieldValues extends FieldValues = FieldValues,
+	TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+>(props: FormRenderProps<TFieldValues, TName>) {
 	const FormItemLabel = (
 		<Label
 			required={props.fieldConfig.required}
@@ -253,9 +260,12 @@ function FormItem(props: FormRenderProps) {
 	);
 }
 
-const FormFields = (props: Omit<FormConfig, "render">) => {
+function FormFields<
+	TFieldValues extends FieldValues = FieldValues,
+	TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+>(props: Omit<FormConfig<TFieldValues, TName>, "render">) {
 	return <FF {...props} render={FormItem} />;
-};
+}
 
 const Root = ({
 	children,

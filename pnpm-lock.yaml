@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@continha/formbuilder':
-        specifier: ^1.0.2
-        version: 1.0.3(react-hook-form@7.52.2(react@18.3.1))(react@18.3.1)(zod@3.23.8)
+        specifier: ^1.0.11
+        version: 1.0.11(react-hook-form@7.52.2(react@18.3.1))(react@18.3.1)(zod@3.23.8)(zustand@4.5.4(@types/react@18.3.3)(react@18.3.1))
       '@radix-ui/colors':
         specifier: ^3.0.0
         version: 3.0.0
@@ -896,12 +896,13 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@continha/formbuilder@1.0.3':
-    resolution: {integrity: sha512-k8iNSU9ISnrDODpXU4CwrL30CJI7K227uq0zukwNZJA1BlSDhE8j9OG2KkWcZRAGcHL2Zh/4py0YrF/gOh0Urg==}
+  '@continha/formbuilder@1.0.11':
+    resolution: {integrity: sha512-8iwsMZ3egEIj3KL8BBAd5CFfi3Gay1FpMdyVTs3RNEu0U1Po+qHyxbcyGEP8KsUupi7zR6fbi4KG4l2ZtK3LOQ==}
     peerDependencies:
       react: ^18.3.1
       react-hook-form: ^7.52.1
       zod: ^3.23.8
+      zustand: ^4.5.4
 
   '@emnapi/runtime@1.2.0':
     resolution: {integrity: sha512-bV21/9LQmcQeCPEg3BDFtvwL6cwiTMksYNWQQ4KOxCZikEGalWtenoZ0wCiukJINlGCIi2KXx01g4FoH/LxpzQ==}
@@ -5314,6 +5315,11 @@ packages:
       '@types/react':
         optional: true
 
+  use-sync-external-store@1.2.0:
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
@@ -5447,6 +5453,21 @@ packages:
 
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+
+  zustand@4.5.4:
+    resolution: {integrity: sha512-/BPMyLKJPtFEvVL0E9E9BTUM63MNyhPGlvxk1XjrfWTUlV+BR8jufjsovHzrtR6YNcBEcL7cMHovL1n9xHawEg==}
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      '@types/react': '>=16.8'
+      immer: '>=9.0.6'
+      react: '>=16.8'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      immer:
+        optional: true
+      react:
+        optional: true
 
 snapshots:
 
@@ -6374,11 +6395,12 @@ snapshots:
   '@biomejs/cli-win32-x64@1.8.3':
     optional: true
 
-  '@continha/formbuilder@1.0.3(react-hook-form@7.52.2(react@18.3.1))(react@18.3.1)(zod@3.23.8)':
+  '@continha/formbuilder@1.0.11(react-hook-form@7.52.2(react@18.3.1))(react@18.3.1)(zod@3.23.8)(zustand@4.5.4(@types/react@18.3.3)(react@18.3.1))':
     dependencies:
       react: 18.3.1
       react-hook-form: 7.52.2(react@18.3.1)
       zod: 3.23.8
+      zustand: 4.5.4(@types/react@18.3.3)(react@18.3.1)
 
   '@emnapi/runtime@1.2.0':
     dependencies:
@@ -10983,6 +11005,10 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.3
 
+  use-sync-external-store@1.2.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+
   util-deprecate@1.0.2: {}
 
   util@0.12.5:
@@ -11122,3 +11148,10 @@ snapshots:
   yocto-queue@1.1.1: {}
 
   zod@3.23.8: {}
+
+  zustand@4.5.4(@types/react@18.3.3)(react@18.3.1):
+    dependencies:
+      use-sync-external-store: 1.2.0(react@18.3.1)
+    optionalDependencies:
+      '@types/react': 18.3.3
+      react: 18.3.1
