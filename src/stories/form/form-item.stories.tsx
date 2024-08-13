@@ -322,7 +322,7 @@ export const Money = () => {
 
 export const Numeric = () => {
 	const form = useForm({
-		defaultValues: {
+		values: {
 			age: null,
 		},
 	});
