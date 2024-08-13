@@ -254,12 +254,7 @@ function FormItem(props: FormRenderProps) {
 }
 
 const FormFields = (props: Omit<FormConfig, "render">) => {
-	return (
-		<FF
-			{...props}
-			render={(formRenderProps) => <FormItem {...formRenderProps} />}
-		/>
-	);
+	return <FF {...props} render={FormItem} />;
 };
 
 const Root = ({
