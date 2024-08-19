@@ -2,6 +2,14 @@ import type { Preview } from "@storybook/react";
 import "../src/styles/globals.css";
 import { gray, grayDark } from "@radix-ui/colors";
 import { Inter } from "next/font/google";
+// @ts-ignore
+import { version } from "../package.json";
+
+function getModuleVersion(version: string) {
+	const [major, minor, patch] = version.split(".");
+
+	return { major, minor, patch };
+}
 
 const backgrounds = {
 	dark: {
@@ -49,6 +57,7 @@ const preview: Preview = {
 			default: "light",
 			values: [backgrounds.light, backgrounds.dark],
 		},
+		version: getModuleVersion(version),
 	},
 	//👇 Enables auto-generated documentation for all stories
 	tags: ["autodocs"],
