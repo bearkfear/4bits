@@ -4,7 +4,7 @@
  * @returns A representação formatada do número, ou uma string vazia se o valor for inválido.
  */
 export function humanFormat(value?: number): string {
-	if (!value || Number.isNaN(value)) {
+	if (value === undefined || value === null || Number.isNaN(value)) {
 		return "";
 	}
 	return Number(value).toLocaleString("pt-BR", {
@@ -66,7 +66,7 @@ export function machineFormat(number: string): number {
 
 		// Remover o sinal negativo temporariamente para formatar o número
 		if (isNegative) {
-			newNumber = newNumber.substr(1);
+			newNumber = newNumber.substring(1);
 		}
 
 		newNumber = cleanNumber(newNumber);

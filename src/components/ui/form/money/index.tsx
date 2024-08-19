@@ -10,11 +10,13 @@ import { cn } from "~/lib/utils";
 import { inputVariants } from "../input";
 import { humanFormat, machineFormat } from "./money-helpers";
 
+const validNumbersOrKeys = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "-"];
+
 export type InputMoneyProps = HTMLProps<
 	Omit<HTMLInputElement, "value" | "onChange">
 > & {
 	value?: number;
-	onChange?: (value: number) => void;
+	onChange?: (value?: number) => void;
 	isError?: boolean;
 	isSuccess?: boolean;
 	isLoading?: boolean;
@@ -41,7 +43,13 @@ const InputMoneyInner = (
 	const onChangeValue = useCallback(
 		(event: ChangeEvent<HTMLInputElement>) => {
 			if (onChange) {
+				if (event.target.value === "") {
+					onChange(undefined);
+					return;
+				}
+
 				const newValue = machineFormat(event.target.value);
+
 				onChange(newValue);
 			}
 		},
@@ -50,7 +58,12 @@ const InputMoneyInner = (
 
 	const onKeyDown = useCallback(
 		(event: KeyboardEvent<HTMLInputElement>) => {
-			if (!value || !onChange) {
+			if (value === undefined) return;
+
+			if (
+				validNumbersOrKeys.every((k) => String(k) !== String(event.key)) ||
+				!onChange
+			) {
 				return;
 			}
 			if (event.key === "-") {

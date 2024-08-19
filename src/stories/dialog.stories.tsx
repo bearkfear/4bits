@@ -8,8 +8,8 @@ export default {
 
 export const Default = () => {
 	return (
-		<Dialog.Root>
-			<Dialog.Trigger>
+		<Dialog.Root open>
+			<Dialog.Trigger asChild>
 				<Button variant="info">Open</Button>
 			</Dialog.Trigger>
 			<Dialog.Content>
