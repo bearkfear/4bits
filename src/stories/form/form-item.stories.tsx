@@ -268,7 +268,7 @@ export const Switch = () => {
 	);
 };
 
-export const SwitchWithValesLabels = () => {
+export const SwitchWithValuesLabels = () => {
 	const form = useForm({
 		defaultValues: {
 			acceptReceiveNotifications: "",
@@ -284,6 +284,10 @@ export const SwitchWithValesLabels = () => {
 						name: "acceptReceiveNotifications",
 						type: "switch",
 						label: "Notify new users?",
+						valueLabels: {
+							false: "Não",
+							true: "Sim",
+						},
 						size: 12,
 						helperText:
 							"When a new user is created, you will receive an notification",

@@ -1,6 +1,6 @@
 {
 	"name": "@continha/ui",
-	"version": "1.9.4",
+	"version": "1.9.5",
 	"private": false,
 	"repository": {
 		"url": "https://github.com/bearkfear/ui"
@@ -19,7 +19,7 @@
 		"dist"
 	],
 	"peerDependencies": {
-		"@continha/formbuilder": "^1.1.0",
+		"@continha/formbuilder": "^1.1.1",
 		"@radix-ui/colors": "^3.0.0",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.1.1",

@@ -18,7 +18,7 @@ export * as Dropdown from "./components/ui/dropdown";
 // export forms
 
 export * from "./components/ui/form/checkbox";
-export * from "./components/ui/form/form-builder";
+export * from "./components/ui/form/builder";
 export * from "./components/ui/form/helper-text";
 export * from "./components/ui/form/input";
 export * from "./components/ui/form/label";
