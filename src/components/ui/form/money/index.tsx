@@ -58,7 +58,9 @@ const InputMoneyInner = (
 
 	const onKeyDown = useCallback(
 		(event: KeyboardEvent<HTMLInputElement>) => {
-			if (value === undefined) return;
+			if (event.key === "Backspace" && value === 0) {
+				onChange?.(undefined);
+			}
 
 			if (
 				validNumbersOrKeys.every((k) => String(k) !== String(event.key)) ||
@@ -66,12 +68,23 @@ const InputMoneyInner = (
 			) {
 				return;
 			}
+
+			if (value === undefined) return;
 			if (event.key === "-") {
 				onChange(value * -1);
 			}
 		},
 		[onChange, value],
 	);
+
+	const onBlur: InputMoneyProps["onBlur"] = (event) => {
+		// prevents values -0,00 to be used. If become 0 or -0 it will fire to 0;
+		if (value === 0) {
+			onChange?.(0);
+		}
+
+		props.onBlur?.(event);
+	};
 
 	return (
 		<input
@@ -87,6 +100,7 @@ const InputMoneyInner = (
 			inputMode="numeric" // Permite que quando em dispositivos móveis, o telefone abra um campo numérico e não de texto.
 			value={externalValue}
 			onChange={onChangeValue}
+			onBlur={onBlur}
 		/>
 	);
 };
