@@ -15,9 +15,7 @@
 	"main": "dist/index.js",
 	"module": "dist/index.mjs",
 	"types": "dist/index.d.ts",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"peerDependencies": {
 		"@continha/formbuilder": "^1.1.1",
 		"@radix-ui/colors": "^3.0.0",
@@ -38,7 +36,6 @@
 		"@storybook/addon-essentials": "^8.2.9",
 		"@storybook/addon-interactions": "^8.2.9",
 		"@storybook/addon-links": "^8.2.9",
-		"@storybook/addon-onboarding": "^8.2.9",
 		"@storybook/addon-themes": "^8.2.9",
 		"@storybook/blocks": "^8.2.9",
 		"@storybook/nextjs": "^8.2.9",
@@ -74,6 +71,7 @@
 		"date-fns": "^3.6.0",
 		"input-otp": "^1.2.4",
 		"react-day-picker": "^9.0.8",
+		"react-merge-refs": "^2.1.1",
 		"sonner": "^1.5.0",
 		"tailwindcss-animate": "^1.0.7"
 	}

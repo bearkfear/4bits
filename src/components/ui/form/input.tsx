@@ -1,5 +1,7 @@
 import { cva } from "class-variance-authority";
 import * as React from "react";
+import { mergeRefs } from "react-merge-refs";
+import { useMasker } from "~/components/hooks/use-masker";
 
 import { cn } from "~/lib/utils";
 
@@ -8,16 +10,28 @@ export const inputVariants = cva(
 );
 
 export interface InputProps
-	extends React.InputHTMLAttributes<HTMLInputElement> {}
+	extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange"> {
+	masks?: string[];
+	onChange?: (newValue: string) => void;
+}
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-	({ className, type, ...props }, ref) => {
+	({ className, type, masks = [], onChange = () => {}, ...props }, ref) => {
+		const inputRef = React.useRef<HTMLInputElement>(null);
+
+		const { handleOnChangeMasker } = useMasker(
+			inputRef.current,
+			masks,
+			onChange,
+		);
+
 		return (
 			<input
+				{...props}
 				type={type}
 				className={cn(inputVariants(), className)}
-				ref={ref}
-				{...props}
+				ref={mergeRefs([ref, inputRef])}
+				onChange={handleOnChangeMasker}
 			/>
 		);
 	},

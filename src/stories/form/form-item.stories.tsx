@@ -1,6 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useForm } from "react-hook-form";
 import { FormBuilder } from "~/index";
+import {
+	CEP_MASK,
+	CNPJ_MASK,
+	CPF_CNPJ_MASK,
+	CPF_MASK,
+	PHONE_MASK,
+} from "~/lib/mask/common-masks";
 
 const meta = {
 	title: "Form/FormItem",
@@ -31,6 +38,146 @@ export const Text = () => {
 						helperText: "helper text",
 						placeholder: "placeholder text",
 						required: true,
+					},
+				]}
+			/>
+		</FormBuilder.Root>
+	);
+};
+
+export const CPF = () => {
+	const form = useForm({
+		defaultValues: {
+			cpf: "",
+		},
+	});
+
+	return (
+		<FormBuilder.Root>
+			<FormBuilder.FormFields
+				control={form.control}
+				fields={[
+					{
+						name: "cpf",
+						type: "text",
+						label: "CPF",
+						size: 12,
+						helperText: "helper text",
+						placeholder: "placeholder text",
+						required: true,
+						masks: CPF_MASK,
+					},
+				]}
+			/>
+		</FormBuilder.Root>
+	);
+};
+
+export const CEP = () => {
+	const form = useForm({
+		defaultValues: {
+			CEP: "",
+		},
+	});
+
+	return (
+		<FormBuilder.Root>
+			<FormBuilder.FormFields
+				control={form.control}
+				fields={[
+					{
+						name: "CEP",
+						type: "text",
+						label: "CEP",
+						size: 12,
+						helperText: "helper text",
+						placeholder: "placeholder text",
+						required: true,
+						masks: CEP_MASK,
+					},
+				]}
+			/>
+		</FormBuilder.Root>
+	);
+};
+
+export const CNPJ = () => {
+	const form = useForm({
+		defaultValues: {
+			CNPJ_MASK: "",
+		},
+	});
+
+	return (
+		<FormBuilder.Root>
+			<FormBuilder.FormFields
+				control={form.control}
+				fields={[
+					{
+						name: "CNPJ_MASK",
+						type: "text",
+						label: "CNPJ",
+						size: 12,
+						helperText: "helper text",
+						placeholder: "placeholder text",
+						required: true,
+						masks: CNPJ_MASK,
+					},
+				]}
+			/>
+		</FormBuilder.Root>
+	);
+};
+
+export const CPF_CNPJ = () => {
+	const form = useForm({
+		defaultValues: {
+			CPF_CNPJ_MASK: "",
+		},
+	});
+
+	return (
+		<FormBuilder.Root>
+			<FormBuilder.FormFields
+				control={form.control}
+				fields={[
+					{
+						name: "CPF_CNPJ_MASK",
+						type: "text",
+						label: "CPF CNPJ",
+						size: 12,
+						helperText: "helper text",
+						placeholder: "placeholder text",
+						required: true,
+						masks: CPF_CNPJ_MASK,
+					},
+				]}
+			/>
+		</FormBuilder.Root>
+	);
+};
+
+export const PHONE = () => {
+	const form = useForm({
+		defaultValues: {
+			PHONE_MASK: "",
+		},
+	});
+
+	return (
+		<FormBuilder.Root>
+			<FormBuilder.FormFields
+				control={form.control}
+				fields={[
+					{
+						name: "PHONE_MASK",
+						type: "text",
+						label: "Telefone",
+						size: 12,
+						helperText: "helper text",
+						placeholder: "placeholder text",
+						required: true,
+						masks: PHONE_MASK,
 					},
 				]}
 			/>

@@ -17,12 +17,21 @@ export function FormControl<
 	const disabled = props.field.disabled || props.fieldConfig.disabled;
 
 	if (props.fieldConfig.type === "text") {
+		let masks = Array<string>();
+
+		if (props.fieldConfig.masks) {
+			masks = Array.isArray(props.fieldConfig.masks)
+				? props.fieldConfig.masks
+				: [props.fieldConfig.masks];
+		}
+
 		return (
 			<Input
 				{...props.field}
 				type="text"
 				placeholder={props.fieldConfig.placeholder}
 				disabled={disabled}
+				masks={masks}
 				id={props.field.name}
 				required={props.fieldConfig.required}
 			/>
