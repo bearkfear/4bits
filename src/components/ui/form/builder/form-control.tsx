@@ -118,7 +118,13 @@ export function FormControl<
 
 	if (props.fieldConfig.type === "checkbox") {
 		return (
-			<Checkbox {...props.field} id={props.field.name} disabled={disabled} />
+			<Checkbox
+				{...props.field}
+				id={props.field.name}
+				checked={props.field.value}
+				disabled={disabled}
+				onCheckedChange={props.field.onChange}
+			/>
 		);
 	}
 
