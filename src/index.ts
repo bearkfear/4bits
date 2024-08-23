@@ -14,6 +14,8 @@ export * as Tooltip from "./components/ui/tooltip";
 export * from "./components/ui/separator";
 export * as Dialog from "./components/ui/dialog";
 export * as Dropdown from "./components/ui/dropdown";
+export * from "./components/ui/table";
+export * from "./components/ui/table-builder";
 
 // export forms
 
