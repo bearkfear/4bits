@@ -10,4 +10,5 @@ export default defineConfig({
   dts: true,
   format: ["esm", "cjs"],
   bundle: false,
+  tsconfig: "./tsconfig.json"
 });

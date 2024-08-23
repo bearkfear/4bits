@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react";
-import { Button, Dialog } from "~/index";
+import { Button, Dialog } from "../index";
 
 export default {
 	title: "Dialog/Modal",

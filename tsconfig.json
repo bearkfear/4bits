@@ -19,11 +19,6 @@
 		"jsx": "react-jsx",
 		"allowSyntheticDefaultImports": true,
 		"baseUrl": ".",
-		"paths": {
-			"~/*": [
-				"./src/*"
-			]
-		},
 	},
 	"include": [
 		"**/*.ts",

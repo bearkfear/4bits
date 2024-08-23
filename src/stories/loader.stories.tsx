@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react";
-import { Loader } from "~/index";
+import { Loader } from "../index";
 
 export const Default = () => {
 	return <Loader />;

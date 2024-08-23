@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useForm } from "react-hook-form";
-import { FormBuilder } from "~/index";
+import { FormBuilder } from "../../index";
 import {
 	CEP_MASK,
 	CNPJ_MASK,
 	CPF_CNPJ_MASK,
 	CPF_MASK,
 	PHONE_MASK,
-} from "~/lib/mask/common-masks";
+} from "../../lib/mask/common-masks";
 
 const meta = {
 	title: "Form/FormItem",

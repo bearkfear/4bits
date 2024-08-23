@@ -5,7 +5,7 @@ import { type VariantProps, cva } from "class-variance-authority";
 import * as React from "react";
 
 import { LuAsterisk } from "react-icons/lu";
-import { cn } from "~/lib/utils";
+import { cn } from "../../../lib/utils";
 
 const labelVariants = cva(
 	"text-xs text-black dark:text-white leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-bold",

@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react";
-import { Separator } from "~/index";
+import { Separator } from "../index";
 
 export const Vertical = () => {
 	return <Separator className="h-10 w-px" />;

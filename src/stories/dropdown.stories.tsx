@@ -7,7 +7,7 @@ import {
 	PowerOffIcon,
 	Rss,
 } from "lucide-react";
-import { Button, Dropdown } from "~/index";
+import { Button, Dropdown } from "../index";
 
 export default {
 	title: "Dropdown",

@@ -5,7 +5,7 @@ import isEqual from "lodash.isequal";
 import { CheckSquare2, ChevronsUpDown, Square } from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
 import type { FieldPath } from "react-hook-form";
-import { cn } from "~/lib/utils";
+import { cn } from "../../../../lib/utils";
 import * as Popover from "../../popover";
 import { inputVariants } from "../input";
 import { SelectorContent } from "./content";

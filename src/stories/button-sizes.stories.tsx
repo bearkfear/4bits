@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
 import { LuActivity } from "react-icons/lu";
-import { Button } from "~/index";
+import { Button } from "../index";
 
 export default {
 	title: "Button/Sizes",

@@ -1,5 +1,5 @@
 import { Root, type SeparatorProps } from "@radix-ui/react-separator";
-import { cn } from "~/lib/utils";
+import { cn } from "../../lib/utils";
 
 export function Separator({ className, ...props }: SeparatorProps) {
 	return (

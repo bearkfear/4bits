@@ -9,7 +9,7 @@ import {
 	TriangleAlert,
 } from "lucide-react";
 import { Toaster as Sonner } from "sonner";
-import { cn } from "~/lib/utils";
+import { cn } from "../../lib/utils";
 
 export { toast } from "sonner";
 

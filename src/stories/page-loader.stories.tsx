@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react";
-import { PageLoader } from "~/index";
+import { PageLoader } from "../index";
 
 export const Default = () => {
 	return <PageLoader />;

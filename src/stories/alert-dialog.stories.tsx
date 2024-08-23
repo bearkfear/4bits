@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react";
-import { AlertDialog, Button } from "~/index";
+import { AlertDialog, Button } from "../index";
 
 export default {
 	title: "Dialog/Alert",
