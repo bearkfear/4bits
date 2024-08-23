@@ -12,7 +12,12 @@ export function useMasker(
 		(evt: ChangeEvent<HTMLInputElement>) => {
 			if (evt.isTrusted === false || el === null) return;
 
-			if (masks.length > 0 && el.selectionEnd !== null) {
+			if (masks.length === 0) {
+				onChange(el.value);
+				return;
+			}
+
+			if (el.selectionEnd !== null) {
 				// by default, keep cursor at same position as before the mask
 				let position = el.selectionEnd;
 
@@ -31,8 +36,6 @@ export function useMasker(
 				if (el === document.activeElement) {
 					el.setSelectionRange(position, position);
 				}
-			} else {
-				onChange(el.value);
 			}
 		},
 		[onChange, masks, tokens, el],

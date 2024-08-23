@@ -123,7 +123,6 @@ export function FormControl<
 				id={props.field.name}
 				checked={props.field.value}
 				disabled={disabled}
-				onCheckedChange={props.field.onChange}
 			/>
 		);
 	}

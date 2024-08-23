@@ -1,3 +1,5 @@
+"use client";
+
 import get from "lodash.get";
 import isEqual from "lodash.isequal";
 import { Check, ChevronsUpDown } from "lucide-react";
