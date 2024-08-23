@@ -16,7 +16,7 @@
 		"target": "esnext",
 		"declaration": true,
 		"downlevelIteration": true,
-		"jsx": "react-jsx",
+		"jsx": "preserve",
 		"allowSyntheticDefaultImports": true,
 		"baseUrl": ".",
 	},
