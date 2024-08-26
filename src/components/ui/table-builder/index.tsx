@@ -86,28 +86,26 @@ export function TableBuilder<C extends Columns>(props: TableBuilderProps<C>) {
 				setRowsChecked={setRowsChecked}
 			/>
 
-			<div className="border rounded-sm border-gray-6 overflow-hidden">
-				<DndContext onDragEnd={onDragEnd}>
-					<Table.Root className="table-fixed">
-						<Header
-							{...props}
-							allRowsChecked={allRowsChecked}
-							checkAllRows={checkAllRows}
-						/>
-						<Body
-							{...props}
-							checkRow={checkRow}
-							rowsChecked={rowsChecked}
-							colsQuantity={colsQuantity}
-						/>
-						<Footer
-							{...props}
-							colsQuantity={colsQuantity}
-							rowsChecked={rowsChecked}
-						/>
-					</Table.Root>
-				</DndContext>
-			</div>
+			<DndContext onDragEnd={onDragEnd}>
+				<Table.Root className="table-fixed">
+					<Header
+						{...props}
+						allRowsChecked={allRowsChecked}
+						checkAllRows={checkAllRows}
+					/>
+					<Body
+						{...props}
+						checkRow={checkRow}
+						rowsChecked={rowsChecked}
+						colsQuantity={colsQuantity}
+					/>
+					<Footer
+						{...props}
+						colsQuantity={colsQuantity}
+						rowsChecked={rowsChecked}
+					/>
+				</Table.Root>
+			</DndContext>
 		</div>
 	);
 }

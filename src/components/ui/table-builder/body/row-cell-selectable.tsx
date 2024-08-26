@@ -14,7 +14,7 @@ export function RowCellSelectable<C extends Columns>({
 	rowIsChecked,
 }: RowCellSelectableProps<C>) {
 	return (
-		<Table.Cell className="border-r p-0">
+		<Table.Cell className="p-0">
 			<label className="w-full flex cursor-pointer py-2">
 				<Checkbox
 					checked={rowIsChecked}

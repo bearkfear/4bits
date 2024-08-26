@@ -4,6 +4,7 @@ import { LuGripVertical } from "react-icons/lu";
 import { Table } from "../../table";
 
 interface Context {
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	attributes: Record<string, any>;
 	listeners: DraggableSyntheticListeners;
 	ref(node: HTMLElement | null): void;
@@ -19,7 +20,7 @@ export function DragItem() {
 	const { attributes, listeners, ref } = useContext(SortableItemContext);
 
 	return (
-		<Table.Cell className="border-r" {...attributes} {...listeners} ref={ref}>
+		<Table.Cell {...attributes} {...listeners} ref={ref}>
 			<LuGripVertical size={18} />
 		</Table.Cell>
 	);

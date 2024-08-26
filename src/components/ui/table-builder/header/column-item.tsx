@@ -11,7 +11,6 @@ export function ColumnItem({ column, sortable }: ColumnDefaultProps) {
 	return (
 		<Table.Head
 			key={column.id}
-			className="border-r"
 			style={column.width ? { width: `${column.width}%` } : {}}
 		>
 			<div className={cn("flex space-x-1 items-center", column.className)}>

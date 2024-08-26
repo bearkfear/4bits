@@ -57,7 +57,6 @@ export function RowDraggable<C extends Columns>({
 					} as Transform),
 				}}
 				className={cn(
-					"box-border",
 					rowIsChecked && "bg-blue-2 hover:bg-blue-3",
 					isSorting && "!z-5 bg-green-4/20",
 					isDragging && "!z-50 !bg-green-6",

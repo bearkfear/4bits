@@ -10,7 +10,7 @@ export function ColumnSelectable(props: ColumnSelectableProps) {
 	const { allRowsChecked, checkAllRows } = props;
 
 	return (
-		<Table.Head className="w-[50px] border-r">
+		<Table.Head className="w-[50px]">
 			<div className="flex justify-center">
 				<Checkbox
 					checked={allRowsChecked}
