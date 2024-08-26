@@ -1,6 +1,6 @@
 {
   "name": "@continha/ui",
-  "version": "1.10.8",
+  "version": "1.11.0",
   "private": false,
   "repository": {
     "type": "git",
@@ -20,20 +20,8 @@
     "dist"
   ],
   "peerDependencies": {
-    "react-merge-refs": "^2.1.1",
     "@continha/formbuilder": "^1.1.2",
     "@radix-ui/colors": "^3.0.0",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
-    "lodash.get": "^4.4.2",
-    "lodash.isequal": "^4.5.0",
-    "lucide-react": "^0.411.0",
-    "next": "14.2.5",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-hook-form": "^7.52.2",
-    "react-icons": "^5.2.1",
-    "tailwind-merge": "^2.4.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
     "@radix-ui/react-checkbox": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.1",
@@ -45,11 +33,23 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-switch": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.1.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
     "input-otp": "^1.2.4",
+    "lodash.get": "^4.4.2",
+    "lodash.isequal": "^4.5.0",
+    "lucide-react": "^0.411.0",
+    "next": "14.2.5",
+    "react": "^18",
     "react-day-picker": "^9.0.8",
+    "react-dom": "^18",
+    "react-hook-form": "^7.52.2",
+    "react-icons": "^5.2.1",
+    "react-merge-refs": "^2.1.1",
     "sonner": "^1.5.0",
+    "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
@@ -76,5 +76,7 @@
     "tsup": "^8.2.4",
     "typescript": "^5"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@radix-ui/react-tabs": "^1.1.0"
+  }
 }

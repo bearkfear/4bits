@@ -13,7 +13,8 @@ export { Tooltip } from "./components/ui/tooltip";
 export { Separator } from "./components/ui/separator";
 export { Dialog } from "./components/ui/dialog";
 export { Dropdown } from "./components/ui/dropdown";
-
+export { Tabs } from "./components/ui/tabs";
+export { Card } from "./components/ui/card";
 // export forms
 
 export { Checkbox } from "./components/ui/form/checkbox";
