@@ -1,6 +1,3 @@
-// Export styles for compiler
-import "./styles/globals.css";
-
 // Others exports for who is going to use the library
 export { cn } from "./lib/utils";
 export * as AlertDialog from "./components/ui/alert-dialog";
