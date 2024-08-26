@@ -6,7 +6,7 @@ import * as React from "react";
 
 import { cn } from "../../lib/utils";
 
-export {
+import {
 	Root,
 	Trigger,
 	Group,
@@ -120,4 +120,16 @@ const Separator = React.forwardRef<
 ));
 Separator.displayName = DropdownMenuPrimitive.Separator.displayName;
 
-export { Content, Item, Label, Separator, SubContent, SubTrigger };
+export const Dropdown = {
+	Content,
+	Item,
+	Label,
+	Separator,
+	SubContent,
+	SubTrigger,
+	Root,
+	Trigger,
+	Group,
+	Sub,
+	Portal,
+};

@@ -137,7 +137,7 @@ const Body = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
 );
 Description.displayName = "DialogBody";
 
-export {
+export const Dialog = {
 	Root,
 	Trigger,
 	Content,

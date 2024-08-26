@@ -6,9 +6,9 @@ import {
 	type TooltipContentProps,
 } from "@radix-ui/react-tooltip";
 
-export { Trigger, Root, Provider } from "@radix-ui/react-tooltip";
+import { Trigger, Root, Provider } from "@radix-ui/react-tooltip";
 
-export function Content({ children, ...props }: TooltipContentProps) {
+function Content({ children, ...props }: TooltipContentProps) {
 	return (
 		<TooltipContent {...props}>
 			{typeof children === "string" || typeof children === "number" ? (
@@ -22,3 +22,5 @@ export function Content({ children, ...props }: TooltipContentProps) {
 		</TooltipContent>
 	);
 }
+
+export const Tooltip = { Trigger, Root, Provider, Content };
