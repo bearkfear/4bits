@@ -1,8 +1,8 @@
-import { Table } from "src";
+import { Table } from "../../table";
 import type { Columns, CommonPropsBodyHeader, SortableType } from "../types";
 import { ColumnAction } from "./column-actions";
+import { ColumnDraggable } from "./column-draggable";
 import { ColumnItem } from "./column-item";
-import { ColumnReorder } from "./column-reorder";
 import { ColumnSelectable } from "./column-selectable";
 
 type HeaderProps<C extends Columns> = CommonPropsBodyHeader<C> &
@@ -13,7 +13,7 @@ type HeaderProps<C extends Columns> = CommonPropsBodyHeader<C> &
 
 export function Header<C extends Columns>(props: HeaderProps<C>) {
 	const {
-		reorder,
+		draggable,
 		allRowsChecked,
 		checkAllRows,
 		columns,
@@ -26,7 +26,7 @@ export function Header<C extends Columns>(props: HeaderProps<C>) {
 		<Table.Header>
 			<Table.Row>
 				{/** adiciona a coluna com o componente para drag das linhas */}
-				{reorder && <ColumnReorder />}
+				{draggable && <ColumnDraggable />}
 
 				{/** adiciona a coluna com o campo checkbox */}
 				{selectable && (

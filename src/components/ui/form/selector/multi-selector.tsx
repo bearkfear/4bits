@@ -6,7 +6,7 @@ import { CheckSquare2, ChevronsUpDown, Square } from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
 import type { FieldPath } from "react-hook-form";
 import { cn } from "../../../../lib/utils";
-import * as Popover from "../../popover";
+import { Popover } from "../../popover";
 import { inputVariants } from "../input";
 import { SelectorContent } from "./content";
 import type { SelectorCommonProps, TOption } from "./model";

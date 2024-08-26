@@ -1,13 +1,14 @@
-import { cn, Table } from "src";
 import { useSortable, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import { CSS, type Transform } from "@dnd-kit/utilities";
 import { useMemo } from "react";
 import type { BodyProps } from ".";
+import { Table } from "../../table";
 import type { Columns, Row } from "../types";
 import { DragItem, SortableItemContext } from "./drag-item";
 import { RowCellActions } from "./row-cell-actions";
 import { RowCellSelectable } from "./row-cell-selectable";
 import { RowCells } from "./row-cells";
+import { cn } from "src/lib/utils";
 
 export function RowDraggable<C extends Columns>({
 	columns,
@@ -16,13 +17,25 @@ export function RowDraggable<C extends Columns>({
 	selectable,
 	rowIsChecked,
 	checkRow,
-	reorder,
+	draggable,
 }: { row: Row<C>; rowIsChecked: boolean } & BodyProps<C>) {
-	const { attributes, listeners, setNodeRef, transform, setActivatorNodeRef } =
-		useSortable({
-			id: row.key,
-			strategy: verticalListSortingStrategy,
-		});
+	const {
+		attributes,
+		listeners,
+		setNodeRef,
+		transform,
+		setActivatorNodeRef,
+		isSorting,
+		isDragging,
+		isOver,
+	} = useSortable({
+		id: row.key,
+		strategy: verticalListSortingStrategy,
+		transition: {
+			duration: 500,
+			easing: "cubic-bezier(0.25, 1, 0.5, 1)",
+		},
+	});
 
 	const context = useMemo(
 		() => ({
@@ -43,9 +56,15 @@ export function RowDraggable<C extends Columns>({
 						x: 0,
 					} as Transform),
 				}}
-				className={cn(rowIsChecked && "bg-blue-2 hover:bg-blue-3")}
+				className={cn(
+					"box-border",
+					rowIsChecked && "bg-blue-2 hover:bg-blue-3",
+					isSorting && "!z-5 bg-green-4/20",
+					isDragging && "!z-50 !bg-green-6",
+					isOver && "bg-green-4 border-green-6",
+				)}
 			>
-				{reorder && <DragItem />}
+				{draggable && <DragItem />}
 
 				{selectable && (
 					<RowCellSelectable

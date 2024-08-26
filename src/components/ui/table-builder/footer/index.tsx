@@ -1,4 +1,4 @@
-import { Table } from "src";
+import { Table } from "../../table";
 import type { Columns, Rows, SelectorRows } from "../types";
 
 type FooterProps<C extends Columns> = SelectorRows<C> & {

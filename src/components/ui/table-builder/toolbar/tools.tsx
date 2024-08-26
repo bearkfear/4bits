@@ -1,8 +1,10 @@
-import { Button, Input, SingleSelector } from "src";
 import { debounce } from "lodash";
 import { useRouter } from "next/router";
 import type { ToolbarProps } from ".";
 import type { Columns } from "../types";
+import { SingleSelector } from "../../form/selector";
+import { Input } from "../../form/input";
+import { Button } from "../../button";
 
 export function Tools<C extends Columns>(props: ToolbarProps<C>) {
 	const { rows, rowsChecked, setRowsChecked, selectable, toolBar } = props;
@@ -22,10 +24,10 @@ export function Tools<C extends Columns>(props: ToolbarProps<C>) {
 		});
 	};
 
-	const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const handleSearch = (value: string) => {
 		router.push({
 			pathname: router.pathname,
-			query: { ...router.query, search: event.target.value },
+			query: { ...router.query, search: value, page: 1 },
 		});
 	};
 

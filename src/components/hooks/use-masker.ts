@@ -9,13 +9,13 @@ export function useMasker(
   tokens = defaultTokens
 ) {
   const handleOnChangeMasker = useCallback(
-    (evt: ChangeEvent<HTMLInputElement>) => {
-      if (evt.isTrusted === false || el === null) return;
-
+    (event: ChangeEvent<HTMLInputElement>) => {
       if (masks.length === 0) {
-        onChange(el.value);
+        onChange(event.target.value);
         return;
       }
+
+      if (event.isTrusted === false || el === null) return;
 
       if (el.selectionEnd !== null) {
         // by default, keep cursor at same position as before the mask
@@ -23,7 +23,7 @@ export function useMasker(
 
         // save the character just inserted
         const digit = el.value[position - 1];
-        const newValue = masker(el.value, masks, tokens, true);
+        const newValue = masker(event.target.value, masks, tokens, true);
 
         onChange(newValue);
         // if the digit was changed, increment position until find the digit again

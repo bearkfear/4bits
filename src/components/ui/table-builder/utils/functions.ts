@@ -1,11 +1,11 @@
 import type { DragEndEvent } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
-import type { Columns, ReoderParams, Rows } from "../types";
+import type { Columns, DraggableParams, Rows } from "../types";
 
 export function reoderList<C extends Columns>(
 	event: DragEndEvent,
 	items: Rows<C>,
-): ReoderParams<C> | undefined {
+): DraggableParams<C> | undefined {
 	if (!event.over) return;
 
 	if (event.active.id !== event.over.id) {

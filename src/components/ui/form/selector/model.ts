@@ -1,5 +1,4 @@
-import type { HTMLProps } from "react";
-import type { ReactNode } from "react";
+import type { HTMLProps, ReactNode } from "react";
 
 export type DefaultHTMLSelectInput = Omit<
 	HTMLProps<HTMLSelectElement>,

@@ -1,4 +1,5 @@
-import { Table, Checkbox } from "src";
+import { Checkbox } from "../../form/checkbox";
+import { Table } from "../../table";
 
 type ColumnSelectableProps = {
 	allRowsChecked: boolean;

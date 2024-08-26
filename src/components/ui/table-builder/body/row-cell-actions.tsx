@@ -1,4 +1,4 @@
-import { Table } from "src";
+import { Table } from "../../table";
 import type { Action, Columns, Row } from "../types";
 import { Actions } from "./actions";
 

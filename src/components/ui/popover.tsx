@@ -5,13 +5,13 @@ import * as React from "react";
 
 import { cn } from "../../lib/utils";
 
-export const Root = PopoverPrimitive.Root;
+const Root = PopoverPrimitive.Root;
 
-export const Trigger = PopoverPrimitive.Trigger;
+const Trigger = PopoverPrimitive.Trigger;
 
-export const Arrow = PopoverPrimitive.Arrow;
+const Arrow = PopoverPrimitive.Arrow;
 
-export const Content = React.forwardRef<
+const Content = React.forwardRef<
 	React.ElementRef<typeof PopoverPrimitive.Content>,
 	React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>
 >(({ className, align = "start", sideOffset = 4, ...props }, ref) => (
@@ -28,3 +28,5 @@ export const Content = React.forwardRef<
 	</PopoverPrimitive.Portal>
 ));
 Content.displayName = PopoverPrimitive.Content.displayName;
+
+export const Popover = { Root, Trigger, Arrow, Content };

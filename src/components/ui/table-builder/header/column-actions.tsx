@@ -1,11 +1,10 @@
 import { LuSettings } from "react-icons/lu";
-import { Table } from "src";
+import { Table } from "../../table";
 
 export function ColumnAction() {
 	return (
-		<Table.Head className="w-[100px]">
-			<div className="flex justify-center items-center space-x-1">
-				<span>Ações</span>
+		<Table.Head className="w-[50px]">
+			<div className="flex justify-center">
 				<LuSettings />
 			</div>
 		</Table.Head>

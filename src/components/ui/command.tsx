@@ -126,4 +126,13 @@ const Shortcut = ({
 };
 Shortcut.displayName = "CommandShortcut";
 
-export { Root, Input, List, Empty, Group, Item, Shortcut, Separator };
+export const Command = {
+	Root,
+	Input,
+	List,
+	Empty,
+	Group,
+	Item,
+	Shortcut,
+	Separator,
+};

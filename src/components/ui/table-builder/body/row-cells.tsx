@@ -1,4 +1,4 @@
-import { Table } from "src";
+import { Table } from "../../table";
 
 interface RowCellsProps {
 	rowColData: any;

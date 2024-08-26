@@ -1,5 +1,5 @@
-import type { ButtonProps } from "../button";
 import type { ReactNode } from "react";
+import type { ButtonProps } from "../button";
 
 /** colunas */
 export type Column = {
@@ -30,7 +30,7 @@ export type SortableType = {
 };
 
 export type CommonPropsBodyHeader<C extends Columns> = Actions<C> &
-	ReorderType<C> &
+	DraggableType<C> &
 	SelectorRows<C> & {
 		columns: C;
 	};
@@ -48,7 +48,7 @@ export type ToolbarActions<C extends Columns> = {
 		controlStatus?: {
 			disabled?: boolean;
 			default: string | number;
-			options: { label: string; value: string | number }[];
+			options: { label: string; value: string }[];
 		};
 		extraActions?: ((params: ToolbarActionParams<C>) => ReactNode)[];
 	};
@@ -58,7 +58,7 @@ export type ToolbarActions<C extends Columns> = {
 export type TableBuilderProps<C extends Columns> = ToolbarActions<C> &
 	SortableType &
 	SelectorRows<C> &
-	ReorderType<C> & {
+	DraggableType<C> & {
 		columns: C;
 		rows: Rows<C>;
 		actions?: Action<C>[];
@@ -92,12 +92,12 @@ export type SelectorRows<C extends Columns> = {
 	};
 };
 
-export type ReoderParams<C extends Columns> = {
+export type DraggableParams<C extends Columns> = {
 	rows: Rows<C>;
 	from: number;
 	to: number;
 };
 
-export type ReorderType<C extends Columns> = {
-	reorder?: (params: ReoderParams<C>) => void;
+export type DraggableType<C extends Columns> = {
+	draggable?: (params: DraggableParams<C>) => void;
 };

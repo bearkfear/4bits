@@ -1,6 +1,6 @@
 import { DndContext, type DragEndEvent } from "@dnd-kit/core";
 import { type ReactNode, useEffect, useMemo, useState } from "react";
-import { Table } from "src";
+import { Table } from "../table";
 import { Body } from "./body";
 import { Footer } from "./footer";
 import { Header } from "./header";
@@ -8,7 +8,7 @@ import { ToolBar } from "./toolbar";
 import type {
 	Action,
 	Columns,
-	ReorderType,
+	DraggableType,
 	Row,
 	Rows,
 	SelectorRows,
@@ -20,7 +20,7 @@ import { reoderList } from "./utils/functions";
 export type TableBuilderProps<C extends Columns> = ToolbarActions<C> &
 	SortableType &
 	SelectorRows<C> &
-	ReorderType<C> & {
+	DraggableType<C> & {
 		columns: C;
 		rows: Rows<C>;
 		actions?: Action<C>[];
@@ -35,19 +35,19 @@ export function TableBuilder<C extends Columns>(props: TableBuilderProps<C>) {
 		let totalCols = props.columns.length;
 		if (props.actions) totalCols += 1;
 		if (props.selectable) totalCols += 1;
-		if (props.reorder) totalCols += 1;
+		if (props.draggable) totalCols += 1;
 		return totalCols;
 	}, [props]);
 
 	/** reordena a lista de linhas na tabela */
 	const onDragEnd = (event: DragEndEvent) => {
-		if (!props.reorder) return;
+		if (!props.draggable) return;
 
 		const result = reoderList(event, props.rows);
 
 		if (!result) return;
 
-		props.reorder(result);
+		props.draggable(result);
 	};
 
 	/** verifica se a ação foi de selecionar todas as linhas ou remover */

@@ -19,15 +19,8 @@ export function DragItem() {
 	const { attributes, listeners, ref } = useContext(SortableItemContext);
 
 	return (
-		<Table.Cell className="border-r">
-			<div
-				{...attributes}
-				{...listeners}
-				ref={ref}
-				className="flex justify-center w-full h-full"
-			>
-				<LuGripVertical size={18} />
-			</div>
+		<Table.Cell className="border-r" {...attributes} {...listeners} ref={ref}>
+			<LuGripVertical size={18} />
 		</Table.Cell>
 	);
 }

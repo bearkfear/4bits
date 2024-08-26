@@ -1,4 +1,5 @@
-import { Table, cn } from "src";
+import { cn } from "src/lib/utils";
+import { Table } from "../../table";
 import type { Column, SortableType } from "../types";
 import { ButtonSort } from "./button-sort";
 
