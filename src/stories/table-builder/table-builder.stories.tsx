@@ -134,6 +134,7 @@ export const Draggable = () => {
 			}
 			rows={rows}
 			draggable={({ rows }) => {
+				// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 				setRows(rows as any);
 			}}
 		/>
