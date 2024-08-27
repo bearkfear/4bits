@@ -44,11 +44,15 @@ type ToolbarActionParams<C extends Columns> = {
 
 export type ToolbarActions<C extends Columns> = {
 	toolBar?: {
-		searchable?: boolean;
+		searchable?: {
+			onSearch: (value: string) => void;
+			search: string;
+		};
 		controlStatus?: {
 			disabled?: boolean;
-			default: string | number;
-			options: { label: string; value: string }[];
+			status: string | number;
+			options: { label: string; value: string | number }[];
+			onChange: (value: string | number) => void;
 		};
 		extraActions?: ((params: ToolbarActionParams<C>) => ReactNode)[];
 	};

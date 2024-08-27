@@ -38,14 +38,18 @@ export const Toolbar = () => {
 			title={<span className="text-gray-11 py-1">Table with toolbar</span>}
 			toolBar={{
 				controlStatus: {
-					default: "all",
+					status: "all",
 					options: [
 						{ label: "All", value: "all" },
 						{ label: "Active", value: "active" },
 						{ label: "Inactive", value: "inactive" },
 					],
+					onChange: (value) => alert(`Status: ${value}`),
 				},
-				searchable: true,
+				searchable: {
+					onSearch: (value) => alert(`Search: ${value}`),
+					search: "",
+				},
 				extraActions: [
 					({ rows }) => (
 						<Button
