@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@continha/formbuilder':
         specifier: ^1.3.0
-        version: 1.3.0(react-hook-form@7.52.2(react@18.3.1))(react@18.3.1)(zod@3.23.8)(zustand@4.5.4(@types/react@18.3.3)(react@18.3.1))
+        version: 1.3.1(react-hook-form@7.52.2(react@18.3.1))(react@18.3.1)(zod@3.23.8)(zustand@4.5.4(@types/react@18.3.3)(react@18.3.1))
       '@radix-ui/colors':
         specifier: ^3.0.0
         version: 3.0.0
@@ -920,8 +920,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@continha/formbuilder@1.3.0':
-    resolution: {integrity: sha512-nICzJ3AEQP8FnGHQMCBEsAygfSVYLiVr5oDh7upG74OLsxYfXUp04V1Px2TnSMvuUcrVZ3MC6AJ4iyYILvrFZg==}
+  '@continha/formbuilder@1.3.1':
+    resolution: {integrity: sha512-C8dFPgWG0Ucez0t6dISLnDnhJTqtKyC7yro8QarDgj69o7svYHFVC6ydEx86B9Mxk7fqDgIl2J3QCc8CvBjGFA==}
     peerDependencies:
       react: ^18.3.1
       react-hook-form: ^7.52.1
@@ -6486,7 +6486,7 @@ snapshots:
   '@biomejs/cli-win32-x64@1.8.3':
     optional: true
 
-  '@continha/formbuilder@1.3.0(react-hook-form@7.52.2(react@18.3.1))(react@18.3.1)(zod@3.23.8)(zustand@4.5.4(@types/react@18.3.3)(react@18.3.1))':
+  '@continha/formbuilder@1.3.1(react-hook-form@7.52.2(react@18.3.1))(react@18.3.1)(zod@3.23.8)(zustand@4.5.4(@types/react@18.3.3)(react@18.3.1))':
     dependencies:
       '@continha/formbuilder': 'link:'
       react: 18.3.1

@@ -32,6 +32,7 @@ function ValuePresentation({ value }: ValuePresentationProps) {
 		return (
 			<>
 				{value.map((file, k) => (
+					// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 					<span key={k}>{file.name}</span>
 				))}
 			</>
@@ -45,8 +46,7 @@ export type InputFileProps = Omit<
 	React.InputHTMLAttributes<HTMLInputElement>,
 	"type" | "onChange" | "value"
 > &
-	Pick<DropzoneOptions, "accept"> & {
-		multiple: boolean;
+	Pick<DropzoneOptions, "accept" | "multiple"> & {
 		onChange(newFiles?: File[] | File): void;
 		value?: File[] | File;
 	};

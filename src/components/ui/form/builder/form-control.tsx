@@ -25,6 +25,7 @@ export function FormControl<
 				aria-label={props.fieldConfig.label}
 				aria-description={props.fieldConfig.helperText}
 				disabled={disabled}
+				multiple={props.fieldConfig.multiple}
 				id={props.fieldConfig.name}
 			/>
 		);
