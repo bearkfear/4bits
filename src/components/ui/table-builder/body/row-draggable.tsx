@@ -8,7 +8,7 @@ import { DragItem, SortableItemContext } from "./drag-item";
 import { RowCellActions } from "./row-cell-actions";
 import { RowCellSelectable } from "./row-cell-selectable";
 import { RowCells } from "./row-cells";
-import { cn } from "src/lib/utils";
+import { cn } from "../../../../lib/utils";
 
 export function RowDraggable<C extends Columns>({
 	columns,
