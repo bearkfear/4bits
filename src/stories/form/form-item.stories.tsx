@@ -522,3 +522,31 @@ export const Numeric = () => {
 		</FormBuilder.Root>
 	);
 };
+
+export const File = () => {
+	const form = useForm({
+		values: {
+			file: null,
+		},
+	});
+
+	console.log(form.watch("file"));
+
+	return (
+		<FormBuilder.Root>
+			<FormBuilder.FormFields
+				control={form.control}
+				fields={[
+					{
+						name: "file",
+						type: "file",
+						label: "User image profile",
+						size: 12,
+						placeholder: "Age placeholder",
+						helperText: "Show your image profile to others",
+					},
+				]}
+			/>
+		</FormBuilder.Root>
+	);
+};

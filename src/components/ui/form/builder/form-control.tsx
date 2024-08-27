@@ -9,12 +9,26 @@ import { MultiSelector, SingleSelector } from "../selector";
 import { Switch } from "../switch";
 import { Textarea } from "../textarea";
 import type { FieldPath, FieldValues } from "react-hook-form";
+import { InputFile } from "../file";
 
 export function FormControl<
 	TFieldValues extends FieldValues = FieldValues,
 	TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 >(props: FormRenderProps<TFieldValues, TName>) {
 	const disabled = props.field.disabled || props.fieldConfig.disabled;
+
+	if (props.fieldConfig.type === "file") {
+		return (
+			<InputFile
+				{...props.field}
+				placeholder={props.fieldConfig.placeholder}
+				aria-label={props.fieldConfig.label}
+				aria-description={props.fieldConfig.helperText}
+				disabled={disabled}
+				id={props.fieldConfig.name}
+			/>
+		);
+	}
 
 	if (props.fieldConfig.type === "text") {
 		let masks = Array<string>();
@@ -32,6 +46,8 @@ export function FormControl<
 				placeholder={props.fieldConfig.placeholder}
 				disabled={disabled}
 				masks={masks}
+				aria-label={props.fieldConfig.label}
+				aria-description={props.fieldConfig.helperText}
 				id={props.field.name}
 				required={props.fieldConfig.required}
 			/>
@@ -46,6 +62,8 @@ export function FormControl<
 				placeholder={props.fieldConfig.placeholder}
 				disabled={disabled}
 				id={props.field.name}
+				aria-label={props.fieldConfig.label}
+				aria-description={props.fieldConfig.helperText}
 				required={props.fieldConfig.required}
 			/>
 		);
@@ -59,6 +77,8 @@ export function FormControl<
 				placeholder={props.fieldConfig.placeholder}
 				disabled={disabled}
 				id={props.field.name}
+				aria-label={props.fieldConfig.label}
+				aria-description={props.fieldConfig.helperText}
 				required={props.fieldConfig.required}
 			/>
 		);
@@ -71,6 +91,8 @@ export function FormControl<
 				placeholder={props.fieldConfig.placeholder}
 				disabled={disabled}
 				id={props.field.name}
+				aria-label={props.fieldConfig.label}
+				aria-description={props.fieldConfig.helperText}
 				required={props.fieldConfig.required}
 			/>
 		);
@@ -122,6 +144,8 @@ export function FormControl<
 				{...props.field}
 				id={props.field.name}
 				checked={props.field.value}
+				aria-label={props.fieldConfig.label}
+				aria-description={props.fieldConfig.helperText}
 				disabled={disabled}
 			/>
 		);
@@ -129,7 +153,6 @@ export function FormControl<
 
 	if (props.fieldConfig.type === "switch") {
 		return (
-			// TODO: Verificar porque nao está conseguindo animar o input quando tem o checked e o onCheckedChange
 			<Switch
 				{...props.field}
 				id={props.field.name}
@@ -188,6 +211,8 @@ export function FormControl<
 				id={props.fieldConfig.name}
 				placeholder={props.fieldConfig.placeholder}
 				disabled={disabled}
+				aria-label={props.fieldConfig.label}
+				aria-description={props.fieldConfig.helperText}
 				required={props.fieldConfig.required}
 			/>
 		);
