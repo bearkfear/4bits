@@ -2,7 +2,7 @@ import type { DragEndEvent } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
 import type { Columns, DraggableParams, Rows } from "../types";
 
-export function reoderList<C extends Columns>(
+export function reOrderList<C extends Columns>(
 	event: DragEndEvent,
 	items: Rows<C>,
 ): DraggableParams<C> | undefined {

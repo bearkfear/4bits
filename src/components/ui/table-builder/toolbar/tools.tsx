@@ -1,4 +1,4 @@
-import { debounce } from "lodash";
+import debounce from "lodash.debounce";
 import { useRouter } from "next/router";
 import type { ToolbarProps } from ".";
 import type { Columns } from "../types";

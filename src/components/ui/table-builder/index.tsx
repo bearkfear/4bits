@@ -15,7 +15,7 @@ import type {
 	SortableType,
 	ToolbarActions,
 } from "./types";
-import { reoderList } from "./utils/functions";
+import { reOrderList } from "./utils/functions";
 
 export type TableBuilderProps<C extends Columns> = ToolbarActions<C> &
 	SortableType &
@@ -43,7 +43,7 @@ export function TableBuilder<C extends Columns>(props: TableBuilderProps<C>) {
 	const onDragEnd = (event: DragEndEvent) => {
 		if (!props.draggable) return;
 
-		const result = reoderList(event, props.rows);
+		const result = reOrderList(event, props.rows);
 
 		if (!result) return;
 
