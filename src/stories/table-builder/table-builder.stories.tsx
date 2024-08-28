@@ -16,8 +16,8 @@ export const Basic = () => {
 			title={<span className="text-gray-11 py-1">Table basic</span>}
 			columns={
 				[
-					{ id: "name", title: "Name" },
-					{ id: "age", title: "Age" },
+					{ id: "name", title: "Name", sortable: true },
+					{ id: "age", title: "Age", sortable: true },
 					{ id: "sex", title: "Sex" },
 				] as const
 			}
@@ -28,6 +28,13 @@ export const Basic = () => {
 				{ key: 4, name: "Bob Johnson", age: 40, sex: "Man" },
 				{ key: 5, name: "Charlie Brown", age: 35, sex: "Man" },
 			]}
+			sortable={{
+				sortBy: "name",
+				sortDirection: "ASC",
+				onSort: (params) => {
+					alert(`Sort by: ${params.sortBy}, ${params.sortDirection}`);
+				},
+			}}
 		/>
 	);
 };

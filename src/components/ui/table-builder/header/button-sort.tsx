@@ -1,37 +1,26 @@
-import { useRouter } from "next/router";
 import { LuArrowDownNarrowWide, LuArrowUpNarrowWide } from "react-icons/lu";
+import type { SortableParams } from "../types";
 
-interface ButtonSortProps {
-	sortBy: string;
-	sortDirection: string;
+type ButtonSortProps = SortableParams & {
+	onSort: (params: SortableParams) => void;
 	columnId: string;
-}
+};
 
 export function ButtonSort(props: ButtonSortProps) {
-	const { columnId, sortBy, sortDirection } = props;
-	const router = useRouter();
+	const { columnId, sortBy, sortDirection, onSort } = props;
 
 	const handleSort = (columnId: string) => {
 		const newSortDirection =
 			sortBy === columnId ? (sortDirection === "ASC" ? "DESC" : "ASC") : "ASC";
 
-		const newQuery = {
-			...router.query,
-			sortBy: columnId,
-			sortDirection: newSortDirection,
-		};
-
-		router.push({
-			pathname: router.pathname,
-			query: newQuery,
-		});
+		onSort({ sortBy: columnId, sortDirection: newSortDirection });
 	};
 
 	return (
 		<button
 			type="button"
 			onClick={() => handleSort(columnId)}
-			className="hover:bg-gray-1 px-2 py-1 rounded"
+			className="hover:bg-gray-1 text-gray-10 dark:text-graydark-10 dark:hover:bg-graydark-3 px-2 py-1 rounded"
 		>
 			{sortBy === columnId && (
 				<>

@@ -22,10 +22,14 @@ export type Row<C extends Columns> = {
 export type Rows<C extends Columns> = Row<C>[];
 
 /** sortable */
+export type SortableParams = {
+	sortBy: string;
+	sortDirection: string;
+};
+
 export type SortableType = {
-	sortable?: {
-		sortBy: string;
-		sortDirection: string;
+	sortable?: SortableParams & {
+		onSort: (params: SortableParams) => void;
 	};
 };
 

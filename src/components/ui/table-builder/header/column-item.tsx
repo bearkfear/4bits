@@ -20,6 +20,7 @@ export function ColumnItem({ column, sortable }: ColumnDefaultProps) {
 						columnId={column.id}
 						sortBy={sortable.sortBy}
 						sortDirection={sortable.sortDirection}
+						onSort={sortable.onSort}
 					/>
 				)}
 			</div>
