@@ -16,8 +16,8 @@ export const Basic = () => {
 			title={<span className="text-gray-11 py-1">Table basic</span>}
 			columns={
 				[
-					{ id: "name", title: "Name", sortable: true },
-					{ id: "age", title: "Age", sortable: true },
+					{ id: "name", title: "Name" },
+					{ id: "age", title: "Age" },
 					{ id: "sex", title: "Sex" },
 				] as const
 			}
@@ -31,6 +31,7 @@ export const Basic = () => {
 			sortable={{
 				sortBy: "name",
 				sortDirection: "ASC",
+				cols: ["name", "age"],
 				onSort: (params) => {
 					alert(`Sort by: ${params.sortBy}, ${params.sortDirection}`);
 				},

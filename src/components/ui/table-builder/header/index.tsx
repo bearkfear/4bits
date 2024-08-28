@@ -6,7 +6,7 @@ import { ColumnItem } from "./column-item";
 import { ColumnSelectable } from "./column-selectable";
 
 type HeaderProps<C extends Columns> = CommonPropsBodyHeader<C> &
-	SortableType & {
+	SortableType<C> & {
 		allRowsChecked: boolean;
 		checkAllRows: (value: boolean) => void;
 	};

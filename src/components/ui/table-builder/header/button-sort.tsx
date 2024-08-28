@@ -1,5 +1,5 @@
 import { LuArrowDownNarrowWide, LuArrowUpNarrowWide } from "react-icons/lu";
-import type { SortableParams } from "../types";
+import type { Columns, SortableParams } from "../types";
 
 type ButtonSortProps = SortableParams & {
 	onSort: (params: SortableParams) => void;

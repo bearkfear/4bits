@@ -18,7 +18,7 @@ import type {
 import { reOrderList } from "./utils/functions";
 
 export type TableBuilderProps<C extends Columns> = ToolbarActions<C> &
-	SortableType &
+	SortableType<C> &
 	SelectorRows<C> &
 	DraggableType<C> & {
 		columns: C;

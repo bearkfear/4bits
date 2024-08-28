@@ -5,7 +5,6 @@ import type { ButtonProps } from "../button";
 export type Column = {
 	title: string;
 	id: string;
-	sortable?: boolean;
 	className?: string;
 	width?: number;
 };
@@ -22,13 +21,16 @@ export type Row<C extends Columns> = {
 export type Rows<C extends Columns> = Row<C>[];
 
 /** sortable */
+type ColumnTitles<C extends Columns> = C[number]["id"];
+
 export type SortableParams = {
 	sortBy: string;
 	sortDirection: string;
 };
 
-export type SortableType = {
+export type SortableType<C extends Columns> = {
 	sortable?: SortableParams & {
+		cols: ColumnTitles<C>[];
 		onSort: (params: SortableParams) => void;
 	};
 };
@@ -64,7 +66,7 @@ export type ToolbarActions<C extends Columns> = {
 
 /** table */
 export type TableBuilderProps<C extends Columns> = ToolbarActions<C> &
-	SortableType &
+	SortableType<C> &
 	SelectorRows<C> &
 	DraggableType<C> & {
 		columns: C;

@@ -1,13 +1,16 @@
 import { cn } from "../../../../lib/utils";
 import { Table } from "../../table";
-import type { Column, SortableType } from "../types";
+import type { Column, Columns, SortableType } from "../types";
 import { ButtonSort } from "./button-sort";
 
-type ColumnDefaultProps = SortableType & {
+type ColumnDefaultProps<C extends Columns> = SortableType<C> & {
 	column: Column;
 };
 
-export function ColumnItem({ column, sortable }: ColumnDefaultProps) {
+export function ColumnItem<C extends Columns>({
+	column,
+	sortable,
+}: ColumnDefaultProps<C>) {
 	return (
 		<Table.Head
 			key={column.id}
@@ -15,7 +18,7 @@ export function ColumnItem({ column, sortable }: ColumnDefaultProps) {
 		>
 			<div className={cn("flex space-x-1 items-center", column.className)}>
 				<div className="text-xs">{column.title}</div>
-				{sortable && column.sortable && (
+				{sortable?.cols.includes(column.id) && (
 					<ButtonSort
 						columnId={column.id}
 						sortBy={sortable.sortBy}
