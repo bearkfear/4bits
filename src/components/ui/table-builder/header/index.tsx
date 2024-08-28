@@ -24,7 +24,7 @@ export function Header<C extends Columns>(props: HeaderProps<C>) {
 
 	return (
 		<Table.Header>
-			<Table.Row>
+			<Table.Row className="hover:opacity-100">
 				{/** adiciona a coluna com o componente para drag das linhas */}
 				{draggable && <ColumnDraggable />}
 
