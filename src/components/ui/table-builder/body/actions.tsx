@@ -14,7 +14,7 @@ export function Actions<C extends Columns>(props: ActionsProps<C>) {
 		<Dropdown.Root>
 			<Dropdown.Trigger asChild>
 				<Button
-					className="p-2 rounded hover:bg-gray-3"
+					className="p-2 rounded hover:bg-gray-3 dark:hover:bg-graydark-3"
 					variant="link"
 					size="icon"
 				>

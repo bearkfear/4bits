@@ -21,7 +21,11 @@ export function DragItem() {
 
 	return (
 		<Table.Cell {...attributes} {...listeners} ref={ref}>
-			<LuGripVertical size={18} />
+			<div className="flex justify-center">
+				<div className="p-2">
+					<LuGripVertical size={18} />
+				</div>
+			</div>
 		</Table.Cell>
 	);
 }

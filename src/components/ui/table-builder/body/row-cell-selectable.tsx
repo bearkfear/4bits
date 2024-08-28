@@ -15,13 +15,15 @@ export function RowCellSelectable<C extends Columns>({
 }: RowCellSelectableProps<C>) {
 	return (
 		<Table.Cell className="p-0">
-			<label className="w-full flex cursor-pointer py-2">
-				<Checkbox
-					checked={rowIsChecked}
-					onChange={() => checkRow(row)}
-					className="cursor-pointer m-auto"
-				/>
-			</label>
+			<div className="p-2">
+				<label className="w-full flex cursor-pointer p-2">
+					<Checkbox
+						checked={rowIsChecked}
+						onChange={() => checkRow(row)}
+						className="cursor-pointer m-auto"
+					/>
+				</label>
+			</div>
 		</Table.Cell>
 	);
 }
