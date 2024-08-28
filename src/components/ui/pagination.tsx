@@ -30,7 +30,7 @@ export function Pagination({ total, limit, onChange, page }: PaginationProps) {
 	};
 
 	return (
-		<div className="space-x-6 flex items-center justify-end">
+		<div className="space-x-6 flex items-center w-full justify-end">
 			<div className="flex items-center space-x-2">
 				<span className="text-nowrap text-gray-11 dark:text-graydark-11">
 					Linhas por página:
