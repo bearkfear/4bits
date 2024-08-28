@@ -12,9 +12,12 @@ export function Footer<C extends Columns>(props: FooterProps<C>) {
 
 	return (
 		<Table.Footer>
-			<Table.Row>
+			<Table.Row className="hover:opacity-100">
 				{selectable ? (
-					<Table.Cell colSpan={colsQuantity} className="py-2">
+					<Table.Cell
+						colSpan={colsQuantity}
+						className="py-2 h-min text-gray-12 dark:text-graydark-12"
+					>
 						<span>
 							{rows.length > 1
 								? `${rowsChecked.length} de ${rows.length} linhas selecionadas`
@@ -22,7 +25,10 @@ export function Footer<C extends Columns>(props: FooterProps<C>) {
 						</span>
 					</Table.Cell>
 				) : (
-					<Table.Cell colSpan={colsQuantity} className="py-2">
+					<Table.Cell
+						colSpan={colsQuantity}
+						className="py-2 h-min text-gray-12 dark:text-graydark-12"
+					>
 						<span>Total de linhas: {rows.length}</span>
 					</Table.Cell>
 				)}

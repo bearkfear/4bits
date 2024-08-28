@@ -3,7 +3,7 @@ import { Table } from "../../table";
 
 export function ColumnAction() {
 	return (
-		<Table.Head className="w-[50px]">
+		<Table.Head className="w-12">
 			<div className="flex justify-center">
 				<LuSettings />
 			</div>
