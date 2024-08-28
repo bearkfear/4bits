@@ -20,14 +20,14 @@ export function ButtonSort(props: ButtonSortProps) {
 		<button
 			type="button"
 			onClick={() => handleSort(columnId)}
-			className="hover:bg-gray-1 text-gray-10 dark:text-graydark-10 dark:hover:bg-graydark-3 px-2 py-1 rounded"
+			className="hover:bg-gray-1 text-gray-11 dark:text-graydark-11 dark:hover:bg-graydark-2 px-2 py-1 rounded"
 		>
 			{sortBy === columnId && (
 				<>
 					{sortDirection === "ASC" ? (
-						<LuArrowUpNarrowWide className="text-blue-9" />
+						<LuArrowUpNarrowWide className="text-blue-9 dark:text-bluedark-9" />
 					) : (
-						<LuArrowDownNarrowWide className="text-blue-9" />
+						<LuArrowDownNarrowWide className="text-blue-9 dark:text-bluedark-9" />
 					)}
 				</>
 			)}
