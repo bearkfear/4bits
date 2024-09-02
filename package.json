@@ -1,6 +1,6 @@
 {
 	"name": "@continha/ui",
-	"version": "1.12.8",
+	"version": "1.12.9",
 	"private": false,
 	"repository": {
 		"type": "git",
@@ -20,7 +20,7 @@
 	"exports": {
 		".": {
 			"require": "./dist/index.js",
-			"import": "./dist/index.esm.js"
+			"import": "./dist/index.mjs"
 		}
 	},
 	"peerDependencies": {
