@@ -9,6 +9,7 @@
 	"scripts": {
 		"lint": "biome check",
 		"lint:fix": "biome check --fix",
+		"tsc": "tsc --noEmit",
 		"dev": "storybook dev -p 6006",
 		"build": "storybook build",
 		"build:lib": "tsup"
