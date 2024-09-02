@@ -4,7 +4,6 @@ import tailwindcssRadixColors from "tailwindcss-radix-colors";
 export default {
 	darkMode: "class",
 	content: ["./src/**/*.{ts,tsx}", "./.storybook/**/*.{ts,tsx}"],
-	prefix: "cui",
 	theme: {
 		container: {
 			center: true,
