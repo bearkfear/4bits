@@ -1,6 +1,6 @@
 {
 	"name": "@continha/ui",
-	"version": "1.12.9",
+	"version": "1.12.10",
 	"private": false,
 	"repository": {
 		"type": "git",
@@ -15,15 +15,8 @@
 		"build:lib": "tsup"
 	},
 	"main": "dist/index.js",
-	"module": "dist/index.mjs",
 	"types": "dist/index.d.ts",
 	"files": ["dist"],
-	"exports": {
-		".": {
-			"require": "./dist/index.js",
-			"import": "./dist/index.mjs"
-		}
-	},
 	"peerDependencies": {
 		"@continha/formbuilder": "^1.3.1",
 		"@radix-ui/colors": "^3.0.0",

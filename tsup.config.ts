@@ -8,7 +8,7 @@ export default defineConfig({
 	external: ["react", "react-dom"],
 	sourcemap: false,
 	dts: true,
-	format: ["esm", "cjs"],
+	format: "cjs",
 	clean: true,
 	bundle: false,
 	tsconfig: "./tsconfig.json",
