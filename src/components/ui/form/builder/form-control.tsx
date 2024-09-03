@@ -167,7 +167,8 @@ export function FormControl<
 	if (props.fieldConfig.type === "date") {
 		return (
 			<Calendar
-				selected={props.field.value}
+				value={props.field.value}
+				// @ts-ignore
 				onSelect={props.field.onChange}
 				disabled={disabled}
 				mode="single"

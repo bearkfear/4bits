@@ -6,7 +6,7 @@ import { DayPicker, type DayPickerProps } from "react-day-picker";
 import { buttonVariants } from "../../../components/ui/button";
 import { cn } from "../../../lib/utils";
 
-import { format } from "date-fns";
+import { format, isValid } from "date-fns";
 import { ptBR } from "date-fns/locale/pt-BR";
 import { Popover } from "../popover";
 import { inputVariants } from "./input";
@@ -17,19 +17,30 @@ function Calendar({
 	className,
 	classNames,
 	showOutsideDays = true,
+	value,
+	mode,
 	...props
-}: DayPickerProps & { placeholder?: string }) {
+}: Omit<DayPickerProps, "selected"> & {
+	placeholder?: string;
+	value?: string;
+}) {
+	const iso8601Regex = /^(\d{4})-(\d{2})-(\d{2})/;
+
+	const isValid = !value ? false : iso8601Regex.test(value);
+
+	const selected = isValid && value ? new Date(value) : undefined;
+
 	return (
 		<Popover.Root>
 			<Popover.Trigger
 				className={cn(
 					inputVariants(),
 					"text-left font-normal",
-					props.mode === "single" && !props.selected && "text-gray-9",
+					mode === "single" && !selected && "text-gray-9",
 				)}
 			>
-				{props.mode === "single" && props.selected ? (
-					format(props.selected, "dd/MM/yyyy")
+				{mode === "single" && selected ? (
+					format(selected, "dd/MM/yyyy")
 				) : (
 					<span>{props.placeholder || "pick a date"}</span>
 				)}
@@ -51,6 +62,18 @@ function Calendar({
 						weekday: "text-xs uppercase text-gray-11 font-medium py-2",
 					}}
 					{...props}
+					mode="single"
+					selected={selected}
+					// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+					onSelect={(newdate: any) => {
+						if (newdate instanceof Date && mode === "single") {
+							// @ts-ignore
+							props.onSelect(newdate.toJSON());
+							return;
+						}
+						// @ts-ignore
+						props.onSelect(null);
+					}}
 				/>
 				<Popover.Arrow className="fill-gray-6" />
 			</Popover.Content>
