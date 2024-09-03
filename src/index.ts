@@ -36,3 +36,5 @@ export type {
 	MultiSelectorProps,
 	SingleSelectorProps,
 } from "./components/ui/form/selector";
+
+export { tailwindcssPreset } from "./tailwindcss-preset";
