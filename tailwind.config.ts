@@ -1,4 +1,4 @@
-import { tailwindcssPreset } from "src/tailwindcss-preset";
+import { tailwindcssPreset } from "./src/tailwindcss-preset";
 import type { Config } from "tailwindcss";
 
 export default {
