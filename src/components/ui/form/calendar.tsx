@@ -6,10 +6,11 @@ import { DayPicker, type DayPickerProps } from "react-day-picker";
 import { buttonVariants } from "../../../components/ui/button";
 import { cn } from "../../../lib/utils";
 
-import { format, isValid } from "date-fns";
+import { format } from "date-fns";
 import { ptBR } from "date-fns/locale/pt-BR";
 import { Popover } from "../popover";
 import { inputVariants } from "./input";
+import { useEffect } from "react";
 
 export type CalendarProps = DayPickerProps;
 
@@ -22,13 +23,24 @@ function Calendar({
 	...props
 }: Omit<DayPickerProps, "selected"> & {
 	placeholder?: string;
-	value?: string;
+	value?: string | Date;
 }) {
 	const iso8601Regex = /^(\d{4})-(\d{2})-(\d{2})/;
 
-	const isValid = !value ? false : iso8601Regex.test(value);
+	const isDate = value instanceof Date;
+	const isISO8601 = typeof value === "string" && iso8601Regex.test(value);
 
-	const selected = isValid && value ? new Date(value) : undefined;
+	const isValid = isDate || isISO8601;
+
+	const selected = isValid ? new Date(value) : undefined;
+
+	useEffect(() => {
+		if (isDate) {
+			// @ts-ignore
+			props.onSelect(value.toJSON());
+		}
+		// @ts-ignore
+	}, [isDate, props.onSelect, value]);
 
 	return (
 		<Popover.Root>
