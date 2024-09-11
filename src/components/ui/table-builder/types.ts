@@ -80,6 +80,7 @@ export type Action<C extends Columns> =
 	| {
 			label: string;
 			icon?: React.ReactNode;
+			disabled?: boolean;
 			action: (value: Row<C>) => void;
 	  }
 	| ((props: Row<C>) => ReactNode);

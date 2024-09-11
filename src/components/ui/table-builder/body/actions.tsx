@@ -3,6 +3,7 @@ import { LuMoreHorizontal } from "react-icons/lu";
 import type { Action, Columns, Row } from "../types";
 import { Dropdown } from "../../dropdown";
 import { Button } from "../../button";
+import { cn } from "src/lib/utils";
 
 type ActionsProps<C extends Columns> = {
 	actions: Action<C>[];
@@ -43,10 +44,8 @@ function ActionContent<C extends Columns>({ actions, row }: ActionsProps<C>) {
 				} else {
 					ActionOption = (
 						<Dropdown.Item
-							className="space-x-3"
-							onClick={() => {
-								action.action(row);
-							}}
+							className={cn("space-x-3", action.disabled && "hidden")}
+							onClick={() => action.action(row)}
 						>
 							<div className="w-4">{action.icon}</div>
 							<span>{action.label}</span>
