@@ -3,7 +3,7 @@ import { LuMoreHorizontal } from "react-icons/lu";
 import type { Action, Columns, Row } from "../types";
 import { Dropdown } from "../../dropdown";
 import { Button } from "../../button";
-import { cn } from "src/lib/utils";
+import { cn } from "../../../../lib/utils";
 
 type ActionsProps<C extends Columns> = {
 	actions: Action<C>[];
