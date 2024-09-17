@@ -16,6 +16,8 @@ export type SingleSelectorProps<
 	VP extends FieldPath<O>,
 	TV = O[VP],
 > = SelectorCommonProps & {
+	className?: string;
+	style?: React.CSSProperties;
 	options: O[];
 	labelPath: FieldPath<O>;
 	valuePath: VP;
@@ -28,6 +30,8 @@ export function SingleSelector<O extends TOption, VP extends FieldPath<O>>(
 		extraActions,
 		onChange = () => {},
 		value,
+		className,
+		style,
 		...props
 	}: SingleSelectorProps<O, VP>,
 	// TODO: verificar onde por esse ref dentro do button
@@ -75,7 +79,9 @@ export function SingleSelector<O extends TOption, VP extends FieldPath<O>>(
 					inputVariants(),
 					"justify-between",
 					!selectedOption && "text-gray-11 dark:text-graydark-11",
+					className,
 				)}
+				style={style}
 				ref={(ref) => setWidth(ref?.getBoundingClientRect().width || 1)}
 			>
 				<span>

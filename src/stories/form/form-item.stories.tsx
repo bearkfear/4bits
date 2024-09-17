@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useForm } from "react-hook-form";
-import { FormBuilder } from "../../index";
+import { Button, FormBuilder } from "../../index";
 import {
 	CEP_MASK,
 	CNPJ_MASK,
@@ -26,22 +26,53 @@ export const Text = () => {
 	});
 
 	return (
-		<FormBuilder.Root>
-			<FormBuilder.FormFields
-				control={form.control}
-				fields={[
-					{
-						name: "username",
-						type: "text",
-						label: "Username",
-						size: 12,
-						helperText: "helper text",
-						placeholder: "placeholder text",
-						required: true,
-					},
-				]}
-			/>
-		</FormBuilder.Root>
+		<form onSubmit={form.handleSubmit(() => {})}>
+			<FormBuilder.Root>
+				<FormBuilder.FormFields
+					control={form.control}
+					fields={[
+						{
+							name: "username",
+							type: "text",
+							label: "Username",
+							size: 12,
+							helperText: "helper text",
+							placeholder: "placeholder text",
+							required: true,
+						},
+					]}
+				/>
+			</FormBuilder.Root>
+			<Button type="submit">Submeter</Button>
+		</form>
+	);
+};
+
+export const Color = () => {
+	const form = useForm({
+		defaultValues: {
+			color: "",
+		},
+	});
+
+	return (
+		<form onSubmit={form.handleSubmit(() => {})}>
+			<FormBuilder.Root>
+				<FormBuilder.FormFields
+					control={form.control}
+					fields={[
+						{
+							name: "color",
+							type: "color",
+							label: "Color",
+							size: 12,
+							required: true,
+						},
+					]}
+				/>
+			</FormBuilder.Root>
+			<Button type="submit">Submeter</Button>
+		</form>
 	);
 };
 
@@ -261,22 +292,25 @@ export const Email = () => {
 	});
 
 	return (
-		<FormBuilder.Root>
-			<FormBuilder.FormFields
-				control={form.control}
-				fields={[
-					{
-						name: "useremail",
-						type: "email",
-						label: "E-mail",
-						size: 12,
-						helperText: "You must provide an email",
-						placeholder: "Type your email",
-						required: true,
-					},
-				]}
-			/>
-		</FormBuilder.Root>
+		<form onSubmit={form.handleSubmit(() => {})}>
+			<FormBuilder.Root>
+				<FormBuilder.FormFields
+					control={form.control}
+					fields={[
+						{
+							name: "useremail",
+							type: "email",
+							label: "E-mail",
+							size: 12,
+							helperText: "You must provide an email",
+							placeholder: "Type your email",
+							required: true,
+						},
+					]}
+				/>
+			</FormBuilder.Root>
+			<Button type="submit">Submeter</Button>
+		</form>
 	);
 };
 export const Password = () => {
@@ -314,22 +348,25 @@ export const Textarea = () => {
 	});
 
 	return (
-		<FormBuilder.Root>
-			<FormBuilder.FormFields
-				control={form.control}
-				fields={[
-					{
-						name: "userbio",
-						type: "textarea",
-						label: "Bio",
-						size: 12,
-						helperText: "Provide a user bio",
-						placeholder: "You can tell something about you",
-						required: true,
-					},
-				]}
-			/>
-		</FormBuilder.Root>
+		<form onSubmit={form.handleSubmit(() => {})}>
+			<FormBuilder.Root>
+				<FormBuilder.FormFields
+					control={form.control}
+					fields={[
+						{
+							name: "userbio",
+							type: "textarea",
+							label: "Bio",
+							size: 12,
+							helperText: "Provide a user bio",
+							placeholder: "You can tell something about you",
+							required: true,
+						},
+					]}
+				/>
+			</FormBuilder.Root>
+			<Button type="submit">Submeter</Button>
+		</form>
 	);
 };
 
@@ -367,25 +404,60 @@ export const Radio = () => {
 	});
 
 	return (
-		<FormBuilder.Root>
-			<FormBuilder.FormFields
-				control={form.control}
-				fields={[
-					{
-						name: "gender",
-						type: "radio",
-						label: "Your gender",
-						size: 12,
-						helperText: "You can select a gender",
-						required: true,
-						options: [
-							{ label: "Male", value: 1 },
-							{ label: "Female", value: 2 },
-						],
-					},
-				]}
-			/>
-		</FormBuilder.Root>
+		<form onSubmit={form.handleSubmit(() => {})}>
+			<FormBuilder.Root>
+				<FormBuilder.FormFields
+					control={form.control}
+					fields={[
+						{
+							name: "gender",
+							type: "radio",
+							label: "Your gender",
+							size: 12,
+							helperText: "You can select a gender",
+							required: true,
+							options: [
+								{ label: "Male", value: 1 },
+								{ label: "Female", value: 2 },
+							],
+						},
+					]}
+				/>
+			</FormBuilder.Root>
+			<Button type="submit">Submeter</Button>
+		</form>
+	);
+};
+
+export const MultiCheckbox = () => {
+	const form = useForm({
+		defaultValues: {
+			elements: [],
+		},
+	});
+
+	return (
+		<form onSubmit={form.handleSubmit(() => {})}>
+			<FormBuilder.Root>
+				<FormBuilder.FormFields
+					control={form.control}
+					fields={[
+						{
+							name: "elements",
+							type: "multi-checkbox",
+							label: "Select some options",
+							size: 12,
+							helperText: "Select some options",
+							options: [
+								{ label: "Test 1", value: 1 },
+								{ label: "Test 2", value: 2 },
+							],
+						},
+					]}
+				/>
+			</FormBuilder.Root>
+			<Button type="submit">Submeter</Button>
+		</form>
 	);
 };
 
@@ -445,7 +517,7 @@ export const SwitchWithValuesLabels = () => {
 	);
 };
 
-export const Calendar = () => {
+export const InputDate = () => {
 	const form = useForm({
 		defaultValues: {
 			date: null,
@@ -453,21 +525,105 @@ export const Calendar = () => {
 	});
 
 	return (
-		<FormBuilder.Root>
-			<FormBuilder.FormFields
-				control={form.control}
-				fields={[
-					{
-						name: "date",
-						type: "date",
-						label: "date of birth",
-						size: 12,
-						placeholder: "User calendar placeholder",
-						helperText: "Date of birth is used to determine your age",
-					},
-				]}
-			/>
-		</FormBuilder.Root>
+		<form onSubmit={form.handleSubmit(() => {})}>
+			<FormBuilder.Root>
+				<FormBuilder.FormFields
+					control={form.control}
+					fields={[
+						{
+							name: "date",
+							type: "date",
+							label: "date of birth",
+							size: 12,
+							placeholder: "User calendar placeholder",
+							helperText: "Date of birth is used to determine your age",
+							max: new Date(),
+						},
+					]}
+				/>
+			</FormBuilder.Root>
+			<Button type="submit">Submeter</Button>
+		</form>
+	);
+};
+
+export const InputDatetime = () => {
+	const form = useForm<{ datetime: Date }>();
+
+	return (
+		<form onSubmit={form.handleSubmit(() => {})}>
+			<FormBuilder.Root>
+				<FormBuilder.FormFields
+					control={form.control}
+					fields={[
+						{
+							name: "datetime",
+							type: "datetime",
+							label: "Datetime",
+							size: 12,
+							placeholder: "Datetime",
+							helperText: "Datetime",
+							max: new Date(2024, 1, 1, 0, 0),
+							required: true,
+						},
+					]}
+				/>
+			</FormBuilder.Root>
+			<Button type="submit">Submeter</Button>
+		</form>
+	);
+};
+
+export const InputTime = () => {
+	const form = useForm<{ time: Date }>();
+
+	return (
+		<form onSubmit={form.handleSubmit(() => {})}>
+			<FormBuilder.Root>
+				<FormBuilder.FormFields
+					control={form.control}
+					fields={[
+						{
+							name: "time",
+							type: "time",
+							label: "Time",
+							size: 12,
+							placeholder: "Time",
+							helperText: "Time",
+							required: true,
+						},
+					]}
+				/>
+			</FormBuilder.Root>
+			<Button type="submit">Submeter</Button>
+		</form>
+	);
+};
+
+export const InputMonth = () => {
+	const form = useForm<{ month: Date }>();
+
+	return (
+		<form onSubmit={form.handleSubmit(() => {})}>
+			<FormBuilder.Root>
+				<FormBuilder.FormFields
+					control={form.control}
+					fields={[
+						{
+							name: "month",
+							type: "month",
+							label: "Month",
+							size: 12,
+							placeholder: "Month",
+							helperText: "Month",
+							max: new Date(2024, 1),
+							required: true,
+						},
+					]}
+				/>
+			</FormBuilder.Root>
+			<Button type="submit">Submeter</Button>
+		</form>
 	);
 };
 
@@ -544,6 +700,58 @@ export const File = () => {
 						size: 12,
 						placeholder: "Age placeholder",
 						helperText: "Show your image profile to others",
+					},
+				]}
+			/>
+		</FormBuilder.Root>
+	);
+};
+
+export const Hyperlink = () => {
+	const form = useForm({
+		values: {
+			hyperlink: null,
+		},
+	});
+
+	return (
+		<FormBuilder.Root>
+			<FormBuilder.FormFields
+				control={form.control}
+				fields={[
+					{
+						name: "hyperlink",
+						type: "hyperlink",
+						label: "Hyperlink",
+						size: 12,
+						placeholder: "Hyperlink",
+						helperText: "Hyperlink",
+					},
+				]}
+			/>
+		</FormBuilder.Root>
+	);
+};
+
+export const DynamicCheckbox = () => {
+	const form = useForm({
+		values: {
+			dynamic: null,
+		},
+	});
+
+	return (
+		<FormBuilder.Root>
+			<FormBuilder.FormFields
+				control={form.control}
+				fields={[
+					{
+						name: "dynamic",
+						type: "dynamic-checkbox",
+						label: "Dynamic Checkbox",
+						size: 12,
+						placeholder: "Dynamic Checkbox",
+						helperText: "Dynamic Checkbox",
 					},
 				]}
 			/>

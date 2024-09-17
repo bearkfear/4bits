@@ -26,6 +26,7 @@ export const Builder = () => {
 			acceptReceiveNotifications: false,
 			notifyNewUsers: false,
 			acceptReceiveEmails: false,
+			color: undefined,
 		},
 	});
 
@@ -166,6 +167,13 @@ export const Builder = () => {
 						size: 4,
 						helperText:
 							"When a new user is created, you will receive an notification",
+					},
+					{
+						name: "color",
+						type: "color",
+						label: "Color",
+						size: 4,
+						helperText: "Definition color",
 					},
 				]}
 			/>

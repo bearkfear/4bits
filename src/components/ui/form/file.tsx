@@ -55,6 +55,7 @@ const InputFile = React.forwardRef(
 	(
 		{
 			className,
+			style,
 			accept,
 			multiple = false,
 			disabled,
@@ -102,6 +103,7 @@ const InputFile = React.forwardRef(
 					}),
 					className,
 				)}
+				style={style}
 				{...dropzone.getRootProps()}
 				tabIndex={disabled ? -1 : 1}
 			>
