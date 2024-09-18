@@ -190,6 +190,8 @@ export function FormControl<
 				aria-label={props.fieldConfig.label}
 				aria-description={props.fieldConfig.helperText}
 				disabled={disabled}
+				className={props.fieldConfig.className}
+				style={props.fieldConfig.style}
 			/>
 		);
 	}
@@ -202,6 +204,8 @@ export function FormControl<
 				disabled={disabled}
 				checked={props.field.value}
 				onCheckedChange={props.field.onChange}
+				className={props.fieldConfig.className}
+				style={props.fieldConfig.style}
 			/>
 		);
 	}
