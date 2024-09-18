@@ -37,19 +37,14 @@ export function FormAnatomy<
 		</Label>
 	);
 
-	const ValueLabels = (
-		<span className="text-gray-11 dark:text-graydark-11">
-			{props.field.value === true &&
-				props.fieldConfig.type === "switch" &&
-				props.fieldConfig.valueLabels &&
-				props.fieldConfig.valueLabels.true}
+	const ValueLabels = props.fieldConfig.type === "switch" &&
+		props.fieldConfig.valueLabels && (
+			<span className="text-gray-11 dark:text-graydark-11">
+				{props.field.value === true && props.fieldConfig.valueLabels.true}
 
-			{!props.field.value &&
-				props.fieldConfig.type === "switch" &&
-				props.fieldConfig.valueLabels &&
-				props.fieldConfig.valueLabels.false}
-		</span>
-	);
+				{!props.field.value && props.fieldConfig.valueLabels.false}
+			</span>
+		);
 
 	const FormItemControl = (
 		<div className="flex items-center space-x-2 text-sm">
@@ -73,22 +68,32 @@ export function FormAnatomy<
 		return (
 			<div
 				className={cn(
-					"space-x-2 flex items-start",
+					"flex justify-between",
 					`col-span-${props.fieldConfig.size}`,
 				)}
 			>
-				{FormItemControl}
-				<div className="space-y-2">
-					{FormItemLabel}
-					{FormItemHelperText}
+				<div className="flex items-start space-x-2">
+					{props.fieldConfig.leftAddon}
+					{FormItemControl}
+					<div className="space-y-2">
+						{FormItemLabel}
+						{FormItemHelperText}
+					</div>
 				</div>
+				{props.fieldConfig.rightAddon}
 			</div>
 		);
 	}
 
 	return (
 		<div className={cn("space-y-2", `col-span-${props.fieldConfig.size}`)}>
-			{FormItemLabel}
+			<div className="flex justify-between">
+				<div className="flex space-x-2">
+					{props.fieldConfig.leftAddon}
+					{FormItemLabel}
+				</div>
+				{props.fieldConfig.rightAddon}
+			</div>
 			{FormItemControl}
 			{FormItemHelperText}
 		</div>

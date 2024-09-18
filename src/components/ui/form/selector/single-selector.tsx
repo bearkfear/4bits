@@ -83,6 +83,7 @@ export function SingleSelector<O extends TOption, VP extends FieldPath<O>>(
 				)}
 				style={style}
 				ref={(ref) => setWidth(ref?.getBoundingClientRect().width || 1)}
+				disabled={props.disabled}
 			>
 				<span>
 					{selectedOption ? getLabel(selectedOption) : props.placeholder}

@@ -92,6 +92,7 @@ export function MultiSelector<O extends TOption, VP extends FieldPath<O>>(
 				)}
 				style={style}
 				ref={(ref) => setWidth(ref?.getBoundingClientRect().width || 1)}
+				disabled={props.disabled}
 			>
 				{selectedOptions.length > 0 ? (
 					<div className="flex gap-2 overflow-x-auto">

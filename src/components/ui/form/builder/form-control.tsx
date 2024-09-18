@@ -150,7 +150,7 @@ export function FormControl<
 				placeholder={props.fieldConfig.placeholder}
 				searchable={props.fieldConfig.searchable}
 				messages={{
-					empty: "Nenhuma opcao disponível",
+					empty: "Nenhuma opção disponível",
 					searchPlaceholder: "Pesquisar por um item",
 				}}
 				className={props.fieldConfig.className}
@@ -172,7 +172,7 @@ export function FormControl<
 				placeholder={props.fieldConfig.placeholder}
 				searchable={props.fieldConfig.searchable}
 				messages={{
-					empty: "Nenhuma opcao disponível",
+					empty: "Nenhuma opção disponível",
 					searchPlaceholder: "Pesquisar por um item",
 				}}
 				className={props.fieldConfig.className}
@@ -222,6 +222,7 @@ export function FormControl<
 						options.find((option) => `${option.value}` === newValue)?.value,
 					)
 				}
+				disabled={disabled}
 			>
 				{options.map((option) => {
 					const id = `radio-${props.fieldConfig.name}-option${option.value}`;
@@ -281,6 +282,7 @@ export function FormControl<
 								)}
 								value={option.value}
 								onChange={() => handleChangeValue(option.value)}
+								disabled={disabled}
 							/>
 							<Label htmlFor={id} className="font-medium">
 								{option.label}
