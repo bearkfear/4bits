@@ -72,7 +72,7 @@ export function SingleSelector<O extends TOption, VP extends FieldPath<O>>(
 	);
 
 	return (
-		<Popover.Root>
+		<Popover.Root modal>
 			<Popover.Trigger
 				role="combobox"
 				className={cn(

@@ -2,7 +2,7 @@
 
 import get from "lodash.get";
 import isEqual from "lodash.isequal";
-import { CheckSquare2, ChevronsUpDown, Square } from "lucide-react";
+import { CheckSquare2, ChevronsUpDown, Square, X } from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
 import type { FieldPath } from "react-hook-form";
 import { cn } from "../../../../lib/utils";
@@ -81,23 +81,39 @@ export function MultiSelector<O extends TOption, VP extends FieldPath<O>>(
 	);
 
 	return (
-		<Popover.Root>
+		<Popover.Root modal>
 			<Popover.Trigger
 				role="combobox"
 				className={cn(
 					inputVariants(),
-					"justify-between",
+					"justify-between z-20 overflow-hidden",
 					selectedOptions.length === 0 && "text-gray-11 dark:text-graydark-11",
 					className,
 				)}
 				style={style}
 				ref={(ref) => setWidth(ref?.getBoundingClientRect().width || 1)}
 			>
-				<span>
-					{selectedOptions.length > 0
-						? selectedOptions.map((option) => getLabel(option)).join(", ")
-						: props.placeholder}
-				</span>
+				{selectedOptions.length > 0 ? (
+					<div className="flex gap-2 overflow-x-auto">
+						{selectedOptions.map((option) => (
+							<div
+								key={getValue(option)}
+								className="bg-gray-5 rounded flex items-center border dark:border-white"
+							>
+								<span className="text-nowrap px-2">{getLabel(option)}</span>
+								{/* <button
+									type="button"
+									className="flex items-center border-l dark:border-white"
+									onClick={() => onSelect(option)}
+								>
+									<X className="h-4 w-4" />
+								</button> */}
+							</div>
+						))}
+					</div>
+				) : (
+					<span>{props.placeholder}</span>
+				)}
 				<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 			</Popover.Trigger>
 			<SelectorContent
