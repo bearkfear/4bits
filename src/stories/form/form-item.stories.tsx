@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useForm } from "react-hook-form";
-import { Button, FormBuilder, Loader } from "../../index";
+import { Button, FormBuilder } from "../../index";
 import {
 	CEP_MASK,
 	CNPJ_MASK,
