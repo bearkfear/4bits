@@ -1,9 +1,9 @@
-import { type ChangeEvent, useCallback } from "react";
+import { type ChangeEvent, type RefObject, useCallback } from "react";
 import masker from "../../lib/mask/masker";
 import defaultTokens from "../../lib/mask/tokens";
 
 export function useMasker(
-	el: HTMLInputElement | null,
+	el: RefObject<HTMLInputElement>,
 	masks: string[],
 	onChange: (newValue: string) => void,
 	tokens = defaultTokens,
@@ -15,14 +15,14 @@ export function useMasker(
 				return;
 			}
 
-			if (el === null) return;
+			if (el.current === null) return;
 
-			if (el.selectionEnd !== null) {
+			if (el.current.selectionEnd !== null) {
 				// by default, keep cursor at same position as before the mask
-				let position = el.selectionEnd;
+				let position = el.current.selectionEnd;
 
 				// save the character just inserted
-				const digit = el.value[position - 1];
+				const digit = el.current.value[position - 1];
 				const newValue = masker(event.target.value, masks, tokens, true);
 
 				onChange(newValue);
@@ -33,8 +33,8 @@ export function useMasker(
 				) {
 					position++;
 				}
-				if (el === document.activeElement) {
-					el.setSelectionRange(position, position);
+				if (el.current === document.activeElement) {
+					el.current.setSelectionRange(position, position);
 				}
 			}
 		},

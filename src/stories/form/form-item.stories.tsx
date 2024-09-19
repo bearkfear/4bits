@@ -48,6 +48,42 @@ export const Text = () => {
 	);
 };
 
+export const TextMask = () => {
+	const form = useForm({
+		defaultValues: {
+			mask: "",
+		},
+	});
+
+	return (
+		<form onSubmit={form.handleSubmit(() => {})}>
+			<FormBuilder.Root>
+				<FormBuilder.FormFields
+					control={form.control}
+					fields={[
+						{
+							name: "mask",
+							type: "text",
+							label: "Máscara",
+							size: 12,
+							helperText: "helper text",
+							placeholder: "placeholder text",
+							required: true,
+							masks: "S9999-A",
+							tokens: {
+								9: { pattern: /\d/ },
+								A: { pattern: /[0-9a-zA-Z]/ },
+								S: { pattern: /[a-zA-Z]/ },
+							},
+						},
+					]}
+				/>
+			</FormBuilder.Root>
+			<Button type="submit">Submeter</Button>
+		</form>
+	);
+};
+
 export const Color = () => {
 	const form = useForm({
 		defaultValues: {

@@ -51,6 +51,7 @@ export function FormControl<
 				placeholder={props.fieldConfig.placeholder}
 				disabled={disabled}
 				masks={masks}
+				tokens={props.fieldConfig.tokens}
 				aria-label={props.fieldConfig.label}
 				aria-description={props.fieldConfig.helperText}
 				id={props.field.name}
