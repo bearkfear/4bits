@@ -1,8 +1,8 @@
+import { cva } from "class-variance-authority";
 import * as React from "react";
 import { type DropzoneOptions, useDropzone } from "react-dropzone";
 import { cn } from "../../../lib/utils";
 import { inputVariants } from "./input";
-import { cva } from "class-variance-authority";
 
 const inputFileVariants = cva(inputVariants(), {
 	variants: {

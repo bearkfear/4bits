@@ -7,11 +7,11 @@ import * as React from "react";
 import { cn } from "../../lib/utils";
 
 import {
-	Root,
-	Trigger,
 	Group,
-	Sub,
 	Portal,
+	Root,
+	Sub,
+	Trigger,
 } from "@radix-ui/react-dropdown-menu";
 
 const SubTrigger = React.forwardRef<

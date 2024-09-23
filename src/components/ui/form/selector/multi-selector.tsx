@@ -2,9 +2,11 @@
 
 import get from "lodash.get";
 import isEqual from "lodash.isequal";
-import { CheckSquare2, ChevronsUpDown, Square, X } from "lucide-react";
-import { useCallback, useMemo, useState } from "react";
+import { CheckSquare2, ChevronsUpDown, Square } from "lucide-react";
+import { forwardRef, useCallback, useMemo, useState } from "react";
 import type { FieldPath } from "react-hook-form";
+import { LuX } from "react-icons/lu";
+import { mergeRefs } from "react-merge-refs";
 import { cn } from "../../../../lib/utils";
 import { Popover } from "../../popover";
 import { inputVariants } from "../input";
@@ -25,7 +27,7 @@ export type MultiSelectorProps<
 	onChange?(value?: TV[]): void;
 };
 
-export function MultiSelector<O extends TOption, VP extends FieldPath<O>>(
+function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 	{
 		extraActions,
 		onChange = () => {},
@@ -34,7 +36,6 @@ export function MultiSelector<O extends TOption, VP extends FieldPath<O>>(
 		style,
 		...props
 	}: MultiSelectorProps<O, VP>,
-	// TODO: verificar onde por esse ref dentro do button
 	ref: React.ForwardedRef<HTMLButtonElement>,
 ) {
 	const [width, setWidth] = useState(1);
@@ -80,38 +81,46 @@ export function MultiSelector<O extends TOption, VP extends FieldPath<O>>(
 		[onChange, props.valuePath, value],
 	);
 
+	function onUpdateWidthBasedOnElement(el: HTMLButtonElement | null) {
+		if (!el) return;
+		setWidth(el.getBoundingClientRect().width);
+	}
+
 	return (
 		<Popover.Root modal>
 			<Popover.Trigger
 				role="combobox"
 				className={cn(
 					inputVariants(),
-					"justify-between z-20 overflow-hidden",
+					"justify-between items-center z-20 overflow-hidden",
 					selectedOptions.length === 0 && "text-gray-11 dark:text-graydark-11",
 					className,
 				)}
 				style={style}
-				ref={(ref) => setWidth(ref?.getBoundingClientRect().width || 1)}
+				ref={mergeRefs([ref, onUpdateWidthBasedOnElement])}
 				disabled={props.disabled}
 			>
 				{selectedOptions.length > 0 ? (
-					<div className="flex gap-2 overflow-x-auto">
+					<ul className="flex gap-1">
 						{selectedOptions.map((option) => (
-							<div
+							<li
 								key={getValue(option)}
-								className="bg-gray-5 rounded flex items-center border dark:border-white"
+								className="rounded bg-gray-3 border divide-x divide-gray-7 border-gray-7 text-xs flex items-center"
 							>
 								<span className="text-nowrap px-2">{getLabel(option)}</span>
-								{/* <button
-									type="button"
-									className="flex items-center border-l dark:border-white"
-									onClick={() => onSelect(option)}
+								{/* biome-ignore lint/a11y/useKeyWithClickEvents: just click a span, to not have a button inside of a button */}
+								<span
+									className="px-px"
+									onClick={(e) => {
+										onSelect(option);
+										e.stopPropagation();
+									}}
 								>
-									<X className="h-4 w-4" />
-								</button> */}
-							</div>
+									<LuX className="text-gray-11" size={13} />
+								</span>
+							</li>
 						))}
-					</div>
+					</ul>
 				) : (
 					<span>{props.placeholder}</span>
 				)}
@@ -134,3 +143,5 @@ export function MultiSelector<O extends TOption, VP extends FieldPath<O>>(
 		</Popover.Root>
 	);
 }
+
+export const MultiSelector = forwardRef(MultiSelectorInner);

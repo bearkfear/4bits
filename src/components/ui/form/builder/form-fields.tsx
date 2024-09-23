@@ -1,8 +1,8 @@
 import { FormFields as FF, type FormConfig } from "@continha/formbuilder";
 import type { PropsWithChildren } from "react";
 import type { FieldPath, FieldValues } from "react-hook-form";
-import { FormAnatomy } from "./form-anatomy";
 import { cn } from "../../../../lib/utils";
+import { FormAnatomy } from "./form-anatomy";
 
 function FormFields<
 	TFieldValues extends FieldValues = FieldValues,

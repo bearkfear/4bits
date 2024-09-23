@@ -1,10 +1,10 @@
 "use client";
 
+import { format, parse } from "date-fns";
 import * as React from "react";
+import { useEffect, useState } from "react";
 import { cn } from "../../../lib/utils";
 import { inputVariants } from "./input";
-import { format, parse } from "date-fns";
-import { useEffect, useState } from "react";
 
 export interface InputDateProps
 	extends Omit<

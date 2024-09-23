@@ -1,9 +1,6 @@
 {
 	"compilerOptions": {
-		"lib": [
-			"dom",
-			"esnext"
-		],
+		"lib": ["dom", "esnext"],
 		"allowJs": true,
 		"skipLibCheck": true,
 		"strict": true,
@@ -18,14 +15,8 @@
 		"downlevelIteration": true,
 		"jsx": "react-jsx",
 		"allowSyntheticDefaultImports": true,
-		"baseUrl": ".",
+		"baseUrl": "."
 	},
-	"include": [
-		"**/*.ts",
-		"**/*.tsx",
-		"**/*.stories.tsx"
-	],
-	"exclude": [
-		"node_modules"
-	]
+	"include": ["**/*.ts", "**/*.tsx", "**/*.stories.tsx"],
+	"exclude": ["node_modules"]
 }

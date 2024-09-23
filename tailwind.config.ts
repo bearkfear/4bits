@@ -1,5 +1,5 @@
-import { tailwindcssPreset } from "./src/tailwindcss-preset";
 import type { Config } from "tailwindcss";
+import { tailwindcssPreset } from "./src/tailwindcss-preset";
 
 export default {
 	darkMode: "class",
