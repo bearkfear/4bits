@@ -2,13 +2,13 @@ import { useSortable, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import { CSS, type Transform } from "@dnd-kit/utilities";
 import { useMemo } from "react";
 import type { BodyProps } from ".";
+import { cn } from "../../../../lib/utils";
 import { Table } from "../../table";
 import type { Columns, Row } from "../types";
 import { DragItem, SortableItemContext } from "./drag-item";
 import { RowCellActions } from "./row-cell-actions";
 import { RowCellSelectable } from "./row-cell-selectable";
 import { RowCells } from "./row-cells";
-import { cn } from "../../../../lib/utils";
 
 export function RowDraggable<C extends Columns>({
 	columns,

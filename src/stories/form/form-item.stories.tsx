@@ -292,7 +292,7 @@ export const SingleSelector = () => {
 export const MultiSelector = () => {
 	const form = useForm({
 		defaultValues: {
-			person: "",
+			persons: [1, 2, 3, 4, 5],
 		},
 	});
 
@@ -302,7 +302,7 @@ export const MultiSelector = () => {
 				control={form.control}
 				fields={[
 					{
-						name: "person",
+						name: "persons",
 						type: "multi-select",
 						label: "Person",
 						size: 12,

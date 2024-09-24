@@ -1,9 +1,9 @@
 import { Fragment, type ReactNode } from "react";
 import { LuMoreHorizontal } from "react-icons/lu";
-import type { Action, Columns, Row } from "../types";
-import { Dropdown } from "../../dropdown";
-import { Button } from "../../button";
 import { cn } from "../../../../lib/utils";
+import { Button } from "../../button";
+import { Dropdown } from "../../dropdown";
+import type { Action, Columns, Row } from "../types";
 
 type ActionsProps<C extends Columns> = {
 	actions: Action<C>[];

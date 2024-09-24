@@ -3,8 +3,9 @@
 import get from "lodash.get";
 import isEqual from "lodash.isequal";
 import { Check, ChevronsUpDown } from "lucide-react";
-import { useCallback, useMemo, useState } from "react";
+import { forwardRef, useCallback, useMemo, useState } from "react";
 import type { FieldPath } from "react-hook-form";
+import { mergeRefs } from "react-merge-refs";
 import { cn } from "../../../../lib/utils";
 import { Popover } from "../../popover";
 import { inputVariants } from "../input";
@@ -25,7 +26,7 @@ export type SingleSelectorProps<
 	onChange?(value?: TV): void;
 };
 
-export function SingleSelector<O extends TOption, VP extends FieldPath<O>>(
+function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 	{
 		extraActions,
 		onChange = () => {},
@@ -34,7 +35,6 @@ export function SingleSelector<O extends TOption, VP extends FieldPath<O>>(
 		style,
 		...props
 	}: SingleSelectorProps<O, VP>,
-	// TODO: verificar onde por esse ref dentro do button
 	ref: React.ForwardedRef<HTMLButtonElement>,
 ) {
 	const [width, setWidth] = useState(1);
@@ -71,6 +71,11 @@ export function SingleSelector<O extends TOption, VP extends FieldPath<O>>(
 		[value, getValue],
 	);
 
+	function onUpdateWidthBasedOnElement(el: HTMLButtonElement | null) {
+		if (!el) return;
+		setWidth(el.getBoundingClientRect().width);
+	}
+
 	return (
 		<Popover.Root modal>
 			<Popover.Trigger
@@ -82,8 +87,8 @@ export function SingleSelector<O extends TOption, VP extends FieldPath<O>>(
 					className,
 				)}
 				style={style}
-				ref={(ref) => setWidth(ref?.getBoundingClientRect().width || 1)}
 				disabled={props.disabled}
+				ref={mergeRefs([ref, onUpdateWidthBasedOnElement])}
 			>
 				<span>
 					{selectedOption ? getLabel(selectedOption) : props.placeholder}
@@ -107,3 +112,5 @@ export function SingleSelector<O extends TOption, VP extends FieldPath<O>>(
 		</Popover.Root>
 	);
 }
+
+export const SingleSelector = forwardRef(SingleSelectorInner);

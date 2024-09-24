@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, type HTMLProps } from "react";
+import { type HTMLProps, forwardRef } from "react";
 import { cn } from "../../../lib/utils";
 
 const Root = forwardRef<HTMLInputElement, HTMLProps<HTMLDivElement>>(

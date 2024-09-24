@@ -6,7 +6,7 @@ import {
 	type TooltipContentProps,
 } from "@radix-ui/react-tooltip";
 
-import { Trigger, Root, Provider } from "@radix-ui/react-tooltip";
+import { Provider, Root, Trigger } from "@radix-ui/react-tooltip";
 
 function Content({ children, ...props }: TooltipContentProps) {
 	return (

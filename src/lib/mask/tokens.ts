@@ -1,19 +1,19 @@
 export type Tokens = Record<
-  string,
-  {
-    pattern?: RegExp;
-    transform?: (value: string) => string;
-    escape?: boolean;
-  }
+	string,
+	{
+		pattern?: RegExp;
+		transform?: (value: string) => string;
+		escape?: boolean;
+	}
 >;
 
 const tokens: Tokens = {
-  "#": {pattern: /\d/},
-  X: {pattern: /[0-9a-zA-Z]/},
-  S: {pattern: /[a-zA-Z]/},
-  A: {pattern: /[a-zA-Z]/, transform: (v: string) => v.toLocaleUpperCase()},
-  a: {pattern: /[a-zA-Z]/, transform: (v: string) => v.toLocaleLowerCase()},
-  "!": {escape: true},
+	"#": { pattern: /\d/ },
+	X: { pattern: /[0-9a-zA-Z]/ },
+	S: { pattern: /[a-zA-Z]/ },
+	A: { pattern: /[a-zA-Z]/, transform: (v: string) => v.toLocaleUpperCase() },
+	a: { pattern: /[a-zA-Z]/, transform: (v: string) => v.toLocaleLowerCase() },
+	"!": { escape: true },
 };
 
 export default tokens;
