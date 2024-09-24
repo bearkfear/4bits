@@ -4,6 +4,18 @@ import { HelperText } from "../helper-text";
 import { Label } from "../label";
 import type { FieldPath, FieldValues } from "react-hook-form";
 import { FormControl } from "./form-control";
+import { useEffect, useRef } from "react";
+import { useIsMounted } from "usehooks-ts";
+
+function useFirstRender() {
+	const firstRender = useRef(true);
+
+	useEffect(() => {
+		firstRender.current = false;
+	}, []);
+
+	return firstRender.current;
+}
 
 /**
  *
@@ -28,6 +40,21 @@ export function FormAnatomy<
 	TFieldValues extends FieldValues = FieldValues,
 	TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 >(props: FormRenderProps<TFieldValues, TName>) {
+	const isFirstRender = useFirstRender();
+	const isMounted = useIsMounted();
+
+	useEffect(() => {
+		if (props.onChangeField && isMounted() && !isFirstRender) {
+			props.onChangeField(props.fieldConfig.name, props.field.value);
+		}
+	}, [
+		props.field.value,
+		props.fieldConfig.name,
+		isFirstRender,
+		isMounted,
+		props.onChangeField,
+	]);
+
 	const FormItemLabel = (
 		<Label
 			required={props.fieldConfig.required}
