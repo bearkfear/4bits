@@ -12,11 +12,7 @@ export function ColumnItem<C extends Columns>({
 	sortable,
 }: ColumnDefaultProps<C>) {
 	return (
-		<Table.Head
-			key={column.id}
-			style={column.width ? { width: `${column.width}%` } : {}}
-			className={column.className}
-		>
+		<Table.Head key={column.id} className={column.className}>
 			<div className={cn("flex space-x-1 items-center", column.className)}>
 				<div className="text-xs">{column.title}</div>
 				{sortable?.cols.includes(column.id) && (

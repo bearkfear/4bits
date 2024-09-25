@@ -82,11 +82,13 @@ export function TableBuilder<C extends Columns>(props: TableBuilderProps<C>) {
 						rowsChecked={rowsChecked}
 						colsQuantity={colsQuantity}
 					/>
-					<Footer
-						{...props}
-						colsQuantity={colsQuantity}
-						rowsChecked={rowsChecked}
-					/>
+					{!props.hideFooter && (
+						<Footer
+							{...props}
+							colsQuantity={colsQuantity}
+							rowsChecked={rowsChecked}
+						/>
+					)}
 				</Table.Root>
 			</DndContext>
 		</div>

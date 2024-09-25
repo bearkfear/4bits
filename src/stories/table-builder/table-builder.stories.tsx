@@ -14,12 +14,11 @@ export default meta;
 export const Basic = () => {
 	return (
 		<TableBuilder
-			title={<span className="text-gray-11 py-1">Table basic</span>}
 			columns={
 				[
 					{ id: "name", title: "Name" },
 					{ id: "age", title: "Age" },
-					{ id: "sex", title: "Sex", className: "flex justify-end" },
+					{ id: "sex", title: "Sex", className: "justify-end" },
 				] as const
 			}
 			rows={[
@@ -28,7 +27,7 @@ export const Basic = () => {
 					name: "John Doe",
 					age: 30,
 					sex: "Man",
-					classNameRow: "bg-red-3",
+					classNameRow: "bg-red-3 dark:bg-reddark-3",
 					classNameCell: { sex: "flex items-center justify-center" },
 				},
 				{ key: 2, name: "Jane Doe", age: 20, sex: "Woman" },
@@ -47,6 +46,7 @@ export const Basic = () => {
 					alert(`Sort by: ${params.sortBy}, ${params.sortDirection}`);
 				},
 			}}
+			hideFooter
 		/>
 	);
 };

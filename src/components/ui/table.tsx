@@ -5,7 +5,7 @@ const Root = React.forwardRef<
 	HTMLTableElement,
 	React.HTMLAttributes<HTMLTableElement>
 >(({ className, ...props }, ref) => (
-	<div className="relative w-full border rounded border-gray-5 dark:border-graydark-5 overflow-auto">
+	<div className="relative w-full rounded overflow-auto">
 		<table
 			ref={ref}
 			className={cn("w-full caption-bottom text-xs", className)}
@@ -19,11 +19,7 @@ const Header = React.forwardRef<
 	HTMLTableSectionElement,
 	React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-	<thead
-		ref={ref}
-		className={cn("bg-gray-3 dark:bg-graydark-3", className)}
-		{...props}
-	/>
+	<thead ref={ref} className={cn("dark:bg-graydark-3", className)} {...props} />
 ));
 Header.displayName = "Header";
 
@@ -42,7 +38,7 @@ const Footer = React.forwardRef<
 	<tfoot
 		ref={ref}
 		className={cn(
-			"border-t border-gray-4 dark:border-graydark-5 dark:bg-graydark-3 bg-gray-3",
+			"border-t border-gray-4 dark:border-graydark-5 dark:bg-graydark-3",
 			className,
 		)}
 		{...props}
@@ -72,7 +68,7 @@ const Head = React.forwardRef<
 	<th
 		ref={ref}
 		className={cn(
-			"h-8 px-4 text-left align-middle border-b text-gray-12 dark:text-graydark-12 border-r dark:border-graydark-4 border-gray-4 last:border-r-0",
+			"h-8 px-4 text-left align-middle border-b text-gray-12 dark:text-graydark-12 dark:border-graydark-4 border-gray-4",
 			className,
 		)}
 		{...props}
@@ -87,7 +83,7 @@ const Cell = React.forwardRef<
 	<td
 		ref={ref}
 		className={cn(
-			"px-4 py-1 align-middle h-12 border-r last:border-r-0 dark:border-graydark-4 dark:text-graydark-11 text-gray-11 border-gray-4",
+			"px-4 py-1 align-middle h-12 dark:border-graydark-4 dark:text-graydark-11 text-gray-11 border-gray-4",
 			className,
 		)}
 		{...props}

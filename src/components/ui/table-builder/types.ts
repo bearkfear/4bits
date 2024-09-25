@@ -6,7 +6,6 @@ export type Column = {
 	title: string;
 	id: string;
 	className?: string;
-	width?: number;
 };
 
 export type Columns = readonly Column[];
@@ -80,6 +79,7 @@ export type TableBuilderProps<C extends Columns> = ToolbarActions<C> &
 		actions?: Action<C>[];
 		title?: string | ReactNode;
 		classNameCol?: ClassNameCol<C>;
+		hideFooter?: boolean;
 	};
 
 /** action */

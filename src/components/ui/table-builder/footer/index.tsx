@@ -27,7 +27,7 @@ export function Footer<C extends Columns>(props: FooterProps<C>) {
 				) : (
 					<Table.Cell
 						colSpan={colsQuantity}
-						className="py-2 h-min text-gray-12 dark:text-graydark-12"
+						className="py-2 h-min text-gray-12 dark:text-graydark-12 font-semibold"
 					>
 						<span>Total de linhas: {rows.length}</span>
 					</Table.Cell>
