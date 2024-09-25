@@ -7,9 +7,5 @@ interface RowCellsProps {
 }
 
 export function RowCells({ className, rowColData }: RowCellsProps) {
-	return (
-		<Table.Cell className={className}>
-			<div className="flex">{rowColData}</div>
-		</Table.Cell>
-	);
+	return <Table.Cell className={className}>{rowColData}</Table.Cell>;
 }

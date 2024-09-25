@@ -27,7 +27,7 @@ export const Basic = () => {
 					name: "John Doe",
 					age: 30,
 					sex: "Man",
-					classNameRow: "bg-red-3 dark:bg-reddark-3",
+					classNameRow: "bg-red-5 dark:bg-reddark-3",
 					classNameCell: { sex: "flex items-center justify-center" },
 				},
 				{ key: 2, name: "Jane Doe", age: 20, sex: "Woman" },

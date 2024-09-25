@@ -13,7 +13,7 @@ export function ColumnItem<C extends Columns>({
 }: ColumnDefaultProps<C>) {
 	return (
 		<Table.Head key={column.id} className={column.className}>
-			<div className={cn("flex space-x-1 items-center", column.className)}>
+			<div className="flex space-x-1 items-center">
 				<div className="text-xs">{column.title}</div>
 				{sortable?.cols.includes(column.id) && (
 					<ButtonSort
