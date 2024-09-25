@@ -17,7 +17,7 @@ export { Tabs } from "./components/ui/tabs";
 export { Card } from "./components/ui/card";
 export { Table } from "./components/ui/table";
 export { TableBuilder } from "./components/ui/table-builder";
-export type { TableBuilderProps } from "./components/ui/table-builder";
+export type { TableBuilderProps } from "./components/ui/table-builder/types";
 export { Pagination } from "./components/ui/pagination";
 
 // export forms
