@@ -15,6 +15,7 @@ export function ColumnItem<C extends Columns>({
 		<Table.Head
 			key={column.id}
 			style={column.width ? { width: `${column.width}%` } : {}}
+			className={column.className}
 		>
 			<div className={cn("flex space-x-1 items-center", column.className)}>
 				<div className="text-xs">{column.title}</div>

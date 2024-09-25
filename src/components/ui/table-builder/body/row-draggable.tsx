@@ -16,6 +16,7 @@ export function RowDraggable<C extends Columns>({
 	row,
 	selectable,
 	rowIsChecked,
+	classNameCol,
 	checkRow,
 	draggable,
 }: { row: Row<C>; rowIsChecked: boolean } & BodyProps<C>) {
@@ -75,7 +76,20 @@ export function RowDraggable<C extends Columns>({
 
 				{columns.map((col) => {
 					const rowColData = row[col.id as keyof typeof row];
-					return <RowCells key={`row-${col.id}`} rowColData={rowColData} />;
+					const rowClassNameCol = classNameCol?.[col.id as keyof typeof row];
+					const rowClassNameCell =
+						row.classNameCell?.[col.id as keyof typeof row];
+					return (
+						<RowCells
+							key={`row-${col.id}`}
+							className={cn(
+								rowClassNameCol,
+								row.classNameRow,
+								rowClassNameCell,
+							)}
+							rowColData={rowColData}
+						/>
+					);
 				})}
 
 				{actions && actions.length > 0 && (

@@ -2,6 +2,7 @@ import type { Meta } from "@storybook/react";
 import { useState } from "react";
 import { LuFileEdit, LuTrash } from "react-icons/lu";
 import { Button, TableBuilder } from "../../index";
+import { ClassNameCol } from "../../components/ui/table-builder/types";
 
 const meta = {
 	title: "Table-builder/Table",
@@ -18,16 +19,26 @@ export const Basic = () => {
 				[
 					{ id: "name", title: "Name" },
 					{ id: "age", title: "Age" },
-					{ id: "sex", title: "Sex" },
+					{ id: "sex", title: "Sex", className: "flex justify-end" },
 				] as const
 			}
 			rows={[
-				{ key: 1, name: "John Doe", age: 30, sex: "Man" },
+				{
+					key: 1,
+					name: "John Doe",
+					age: 30,
+					sex: "Man",
+					classNameRow: "bg-red-3",
+					classNameCell: { sex: "flex items-center justify-center" },
+				},
 				{ key: 2, name: "Jane Doe", age: 20, sex: "Woman" },
 				{ key: 3, name: "Alice Smith", age: 25, sex: "Woman" },
 				{ key: 4, name: "Bob Johnson", age: 40, sex: "Man" },
 				{ key: 5, name: "Charlie Brown", age: 35, sex: "Man" },
 			]}
+			classNameCol={{
+				sex: "flex items-center justify-end",
+			}}
 			sortable={{
 				sortBy: "name",
 				sortDirection: "ASC",

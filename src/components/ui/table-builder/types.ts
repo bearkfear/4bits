@@ -16,9 +16,15 @@ export type Row<C extends Columns> = {
 	[K in C[number]["id"]]: string | number | ReactNode;
 } & {
 	key: string | number;
+	classNameRow?: string;
+	classNameCell?: { [K in C[number]["id"]]?: string };
 };
 
 export type Rows<C extends Columns> = Row<C>[];
+
+export type ClassNameCol<C extends Columns> = {
+	[K in C[number]["id"]]?: string;
+};
 
 /** sortable */
 type ColumnTitles<C extends Columns> = C[number]["id"];
@@ -73,6 +79,7 @@ export type TableBuilderProps<C extends Columns> = ToolbarActions<C> &
 		rows: Rows<C>;
 		actions?: Action<C>[];
 		title?: string | ReactNode;
+		classNameCol?: ClassNameCol<C>;
 	};
 
 /** action */

@@ -1,33 +1,14 @@
 "use client";
 
 import { DndContext, type DragEndEvent } from "@dnd-kit/core";
-import { type ReactNode, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Table } from "../table";
 import { Body } from "./body";
 import { Footer } from "./footer";
 import { Header } from "./header";
 import { ToolBar } from "./toolbar";
-import type {
-	Action,
-	Columns,
-	DraggableType,
-	Row,
-	Rows,
-	SelectorRows,
-	SortableType,
-	ToolbarActions,
-} from "./types";
+import type { Columns, Row, Rows, TableBuilderProps } from "./types";
 import { reOrderList } from "./utils/functions";
-
-export type TableBuilderProps<C extends Columns> = ToolbarActions<C> &
-	SortableType<C> &
-	SelectorRows<C> &
-	DraggableType<C> & {
-		columns: C;
-		rows: Rows<C>;
-		actions?: Action<C>[];
-		title?: string | ReactNode;
-	};
 
 export function TableBuilder<C extends Columns>(props: TableBuilderProps<C>) {
 	const [rowsChecked, setRowsChecked] = useState<Rows<C>>([]);
