@@ -18,7 +18,7 @@ export const Basic = () => {
 				[
 					{ id: "name", title: "Name" },
 					{ id: "age", title: "Age" },
-					{ id: "sex", title: "Sex", className: "justify-end" },
+					{ id: "sex", title: "Sex", position: "end" },
 				] as const
 			}
 			rows={[

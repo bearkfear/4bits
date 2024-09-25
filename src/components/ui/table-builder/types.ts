@@ -6,6 +6,7 @@ export type Column = {
 	title: string;
 	id: string;
 	className?: string;
+	position?: "start" | "center" | "end";
 };
 
 export type Columns = readonly Column[];
