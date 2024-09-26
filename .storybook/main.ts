@@ -10,7 +10,7 @@ const config: StorybookConfig = {
 		"storybook-version",
 	],
 	framework: {
-		name: "@storybook/nextjs",
+		name: "storybook-react-rsbuild",
 		options: {},
 	},
 };

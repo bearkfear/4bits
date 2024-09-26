@@ -13,6 +13,7 @@ export const DateOnBuilder = () => {
 	const form = useForm({
 		values: {
 			date: null,
+			date2: null,
 		},
 	});
 
@@ -27,10 +28,10 @@ export const DateOnBuilder = () => {
 					control={form.control}
 					fields={[
 						{
-							name: "date",
+							name: "date2",
 							type: "date",
 							label: "Date",
-							required: true,
+							required: false,
 							size: 6,
 						},
 					]}

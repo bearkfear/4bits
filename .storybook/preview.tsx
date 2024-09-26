@@ -1,9 +1,12 @@
 import type { Preview } from "@storybook/react";
 import "../src/styles/globals.css";
 import { gray, grayDark } from "@radix-ui/colors";
-import { Inter } from "next/font/google";
 // @ts-ignore
 import { version } from "../package.json";
+
+const interFont = {
+	variable: "--font-sans",
+};
 
 function getModuleVersion(version: string) {
 	const [major, minor, patch] = version.split(".");
@@ -21,11 +24,6 @@ const backgrounds = {
 		value: gray.gray1,
 	},
 };
-
-const interFont = Inter({
-	subsets: ["latin"],
-	variable: "--font-sans",
-});
 
 const preview: Preview = {
 	decorators: [
