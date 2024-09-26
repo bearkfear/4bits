@@ -19,6 +19,12 @@ export function FormControl<
 >(props: FormRenderProps<TFieldValues, TName>) {
 	const disabled = props.field.disabled || props.fieldConfig.disabled;
 
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	function handleOnChange(newValue: any) {
+		props.field.onChange(newValue);
+		props.onChangeField?.(props.fieldConfig.name, newValue);
+	}
+
 	if (props.fieldConfig.type === "file") {
 		return (
 			<InputFile
@@ -31,6 +37,7 @@ export function FormControl<
 				id={props.fieldConfig.name}
 				className={props.fieldConfig.className}
 				style={props.fieldConfig.style}
+				onChange={handleOnChange}
 			/>
 		);
 	}
@@ -58,6 +65,7 @@ export function FormControl<
 				required={props.fieldConfig.required}
 				className={props.fieldConfig.className}
 				style={props.fieldConfig.style}
+				onChange={handleOnChange}
 			/>
 		);
 	}
@@ -75,6 +83,7 @@ export function FormControl<
 				required={props.fieldConfig.required}
 				className={props.fieldConfig.className}
 				style={props.fieldConfig.style}
+				onChange={handleOnChange}
 			/>
 		);
 	}
@@ -92,6 +101,7 @@ export function FormControl<
 				required={props.fieldConfig.required}
 				className={props.fieldConfig.className}
 				style={props.fieldConfig.style}
+				onChange={handleOnChange}
 			/>
 		);
 	}
@@ -118,6 +128,7 @@ export function FormControl<
 				required={props.fieldConfig.required}
 				className={props.fieldConfig.className}
 				style={props.fieldConfig.style}
+				onChange={handleOnChange}
 			/>
 		);
 	}
@@ -134,6 +145,9 @@ export function FormControl<
 				required={props.fieldConfig.required}
 				className={props.fieldConfig.className}
 				style={props.fieldConfig.style}
+				onChange={(event) => {
+					handleOnChange(event.target.value);
+				}}
 			/>
 		);
 	}
@@ -143,7 +157,7 @@ export function FormControl<
 			<SingleSelector
 				options={props.fieldConfig.options || []}
 				value={props.field.value}
-				onChange={props.field.onChange}
+				onChange={handleOnChange}
 				onBlur={props.field.onBlur}
 				disabled={disabled}
 				labelPath="label"
@@ -165,7 +179,7 @@ export function FormControl<
 			<MultiSelector
 				options={props.fieldConfig.options || []}
 				value={props.field.value}
-				onChange={props.field.onChange}
+				onChange={handleOnChange}
 				onBlur={props.field.onBlur}
 				disabled={disabled}
 				labelPath="label"
@@ -193,6 +207,9 @@ export function FormControl<
 				disabled={disabled}
 				className={props.fieldConfig.className}
 				style={props.fieldConfig.style}
+				onChange={(event) => {
+					handleOnChange(event.currentTarget.checked);
+				}}
 			/>
 		);
 	}
@@ -204,7 +221,7 @@ export function FormControl<
 				id={props.field.name}
 				disabled={disabled}
 				checked={props.field.value}
-				onCheckedChange={props.field.onChange}
+				onCheckedChange={handleOnChange}
 				className={props.fieldConfig.className}
 				style={props.fieldConfig.style}
 			/>
@@ -218,11 +235,11 @@ export function FormControl<
 			<Radio.Group
 				{...props.field}
 				value={`${props.field.value}`}
-				onValueChange={(newValue) =>
-					props.field.onChange(
+				onValueChange={(newValue) => {
+					handleOnChange(
 						options.find((option) => `${option.value}` === newValue)?.value,
-					)
-				}
+					);
+				}}
 				disabled={disabled}
 			>
 				{options.map((option) => {
@@ -252,7 +269,7 @@ export function FormControl<
 
 		function handleChangeValue(newValue: string | number) {
 			if (props.field.value.includes(newValue)) {
-				props.field.onChange(
+				handleOnChange(
 					props.field.value.filter(
 						(element: string | number) => element !== newValue,
 					),
@@ -260,7 +277,7 @@ export function FormControl<
 				return;
 			}
 
-			props.field.onChange([...props.field.value, newValue]);
+			handleOnChange([...props.field.value, newValue]);
 		}
 
 		return (
@@ -307,6 +324,7 @@ export function FormControl<
 				required={props.fieldConfig.required}
 				className={props.fieldConfig.className}
 				style={props.fieldConfig.style}
+				onChange={handleOnChange}
 			/>
 		);
 	}
