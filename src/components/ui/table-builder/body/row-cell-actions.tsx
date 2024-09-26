@@ -12,7 +12,7 @@ export function RowCellActions<C extends Columns>({
 	row,
 }: RowCellActionsProps<C>) {
 	return (
-		<Table.Cell className="w-12 h-12">
+		<Table.Cell>
 			<div className="flex justify-center">
 				<Actions actions={actions} row={row} />
 			</div>

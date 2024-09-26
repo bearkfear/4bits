@@ -20,7 +20,7 @@ export function DragItem() {
 	const { attributes, listeners, ref } = useContext(SortableItemContext);
 
 	return (
-		<Table.Cell {...attributes} {...listeners} ref={ref} className="w-12 h-12">
+		<Table.Cell {...attributes} {...listeners} ref={ref} className="">
 			<div className="flex justify-center">
 				<LuGripVertical size={18} />
 			</div>

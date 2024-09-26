@@ -14,7 +14,7 @@ export function RowCellSelectable<C extends Columns>({
 	rowIsChecked,
 }: RowCellSelectableProps<C>) {
 	return (
-		<Table.Cell className="w-12 h-12">
+		<Table.Cell className="">
 			<label className="flex cursor-pointer w-full h-full">
 				<Checkbox
 					checked={rowIsChecked}
