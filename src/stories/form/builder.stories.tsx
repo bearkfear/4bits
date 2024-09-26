@@ -1,7 +1,6 @@
 import type { Meta } from "@storybook/react";
 import { useForm } from "react-hook-form";
-import { FormBuilder } from "../../index";
-import { Button } from "dist";
+import { FormBuilder, Button } from "../../index";
 
 const meta = {
 	title: "Form/Builder",
