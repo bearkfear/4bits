@@ -132,8 +132,10 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				width={width}
 				message={{
 					...props.messages,
-					optionSelected: <CheckSquare2 className={cn("mr-2 h-4 w-4")} />,
-					optionUnselected: <Square className={cn("mr-2 h-4 w-4")} />,
+					optionSelected: (
+						<CheckSquare2 className={cn("mr-2 h-4 min-w-4 w-4")} />
+					),
+					optionUnselected: <Square className={cn("mr-2 h-4 min-w-4 w-4")} />,
 				}}
 			/>
 		</Popover.Root>

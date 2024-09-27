@@ -30,7 +30,7 @@ export function SelectorContent<Option extends TOption>(
 				)}
 
 				<Command.List>
-					<Command.Empty className="text-xs">
+					<Command.Empty className="text-xs px-2 pt-1.5">
 						{props.message.empty}
 					</Command.Empty>
 					<Command.Group>
@@ -41,13 +41,13 @@ export function SelectorContent<Option extends TOption>(
 								<Command.Item
 									value={optionValue as string}
 									key={optionValue as string}
-									className="text-xs"
+									className="text-xs flex"
 									onSelect={() => props.onSelect(option)}
 								>
 									{props.getIsSelect(option)
 										? props.message.optionSelected
 										: props.message.optionUnselected}
-									{props.getLabel(option)}
+									<span>{props.getLabel(option)}</span>
 								</Command.Item>
 							);
 						})}

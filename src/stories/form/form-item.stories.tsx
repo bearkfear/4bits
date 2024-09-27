@@ -313,7 +313,11 @@ export const MultiSelector = () => {
 						options: [
 							{ label: "Person 1", value: 1 },
 							{ label: "Person 2", value: 2 },
-							{ label: "Person 3", value: 3 },
+							{
+								label:
+									"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis nunc et lectus molestie fringilla. Maecenas justo sem, ullamcorper quis suscipit a, maximus a ipsum. Suspendisse eget aliquet lacus. Donec pulvinar fermentum est efficitur tincidunt. Integer eu elit et neque convallis mollis. Vestibulum nec facilisis mi, in tempus eros. Nam vitae nisi sapien.",
+								value: 3,
+							},
 							{ label: "Person 4", value: 4 },
 						],
 					},
