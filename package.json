@@ -18,6 +18,12 @@
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"type": "module",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js"
+		}
+	},
 	"files": ["dist"],
 	"peerDependencies": {
 		"@continha/formbuilder": "^1.5.13",
