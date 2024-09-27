@@ -61,9 +61,14 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 
 			const optionValue = get(option, props.valuePath);
 
+			if (props.required) {
+				onChange(optionValue);
+				return;
+			}
+
 			onChange(isEqual(optionValue, value) ? undefined : optionValue);
 		},
-		[onChange, props.valuePath, value],
+		[onChange, props.valuePath, props.required, value],
 	);
 
 	const getIsSelected = useCallback(

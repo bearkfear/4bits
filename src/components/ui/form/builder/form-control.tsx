@@ -164,6 +164,7 @@ export function FormControl<
 				valuePath="value"
 				placeholder={props.fieldConfig.placeholder}
 				searchable={props.fieldConfig.searchable}
+				required={props.fieldConfig.required}
 				messages={{
 					empty: "Nenhuma opção disponível",
 					searchPlaceholder: "Pesquisar por um item",
