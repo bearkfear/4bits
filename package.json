@@ -1,6 +1,6 @@
 {
 	"name": "@continha/ui",
-	"version": "1.13.20",
+	"version": "1.13.21",
 	"private": false,
 	"repository": {
 		"type": "git",
@@ -13,7 +13,8 @@
 		"dev": "storybook dev -p 6006",
 		"build": "storybook build",
 		"build:lib": "tsup",
-		"ci:fix": "biome check --fix && biome format --fix && tsc --noEmit"
+		"ci:fix": "biome check --fix && biome format --fix && tsc --noEmit",
+		"format": "biome format --fix"
 	},
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",

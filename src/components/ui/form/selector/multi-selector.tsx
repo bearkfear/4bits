@@ -1,5 +1,3 @@
-"use client";
-
 import get from "lodash.get";
 import isEqual from "lodash.isequal";
 import { CheckSquare2, ChevronsUpDown, Square } from "lucide-react";

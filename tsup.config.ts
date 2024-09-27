@@ -2,13 +2,15 @@ import { defineConfig } from "tsup";
 
 export default defineConfig({
 	// The file we created above that will be the entrypoint to the library.
-	entry: ["src/**/*.ts", "src/**/*.tsx", "!src/stories", "src/styles/*.css"],
-	minify: true,
-	target: "es2018",
+	entry: ["src", "!src/stories"],
+	target: "es2019",
 	external: ["react", "react-dom"],
-	sourcemap: false,
 	dts: true,
 	clean: true,
-	bundle: false,
+	format: ["cjs", "esm"],
+	banner() {
+		return { js: '"use client";' };
+	},
 	tsconfig: "./tsconfig.json",
+	bundle: false,
 });
