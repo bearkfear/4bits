@@ -101,7 +101,7 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 						{selectedOptions.map((option) => (
 							<li
 								key={getValue(option)}
-								className="rounded bg-gray-3 border divide-x divide-gray-7 border-gray-7 text-xs flex items-center"
+								className="rounded bg-gray-3 dark:bg-graydark-3 border divide-x divide-gray-7 dark:divide-graydark-6 border-gray-7 dark:border-graydark-6 text-xs flex items-center"
 							>
 								<span className="text-nowrap px-2">{getLabel(option)}</span>
 								{/* biome-ignore lint/a11y/useKeyWithClickEvents: just click a span, to not have a button inside of a button */}
@@ -112,7 +112,7 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 										e.stopPropagation();
 									}}
 								>
-									<LuX className="text-gray-11" size={13} />
+									<LuX className="text-gray-11  dark:text-gray-8" size={13} />
 								</span>
 							</li>
 						))}
