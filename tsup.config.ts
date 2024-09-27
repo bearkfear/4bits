@@ -12,5 +12,5 @@ export default defineConfig({
 		return { js: '"use client";' };
 	},
 	tsconfig: "./tsconfig.json",
-	bundle: false,
+	bundle: true,
 });
