@@ -36,6 +36,7 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 	ref: React.ForwardedRef<HTMLButtonElement>,
 ) {
 	const [width, setWidth] = useState(1);
+	const [open, setOpen] = useState(false);
 	const getValue = useCallback(
 		(option: O) => {
 			return get(option, props.valuePath);
@@ -55,16 +56,14 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 
 	const onSelect = useCallback(
 		(option: O) => {
-			if (!onChange) return;
-
 			const optionValue = get(option, props.valuePath);
 
-			if (props.required) {
-				onChange(optionValue);
-				return;
-			}
-
-			onChange(isEqual(optionValue, value) ? undefined : optionValue);
+			onChange(
+				isEqual(optionValue, value) && !props.required
+					? undefined
+					: optionValue,
+			);
+			setOpen(false);
 		},
 		[onChange, props.valuePath, props.required, value],
 	);
@@ -80,7 +79,7 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 	}
 
 	return (
-		<Popover.Root modal>
+		<Popover.Root modal open={open} onOpenChange={setOpen}>
 			<Popover.Trigger
 				role="combobox"
 				className={cn(
@@ -92,6 +91,7 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				style={style}
 				disabled={props.disabled}
 				ref={mergeRefs([ref, onUpdateWidthBasedOnElement])}
+				onClick={() => setOpen((oldValue) => !oldValue)}
 			>
 				<span>
 					{selectedOption ? getLabel(selectedOption) : props.placeholder}

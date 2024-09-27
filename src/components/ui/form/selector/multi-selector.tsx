@@ -63,8 +63,6 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 
 	const onSelect = useCallback(
 		(option: O) => {
-			if (!onChange) return;
-
 			const v = value || [];
 
 			const optionValue = get(option, props.valuePath);
