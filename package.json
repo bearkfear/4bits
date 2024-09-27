@@ -1,6 +1,6 @@
 {
 	"name": "@continha/ui",
-	"version": "1.13.21",
+	"version": "1.13.22",
 	"private": false,
 	"repository": {
 		"type": "git",
@@ -17,7 +17,15 @@
 		"format": "biome format --fix"
 	},
 	"main": "dist/index.js",
+	"module": "dist/index.mjs",
 	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js"
+		}
+	},
 	"files": ["dist"],
 	"peerDependencies": {
 		"@continha/formbuilder": "^1.5.13",
