@@ -1,3 +1,4 @@
+"use client";
 import { Loader } from "./loader";
 
 export function PageLoader() {

@@ -1,3 +1,4 @@
+"use client";
 import { LuUnfoldVertical } from "react-icons/lu";
 import { Table } from "../../table";
 

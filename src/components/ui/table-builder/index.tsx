@@ -1,3 +1,4 @@
+"use client";
 import { DndContext, type DragEndEvent } from "@dnd-kit/core";
 import { useEffect, useMemo, useState } from "react";
 import { Table } from "../table";

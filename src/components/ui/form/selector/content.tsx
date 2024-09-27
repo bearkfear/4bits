@@ -1,3 +1,4 @@
+"use client";
 import { Command } from "../../command";
 import { Popover } from "../../popover";
 import type { SelectorCommonProps, SelectorMessages, TOption } from "./model";

@@ -1,3 +1,4 @@
+"use client";
 import { Table } from "../../table";
 import type { Columns, CommonPropsBodyHeader, SortableType } from "../types";
 import { ColumnAction } from "./column-actions";

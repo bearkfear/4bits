@@ -1,3 +1,4 @@
+"use client";
 import { cn } from "../../../../lib/utils";
 import { Table } from "../../table";
 import type { Column, Columns, SortableType } from "../types";

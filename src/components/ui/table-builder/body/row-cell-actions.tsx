@@ -1,3 +1,4 @@
+"use client";
 import { Table } from "../../table";
 import type { Action, Columns, Row } from "../types";
 import { Actions } from "./actions";

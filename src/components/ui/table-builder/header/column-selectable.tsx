@@ -1,3 +1,4 @@
+"use client";
 import { Checkbox } from "../../form/checkbox";
 import { Table } from "../../table";
 

@@ -1,3 +1,4 @@
+"use client";
 import type { FormRenderProps } from "@continha/formbuilder";
 import type { FieldPath, FieldValues } from "react-hook-form";
 import { cn } from "../../../../lib/utils";

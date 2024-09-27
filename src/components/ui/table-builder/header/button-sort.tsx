@@ -1,5 +1,6 @@
+"use client";
 import { LuArrowDownNarrowWide, LuArrowUpNarrowWide } from "react-icons/lu";
-import type { Columns, SortableParams } from "../types";
+import type { SortableParams } from "../types";
 
 type ButtonSortProps = SortableParams & {
 	onSort: (params: SortableParams) => void;
@@ -22,15 +23,12 @@ export function ButtonSort(props: ButtonSortProps) {
 			onClick={() => handleSort(columnId)}
 			className="hover:bg-gray-1 text-gray-11 dark:text-graydark-11 dark:hover:bg-graydark-2 px-2 py-1 rounded"
 		>
-			{sortBy === columnId && (
-				<>
-					{sortDirection === "ASC" ? (
-						<LuArrowUpNarrowWide className="text-blue-9 dark:text-bluedark-9" />
-					) : (
-						<LuArrowDownNarrowWide className="text-blue-9 dark:text-bluedark-9" />
-					)}
-				</>
-			)}
+			{sortBy === columnId &&
+				(sortDirection === "ASC" ? (
+					<LuArrowUpNarrowWide className="text-blue-9 dark:text-bluedark-9" />
+				) : (
+					<LuArrowDownNarrowWide className="text-blue-9 dark:text-bluedark-9" />
+				))}
 
 			{sortBy !== columnId && <LuArrowUpNarrowWide />}
 		</button>

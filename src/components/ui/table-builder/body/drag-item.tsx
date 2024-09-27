@@ -1,3 +1,4 @@
+"use client";
 import type { DraggableSyntheticListeners } from "@dnd-kit/core";
 import { createContext, useContext } from "react";
 import { LuGripVertical } from "react-icons/lu";

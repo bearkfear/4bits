@@ -1,3 +1,4 @@
+"use client";
 import { type HTMLProps, forwardRef } from "react";
 import { cn } from "../../../lib/utils";
 

@@ -1,3 +1,4 @@
+"use client";
 import { FormFields as FF, type FormConfig } from "@continha/formbuilder";
 import type { PropsWithChildren } from "react";
 import type { FieldPath, FieldValues } from "react-hook-form";

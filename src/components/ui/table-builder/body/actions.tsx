@@ -1,3 +1,4 @@
+"use client";
 import { Fragment, type ReactNode } from "react";
 import { LuMoreHorizontal } from "react-icons/lu";
 import { cn } from "../../../../lib/utils";

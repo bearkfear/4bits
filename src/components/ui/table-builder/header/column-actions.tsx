@@ -1,3 +1,4 @@
+"use client";
 import { LuSettings } from "react-icons/lu";
 import { Table } from "../../table";
 

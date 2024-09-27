@@ -1,3 +1,4 @@
+"use client";
 import type { ReactNode } from "react";
 import type { Columns, Rows, SelectorRows, ToolbarActions } from "../types";
 import { Tools } from "./tools";

@@ -8,9 +8,6 @@ export default defineConfig({
 	dts: true,
 	clean: true,
 	format: ["cjs", "esm"],
-	banner() {
-		return { js: '"use client";' };
-	},
 	tsconfig: "./tsconfig.json",
 	bundle: true,
 });

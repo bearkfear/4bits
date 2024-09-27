@@ -1,3 +1,4 @@
+"use client";
 import { Root, type SeparatorProps } from "@radix-ui/react-separator";
 import { cn } from "../../lib/utils";
 

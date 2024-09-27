@@ -1,3 +1,4 @@
+"use client";
 import { Table } from "../../table";
 
 export function RowEmpty({ colsQuantity }: { colsQuantity: number }) {

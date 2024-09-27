@@ -1,3 +1,4 @@
+"use client";
 import { Table } from "../../table";
 import type { Columns, Rows, SelectorRows } from "../types";
 

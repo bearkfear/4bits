@@ -1,3 +1,4 @@
+"use client";
 import debounce from "lodash.debounce";
 import type { ToolbarProps } from ".";
 import { Button } from "../../button";

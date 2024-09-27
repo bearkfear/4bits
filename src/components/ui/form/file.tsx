@@ -1,3 +1,4 @@
+"use client";
 import { cva } from "class-variance-authority";
 import * as React from "react";
 import { type DropzoneOptions, useDropzone } from "react-dropzone";
