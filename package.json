@@ -1,6 +1,6 @@
 {
 	"name": "@continha/ui",
-	"version": "1.13.26",
+	"version": "1.13.27",
 	"private": false,
 	"repository": {
 		"type": "git",
@@ -24,6 +24,10 @@
 			"types": "./dist/index.d.ts",
 			"import": "./dist/index.mjs",
 			"require": "./dist/index.js"
+		},
+		"./dist/styles/globals.css": {
+			"import": "./dist/styles/globals.css",
+			"require": "./dist/styles/globals.css"
 		}
 	},
 	"files": ["dist"],
