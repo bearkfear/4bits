@@ -13,6 +13,7 @@ import * as Radio from "../radio";
 import { MultiSelector, SingleSelector } from "../selector";
 import { Switch } from "../switch";
 import { Textarea } from "../textarea";
+import { Rate } from "../rate";
 
 export function FormControl<
 	TFieldValues extends FieldValues = FieldValues,
@@ -20,7 +21,6 @@ export function FormControl<
 >(props: FormRenderProps<TFieldValues, TName>) {
 	const disabled = props.field.disabled || props.fieldConfig.disabled;
 
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	function handleOnChange(newValue: any) {
 		props.field.onChange(newValue);
 		props.onChangeField?.(props.fieldConfig.name, newValue);
@@ -338,6 +338,20 @@ export function FormControl<
 
 	if (props.fieldConfig.type === "dynamic-checkbox") {
 		throw new Error("Not implemented");
+	}
+
+	if (props.fieldConfig.type === "rate") {
+		return (
+			<Rate
+				ref={props.field.ref}
+				id={props.fieldConfig.name}
+				max={props.fieldConfig.max}
+				className={props.fieldConfig.className}
+				style={props.fieldConfig.style}
+				value={props.field.value}
+				onChange={handleOnChange}
+			/>
+		);
 	}
 
 	return null;

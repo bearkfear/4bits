@@ -833,3 +833,29 @@ export const DynamicCheckbox = () => {
 		</FormBuilder.Root>
 	);
 };
+
+export const Rate = () => {
+	const form = useForm({
+		defaultValues: {
+			rate: 0,
+		},
+	});
+
+	return (
+		<FormBuilder.Root>
+			<FormBuilder.FormFields
+				control={form.control}
+				fields={[
+					{
+						name: "rate",
+						type: "rate",
+						label: "Rate",
+						size: 12,
+						max: 10,
+						helperText: "Rate",
+					},
+				]}
+			/>
+		</FormBuilder.Root>
+	);
+};
