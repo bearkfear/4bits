@@ -271,7 +271,7 @@ export const SingleSelector = () => {
 						name: "person",
 						type: "select",
 						label: "Person",
-						size: 12,
+						size: 2,
 						helperText: "You must select a person",
 						placeholder: "selecting a person",
 						searchable: true,
@@ -280,7 +280,11 @@ export const SingleSelector = () => {
 							{ label: "Person 1", value: 1 },
 							{ label: "Person 2", value: 2 },
 							{ label: "Person 3", value: 3 },
-							{ label: "Person 4", value: 4 },
+							{
+								label:
+									"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+								value: 4,
+							},
 						],
 					},
 				]}

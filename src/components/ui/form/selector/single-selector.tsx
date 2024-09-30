@@ -94,7 +94,7 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				ref={mergeRefs([ref, onUpdateWidthBasedOnElement])}
 				onClick={() => setOpen((oldValue) => !oldValue)}
 			>
-				<span>
+				<span className="text-ellipsis overflow-hidden whitespace-nowrap w-full text-left">
 					{selectedOption ? getLabel(selectedOption) : props.placeholder}
 				</span>
 				<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
