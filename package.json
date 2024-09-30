@@ -1,6 +1,6 @@
 {
 	"name": "@continha/ui",
-	"version": "1.14.1",
+	"version": "1.14.2",
 	"private": false,
 	"repository": {
 		"type": "git",
@@ -17,8 +17,19 @@
 		"format": "biome format --fix"
 	},
 	"main": "dist/index.js",
+	"module": "dist/esm/index.js",
 	"types": "dist/index.d.ts",
-	"files": ["dist"],
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/esm/index.js",
+			"require": "./dist/index.js"
+		},
+		"./dist/styles/globals.css": {
+			"import": "./dist/styles/globals.css",
+			"require": "./dist/styles/globals.css"
+		}
+	},
 	"peerDependencies": {
 		"@continha/formbuilder": "^1.6.0",
 		"@radix-ui/colors": "^3.0.0",
