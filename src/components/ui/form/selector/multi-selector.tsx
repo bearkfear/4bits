@@ -8,7 +8,7 @@ import { LuX } from "react-icons/lu";
 import { mergeRefs } from "react-merge-refs";
 import { cn } from "../../../../lib/utils";
 import { Popover } from "../../popover";
-import { inputVariants } from "../input";
+import { selectInputVariants } from "../input";
 import { SelectorContent } from "./content";
 import type { SelectorCommonProps, TOption } from "./model";
 
@@ -19,6 +19,7 @@ export type MultiSelectorProps<
 > = SelectorCommonProps & {
 	className?: string;
 	style?: React.CSSProperties;
+	checkAll?: boolean;
 	options: O[];
 	labelPath: FieldPath<O>;
 	valuePath: VP;
@@ -32,6 +33,7 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 		onChange = () => {},
 		value = [],
 		className,
+		checkAll = false,
 		style,
 		...props
 	}: MultiSelectorProps<O, VP>,
@@ -78,6 +80,17 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 		[onChange, props.valuePath, value],
 	);
 
+	const onSelectAll = useCallback(() => {
+		const v = value || [];
+
+		if (props.options.length === v.length) {
+			onChange([]);
+			return;
+		}
+
+		onChange(props.options.map((option) => get(option, props.valuePath)));
+	}, [onChange, props.valuePath, props.options, value]);
+
 	function onUpdateWidthBasedOnElement(el: HTMLButtonElement | null) {
 		if (!el) return;
 		setWidth(el.getBoundingClientRect().width);
@@ -88,8 +101,8 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 			<Popover.Trigger
 				role="combobox"
 				className={cn(
-					inputVariants(),
-					"justify-between items-center z-20 overflow-hidden",
+					selectInputVariants(),
+					"justify-between items-center min-h-8 max-h-24 z-20 overflow-hidden",
 					selectedOptions.length === 0 && "text-gray-11 dark:text-graydark-11",
 					className,
 				)}
@@ -98,13 +111,15 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				disabled={props.disabled}
 			>
 				{selectedOptions.length > 0 ? (
-					<ul className="flex gap-1">
+					<ul className="flex flex-wrap justify-start gap-1 max-h-20 py-2 overflow-y-auto">
 						{selectedOptions.map((option) => (
 							<li
 								key={getValue(option)}
 								className="rounded bg-gray-3 dark:bg-graydark-3 border divide-x divide-gray-7 dark:divide-graydark-6 border-gray-7 dark:border-graydark-6 text-xs flex items-center"
 							>
-								<span className="text-nowrap px-2">{getLabel(option)}</span>
+								<span className="text-ellipsis overflow-hidden whitespace-nowrap max-w-40 text-left px-2">
+									{getLabel(option)}
+								</span>
 								{/* biome-ignore lint/a11y/useKeyWithClickEvents: just click a span, to not have a button inside of a button */}
 								<span
 									className="px-px"
@@ -128,8 +143,11 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				getValue={getValue}
 				options={props.options}
 				onSelect={onSelect}
+				onSelectAll={onSelectAll}
 				getIsSelect={getIsSelected}
 				searchable={props.searchable}
+				checkAll={checkAll}
+				checkeds={value.length}
 				width={width}
 				message={{
 					...props.messages,

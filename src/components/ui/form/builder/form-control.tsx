@@ -194,6 +194,7 @@ export function FormControl<
 				}}
 				className={props.fieldConfig.className}
 				style={props.fieldConfig.style}
+				checkAll={props.fieldConfig.checkAll}
 			/>
 		);
 	}

@@ -8,6 +8,9 @@ type SelectorContentProps<Option> = {
 	getValue<T>(option: Option): T;
 	getLabel<T>(option: Option): T;
 	getIsSelect(option: Option): boolean;
+	onSelectAll?: () => void;
+	checkAll?: boolean;
+	checkeds?: number;
 	options: Option[];
 	width: number;
 	message: SelectorMessages;
@@ -35,6 +38,17 @@ export function SelectorContent<Option extends TOption>(
 						{props.message.empty}
 					</Command.Empty>
 					<Command.Group>
+						{props.checkAll && (
+							<Command.Item
+								className="text-xs flex"
+								onSelect={() => props.onSelectAll?.()}
+							>
+								{props.options.length === props.checkeds
+									? props.message.optionSelected
+									: props.message.optionUnselected}
+								<span>Todos</span>
+							</Command.Item>
+						)}
 						{props.options.map((option) => {
 							const optionValue = props.getValue(option);
 
