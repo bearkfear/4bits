@@ -7,12 +7,8 @@ export default defineConfig({
 	external: ["react", "react-dom"],
 	dts: true,
 	clean: true,
-	format: ["cjs", "esm"],
+	format: ["cjs"],
 	tsconfig: "./tsconfig.json",
 	platform: "browser",
 	bundle: false,
-	legacyOutput: true,
-
-	// splitting: true,
-	// treeshake: true,
 });
