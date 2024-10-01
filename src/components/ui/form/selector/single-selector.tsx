@@ -109,8 +109,10 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				width={width}
 				message={{
 					...props.messages,
-					optionSelected: <Check className={cn("mr-2 h-4 w-4")} />,
-					optionUnselected: <Check className={cn("mr-2 h-4 w-4 opacity-0")} />,
+					optionSelected: <Check className={cn("mr-2 h-4 w-4 min-w-4")} />,
+					optionUnselected: (
+						<Check className={cn("mr-2 h-4 w-4 min-w-4 opacity-0")} />
+					),
 				}}
 			/>
 		</Popover.Root>
