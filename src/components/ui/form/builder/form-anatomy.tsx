@@ -73,13 +73,13 @@ export function FormAnatomy<
 					`col-span-${props.fieldConfig.size}`,
 				)}
 			>
-				<div className="flex items-start space-x-2">
-					{props.fieldConfig.leftAddon}
-					{FormItemControl}
-					<div className="space-y-2">
+				<div className="space-y-2">
+					<div className="flex items-center space-x-2">
+						{props.fieldConfig.leftAddon}
+						{FormItemControl}
 						{FormItemLabel}
-						{FormItemHelperText}
 					</div>
+					{FormItemHelperText}
 				</div>
 				{props.fieldConfig.rightAddon}
 			</div>
