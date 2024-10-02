@@ -2,12 +2,13 @@
 import { Command } from "../../command";
 import { Popover } from "../../popover";
 import type { SelectorCommonProps, SelectorMessages, TOption } from "./model";
+import { cn } from "../../../../lib/utils";
 
 type SelectorContentProps<Option> = {
 	onSelect(option?: Option): void;
 	getValue<T>(option: Option): T;
 	getLabel<T>(option: Option): T;
-	getIsSelect(option: Option): boolean;
+	getIsSelected(option: Option): boolean;
 	onSelectAll?: () => void;
 	checkAll?: boolean;
 	checkeds?: number;
@@ -40,7 +41,7 @@ export function SelectorContent<Option extends TOption>(
 					<Command.Group>
 						{props.checkAll && (
 							<Command.Item
-								className="text-xs flex"
+								className="text-xs flex mb-0.5"
 								onSelect={() => props.onSelectAll?.()}
 							>
 								{props.options.length === props.checkeds
@@ -49,17 +50,22 @@ export function SelectorContent<Option extends TOption>(
 								<span>Todos</span>
 							</Command.Item>
 						)}
-						{props.options.map((option) => {
+						{props.options.map((option, index) => {
 							const optionValue = props.getValue(option);
 
 							return (
 								<Command.Item
 									value={optionValue as string}
 									key={optionValue as string}
-									className="text-xs flex"
+									className={cn(
+										"text-xs flex",
+										index > 0 && "mt-0.5",
+										props.getIsSelected(option) &&
+											"!bg-blue-5 dark:!bg-bluedark-5 hover:!bg-blue-4 dark:hover:!bg-bluedark-4",
+									)}
 									onSelect={() => props.onSelect(option)}
 								>
-									{props.getIsSelect(option)
+									{props.getIsSelected(option)
 										? props.message.optionSelected
 										: props.message.optionUnselected}
 									<span>{props.getLabel(option)}</span>

@@ -144,7 +144,7 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				options={props.options}
 				onSelect={onSelect}
 				onSelectAll={onSelectAll}
-				getIsSelect={getIsSelected}
+				getIsSelected={getIsSelected}
 				searchable={props.searchable}
 				checkAll={checkAll}
 				checkeds={value.length}

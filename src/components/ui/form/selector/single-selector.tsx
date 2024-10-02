@@ -104,7 +104,7 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				getValue={getValue}
 				options={props.options}
 				onSelect={onSelect}
-				getIsSelect={getIsSelected}
+				getIsSelected={getIsSelected}
 				searchable={props.searchable}
 				width={width}
 				message={{
