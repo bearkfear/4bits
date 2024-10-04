@@ -10,6 +10,7 @@ import { Popover } from "../../popover";
 import { inputVariants } from "../input";
 import { SelectorContent } from "./content";
 import type { SelectorCommonProps, TOption } from "./model";
+import { page } from "../../../../../../formbuilder/context";
 
 export type SingleSelectorProps<
 	O extends TOption,
@@ -23,6 +24,9 @@ export type SingleSelectorProps<
 	valuePath: VP;
 	value: TV;
 	onChange?(value?: TV): void;
+	onSearch?: (search: string) => void;
+	page?: number;
+	onChangePage?: (page: number) => void;
 };
 
 function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
@@ -32,6 +36,9 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 		value,
 		className,
 		style,
+		onSearch,
+		page,
+		onChangePage,
 		...props
 	}: SingleSelectorProps<O, VP>,
 	ref: React.ForwardedRef<HTMLButtonElement>,
@@ -106,6 +113,9 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				onSelect={onSelect}
 				getIsSelected={getIsSelected}
 				searchable={props.searchable}
+				onSearch={onSearch}
+				page={page}
+				onChangePage={onChangePage}
 				width={width}
 				message={{
 					...props.messages,

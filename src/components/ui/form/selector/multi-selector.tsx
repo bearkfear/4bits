@@ -25,6 +25,9 @@ export type MultiSelectorProps<
 	valuePath: VP;
 	value: TV[];
 	onChange?(value?: TV[]): void;
+	onSearch?: (search: string) => void;
+	page?: number;
+	onChangePage?: (page: number) => void;
 };
 
 function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
@@ -35,6 +38,9 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 		className,
 		checkAll = false,
 		style,
+		onSearch,
+		page,
+		onChangePage,
 		...props
 	}: MultiSelectorProps<O, VP>,
 	ref: React.ForwardedRef<HTMLButtonElement>,
@@ -146,6 +152,9 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				onSelectAll={onSelectAll}
 				getIsSelected={getIsSelected}
 				searchable={props.searchable}
+				onSearch={onSearch}
+				page={page}
+				onChangePage={onChangePage}
 				checkAll={checkAll}
 				checkeds={value.length}
 				width={width}

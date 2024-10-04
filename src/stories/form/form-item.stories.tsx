@@ -271,10 +271,17 @@ export const SingleSelector = () => {
 						name: "person",
 						type: "select",
 						label: "Person",
-						size: 2,
+						size: 4,
 						helperText: "You must select a person",
 						placeholder: "selecting a person",
 						searchable: true,
+						onSearch: (search) => {
+							console.log(search);
+						},
+						page: 1,
+						onChangePage: (page) => {
+							console.log(page);
+						},
 						required: true,
 						options: [
 							{ label: "Person 1", value: 1 },

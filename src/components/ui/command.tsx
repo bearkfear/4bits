@@ -5,6 +5,8 @@ import { Search } from "lucide-react";
 import * as React from "react";
 
 import { cn } from "../../lib/utils";
+import { Button } from "./button";
+import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 
 const Root = React.forwardRef<
 	React.ElementRef<typeof CommandPrimitive>,
@@ -23,8 +25,13 @@ Root.displayName = CommandPrimitive.displayName;
 
 const Input = React.forwardRef<
 	React.ElementRef<typeof CommandPrimitive.Input>,
-	React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
->(({ className, ...props }, ref) => (
+	Omit<
+		React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>,
+		"onSearch"
+	> & {
+		onSearch?: (newvalue: string) => void;
+	}
+>(({ onSearch, className, ...props }, ref) => (
 	<div
 		className="flex items-center border-b border-gray-6 dark:border-graydark-6 px-3"
 		cmdk-input-wrapper=""
@@ -36,12 +43,53 @@ const Input = React.forwardRef<
 				"flex h-8 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-gray-10 dark:placeholder:text-graydark-10 disabled:cursor-not-allowed disabled:opacity-50",
 				className,
 			)}
+			onValueChange={(search) => {
+				props.onValueChange?.(search);
+				onSearch?.(search);
+			}}
 			{...props}
 		/>
 	</div>
 ));
 
 Input.displayName = CommandPrimitive.Input.displayName;
+
+const Page = ({
+	total,
+	page,
+	onClick,
+}: {
+	total: number;
+	page: number;
+	onClick: (page: number) => void;
+}) => (
+	<div
+		className="flex items-center justify-between border-t border-gray-6 dark:border-graydark-6 px-1"
+		cmdk-input-wrapper=""
+	>
+		<Button
+			variant="link"
+			className="flex gap-1 text-blue-11 dark:text-bluedark-11"
+			onClick={() => onClick(page - 1)}
+			disabled={page === 1}
+		>
+			<LuChevronLeft className="text-sm" />
+			Anterior
+		</Button>
+		<span className="text-xs">Página {page}</span>
+		<Button
+			variant="link"
+			className="flex gap-1 text-blue-11 dark:text-bluedark-11"
+			onClick={() => onClick(page + 1)}
+			disabled={total === 0}
+		>
+			Próximo
+			<LuChevronRight />
+		</Button>
+	</div>
+);
+
+Page.displayName = CommandPrimitive.Input.displayName;
 
 const List = React.forwardRef<
 	React.ElementRef<typeof CommandPrimitive.List>,
@@ -143,6 +191,7 @@ const Dialog = ({ children, ...props }: CommandDialogProps) => {
 export const Command = {
 	Root,
 	Input,
+	Page,
 	List,
 	Empty,
 	Group,

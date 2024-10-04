@@ -165,6 +165,9 @@ export function FormControl<
 				valuePath="value"
 				placeholder={props.fieldConfig.placeholder}
 				searchable={props.fieldConfig.searchable}
+				onSearch={props.fieldConfig.onSearch}
+				page={props.fieldConfig.page}
+				onChangePage={props.fieldConfig.onChangePage}
 				required={props.fieldConfig.required}
 				messages={{
 					empty: "Nenhuma opção disponível",
@@ -188,6 +191,9 @@ export function FormControl<
 				valuePath="value"
 				placeholder={props.fieldConfig.placeholder}
 				searchable={props.fieldConfig.searchable}
+				onSearch={props.fieldConfig.onSearch}
+				page={props.fieldConfig.page}
+				onChangePage={props.fieldConfig.onChangePage}
 				messages={{
 					empty: "Nenhuma opção disponível",
 					searchPlaceholder: "Pesquisar por um item",

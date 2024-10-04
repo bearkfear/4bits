@@ -10,6 +10,9 @@ type SelectorContentProps<Option> = {
 	getLabel<T>(option: Option): T;
 	getIsSelected(option: Option): boolean;
 	onSelectAll?: () => void;
+	onSearch?: (search: string) => void;
+	onChangePage?: (page: number) => void;
+	page?: number;
 	checkAll?: boolean;
 	checkeds?: number;
 	options: Option[];
@@ -31,6 +34,7 @@ export function SelectorContent<Option extends TOption>(
 					<Command.Input
 						className="text-xs"
 						placeholder={props.message.searchPlaceholder}
+						onSearch={props.onSearch}
 					/>
 				)}
 
@@ -74,6 +78,13 @@ export function SelectorContent<Option extends TOption>(
 						})}
 					</Command.Group>
 				</Command.List>
+				{props.page && (
+					<Command.Page
+						page={props.page}
+						onClick={(newPage) => props.onChangePage?.(newPage)}
+						total={props.options.length}
+					/>
+				)}
 			</Command.Root>
 			<Popover.Arrow className="fill-gray-6 dark:fill-graydark-6" />
 		</Popover.Content>
