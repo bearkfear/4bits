@@ -77,7 +77,7 @@ export function FormAnatomy<
 					<div className="flex items-center space-x-2">
 						{props.fieldConfig.leftAddon}
 						{FormItemControl}
-						{FormItemLabel}
+						{props.fieldConfig.label !== undefined && FormItemLabel}
 					</div>
 					{FormItemHelperText}
 				</div>
@@ -88,13 +88,17 @@ export function FormAnatomy<
 
 	return (
 		<div className={cn("space-y-2", `col-span-${props.fieldConfig.size}`)}>
-			<div className="flex justify-between">
-				<div className="flex space-x-2">
-					{props.fieldConfig.leftAddon}
-					{FormItemLabel}
+			{(props.fieldConfig.leftAddon !== undefined ||
+				props.fieldConfig.label !== undefined ||
+				props.fieldConfig.rightAddon !== undefined) && (
+				<div className="flex justify-between">
+					<div className="flex space-x-2">
+						{props.fieldConfig.leftAddon}
+						{props.fieldConfig.label !== undefined && FormItemLabel}
+					</div>
+					{props.fieldConfig.rightAddon}
 				</div>
-				{props.fieldConfig.rightAddon}
-			</div>
+			)}
 			{FormItemControl}
 			{FormItemHelperText}
 		</div>
