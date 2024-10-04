@@ -219,15 +219,17 @@ export function FormControl<
 
 	if (props.fieldConfig.type === "switch") {
 		return (
-			<Switch
-				{...props.field}
-				id={props.field.name}
-				disabled={disabled}
-				checked={props.field.value}
-				onCheckedChange={handleOnChange}
-				className={props.fieldConfig.className}
-				style={props.fieldConfig.style}
-			/>
+			<div className="h-8 pt-1.5">
+				<Switch
+					{...props.field}
+					id={props.field.name}
+					disabled={disabled}
+					checked={props.field.value}
+					onCheckedChange={handleOnChange}
+					className={props.fieldConfig.className}
+					style={props.fieldConfig.style}
+				/>
+			</div>
 		);
 	}
 
