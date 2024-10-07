@@ -24,6 +24,7 @@ export type SingleSelectorProps<
 	value: TV;
 	onChange?(value?: TV): void;
 	onSearch?: (search: string) => void;
+	loadingOptions?: boolean;
 	page?: number;
 	onChangePage?: (page: number) => void;
 };
@@ -36,6 +37,7 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 		className,
 		style,
 		onSearch,
+		loadingOptions,
 		page,
 		onChangePage,
 		...props
@@ -113,6 +115,7 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				getIsSelected={getIsSelected}
 				searchable={props.searchable}
 				onSearch={onSearch}
+				loadingOptions={loadingOptions}
 				page={page}
 				onChangePage={onChangePage}
 				width={width}

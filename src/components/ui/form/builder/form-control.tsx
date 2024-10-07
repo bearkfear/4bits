@@ -166,6 +166,7 @@ export function FormControl<
 				placeholder={props.fieldConfig.placeholder}
 				searchable={props.fieldConfig.searchable}
 				onSearch={props.fieldConfig.onSearch}
+				loadingOptions={props.fieldConfig.loadingOptions}
 				page={props.fieldConfig.page}
 				onChangePage={props.fieldConfig.onChangePage}
 				required={props.fieldConfig.required}
@@ -192,6 +193,7 @@ export function FormControl<
 				placeholder={props.fieldConfig.placeholder}
 				searchable={props.fieldConfig.searchable}
 				onSearch={props.fieldConfig.onSearch}
+				loadingOptions={props.fieldConfig.loadingOptions}
 				page={props.fieldConfig.page}
 				onChangePage={props.fieldConfig.onChangePage}
 				messages={{

@@ -1,6 +1,6 @@
 {
 	"name": "@continha/ui",
-	"version": "1.14.9",
+	"version": "1.14.10",
 	"private": false,
 	"repository": {
 		"type": "git",
@@ -31,7 +31,7 @@
 		}
 	},
 	"peerDependencies": {
-		"@continha/formbuilder": "^1.6.2",
+		"@continha/formbuilder": "^1.6.3",
 		"@radix-ui/colors": "^3.0.0",
 		"@radix-ui/react-alert-dialog": "^1.1.1",
 		"@radix-ui/react-checkbox": "^1.1.1",

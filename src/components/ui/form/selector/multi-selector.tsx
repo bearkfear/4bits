@@ -26,6 +26,7 @@ export type MultiSelectorProps<
 	value: TV[];
 	onChange?(value?: TV[]): void;
 	onSearch?: (search: string) => void;
+	loadingOptions?: boolean;
 	page?: number;
 	onChangePage?: (page: number) => void;
 };
@@ -39,6 +40,7 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 		checkAll = false,
 		style,
 		onSearch,
+		loadingOptions,
 		page,
 		onChangePage,
 		...props
@@ -153,6 +155,7 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				getIsSelected={getIsSelected}
 				searchable={props.searchable}
 				onSearch={onSearch}
+				loadingOptions={loadingOptions}
 				page={page}
 				onChangePage={onChangePage}
 				checkAll={checkAll}
