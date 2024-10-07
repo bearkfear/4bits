@@ -282,6 +282,9 @@ export const SingleSelector = () => {
 						onChangePage: (page) => {
 							console.log(page);
 						},
+						onCloseSelect: () => {
+							console.log("chamou");
+						},
 						required: true,
 						options: [
 							{ label: "Person 1", value: 1 },

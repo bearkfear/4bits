@@ -169,6 +169,7 @@ export function FormControl<
 				loadingOptions={props.fieldConfig.loadingOptions}
 				page={props.fieldConfig.page}
 				onChangePage={props.fieldConfig.onChangePage}
+				onCloseSelect={props.fieldConfig.onCloseSelect}
 				required={props.fieldConfig.required}
 				messages={{
 					empty: "Nenhuma opção disponível",
@@ -196,6 +197,7 @@ export function FormControl<
 				loadingOptions={props.fieldConfig.loadingOptions}
 				page={props.fieldConfig.page}
 				onChangePage={props.fieldConfig.onChangePage}
+				onCloseSelect={props.fieldConfig.onCloseSelect}
 				messages={{
 					empty: "Nenhuma opção disponível",
 					searchPlaceholder: "Pesquisar por um item",

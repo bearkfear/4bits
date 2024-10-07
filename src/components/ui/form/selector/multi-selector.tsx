@@ -2,7 +2,7 @@
 import get from "lodash.get";
 import isEqual from "lodash.isequal";
 import { CheckSquare2, ChevronsUpDown, Square } from "lucide-react";
-import { forwardRef, useCallback, useMemo, useState } from "react";
+import { forwardRef, useCallback, useEffect, useMemo, useState } from "react";
 import type { FieldPath } from "react-hook-form";
 import { LuX } from "react-icons/lu";
 import { mergeRefs } from "react-merge-refs";
@@ -29,6 +29,7 @@ export type MultiSelectorProps<
 	loadingOptions?: boolean;
 	page?: number;
 	onChangePage?: (page: number) => void;
+	onCloseSelect?: () => void;
 };
 
 function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
@@ -43,11 +44,18 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 		loadingOptions,
 		page,
 		onChangePage,
+		onCloseSelect,
 		...props
 	}: MultiSelectorProps<O, VP>,
 	ref: React.ForwardedRef<HTMLButtonElement>,
 ) {
 	const [width, setWidth] = useState(1);
+	const [open, setOpen] = useState(false);
+
+	useEffect(() => {
+		if (!open) onCloseSelect?.();
+	}, [open, onCloseSelect]);
+
 	const getValue = useCallback(
 		(option: O) => {
 			return get(option, props.valuePath);
@@ -105,7 +113,7 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 	}
 
 	return (
-		<Popover.Root modal>
+		<Popover.Root modal open={open} onOpenChange={setOpen}>
 			<Popover.Trigger
 				role="combobox"
 				className={cn(
@@ -117,6 +125,7 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				style={style}
 				ref={mergeRefs([ref, onUpdateWidthBasedOnElement])}
 				disabled={props.disabled}
+				onClick={() => setOpen((oldValue) => !oldValue)}
 			>
 				{selectedOptions.length > 0 ? (
 					<ul className="flex flex-wrap justify-start gap-1 max-h-20 py-2 overflow-y-auto">

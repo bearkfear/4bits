@@ -2,7 +2,7 @@
 import get from "lodash.get";
 import isEqual from "lodash.isequal";
 import { Check, ChevronsUpDown } from "lucide-react";
-import { forwardRef, useCallback, useMemo, useState } from "react";
+import { forwardRef, useCallback, useEffect, useMemo, useState } from "react";
 import type { FieldPath } from "react-hook-form";
 import { mergeRefs } from "react-merge-refs";
 import { cn } from "../../../../lib/utils";
@@ -27,6 +27,7 @@ export type SingleSelectorProps<
 	loadingOptions?: boolean;
 	page?: number;
 	onChangePage?: (page: number) => void;
+	onCloseSelect?: () => void;
 };
 
 function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
@@ -40,12 +41,18 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 		loadingOptions,
 		page,
 		onChangePage,
+		onCloseSelect,
 		...props
 	}: SingleSelectorProps<O, VP>,
 	ref: React.ForwardedRef<HTMLButtonElement>,
 ) {
 	const [width, setWidth] = useState(1);
 	const [open, setOpen] = useState(false);
+
+	useEffect(() => {
+		if (!open) onCloseSelect?.();
+	}, [open, onCloseSelect]);
+
 	const getValue = useCallback(
 		(option: O) => {
 			return get(option, props.valuePath);
