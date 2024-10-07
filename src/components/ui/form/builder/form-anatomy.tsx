@@ -1,13 +1,6 @@
 "use client";
-import type { FormRenderProps } from "@continha/formbuilder";
-import type { FieldPath, FieldValues } from "react-hook-form";
-import { cn } from "../../../../lib/utils";
-import { HelperText } from "../helper-text";
-import { Label } from "../label";
-import { FormControl } from "./form-control";
-
-/**
- *
+// this is necessary to compile with tailwindcss
+`--ignore;
  * col-span-12
  * col-span-11
  * col-span-10
@@ -20,10 +13,14 @@ import { FormControl } from "./form-control";
  * col-span-3
  * col-span-2
  * col-span-1
- *
- * @param props
- * @returns
- */
+`;
+
+import type { FormRenderProps } from "@continha/formbuilder";
+import type { FieldPath, FieldValues } from "react-hook-form";
+import { cn } from "../../../../lib/utils";
+import { HelperText } from "../helper-text";
+import { Label } from "../label";
+import { FormControl } from "./form-control";
 
 export function FormAnatomy<
 	TFieldValues extends FieldValues = FieldValues,
@@ -87,7 +84,7 @@ export function FormAnatomy<
 	}
 
 	return (
-		<div className={cn("space-y-2", `col-span-${props.fieldConfig.size}`)}>
+		<div className={cn("space-y-2", `col-span-${props.fieldConfig.size} sm:col-span-12`)}>
 			{(props.fieldConfig.leftAddon !== undefined ||
 				props.fieldConfig.label !== undefined ||
 				props.fieldConfig.rightAddon !== undefined) && (

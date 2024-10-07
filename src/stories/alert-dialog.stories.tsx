@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 import type { Meta } from "@storybook/react";
 import { AlertDialog, Button } from "../index";
 
