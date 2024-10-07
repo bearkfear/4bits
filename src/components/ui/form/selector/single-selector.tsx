@@ -10,7 +10,6 @@ import { Popover } from "../../popover";
 import { inputVariants } from "../input";
 import { SelectorContent } from "./content";
 import type { SelectorCommonProps, TOption } from "./model";
-import { page } from "../../../../../../formbuilder/context";
 
 export type SingleSelectorProps<
 	O extends TOption,
