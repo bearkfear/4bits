@@ -1,18 +1,18 @@
 "use client";
 // this is necessary to compile with tailwindcss
 `--ignore;
- * col-span-12
- * col-span-11
- * col-span-10
- * col-span-9
- * col-span-8
- * col-span-7
- * col-span-6
- * col-span-5
- * col-span-4
- * col-span-3
- * col-span-2
- * col-span-1
+ * lg:col-span-12
+ * lg:col-span-11
+ * lg:col-span-10
+ * lg:col-span-9
+ * lg:col-span-8
+ * lg:col-span-7
+ * lg:col-span-6
+ * lg:col-span-5
+ * lg:col-span-4
+ * lg:col-span-3
+ * lg:col-span-2
+ * lg:col-span-1
 `;
 
 import type { FormRenderProps } from "@continha/formbuilder";
@@ -84,7 +84,12 @@ export function FormAnatomy<
 	}
 
 	return (
-		<div className={cn("space-y-2", `col-span-${props.fieldConfig.size} sm:col-span-12`)}>
+		<div
+			className={cn(
+				"space-y-2",
+				`lg:col-span-${props.fieldConfig.size} col-span-12`,
+			)}
+		>
 			{(props.fieldConfig.leftAddon !== undefined ||
 				props.fieldConfig.label !== undefined ||
 				props.fieldConfig.rightAddon !== undefined) && (
