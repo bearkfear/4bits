@@ -84,8 +84,8 @@
 		"typescript": "^5.6.2"
 	},
 	"scripts": {
-		"build": "storybook build",
-		"build:lib": "tsup && rm -rf dist/esm/styles",
+		"build:storybook": "storybook build",
+		"build": "tsup && rm -rf dist/esm/styles",
 		"dev": "storybook dev -p 6006",
 		"lint": "biome check",
 		"lint:fix": "biome check --fix",

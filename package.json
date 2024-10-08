@@ -9,6 +9,7 @@
 	"keywords": [],
 	"author": "camponogara5@gmail.com",
 	"license": "ISC",
+	"workspaces": ["packages/*"],
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.2",
 		"syncpack": "^13.0.0",
