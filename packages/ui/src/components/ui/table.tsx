@@ -1,10 +1,10 @@
 "use client";
 
 import {
-	forwardRef,
 	type HTMLAttributes,
-	type ThHTMLAttributes,
 	type TdHTMLAttributes,
+	type ThHTMLAttributes,
+	forwardRef,
 } from "react";
 import { cn } from "../../lib/utils";
 

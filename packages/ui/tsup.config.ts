@@ -1,4 +1,4 @@
-import { defineConfig, Format } from "tsup";
+import { Format, defineConfig } from "tsup";
 
 export default defineConfig({
 	// The file we created above that will be the entrypoint to the library.
