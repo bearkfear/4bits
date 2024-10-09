@@ -1,4 +1,5 @@
 import type { Preview } from "@storybook/react";
+import "../src/styles/storybook.css";
 import "../src/styles/globals.css";
 import { gray, grayDark } from "@radix-ui/colors";
 // @ts-ignore
