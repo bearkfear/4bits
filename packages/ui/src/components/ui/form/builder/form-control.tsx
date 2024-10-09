@@ -10,10 +10,10 @@ import { Label } from "../label";
 import { Money } from "../money";
 import * as MultiCheckbox from "../multi-checkbox";
 import * as Radio from "../radio";
+import { Rate } from "../rate";
 import { MultiSelector, SingleSelector } from "../selector";
 import { Switch } from "../switch";
 import { Textarea } from "../textarea";
-import { Rate } from "../rate";
 
 export function FormControl<
 	TFieldValues extends FieldValues = FieldValues,

@@ -1,9 +1,9 @@
 "use client";
+import { cn } from "../../../../lib/utils";
 import { Command } from "../../command";
+import { PageLoader } from "../../page-loader";
 import { Popover } from "../../popover";
 import type { SelectorCommonProps, SelectorMessages, TOption } from "./model";
-import { cn } from "../../../../lib/utils";
-import { PageLoader } from "../../page-loader";
 
 type SelectorContentProps<Option> = {
 	onSelect(option?: Option): void;

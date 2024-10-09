@@ -12,6 +12,7 @@ storybook-static/
 
 biome.json
 components.json
+lib
 pnpm-lock.yaml
 postcss.config.mjs
 tailwind.config.ts
