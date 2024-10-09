@@ -1,7 +1,7 @@
 // @ts-check
 
 const path = require("node:path");
-const { readdirSync, readFileSync } = require("fs");
+const { readdirSync, readFileSync } = require("node:fs");
 
 const packagesNames = readdirSync(path.resolve(__dirname, "./packages")).map(
   (packageFolderName) => {
@@ -22,7 +22,7 @@ const config = {
     {
       dependencies: packagesNames,
       packages: ["**"],
-      dependencyTypes: ["peer"],
+      dependencyTypes: ["prod"],
       pinVersion: "workspace:^",
     },
   ],
