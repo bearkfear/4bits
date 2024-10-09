@@ -1,6 +1,7 @@
 {
 	"name": "ui-monorepo",
 	"version": "0.0.1",
+	"private": true,
 	"packageManager": "pnpm@9.9.0",
 	"repository": {
 		"type": "git",
@@ -16,6 +17,7 @@
 		"turbo": "^2.1.3"
 	},
 	"scripts": {
+		"build:storybook": "pnpm --filter @continha/ui build:storybook",
 		"build": "turbo run build",
 		"dev": "turbo run dev",
 		"lint": "turbo run lint",
