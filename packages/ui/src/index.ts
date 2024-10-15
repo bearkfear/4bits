@@ -27,6 +27,7 @@ export { FormBuilder } from "./components/ui/form/builder";
 export { HelperText } from "./components/ui/form/helper-text";
 export type { HelperTextProps } from "./components/ui/form/helper-text";
 export { Input, inputVariants } from "./components/ui/form/input";
+export { Switch } from "./components/ui/form/switch";
 export type { InputProps } from "./components/ui/form/input";
 export { Label } from "./components/ui/form/label";
 export { Textarea } from "./components/ui/form/textarea";
