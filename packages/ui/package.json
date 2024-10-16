@@ -1,6 +1,6 @@
 {
 	"name": "@continha/ui",
-	"version": "1.14.15",
+	"version": "1.14.16",
 	"private": false,
 	"main": "dist/index.js",
 	"module": "dist/esm/index.js",
@@ -11,10 +11,7 @@
 			"import": "./dist/esm/index.js",
 			"require": "./dist/index.js"
 		},
-		"./dist/styles/globals.css": {
-			"import": "./dist/styles/globals.css",
-			"require": "./dist/styles/globals.css"
-		}
+		"./*": "./dist/*"
 	},
 	"dependencies": {
 		"@continha/formbuilder": "workspace:^"

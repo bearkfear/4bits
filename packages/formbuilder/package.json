@@ -1,17 +1,17 @@
 {
 	"name": "@continha/formbuilder",
-	"version": "1.6.5",
+	"version": "1.6.6",
 	"private": false,
 	"main": "dist/index.js",
 	"module": "dist/index.mjs",
 	"types": "dist/index.d.ts",
-	"files": ["dist"],
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
 			"import": "./dist/index.mjs",
 			"require": "./dist/index.js"
-		}
+		},
+		"./*": "./*"
 	},
 	"peerDependencies": {
 		"date-fns": "^4.0.0",

@@ -336,7 +336,7 @@ export function validateField(
 
 	if (validation) {
 		if (!fieldConfig.required) {
-			validation = validation.optional();
+			validation = validation.nullish();
 		}
 		const validationResult = validation.safeParse(value);
 		if (validationResult.success === false) {
