@@ -6,19 +6,19 @@ on:
     branches:
       - main
 jobs:
-  get_pnpm_version:
+  get-pnpm-version:
     runs-on: ubuntu-latest
     outputs:
-      pnpm_version: ${{ steps.get_version.outputs.pnpm_version }}
+      pnpm-version: ${{ steps.get-version.outputs.pnpm-version }}
     steps:
       - uses: actions/checkout@v4
       - name: Extract pnpm version
-        id: get_version
-        run: echo "pnpm_version=$(jq -r '.packageManager' package.json | sed 's/pnpm@//')" >> $GITHUB_OUTPUT
+        id: get-version
+        run: echo "pnpm-version=$(jq -r '.packageManager' package.json | sed 's/pnpm@//')" >> $GITHUB_OUTPUT
 
   build:
     runs-on: ubuntu-latest
-    needs: get_pnpm_version
+    needs: get-pnpm-version
     strategy:
       matrix:
         node-version: [20]
@@ -30,7 +30,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: ${{ needs.get_pnpm_version.outputs.pnpm_version }}
+          version: ${{ needs.get-pnpm-version.outputs.pnpm-version }}
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
