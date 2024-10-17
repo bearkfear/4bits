@@ -25,13 +25,8 @@ Root.displayName = CommandPrimitive.displayName;
 
 const Input = React.forwardRef<
 	React.ElementRef<typeof CommandPrimitive.Input>,
-	Omit<
-		React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>,
-		"onSearch"
-	> & {
-		onSearch?: (newvalue: string) => void;
-	}
->(({ onSearch, className, ...props }, ref) => (
+	React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
+>(({ className, ...props }, ref) => (
 	<div
 		className="flex items-center border-b border-gray-6 dark:border-graydark-6 px-3"
 		cmdk-input-wrapper=""
@@ -43,10 +38,6 @@ const Input = React.forwardRef<
 				"flex h-8 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-gray-10 dark:placeholder:text-graydark-10 disabled:cursor-not-allowed disabled:opacity-50",
 				className,
 			)}
-			onValueChange={(search) => {
-				props.onValueChange?.(search);
-				onSearch?.(search);
-			}}
 			{...props}
 		/>
 	</div>

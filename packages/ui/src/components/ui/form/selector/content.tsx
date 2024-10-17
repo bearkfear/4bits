@@ -1,8 +1,10 @@
 "use client";
+import { Search } from "lucide-react";
 import { cn } from "../../../../lib/utils";
 import { Command } from "../../command";
 import { PageLoader } from "../../page-loader";
 import { Popover } from "../../popover";
+import { Input } from "../input";
 import type { SelectorCommonProps, SelectorMessages, TOption } from "./model";
 
 type SelectorContentProps<Option> = {
@@ -32,12 +34,22 @@ export function SelectorContent<Option extends TOption>(
 			align="start"
 		>
 			<Command.Root>
-				{props.searchable && (
+				{props.searchable && props.onSearch === undefined && (
 					<Command.Input
 						className="text-xs"
 						placeholder={props.message.searchPlaceholder}
-						onSearch={props.onSearch}
 					/>
+				)}
+
+				{props.onSearch !== undefined && (
+					<div className="flex items-center border-b border-gray-6 dark:border-graydark-6 px-3">
+						<Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
+						<input
+							className="text-xs flex h-8 w-full rounded-md bg-transparent py-3 outline-none placeholder:text-gray-10 dark:placeholder:text-graydark-10 disabled:cursor-not-allowed disabled:opacity-50"
+							placeholder={props.message.searchPlaceholder}
+							onChange={(event) => props.onSearch?.(event.target.value)}
+						/>
+					</div>
 				)}
 
 				{props.loadingOptions && <PageLoader />}
