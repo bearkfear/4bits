@@ -20,6 +20,7 @@ export type MultiSelectorProps<
 	className?: string;
 	style?: React.CSSProperties;
 	checkAll?: boolean;
+	selectedOptions?: O[];
 	options: O[];
 	labelPath: FieldPath<O>;
 	valuePath: VP;
@@ -96,6 +97,47 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 		[onChange, props.valuePath, value],
 	);
 
+	const getSelectedOption = useCallback(() => {
+		if (props.selectedOptions.length > 0 || selectedOptions.length > 0) {
+			const list =
+				props.selectedOptions.length > 0
+					? props.selectedOptions
+					: selectedOptions;
+			return (
+				<ul className="flex flex-wrap justify-start gap-1 max-h-20 py-2 overflow-y-auto">
+					{list.map((option) => (
+						<li
+							key={getValue(option)}
+							className="rounded bg-gray-3 dark:bg-graydark-3 border divide-x divide-gray-7 dark:divide-graydark-6 border-gray-7 dark:border-graydark-6 text-xs flex items-center"
+						>
+							<span className="text-ellipsis overflow-hidden whitespace-nowrap max-w-40 text-left px-2">
+								{getLabel(option)}
+							</span>
+							{/* biome-ignore lint/a11y/useKeyWithClickEvents: just click a span, to not have a button inside of a button */}
+							<span
+								className="px-px"
+								onClick={(e) => {
+									onSelect(option);
+									e.stopPropagation();
+								}}
+							>
+								<LuX className="text-gray-11  dark:text-gray-8" size={13} />
+							</span>
+						</li>
+					))}
+				</ul>
+			);
+		}
+		return <span>{props.placeholder}</span>;
+	}, [
+		props.selectedOptions,
+		selectedOptions,
+		props.placeholder,
+		getLabel,
+		getValue,
+		onSelect,
+	]);
+
 	const onSelectAll = useCallback(() => {
 		const v = value || [];
 
@@ -127,32 +169,7 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				disabled={props.disabled}
 				onClick={() => setOpen((oldValue) => !oldValue)}
 			>
-				{selectedOptions.length > 0 ? (
-					<ul className="flex flex-wrap justify-start gap-1 max-h-20 py-2 overflow-y-auto">
-						{selectedOptions.map((option) => (
-							<li
-								key={getValue(option)}
-								className="rounded bg-gray-3 dark:bg-graydark-3 border divide-x divide-gray-7 dark:divide-graydark-6 border-gray-7 dark:border-graydark-6 text-xs flex items-center"
-							>
-								<span className="text-ellipsis overflow-hidden whitespace-nowrap max-w-40 text-left px-2">
-									{getLabel(option)}
-								</span>
-								{/* biome-ignore lint/a11y/useKeyWithClickEvents: just click a span, to not have a button inside of a button */}
-								<span
-									className="px-px"
-									onClick={(e) => {
-										onSelect(option);
-										e.stopPropagation();
-									}}
-								>
-									<LuX className="text-gray-11  dark:text-gray-8" size={13} />
-								</span>
-							</li>
-						))}
-					</ul>
-				) : (
-					<span>{props.placeholder}</span>
-				)}
+				{getSelectedOption()}
 				<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 			</Popover.Trigger>
 			<SelectorContent

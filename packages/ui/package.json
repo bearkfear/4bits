@@ -1,6 +1,6 @@
 {
 	"name": "@continha/ui",
-	"version": "1.14.18",
+	"version": "1.14.19",
 	"private": false,
 	"main": "dist/index.js",
 	"module": "dist/esm/index.js",

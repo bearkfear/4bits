@@ -156,6 +156,7 @@ export function FormControl<
 	if (props.fieldConfig.type === "select") {
 		return (
 			<SingleSelector
+				selectedOption={props.fieldConfig.selectedOption}
 				options={props.fieldConfig.options || []}
 				value={props.field.value}
 				onChange={handleOnChange}
@@ -184,6 +185,7 @@ export function FormControl<
 	if (props.fieldConfig.type === "multi-select") {
 		return (
 			<MultiSelector
+				selectedOptions={props.fieldConfig.selectedOptions}
 				options={props.fieldConfig.options || []}
 				value={props.field.value}
 				onChange={handleOnChange}

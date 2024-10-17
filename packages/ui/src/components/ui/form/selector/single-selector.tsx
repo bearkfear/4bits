@@ -18,6 +18,7 @@ export type SingleSelectorProps<
 > = SelectorCommonProps & {
 	className?: string;
 	style?: React.CSSProperties;
+	selectedOption?: O;
 	options: O[];
 	labelPath: FieldPath<O>;
 	valuePath: VP;
@@ -70,6 +71,16 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 		return props.options.find((option) => isEqual(getValue(option), value));
 	}, [props.options, value, getValue]);
 
+	const getSelectedOption = useCallback(() => {
+		if (props.selectedOption !== undefined) {
+			return getLabel(props.selectedOption);
+		}
+		if (selectedOption) {
+			return getLabel(selectedOption);
+		}
+		return props.placeholder;
+	}, [props.selectedOption, selectedOption, props.placeholder, getLabel]);
+
 	const onSelect = useCallback(
 		(option: O) => {
 			const optionValue = get(option, props.valuePath);
@@ -101,7 +112,8 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				className={cn(
 					inputVariants(),
 					"justify-between",
-					!selectedOption && "text-gray-11 dark:text-graydark-11",
+					(!props.selectedOption || !selectedOption) &&
+						"text-gray-11 dark:text-graydark-11",
 					className,
 				)}
 				style={style}
@@ -110,7 +122,7 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				onClick={() => setOpen((oldValue) => !oldValue)}
 			>
 				<span className="text-ellipsis overflow-hidden whitespace-nowrap w-full text-left">
-					{selectedOption ? getLabel(selectedOption) : props.placeholder}
+					{getSelectedOption()}
 				</span>
 				<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 			</Popover.Trigger>
