@@ -112,7 +112,8 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				className={cn(
 					inputVariants(),
 					"justify-between",
-					(!props.selectedOption || !selectedOption) &&
+					!props.selectedOption &&
+						!selectedOption &&
 						"text-gray-11 dark:text-graydark-11",
 					className,
 				)}
