@@ -98,9 +98,12 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 	);
 
 	const getSelectedOption = useCallback(() => {
-		if (props.selectedOptions.length > 0 || selectedOptions.length > 0) {
+		if (
+			(props.selectedOptions && props.selectedOptions.length > 0) ||
+			selectedOptions.length > 0
+		) {
 			const list =
-				props.selectedOptions.length > 0
+				props.selectedOptions && props.selectedOptions.length > 0
 					? props.selectedOptions
 					: selectedOptions;
 			return (
