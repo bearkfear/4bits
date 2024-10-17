@@ -60,6 +60,9 @@ export function validateField(
 			validation = defaultOptionsValidation.refine(
 				(val: any) =>
 					!val ||
+					fieldConfig.page !== undefined ||
+					fieldConfig.onChangePage !== undefined ||
+					fieldConfig.onSearch !== undefined ||
 					fieldConfig.options?.some(
 						(options) => options.value.toString() === val.toString(),
 					),
@@ -81,7 +84,36 @@ export function validateField(
 			else validation = defaultBooleanValidation;
 			break;
 		}
-		case "multi-select":
+		case "multi-select": {
+			let defaultMultiOptionsValidation = z
+				.union([z.string(), z.number()])
+				.array();
+
+			if (fieldConfig.required) {
+				defaultMultiOptionsValidation = defaultMultiOptionsValidation.min(
+					1,
+					requiredError,
+				);
+			}
+
+			validation = defaultMultiOptionsValidation.refine(
+				(val: any[]) =>
+					val.length === 0 ||
+					!val ||
+					fieldConfig.page !== undefined ||
+					fieldConfig.onChangePage !== undefined ||
+					fieldConfig.onSearch !== undefined ||
+					val.every((v) =>
+						fieldConfig.options?.some(
+							(option) => option.value.toString() === v.toString(),
+						),
+					),
+				{
+					message: "Selecione ao menos uma opção válida",
+				},
+			);
+			break;
+		}
 		case "multi-checkbox": {
 			let defaultMultiOptionsValidation = z
 				.union([z.string(), z.number()])
