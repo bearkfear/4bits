@@ -164,7 +164,9 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				className={cn(
 					selectInputVariants(),
 					"justify-between items-center min-h-8 max-h-24 z-20 overflow-hidden",
-					selectedOptions.length === 0 && "text-gray-11 dark:text-graydark-11",
+					(!props.selectedOptions || props.selectedOptions.length === 0) &&
+						selectedOptions.length === 0 &&
+						"text-gray-11 dark:text-graydark-11",
 					className,
 				)}
 				style={style}
