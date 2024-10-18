@@ -156,7 +156,6 @@ export function FormControl<
 	if (props.fieldConfig.type === "select") {
 		return (
 			<SingleSelector
-				selectedOption={props.fieldConfig.selectedOption}
 				options={props.fieldConfig.options || []}
 				value={props.field.value}
 				onChange={handleOnChange}
@@ -168,8 +167,7 @@ export function FormControl<
 				searchable={props.fieldConfig.searchable}
 				onSearch={props.fieldConfig.onSearch}
 				loadingOptions={props.fieldConfig.loadingOptions}
-				page={props.fieldConfig.page}
-				onChangePage={props.fieldConfig.onChangePage}
+				pagination={props.fieldConfig.pagination}
 				onCloseSelect={props.fieldConfig.onCloseSelect}
 				required={props.fieldConfig.required}
 				messages={{
@@ -185,7 +183,6 @@ export function FormControl<
 	if (props.fieldConfig.type === "multi-select") {
 		return (
 			<MultiSelector
-				selectedOptions={props.fieldConfig.selectedOptions}
 				options={props.fieldConfig.options || []}
 				value={props.field.value}
 				onChange={handleOnChange}
@@ -197,8 +194,7 @@ export function FormControl<
 				searchable={props.fieldConfig.searchable}
 				onSearch={props.fieldConfig.onSearch}
 				loadingOptions={props.fieldConfig.loadingOptions}
-				page={props.fieldConfig.page}
-				onChangePage={props.fieldConfig.onChangePage}
+				pagination={props.fieldConfig.pagination}
 				onCloseSelect={props.fieldConfig.onCloseSelect}
 				messages={{
 					empty: "Nenhuma opção disponível",

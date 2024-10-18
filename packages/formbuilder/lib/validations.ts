@@ -60,8 +60,7 @@ export function validateField(
 			validation = defaultOptionsValidation.refine(
 				(val: any) =>
 					!val ||
-					fieldConfig.page !== undefined ||
-					fieldConfig.onChangePage !== undefined ||
+					fieldConfig.pagination !== undefined ||
 					fieldConfig.onSearch !== undefined ||
 					fieldConfig.options?.some(
 						(options) => options.value.toString() === val.toString(),
@@ -100,8 +99,7 @@ export function validateField(
 				(val: any[]) =>
 					val.length === 0 ||
 					!val ||
-					fieldConfig.page !== undefined ||
-					fieldConfig.onChangePage !== undefined ||
+					fieldConfig.pagination !== undefined ||
 					fieldConfig.onSearch !== undefined ||
 					val.every((v) =>
 						fieldConfig.options?.some(

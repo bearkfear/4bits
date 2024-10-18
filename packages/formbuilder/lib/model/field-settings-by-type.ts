@@ -55,10 +55,13 @@ export type FieldSettingsByType =
 			disableOption?: ((option: Option) => boolean) | Option["value"][];
 			extraActions?: React.ReactNode;
 			options?: Option[];
-			selectedOption?: Option;
 			loadingOptions?: boolean;
-			page?: number;
-			onChangePage?: (page: number) => void;
+			pagination?: {
+				selectedOption: Option;
+				page: number;
+				onChangePage: (page: number) => void;
+				totalItems?: number;
+			};
 			onCloseSelect?: () => void;
 	  }
 	| {
@@ -69,10 +72,13 @@ export type FieldSettingsByType =
 			disableOption?: ((option: Option) => boolean) | Option["value"][];
 			extraActions?: React.ReactNode;
 			options?: Option[];
-			selectedOptions?: Option[];
 			loadingOptions?: boolean;
-			page?: number;
-			onChangePage?: (page: number) => void;
+			pagination?: {
+				selectedOptions: Option[];
+				page: number;
+				onChangePage: (page: number) => void;
+				totalItems?: number;
+			};
 			onCloseSelect?: () => void;
 	  }
 	| {

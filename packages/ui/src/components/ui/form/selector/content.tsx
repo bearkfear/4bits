@@ -14,8 +14,11 @@ type SelectorContentProps<Option> = {
 	getIsSelected(option: Option): boolean;
 	onSelectAll?: () => void;
 	onSearch?: (search: string) => void;
-	onChangePage?: (page: number) => void;
-	page?: number;
+	pagination?: {
+		page: number;
+		onChangePage: (page: number) => void;
+		totalItems?: number;
+	};
 	loadingOptions?: boolean;
 	checkAll?: boolean;
 	checkeds?: number;
@@ -24,9 +27,10 @@ type SelectorContentProps<Option> = {
 	message: SelectorMessages;
 } & Pick<SelectorCommonProps, "searchable">;
 
-export function SelectorContent<Option extends TOption>(
-	props: SelectorContentProps<Option>,
-) {
+export function SelectorContent<Option extends TOption>({
+	pagination,
+	...props
+}: SelectorContentProps<Option>) {
 	return (
 		<Popover.Content
 			className="p-0"
@@ -97,11 +101,15 @@ export function SelectorContent<Option extends TOption>(
 					</Command.List>
 				)}
 
-				{props.page && (
+				{pagination && (
 					<Command.Page
-						page={props.page}
-						onClick={(newPage) => props.onChangePage?.(newPage)}
-						total={props.options.length}
+						page={pagination.page}
+						onClick={(newPage) => pagination.onChangePage(newPage)}
+						total={
+							pagination.totalItems
+								? pagination.totalItems
+								: props.options.length
+						}
 					/>
 				)}
 			</Command.Root>

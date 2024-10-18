@@ -18,7 +18,6 @@ export type SingleSelectorProps<
 > = SelectorCommonProps & {
 	className?: string;
 	style?: React.CSSProperties;
-	selectedOption?: O;
 	options: O[];
 	labelPath: FieldPath<O>;
 	valuePath: VP;
@@ -26,9 +25,12 @@ export type SingleSelectorProps<
 	onChange?(value?: TV): void;
 	onSearch?: (search: string) => void;
 	loadingOptions?: boolean;
-	page?: number;
-	onChangePage?: (page: number) => void;
 	onCloseSelect?: () => void;
+	pagination?: {
+		selectedOption: O;
+		page: number;
+		onChangePage: (page: number) => void;
+	};
 };
 
 function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
@@ -40,8 +42,7 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 		style,
 		onSearch,
 		loadingOptions,
-		page,
-		onChangePage,
+		pagination,
 		onCloseSelect,
 		...props
 	}: SingleSelectorProps<O, VP>,
@@ -72,14 +73,14 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 	}, [props.options, value, getValue]);
 
 	const getSelectedOption = useCallback(() => {
-		if (props.selectedOption !== undefined) {
-			return getLabel(props.selectedOption);
+		if (pagination && pagination.selectedOption !== undefined) {
+			return getLabel(pagination.selectedOption);
 		}
 		if (selectedOption) {
 			return getLabel(selectedOption);
 		}
 		return props.placeholder;
-	}, [props.selectedOption, selectedOption, props.placeholder, getLabel]);
+	}, [pagination, selectedOption, props.placeholder, getLabel]);
 
 	const onSelect = useCallback(
 		(option: O) => {
@@ -108,11 +109,10 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 	return (
 		<Popover.Root modal open={open} onOpenChange={setOpen}>
 			<Popover.Trigger
-				role="combobox"
 				className={cn(
 					inputVariants(),
 					"justify-between",
-					!props.selectedOption &&
+					(!pagination || !pagination.selectedOption) &&
 						!selectedOption &&
 						"text-gray-11 dark:text-graydark-11",
 					className,
@@ -136,8 +136,7 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				searchable={props.searchable}
 				onSearch={onSearch}
 				loadingOptions={loadingOptions}
-				page={page}
-				onChangePage={onChangePage}
+				pagination={pagination}
 				width={width}
 				message={{
 					...props.messages,

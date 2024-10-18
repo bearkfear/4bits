@@ -20,7 +20,6 @@ export type MultiSelectorProps<
 	className?: string;
 	style?: React.CSSProperties;
 	checkAll?: boolean;
-	selectedOptions?: O[];
 	options: O[];
 	labelPath: FieldPath<O>;
 	valuePath: VP;
@@ -28,8 +27,11 @@ export type MultiSelectorProps<
 	onChange?(value?: TV[]): void;
 	onSearch?: (search: string) => void;
 	loadingOptions?: boolean;
-	page?: number;
-	onChangePage?: (page: number) => void;
+	pagination?: {
+		selectedOptions: O[];
+		page: number;
+		onChangePage: (page: number) => void;
+	};
 	onCloseSelect?: () => void;
 };
 
@@ -43,8 +45,7 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 		style,
 		onSearch,
 		loadingOptions,
-		page,
-		onChangePage,
+		pagination,
 		onCloseSelect,
 		...props
 	}: MultiSelectorProps<O, VP>,
@@ -99,12 +100,12 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 
 	const getSelectedOption = useCallback(() => {
 		if (
-			(props.selectedOptions && props.selectedOptions.length > 0) ||
+			(pagination && pagination.selectedOptions.length > 0) ||
 			selectedOptions.length > 0
 		) {
 			const list =
-				props.selectedOptions && props.selectedOptions.length > 0
-					? props.selectedOptions
+				pagination && pagination.selectedOptions.length > 0
+					? pagination.selectedOptions
 					: selectedOptions;
 			return (
 				<ul className="flex flex-wrap justify-start gap-1 max-h-20 py-2 overflow-y-auto">
@@ -133,7 +134,7 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 		}
 		return <span>{props.placeholder}</span>;
 	}, [
-		props.selectedOptions,
+		pagination,
 		selectedOptions,
 		props.placeholder,
 		getLabel,
@@ -160,11 +161,10 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 	return (
 		<Popover.Root modal open={open} onOpenChange={setOpen}>
 			<Popover.Trigger
-				role="combobox"
 				className={cn(
 					selectInputVariants(),
 					"justify-between items-center min-h-8 max-h-24 z-20 overflow-hidden",
-					(!props.selectedOptions || props.selectedOptions.length === 0) &&
+					(!pagination || pagination.selectedOptions.length === 0) &&
 						selectedOptions.length === 0 &&
 						"text-gray-11 dark:text-graydark-11",
 					className,
@@ -187,8 +187,7 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				searchable={props.searchable}
 				onSearch={onSearch}
 				loadingOptions={loadingOptions}
-				page={page}
-				onChangePage={onChangePage}
+				pagination={pagination}
 				checkAll={checkAll}
 				checkeds={value.length}
 				width={width}
