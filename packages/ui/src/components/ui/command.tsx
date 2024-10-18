@@ -72,7 +72,7 @@ const Page = ({
 			variant="link"
 			className="flex gap-1 text-blue-11 dark:text-bluedark-11"
 			onClick={() => onClick(page + 1)}
-			disabled={total === 0 || total <= page * 50}
+			disabled={total === 0}
 		>
 			Próximo
 			<LuChevronRight />
