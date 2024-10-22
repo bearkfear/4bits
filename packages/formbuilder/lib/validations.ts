@@ -274,7 +274,7 @@ export function validateField(
 			}
 
 			validation = defaultNumberValidation.refine(
-				(number) => !fieldConfig.required || Boolean(number),
+				(number) => !fieldConfig.required || !Number.isNaN(number),
 				requiredError,
 			);
 
