@@ -42,6 +42,13 @@ export function validateField(
 				defaultTextValidation = defaultTextValidation.min(1, requiredError);
 			}
 
+			if (fieldConfig.maxLength !== undefined) {
+				defaultTextValidation = defaultTextValidation.max(
+					fieldConfig.maxLength,
+					`O campo ${fieldConfig.label} não atende a quantidade máxima de ${fieldConfig.maxLength} caracteres`,
+				);
+			}
+
 			validation = defaultTextValidation;
 			break;
 		}
