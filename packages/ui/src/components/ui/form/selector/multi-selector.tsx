@@ -108,7 +108,7 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 					? pagination.selectedOptions
 					: selectedOptions;
 			return (
-				<ul className="flex flex-wrap justify-start gap-1 max-h-20 py-2 overflow-y-auto">
+				<ul className="flex flex-wrap justify-start gap-1 max-h-20 py-1 overflow-y-auto">
 					{list.map((option) => (
 						<li
 							key={getValue(option)}
