@@ -254,6 +254,11 @@ export function FormControl<
 					);
 				}}
 				disabled={disabled}
+				className={cn(
+					"flex flex-col",
+					props.fieldConfig.position === "horizontal" &&
+						"flex flex-row flex-wrap",
+				)}
 			>
 				{options.map((option) => {
 					const id = `radio-${props.fieldConfig.name}-option${option.value}`;
@@ -294,7 +299,13 @@ export function FormControl<
 		}
 
 		return (
-			<MultiCheckbox.Root>
+			<MultiCheckbox.Root
+				className={cn(
+					"flex flex-col",
+					props.fieldConfig.position === "horizontal" &&
+						"flex flex-row flex-wrap",
+				)}
+			>
 				{options.map((option) => {
 					const id = `checkbox-${props.fieldConfig.name}-option${option.value}`;
 					return (

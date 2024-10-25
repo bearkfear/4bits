@@ -1,7 +1,6 @@
 import type { Meta } from "@storybook/react";
 import { useState } from "react";
 import { LuFileEdit, LuTrash } from "react-icons/lu";
-import { ClassNameCol } from "../../components/ui/table-builder/types";
 import { Button, TableBuilder } from "../../index";
 
 const meta = {
@@ -27,8 +26,6 @@ export const Basic = () => {
 					name: "John Doe",
 					age: 30,
 					sex: "Man",
-					classNameRow: "bg-red-5 dark:bg-reddark-3",
-					classNameCell: { sex: "flex items-center justify-center" },
 				},
 				{ key: 2, name: "Jane Doe", age: 20, sex: "Woman" },
 				{ key: 3, name: "Alice Smith", age: 25, sex: "Woman" },
@@ -56,15 +53,26 @@ export const Toolbar = () => {
 		<TableBuilder
 			title={<span className="text-gray-11 py-1">Table with toolbar</span>}
 			toolBar={{
-				controlStatus: {
-					status: "all",
-					options: [
-						{ label: "All", value: "all" },
-						{ label: "Active", value: "active" },
-						{ label: "Inactive", value: "inactive" },
-					],
-					onChange: (value) => alert(`Status: ${value}`),
-				},
+				controlStatus: [
+					{
+						status: "all",
+						options: [
+							{ label: "All", value: "all" },
+							{ label: "Active", value: "active" },
+							{ label: "Inactive", value: "inactive" },
+						],
+						onChange: (value) => alert(`Status: ${value}`),
+					},
+					{
+						status: "all",
+						options: [
+							{ label: "All", value: "all" },
+							{ label: "Active", value: "active" },
+							{ label: "Inactive", value: "inactive" },
+						],
+						onChange: (value) => alert(`Status: ${value}`),
+					},
+				],
 				searchable: {
 					onSearch: (value) => alert(`Search: ${value}`),
 					search: "",

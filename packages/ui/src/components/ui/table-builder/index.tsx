@@ -9,6 +9,7 @@ import { Header } from "./header";
 import { ToolBar } from "./toolbar";
 import type { Columns, Row, Rows, TableBuilderProps } from "./types";
 import { reOrderList } from "./utils/functions";
+import { PageLoader } from "../page-loader";
 
 export function TableBuilder<C extends Columns>(props: TableBuilderProps<C>) {
 	const [rowsChecked, setRowsChecked] = useState<Rows<C>>([]);
@@ -68,7 +69,6 @@ export function TableBuilder<C extends Columns>(props: TableBuilderProps<C>) {
 				rowsChecked={rowsChecked}
 				setRowsChecked={setRowsChecked}
 			/>
-
 			<DndContext onDragEnd={onDragEnd}>
 				<Table.Root className="table-fixed">
 					<Header
@@ -76,18 +76,28 @@ export function TableBuilder<C extends Columns>(props: TableBuilderProps<C>) {
 						allRowsChecked={allRowsChecked}
 						checkAllRows={checkAllRows}
 					/>
-					<Body
-						{...props}
-						checkRow={checkRow}
-						rowsChecked={rowsChecked}
-						colsQuantity={colsQuantity}
-					/>
-					{!props.hideFooter && (
-						<Footer
-							{...props}
-							colsQuantity={colsQuantity}
-							rowsChecked={rowsChecked}
-						/>
+					{props.loading && (
+						<Table.Cell colSpan={colsQuantity}>
+							<PageLoader />
+						</Table.Cell>
+					)}
+
+					{!props.loading && (
+						<>
+							<Body
+								{...props}
+								checkRow={checkRow}
+								rowsChecked={rowsChecked}
+								colsQuantity={colsQuantity}
+							/>
+							{!props.hideFooter && (
+								<Footer
+									{...props}
+									colsQuantity={colsQuantity}
+									rowsChecked={rowsChecked}
+								/>
+							)}
+						</>
 					)}
 				</Table.Root>
 			</DndContext>

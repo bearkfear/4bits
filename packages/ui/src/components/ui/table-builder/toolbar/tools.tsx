@@ -11,22 +11,24 @@ export function Tools<C extends Columns>(props: ToolbarProps<C>) {
 
 	return (
 		<div className="flex justify-end py-2 ml-auto space-x-2">
-			{toolBar?.controlStatus && (
-				<div className="w-[150px]">
-					<SingleSelector
-						messages={{
-							empty: "Selecione uma opção",
-							searchPlaceholder: "Pesquisar",
-						}}
-						labelPath="label"
-						valuePath="value"
-						value={toolBar.controlStatus.status}
-						disabled={toolBar.controlStatus.disabled}
-						onChange={toolBar.controlStatus.onChange}
-						options={toolBar.controlStatus.options}
-					/>
-				</div>
-			)}
+			{toolBar?.controlStatus?.map((control, index) => (
+				<SingleSelector
+					// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+					key={index}
+					className="w-[150px]"
+					messages={{
+						empty: "Selecione uma opção",
+						searchPlaceholder: "Pesquisar",
+					}}
+					labelPath="label"
+					valuePath="value"
+					placeholder={control.placeholder || "Selecione uma opção"}
+					value={control.status}
+					disabled={control.disabled}
+					onChange={control.onChange}
+					options={control.options}
+				/>
+			))}
 
 			{toolBar?.searchable && (
 				<Input
