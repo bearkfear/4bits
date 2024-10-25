@@ -61,11 +61,12 @@ export type ToolbarActions<C extends Columns> = {
 			search: string;
 		};
 		controlStatus?: {
+			placeholder?: string;
 			disabled?: boolean;
 			status: string | number;
 			options: { label: string; value: string | number }[];
 			onChange: (value: string | number) => void;
-		};
+		}[];
 		extraActions?: ((params: ToolbarActionParams<C>) => ReactNode)[];
 	};
 };
