@@ -81,6 +81,7 @@ export type TableBuilderProps<C extends Columns> = ToolbarActions<C> &
 		title?: string | ReactNode;
 		classNameCol?: ClassNameCol<C>;
 		hideFooter?: boolean;
+		loading?: boolean;
 	};
 
 /** action */
