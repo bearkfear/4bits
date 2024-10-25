@@ -55,6 +55,7 @@ export const Toolbar = () => {
 	return (
 		<TableBuilder
 			title={<span className="text-gray-11 py-1">Table with toolbar</span>}
+			loading
 			toolBar={{
 				controlStatus: {
 					status: "all",
