@@ -2,7 +2,7 @@
 import get from "lodash.get";
 import isEqual from "lodash.isequal";
 import { CheckSquare2, ChevronsUpDown, Square } from "lucide-react";
-import { forwardRef, useCallback, useEffect, useMemo, useState } from "react";
+import { forwardRef, useCallback, useMemo, useState } from "react";
 import type { FieldPath } from "react-hook-form";
 import { LuX } from "react-icons/lu";
 import { mergeRefs } from "react-merge-refs";
@@ -53,10 +53,6 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 ) {
 	const [width, setWidth] = useState(1);
 	const [open, setOpen] = useState(false);
-
-	useEffect(() => {
-		if (!open) onCloseSelect?.();
-	}, [open, onCloseSelect]);
 
 	const getValue = useCallback(
 		(option: O) => {
@@ -158,8 +154,17 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 		setWidth(el.getBoundingClientRect().width);
 	}
 
+	const onOpenChange = useCallback(
+		(newValue: boolean) => {
+			setOpen(newValue);
+
+			if (!newValue) onCloseSelect?.();
+		},
+		[onCloseSelect],
+	);
+
 	return (
-		<Popover.Root modal open={open} onOpenChange={setOpen}>
+		<Popover.Root modal open={open} onOpenChange={onOpenChange}>
 			<Popover.Trigger
 				className={cn(
 					selectInputVariants(),
