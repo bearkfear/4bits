@@ -512,7 +512,7 @@ export const Radio = () => {
 							name: "gender",
 							type: "radio",
 							label: "Your gender",
-							size: 12,
+							size: 4,
 							helperText: "You can select a gender",
 							required: true,
 							options: [

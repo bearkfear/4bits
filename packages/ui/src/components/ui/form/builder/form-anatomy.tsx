@@ -61,7 +61,9 @@ export function FormAnatomy<
 
 	if (
 		props.fieldConfig.type === "checkbox" ||
-		(props.fieldConfig.type === "switch" && !props.fieldConfig.valueLabels)
+		(props.fieldConfig.type === "switch" &&
+			!props.fieldConfig.valueLabels?.true &&
+			!props.fieldConfig.valueLabels?.false)
 	) {
 		return (
 			<div
