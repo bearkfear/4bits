@@ -16,6 +16,7 @@ export function RowCellSelectable<C extends Columns>({
 }: RowCellSelectableProps<C>) {
 	return (
 		<Table.Cell className="">
+			{/* biome-ignore lint/a11y/noLabelWithoutControl: <explanation> */}
 			<label className="flex cursor-pointer w-full h-full">
 				<Checkbox
 					checked={rowIsChecked}

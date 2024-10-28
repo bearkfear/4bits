@@ -3,7 +3,7 @@ import type { ButtonProps } from "../button";
 
 /** colunas */
 export type Column = {
-	title: string;
+	title: string | ReactNode;
 	id: string;
 	className?: string;
 	position?: "start" | "center" | "end";
