@@ -339,6 +339,8 @@ export const MultiSelector = () => {
 						searchable: true,
 						required: true,
 						checkAll: true,
+						lines: 5,
+						color: "selected",
 						options: [
 							{ label: "Person 1", value: 1 },
 							{
@@ -375,6 +377,13 @@ export const MultiSelector = () => {
 							{ label: "Person 26", value: 26 },
 							{ label: "Person 27", value: 27 },
 							{ label: "Person 28", value: 28 },
+							{ label: "Person 28", value: 29 },
+							{ label: "Person 31", value: 31 },
+							{ label: "Person 32", value: 32 },
+							{ label: "Person 33", value: 33 },
+							{ label: "Person 34", value: 34 },
+							{ label: "Person 35", value: 35 },
+							{ label: "Person 36", value: 36 },
 						],
 					},
 				]}

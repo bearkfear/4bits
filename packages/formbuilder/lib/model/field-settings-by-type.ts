@@ -67,6 +67,14 @@ export type FieldSettingsByType =
 	| {
 			type: "multi-select";
 			checkAll?: boolean;
+			/**
+			 * Define a quantidade maxima de linhas que podem aparecer, padrão é 3
+			 */
+			lines?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | "noLimit";
+			/**
+			 * Define o estilo dos objetos selecionado, "selected" fica igual ao padrão do popover
+			 */
+			color?: "default" | "selected";
 			searchable?: boolean;
 			onSearch?: (search: string) => void;
 			disableOption?: ((option: Option) => boolean) | Option["value"][];

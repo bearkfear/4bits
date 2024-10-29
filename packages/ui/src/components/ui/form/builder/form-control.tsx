@@ -190,6 +190,8 @@ export function FormControl<
 				disabled={disabled}
 				labelPath="label"
 				valuePath="value"
+				lines={props.fieldConfig.lines}
+				color={props.fieldConfig.color}
 				placeholder={props.fieldConfig.placeholder}
 				searchable={props.fieldConfig.searchable}
 				onSearch={props.fieldConfig.onSearch}

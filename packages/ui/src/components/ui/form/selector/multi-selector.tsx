@@ -12,6 +12,10 @@ import { selectInputVariants } from "../input";
 import { SelectorContent } from "./content";
 import type { SelectorCommonProps, TOption } from "./model";
 
+const OBJECT_SIZE = 18;
+const PADDING_Y = 8;
+const GAP = 6;
+
 export type MultiSelectorProps<
 	O extends TOption,
 	VP extends FieldPath<O>,
@@ -19,6 +23,8 @@ export type MultiSelectorProps<
 > = SelectorCommonProps & {
 	className?: string;
 	style?: React.CSSProperties;
+	lines?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | "noLimit";
+	color?: "default" | "selected";
 	checkAll?: boolean;
 	options: O[];
 	labelPath: FieldPath<O>;
@@ -43,6 +49,8 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 		className,
 		checkAll = false,
 		style,
+		lines = 3,
+		color = "default",
 		onSearch,
 		loadingOptions,
 		pagination,
@@ -104,11 +112,28 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 					? pagination.selectedOptions
 					: selectedOptions;
 			return (
-				<ul className="flex flex-wrap justify-start gap-1 max-h-20 py-1 overflow-y-auto">
+				<ul
+					className={cn(
+						"flex flex-wrap justify-start gap-1.5 py-1",
+						lines !== "noLimit" && "overflow-y-auto",
+					)}
+					style={{
+						maxHeight:
+							lines !== "noLimit"
+								? `${lines * OBJECT_SIZE + PADDING_Y + (lines - 1) * GAP}px`
+								: undefined,
+					}}
+				>
 					{list.map((option) => (
 						<li
 							key={getValue(option)}
-							className="rounded bg-gray-3 dark:bg-graydark-3 border divide-x divide-gray-7 dark:divide-graydark-6 border-gray-7 dark:border-graydark-6 text-xs flex items-center"
+							className={cn(
+								"rounded border divide-x text-xs flex items-center",
+								color === "default" &&
+									"bg-gray-3 dark:bg-graydark-3 divide-gray-7 dark:divide-graydark-6 border-gray-7 dark:border-graydark-6",
+								color === "selected" &&
+									"bg-blue-5 dark:bg-bluedark-5 divide-blue-7 dark:divide-bluedark-6 border-blue-7 dark:border-bluedark-6",
+							)}
 						>
 							<span className="text-ellipsis overflow-hidden whitespace-nowrap max-w-40 text-left px-2">
 								{getLabel(option)}
@@ -121,7 +146,13 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 									e.stopPropagation();
 								}}
 							>
-								<LuX className="text-gray-11  dark:text-gray-8" size={13} />
+								<LuX
+									className={cn(
+										color === "default" && "text-gray-11  dark:text-gray-8",
+										color === "selected" && "",
+									)}
+									size={13}
+								/>
 							</span>
 						</li>
 					))}
@@ -131,6 +162,8 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 		return <span>{props.placeholder}</span>;
 	}, [
 		pagination,
+		lines,
+		color,
 		selectedOptions,
 		props.placeholder,
 		getLabel,
@@ -168,7 +201,7 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 			<Popover.Trigger
 				className={cn(
 					selectInputVariants(),
-					"justify-between items-center min-h-8 max-h-24 z-20 overflow-hidden",
+					"justify-between items-center min-h-8 z-20",
 					(!pagination || pagination.selectedOptions.length === 0) &&
 						selectedOptions.length === 0 &&
 						"text-gray-11 dark:text-graydark-11",
