@@ -257,9 +257,10 @@ export function FormControl<
 				}}
 				disabled={disabled}
 				className={cn(
-					"flex flex-col",
+					"flex",
+					props.fieldConfig.position === "vertical" && "flex-col",
 					props.fieldConfig.position === "horizontal" &&
-						"flex flex-row flex-wrap",
+						"flex-row flex-wrap gap-3 min-h-8 items-center",
 				)}
 			>
 				{options.map((option) => {
@@ -267,7 +268,7 @@ export function FormControl<
 					return (
 						<div
 							className={cn(
-								"flex space-x-2 items-center",
+								"flex space-x-1.5 items-center",
 								props.fieldConfig.className,
 							)}
 							style={props.fieldConfig.style}
@@ -303,9 +304,10 @@ export function FormControl<
 		return (
 			<MultiCheckbox.Root
 				className={cn(
-					"flex flex-col",
+					"flex",
+					props.fieldConfig.position === "vertical" && "flex-col",
 					props.fieldConfig.position === "horizontal" &&
-						"flex flex-row flex-wrap",
+						"flex-row flex-wrap gap-3 min-h-8 items-center",
 				)}
 			>
 				{options.map((option) => {
@@ -313,7 +315,7 @@ export function FormControl<
 					return (
 						<div
 							className={cn(
-								"flex space-x-2 items-center",
+								"flex space-x-1.5 items-center",
 								props.fieldConfig.className,
 							)}
 							style={props.fieldConfig.style}
