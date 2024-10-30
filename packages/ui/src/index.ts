@@ -19,6 +19,13 @@ export { Table } from "./components/ui/table";
 export { TableBuilder } from "./components/ui/table-builder";
 export type { TableBuilderProps } from "./components/ui/table-builder/types";
 export { Pagination } from "./components/ui/pagination";
+export {
+	CEP_MASK,
+	CNPJ_MASK,
+	CPF_CNPJ_MASK,
+	CPF_MASK,
+	PHONE_MASK,
+} from "./lib/mask/common-masks";
 
 // export forms
 

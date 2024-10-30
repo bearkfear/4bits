@@ -149,7 +149,6 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 								<LuX
 									className={cn(
 										color === "default" && "text-gray-11  dark:text-gray-8",
-										color === "selected" && "",
 									)}
 									size={13}
 								/>
