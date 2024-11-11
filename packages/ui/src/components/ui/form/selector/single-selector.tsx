@@ -22,7 +22,7 @@ export type SingleSelectorProps<
 	labelPath: FieldPath<O>;
 	valuePath: VP;
 	value: TV;
-	onChange?(value?: TV): void;
+	onChange?(value?: TV | null): void;
 	onSearch?: (search: string) => void;
 	loadingOptions?: boolean;
 	onCloseSelect?: () => void;
@@ -69,7 +69,11 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 	}, [props.options, value, getValue]);
 
 	const getSelectedOption = useCallback(() => {
-		if (pagination && pagination.selectedOption !== undefined) {
+		if (
+			pagination &&
+			pagination.selectedOption !== undefined &&
+			pagination.selectedOption !== null
+		) {
 			return getLabel(pagination.selectedOption);
 		}
 		if (selectedOption) {
@@ -83,9 +87,7 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 			const optionValue = get(option, props.valuePath);
 
 			onChange(
-				isEqual(optionValue, value) && !props.required
-					? undefined
-					: optionValue,
+				isEqual(optionValue, value) && !props.required ? null : optionValue,
 			);
 			setOpen(false);
 		},
