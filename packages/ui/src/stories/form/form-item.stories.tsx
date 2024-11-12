@@ -258,62 +258,65 @@ export const PHONE = () => {
 export const SingleSelector = () => {
 	const form = useForm({
 		defaultValues: {
-			person: "",
+			person: null,
 		},
 	});
 
 	return (
-		<FormBuilder.Root>
-			<FormBuilder.FormFields
-				control={form.control}
-				fields={[
-					{
-						name: "person",
-						type: "select",
-						label: "Person",
-						size: 12,
-						helperText: "You must select a person",
-						placeholder: "selecting a person",
-						searchable: true,
-						required: true,
-						options: [
-							{ label: "Person 1", value: 1 },
-							{ label: "Person 2", value: 2 },
-							{ label: "Person 3", value: 3 },
-							{
-								label:
-									"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-								value: 4,
-							},
-							{ label: "Person 5", value: 5 },
-							{ label: "Person 6", value: 6 },
-							{ label: "Person 7", value: 7 },
-							{ label: "Person 8", value: 8 },
-							{ label: "Person 9", value: 9 },
-							{ label: "Person 10", value: 10 },
-							{ label: "Person 11", value: 11 },
-							{ label: "Person 12", value: 12 },
-							{ label: "Person 13", value: 13 },
-							{ label: "Person 14", value: 14 },
-							{ label: "Person 15", value: 15 },
-							{ label: "Person 16", value: 16 },
-							{ label: "Person 17", value: 17 },
-							{ label: "Person 18", value: 18 },
-							{ label: "Person 19", value: 19 },
-							{ label: "Person 20", value: 20 },
-							{ label: "Person 21", value: 21 },
-							{ label: "Person 22", value: 22 },
-							{ label: "Person 23", value: 23 },
-							{ label: "Person 24", value: 24 },
-							{ label: "Person 25", value: 25 },
-							{ label: "Person 26", value: 26 },
-							{ label: "Person 27", value: 27 },
-							{ label: "Person 28", value: 28 },
-						],
-					},
-				]}
-			/>
-		</FormBuilder.Root>
+		<form onSubmit={form.handleSubmit(() => {})}>
+			<FormBuilder.Root>
+				<FormBuilder.FormFields
+					control={form.control}
+					fields={[
+						{
+							name: "person",
+							type: "select",
+							label: "Person",
+							size: 12,
+							helperText: "You must select a person",
+							placeholder: "selecting a person",
+							searchable: true,
+							required: true,
+							options: [
+								{ label: "Person 1", value: 1 },
+								{ label: "Person 2", value: 2 },
+								{ label: "Person 3", value: 3 },
+								{
+									label:
+										"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+									value: 4,
+								},
+								{ label: "Person 5", value: 5 },
+								{ label: "Person 6", value: 6 },
+								{ label: "Person 7", value: 7 },
+								{ label: "Person 8", value: 8 },
+								{ label: "Person 9", value: 9 },
+								{ label: "Person 10", value: 10 },
+								{ label: "Person 11", value: 11 },
+								{ label: "Person 12", value: 12 },
+								{ label: "Person 13", value: 13 },
+								{ label: "Person 14", value: 14 },
+								{ label: "Person 15", value: 15 },
+								{ label: "Person 16", value: 16 },
+								{ label: "Person 17", value: 17 },
+								{ label: "Person 18", value: 18 },
+								{ label: "Person 19", value: 19 },
+								{ label: "Person 20", value: 20 },
+								{ label: "Person 21", value: 21 },
+								{ label: "Person 22", value: 22 },
+								{ label: "Person 23", value: 23 },
+								{ label: "Person 24", value: 24 },
+								{ label: "Person 25", value: 25 },
+								{ label: "Person 26", value: 26 },
+								{ label: "Person 27", value: 27 },
+								{ label: "Person 28", value: 28 },
+							],
+						},
+					]}
+				/>
+			</FormBuilder.Root>
+			<Button type="submit">Submeter</Button>
+		</form>
 	);
 };
 

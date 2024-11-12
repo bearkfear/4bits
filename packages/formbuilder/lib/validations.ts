@@ -61,7 +61,9 @@ export function validateField(
 				defaultOptionsValidation = z
 					.string({ required_error: requiredError })
 					.min(1, requiredError)
-					.or(z.number({ required_error: requiredError }));
+					.or(
+						z.number({ required_error: requiredError }).min(1, requiredError),
+					);
 			}
 
 			validation = defaultOptionsValidation.refine(
@@ -372,7 +374,7 @@ export function validateField(
 	}
 
 	if (validation) {
-		if (!fieldConfig.required) {
+		if (!fieldConfig.required || fieldConfig.hidden) {
 			validation = validation.nullish();
 		}
 		const validationResult = validation.safeParse(value);
