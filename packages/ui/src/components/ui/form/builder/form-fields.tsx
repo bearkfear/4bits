@@ -1,6 +1,6 @@
 "use client";
 
-import { FormFields as FF, type FormConfig } from "@pixelbits/formbuilder";
+import { FormFields as FF, type FormConfig } from "@pixelbytes/formbuilder";
 import type { PropsWithChildren } from "react";
 import type { FieldPath, FieldValues } from "react-hook-form";
 import { cn } from "../../../../lib/utils";

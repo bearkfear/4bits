@@ -1,5 +1,5 @@
 {
-	"name": "@pixelbits/formbuilder",
+	"name": "@pixelbytes/formbuilder",
 	"version": "1.6.15",
 	"private": false,
 	"main": "dist/index.js",
