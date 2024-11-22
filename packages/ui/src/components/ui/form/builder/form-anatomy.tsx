@@ -15,7 +15,7 @@
  * lg:col-span-1
 `;
 
-import type { FormRenderProps } from "@continha/formbuilder";
+import type { FormRenderProps } from "@pixelbits/formbuilder";
 import type { FieldPath, FieldValues } from "react-hook-form";
 import { cn } from "../../../../lib/utils";
 import { HelperText } from "../helper-text";

@@ -7,7 +7,7 @@
 			"cache": true
 		},
 		"dev": {
-			"dependsOn": ["@continha/formbuilder#build"],
+			"dependsOn": ["@pixelbits/formbuilder#build"],
 			"outputs": [],
 			"cache": false,
 			"persistent": true
