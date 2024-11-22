@@ -1,5 +1,5 @@
 {
-	"name": "@continha/ui",
+	"name": "@pixelbits/ui",
 	"version": "1.14.41",
 	"private": false,
 	"main": "dist/index.js",
