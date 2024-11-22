@@ -1,5 +1,5 @@
 "use client";
-import type { FormRenderProps } from "@pixelbits/formbuilder";
+import type { FormRenderProps } from "@pixelbytes/formbuilder";
 import type { FieldPath, FieldValues } from "react-hook-form";
 import { cn } from "../../../../lib/utils";
 import { Checkbox } from "../checkbox";

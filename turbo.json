@@ -7,7 +7,7 @@
 			"cache": true
 		},
 		"dev": {
-			"dependsOn": ["@pixelbits/formbuilder#build"],
+			"dependsOn": ["@pixelbytes/formbuilder#build"],
 			"outputs": [],
 			"cache": false,
 			"persistent": true

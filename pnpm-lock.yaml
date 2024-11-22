@@ -72,7 +72,7 @@ importers:
 
   packages/ui:
     dependencies:
-      '@pixelbits/formbuilder':
+      '@pixelbytes/formbuilder':
         specifier: workspace:^
         version: link:../formbuilder
       '@radix-ui/colors':

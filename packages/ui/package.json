@@ -1,5 +1,5 @@
 {
-	"name": "@pixelbits/ui",
+	"name": "@pixelbytes/ui",
 	"version": "1.14.41",
 	"private": false,
 	"main": "dist/index.js",
@@ -14,7 +14,7 @@
 		"./*": "./dist/*"
 	},
 	"dependencies": {
-		"@pixelbits/formbuilder": "workspace:^"
+		"@pixelbytes/formbuilder": "workspace:^"
 	},
 	"peerDependencies": {
 		"@radix-ui/colors": "^3.0.0",
