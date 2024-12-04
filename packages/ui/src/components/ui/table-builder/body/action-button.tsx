@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { Dropdown } from "../../dropdown";
 
 const actionVariants = cva(
-  "space-x-1 cursor-pointer hover:opacity-95 px-3 rounded text-gray-12",
+  "space-x-1 cursor-pointer hover:opacity-95 px-3 rounded text-gray-12 dark:text-graydark-12",
   {
     variants: {
       variant: {
