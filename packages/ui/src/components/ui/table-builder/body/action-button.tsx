@@ -3,17 +3,17 @@ import type { ReactNode } from "react";
 import { Dropdown } from "../../dropdown";
 
 const actionVariants = cva(
-  "space-x-1 cursor-pointer hover:opacity-95 px-3 rounded",
+  "space-x-1 cursor-pointer hover:opacity-95 px-3 rounded text-white",
   {
     variants: {
       variant: {
         default: "",
         hidden: "hidden",
-        info: "bg-blue-10 dark:bg-bluedark-10 hover:!bg-blue-11 dark:hover:!bg-bluedark-11 text-gray-2 dark:text-gray-11",
+        info: "bg-blue-9 dark:bg-bluedark-8 hover:!bg-blue-10 dark:hover:!bg-bluedark-9",
         success:
-          "bg-green-10 dark:bg-greendark-10 hover:!bg-green-11 dark:hover:!bg-greendark-11 text-gray-2 dark:text-gray-11",
+          "bg-green-9 dark:bg-greendark-8 hover:!bg-green-10 dark:hover:!bg-greendark-9",
         danger:
-          "bg-red-10 dark:bg-reddark-10 hover:!bg-red-11 dark:hover:!bg-reddark-11 text-gray-2 dark:text-gray-11",
+          "bg-red-9 dark:bg-reddark-8 hover:!bg-red-10 dark:hover:!bg-reddark-9",
       },
     },
   }
