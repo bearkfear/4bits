@@ -5,7 +5,7 @@ import { cn } from "../../../../lib/utils";
 import { Button } from "../../button";
 import { Dropdown } from "../../dropdown";
 import type { Action, Columns, Row } from "../types";
-import { ActionButton } from "./action-button";
+import { TableBuilderActionButton } from "./action-button";
 
 type ActionsProps<C extends Columns> = {
   actions: Action<C>[];
@@ -47,7 +47,7 @@ function ActionContent<C extends Columns>({ actions, row }: ActionsProps<C>) {
           ActionOption = action(row);
         } else {
           ActionOption = (
-            <ActionButton
+            <TableBuilderActionButton
               variant={action.variant}
               icon={action.icon}
               label={action.label}

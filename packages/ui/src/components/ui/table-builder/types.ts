@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import type { ButtonProps } from "../button";
-import type { ActionVariants } from "./body/action-button";
+import type { TableBuilderActionButtonVariants } from "./body/action-button";
 
 /** colunas */
 export type Column = {
@@ -91,7 +91,7 @@ export type Action<C extends Columns> =
 	| {
 			label: string;
 			icon?: React.ReactNode;
-			variant?: ActionVariants["variant"];
+			variant?: TableBuilderActionButtonVariants["variant"];
 			action: (value: Row<C>) => void;
 	  }
 	| ((props: Row<C>) => ReactNode);

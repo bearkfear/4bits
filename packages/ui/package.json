@@ -1,6 +1,6 @@
 {
 	"name": "@4bits/ui",
-	"version": "1.14.43",
+	"version": "1.14.44",
 	"private": false,
 	"main": "dist/index.js",
 	"module": "dist/esm/index.js",

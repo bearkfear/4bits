@@ -2,6 +2,7 @@ import type { Meta } from "@storybook/react";
 import { useState } from "react";
 import { LuFileEdit, LuTrash } from "react-icons/lu";
 import { Button, TableBuilder } from "../../index";
+import { TableBuilderActionButton } from "src/components/ui/table-builder/body/action-button";
 
 const meta = {
   title: "Table-builder/Table",
@@ -146,14 +147,7 @@ export const Actions = () => {
             alert(`Delete: ${row.name}`);
           },
         },
-        {
-          label: "Delete",
-          variant: "danger",
-          icon: <LuTrash />,
-          action: (row) => {
-            alert(`Delete: ${row.name}`);
-          },
-        },
+        () => <TableBuilderActionButton label="remover" variant="danger" />,
       ]}
     />
   );
