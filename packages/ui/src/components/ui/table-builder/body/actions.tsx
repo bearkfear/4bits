@@ -32,7 +32,7 @@ export function Actions<C extends Columns>(props: ActionsProps<C>) {
 function ActionContent<C extends Columns>({ actions, row }: ActionsProps<C>) {
   return (
     <Dropdown.Content
-      className="w-[150px] m-0 px-2 py-1 space-y-1"
+      className="w-[150px] m-0 p-1 space-y-1"
       side="left"
       align="start"
     >
