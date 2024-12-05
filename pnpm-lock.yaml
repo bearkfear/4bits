@@ -139,7 +139,7 @@ importers:
         specifier: ^4.5.0
         version: 4.5.0
       lucide-react:
-        specifier: 0.411.0
+        specifier: ^0.411.0
         version: 0.411.0(react@18.3.1)
       next:
         specifier: 14.2.5
@@ -157,7 +157,7 @@ importers:
         specifier: ^7.53.0
         version: 7.53.0(react@18.3.1)
       react-icons:
-        specifier: 5.2.1
+        specifier: ^5.2.1
         version: 5.2.1(react@18.3.1)
       react-merge-refs:
         specifier: ^2.1.1
