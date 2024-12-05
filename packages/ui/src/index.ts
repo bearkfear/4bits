@@ -13,6 +13,7 @@ export { Tooltip } from "./components/ui/tooltip";
 export { Separator } from "./components/ui/separator";
 export { Dialog } from "./components/ui/dialog";
 export { Dropdown } from "./components/ui/dropdown";
+export { Stepper } from "./components/ui/stepper";
 export { Tabs } from "./components/ui/tabs";
 export { Card } from "./components/ui/card";
 export { Table } from "./components/ui/table";
