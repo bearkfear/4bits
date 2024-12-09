@@ -60,6 +60,7 @@ export type FieldSettingsByType =
 				| "success"
 				| "disabled";
 			delimiter?: Delimiter;
+			defaultTags?: string[];
 	  }
 	| {
 			type: "select";

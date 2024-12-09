@@ -62,6 +62,7 @@ export function FormControl<
         delimiter={props.fieldConfig.delimiter}
         variant={props.fieldConfig.variant}
         disabledTags={props.fieldConfig.disabledTags}
+        defaultTags={props.fieldConfig.defaultTags}
       />
     );
   }

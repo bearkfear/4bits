@@ -912,6 +912,8 @@ export const Tag = () => {
             size: 12,
             placeholder: "Crie uma nova tag",
             helperText: "Digite um nome para a tag e pressione enter",
+            variant: "info",
+            defaultTags: ["/", "tag", "/", "padrão", "/"],
           },
         ]}
       />

@@ -24,8 +24,8 @@ export const tagsVariants = cva("bg-red-10 dark:bg-red", {
     body: {
       default:
         "bg-gray-3 dark:bg-graydark-5 text-gray-12 dark:text-graydark-12",
-      error: "bg-red-10 dark:bg-reddark-10 text-gray-2 dark:text-graydark-12",
-      info: "bg-blue-10 dark:bg-bluedark-10 text-gray-2 dark:text-graydark-12",
+      error: "bg-red-8 dark:bg-reddark-8 text-gray-2 dark:text-graydark-12",
+      info: "bg-blue-8 dark:bg-bluedark-8 text-gray-2 dark:text-graydark-12",
       warning:
         "bg-yellow-10 dark:bg-yellowdark-10 text-gray-12 dark:text-graydark-2",
       success:
@@ -37,8 +37,8 @@ export const tagsVariants = cva("bg-red-10 dark:bg-red", {
       default:
         "bg-gray-5 dark:bg-graydark-8 text-gray-12 dark:text-graydark-12",
       error:
-        "bg-red-8 dark:bg-reddark-8 text-gray-2 dark:text-graydark-12 hover:bg-red-7 dark:hover:bg-reddark-7",
-      info: "bg-blue-8 dark:bg-bluedark-8 text-gray-2 dark:text-graydark-12 hover:bg-blue-7 dark:hover:bg-bluedark-7",
+        "bg-red-10 dark:bg-reddark-10 text-gray-2 dark:text-graydark-12 hover:bg-red-7 dark:hover:bg-reddark-9",
+      info: "bg-blue-10 dark:bg-bluedark-10 text-gray-2 dark:text-graydark-12 hover:bg-blue-7 dark:hover:bg-bluedark-9",
       warning:
         "bg-yellow-8 text-gray-12 dark:text-graydark-2 hover:bg-yellow-7",
       success:
@@ -61,6 +61,7 @@ export interface InputProps
   disabledTags?: string[];
   variant?: tagVariant;
   delimiter?: Delimiter;
+  defaultTags?: string[];
 }
 
 const InputTag = React.forwardRef<HTMLInputElement, InputProps>(
@@ -73,6 +74,7 @@ const InputTag = React.forwardRef<HTMLInputElement, InputProps>(
       disabledTags = [],
       variant = "default",
       delimiter,
+      defaultTags,
       ...props
     },
     ref
@@ -130,6 +132,16 @@ const InputTag = React.forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div className="flex w-full min-h-8 items-center p-1 flex-wrap gap-1 rounded border border-gray-6 dark:border-graydark-6 bg-gray-1 dark:bg-graydark-1 text-xs ring-offset-transparent file:border-0 file:bg-transparent file:text-xs file:font-medium placeholder:text-gray-11 dark:placeholder:text-graydark-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-7 dark:focus-visible:ring-bluedark-7 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 text-black dark:text-white">
+        {defaultTags?.map((tag, index) => (
+          <Tag
+            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+            key={tag + index}
+            value={tag}
+            disabled={true}
+            variant={variant}
+            onRemove={() => {}}
+          />
+        ))}
         {value?.map((tag, index) => (
           <Tag
             // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
