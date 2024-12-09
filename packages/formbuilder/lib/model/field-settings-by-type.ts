@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type { Option } from "./option";
+import type { Delimiter } from "./tag";
 
 type Tokens = Record<
 	string,
@@ -47,6 +48,18 @@ export type FieldSettingsByType =
 			type: "number";
 			min?: number;
 			max?: number;
+	  }
+	| {
+			type: "tag";
+			disabledTags?: string[];
+			variant?:
+				| "default"
+				| "error"
+				| "info"
+				| "warning"
+				| "success"
+				| "disabled";
+			delimiter?: Delimiter;
 	  }
 	| {
 			type: "select";
