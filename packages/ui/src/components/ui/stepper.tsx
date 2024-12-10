@@ -4,7 +4,7 @@ import {
 	LucideCircleDashed,
 } from "lucide-react";
 import { cn } from "../../lib/utils";
-import type { HTMLProps } from "react";
+import { Fragment, type HTMLProps } from "react";
 
 export interface Step {
 	label: string;
@@ -70,44 +70,41 @@ export function Stepper({
 	}
 
 	return (
-		<div {...props}>
-			<div
-				className={cn(
-					"flex gap-2",
-					direction === "vertical" ? "items-center" : "flex-col items-start",
-				)}
-			>
-				{steps.map(({ label }, index) => (
-					<>
-						{index > 0 && (
-							<hr
-								className={cn(
-									"border-none",
-									direction === "vertical"
-										? "h-px w-16"
-										: "w-px h-10 ml-[9.5px]",
-									index <= currentStepIndex
-										? "bg-blue-11 dark:bg-bluedark-11"
-										: "bg-gray-9 dark:bg-graydark-9",
-								)}
-								key={`${label}-line`}
-							/>
-						)}
-						<div
+		<div
+			{...props}
+			className={cn(
+				"flex gap-2",
+				props.className,
+				direction === "vertical" ? "items-center" : "flex-col items-start",
+			)}
+		>
+			{steps.map(({ label }, index) => (
+				// biome-ignore lint/suspicious/noArrayIndexKey: Never will be the same key
+				<Fragment key={`${label}-${index}`}>
+					{index > 0 && (
+						<hr
 							className={cn(
-								"flex items-center justify-center gap-2",
+								"border-none",
+								direction === "vertical" ? "h-px w-16" : "w-px h-10 ml-[9.5px]",
 								index <= currentStepIndex
-									? "text-blue-11 dark:text-bluedark-11"
-									: "text-gray-9 dark:text-graydark-9",
+									? "bg-blue-11 dark:bg-bluedark-11"
+									: "bg-gray-9 dark:bg-graydark-9",
 							)}
-							key={`${label}-step`}
-						>
-							{handleSteps(index)}
-							<span className="text-xs">{label}</span>
-						</div>
-					</>
-				))}
-			</div>
+						/>
+					)}
+					<div
+						className={cn(
+							"flex items-center justify-center gap-2",
+							index <= currentStepIndex
+								? "text-blue-11 dark:text-bluedark-11"
+								: "text-gray-9 dark:text-graydark-9",
+						)}
+					>
+						{handleSteps(index)}
+						<span className="text-xs">{label}</span>
+					</div>
+				</Fragment>
+			))}
 		</div>
 	);
 }
