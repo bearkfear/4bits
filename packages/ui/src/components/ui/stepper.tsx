@@ -90,6 +90,7 @@ export function Stepper({
 										? "bg-blue-11 dark:bg-bluedark-11"
 										: "bg-gray-9 dark:bg-graydark-9",
 								)}
+								key={`${label}-line`}
 							/>
 						)}
 						<div
@@ -99,7 +100,7 @@ export function Stepper({
 									? "text-blue-11 dark:text-bluedark-11"
 									: "text-gray-9 dark:text-graydark-9",
 							)}
-							key={label}
+							key={`${label}-step`}
 						>
 							{handleSteps(index)}
 							<span className="text-xs">{label}</span>
