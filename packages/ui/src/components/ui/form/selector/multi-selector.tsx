@@ -230,6 +230,9 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				width={width}
 				message={{
 					...props.messages,
+					empty: props.messages?.empty || "Nenhuma opção disponível",
+					searchPlaceholder:
+						props.messages?.searchPlaceholder || "Pesquisar por um item",
 					optionSelected: (
 						<CheckSquare2 className={cn("mr-2 h-4 min-w-4 w-4")} />
 					),

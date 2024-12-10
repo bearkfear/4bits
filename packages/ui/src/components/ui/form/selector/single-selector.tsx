@@ -146,7 +146,9 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				pagination={pagination}
 				width={width}
 				message={{
-					...props.messages,
+					empty: props.messages?.empty || "Nenhuma opção disponível",
+					searchPlaceholder:
+						props.messages?.searchPlaceholder || "Pesquisar por um item",
 					optionSelected: <Check className={cn("mr-2 h-4 w-4 min-w-4")} />,
 					optionUnselected: (
 						<Check className={cn("mr-2 h-4 w-4 min-w-4 opacity-0")} />

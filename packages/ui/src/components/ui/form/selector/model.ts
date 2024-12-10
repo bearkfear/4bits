@@ -20,5 +20,5 @@ export interface SelectorCommonProps extends DefaultHTMLSelectInput {
 	searchable?: boolean;
 	extraActions?: React.ReactNode;
 	hideFooter?: boolean;
-	messages: Pick<SelectorMessages, "empty" | "searchPlaceholder">;
+	messages?: Pick<SelectorMessages, "empty" | "searchPlaceholder">;
 }
