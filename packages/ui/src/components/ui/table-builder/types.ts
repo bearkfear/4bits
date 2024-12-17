@@ -92,9 +92,9 @@ export type Action<C extends Columns> =
 			label: string;
 			icon?: React.ReactNode;
 			variant?: TableBuilderActionButtonVariants["variant"];
-			action: (value: Row<C>) => void;
+			action: (value: Row<C>, close: () => void) => void;
 	  }
-	| ((props: Row<C>) => ReactNode);
+	| ((props: Row<C>, close: () => void) => ReactNode);
 
 export type Actions<C extends Columns> = {
 	actions?: Action<C>[];

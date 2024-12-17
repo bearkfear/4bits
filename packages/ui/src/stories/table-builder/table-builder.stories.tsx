@@ -147,7 +147,13 @@ export const Actions = () => {
             alert(`Delete: ${row.name}`);
           },
         },
-        () => <TableBuilderActionButton label="remover" variant="danger" />,
+        (_, close) => (
+          <TableBuilderActionButton
+            label="remover"
+            variant="danger"
+            onClick={close}
+          />
+        ),
       ]}
     />
   );

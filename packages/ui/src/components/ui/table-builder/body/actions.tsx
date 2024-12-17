@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, type ReactNode } from "react";
+import { Fragment, useState, type ReactNode } from "react";
 import { LuMoreHorizontal } from "react-icons/lu";
 import { Button } from "../../button";
 import { Dropdown } from "../../dropdown";
@@ -13,8 +13,10 @@ type ActionsProps<C extends Columns> = {
 };
 
 export function Actions<C extends Columns>(props: ActionsProps<C>) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <Dropdown.Root>
+    <Dropdown.Root open={open} onOpenChange={setOpen}>
       <Dropdown.Trigger asChild>
         <Button
           className="p-2 rounded hover:bg-gray-3 dark:hover:bg-graydark-3"
@@ -24,12 +26,16 @@ export function Actions<C extends Columns>(props: ActionsProps<C>) {
           <LuMoreHorizontal size={18} />
         </Button>
       </Dropdown.Trigger>
-      <ActionContent {...props} />
+      <ActionContent {...props} close={() => setOpen(false)} />
     </Dropdown.Root>
   );
 }
 
-function ActionContent<C extends Columns>({ actions, row }: ActionsProps<C>) {
+function ActionContent<C extends Columns>({
+  actions,
+  row,
+  close,
+}: ActionsProps<C> & { close: () => void }) {
   return (
     <Dropdown.Content
       className="w-[150px] m-0 p-1 space-y-1"
@@ -44,19 +50,23 @@ function ActionContent<C extends Columns>({ actions, row }: ActionsProps<C>) {
         let ActionOption: ReactNode = <Fragment />;
 
         if (typeof action === "function") {
-          ActionOption = action(row);
+          ActionOption = action(row, close);
         } else {
           ActionOption = (
             <TableBuilderActionButton
               variant={action.variant}
               icon={action.icon}
               label={action.label}
-              onClick={() => action.action(row)}
+              onClick={() => {
+                action.action(row, close);
+              }}
             />
           );
         }
-        // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-        return <Fragment key={index}>{ActionOption}</Fragment>;
+        return (
+          // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+          <Fragment key={index}>{ActionOption}</Fragment>
+        );
       })}
     </Dropdown.Content>
   );
