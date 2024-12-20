@@ -25,17 +25,14 @@ function FieldController<TFieldValues extends FieldValues = FieldValues>({
 	storeApi,
 }: FieldControllerProps<TFieldValues>) {
 	useEffect(() => {
-
-
-		const state = storeApi.getState()
+		const state = storeApi.getState();
 
 		if (!state[fieldConfig.name]) {
 			return;
 		}
 
 		const isActive =
-			!fieldConfig.hidden &&
-			validateRules(fieldConfig, requiredFields, state);
+			!fieldConfig.hidden && validateRules(fieldConfig, requiredFields, state);
 
 		if (state[fieldConfig.name].active === isActive) {
 			return;
