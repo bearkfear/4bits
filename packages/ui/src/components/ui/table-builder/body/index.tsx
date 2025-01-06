@@ -27,7 +27,7 @@ export function Body<C extends Columns>(props: BodyProps<C>) {
 		rowsChecked.some((rowChecked) => rowChecked.key === row.key);
 
 	return (
-		<Table.Body className="overflow-hidden">
+		<Table.Body>
 			{/** adiciona a linha de tabela com conteúdo vázio */}
 			{rows.length === 0 && <RowEmpty colsQuantity={colsQuantity} />}
 
