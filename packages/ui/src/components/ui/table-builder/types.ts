@@ -19,6 +19,7 @@ export type Row<C extends Columns> = {
 	key: string | number;
 	classNameRow?: string;
 	classNameCell?: { [K in C[number]["id"]]?: string };
+	rowItem?: any;
 };
 
 export type Rows<C extends Columns> = Row<C>[];
