@@ -31,13 +31,10 @@ export const Builder = () => {
 	});
 
 	return (
-		<form onSubmit={form.handleSubmit(() => {})}>
+		<form onSubmit={form.handleSubmit(() => { })}>
 			<FormBuilder.Root>
 				<FormBuilder.FormFields
 					control={form.control}
-					onChangeField={(name, value) => {
-						console.log(name, value);
-					}}
 					fields={[
 						{
 							name: "username",
