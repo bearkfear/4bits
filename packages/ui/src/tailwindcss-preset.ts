@@ -1,7 +1,5 @@
 import type { Config } from "tailwindcss";
-// @ts-ignore
 import pluginAnimate from "tailwindcss-animate";
-import pluginRadixColors from "tailwindcss-radix-colors";
 
 export function tailwindcssPreset(): Omit<Config, "content"> {
 	return {
@@ -33,6 +31,6 @@ export function tailwindcssPreset(): Omit<Config, "content"> {
 				},
 			},
 		},
-		plugins: [pluginAnimate, pluginRadixColors],
+		plugins: [pluginAnimate],
 	};
 }

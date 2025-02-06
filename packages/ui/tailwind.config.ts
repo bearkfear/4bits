@@ -1,8 +1,10 @@
 import type { Config } from "tailwindcss";
 import { tailwindcssPreset } from "./src/tailwindcss-preset";
 
-export default {
+const config: Config = {
 	darkMode: "class",
-	content: ["./src/**/*.{ts,tsx}", "./.storybook/**/*.{ts,tsx}"],
+	content: [],
 	presets: [tailwindcssPreset()],
-} satisfies Config;
+};
+
+export default config;
