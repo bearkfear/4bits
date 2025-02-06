@@ -1,10 +1,10 @@
-name: Publish Package to npmjs
+name: Publish Package to npmjs with version 1
 on:
   release:
     types: [published]
   push:
     branches:
-      - main
+      - v1
 jobs:
   get-pnpm-version:
     runs-on: ubuntu-latest
