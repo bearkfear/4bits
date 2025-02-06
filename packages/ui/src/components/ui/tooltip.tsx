@@ -11,7 +11,7 @@ function Content({ children, ...props }: TooltipContentProps) {
 	return (
 		<TooltipContent {...props}>
 			{typeof children === "string" || typeof children === "number" ? (
-				<div className="mx-2 bg-gray-12 dark:bg-graydark-1 text-white rounded border-gray-12 dark:border-graydark-1 border text-xs py-1 px-1">
+				<div className="mx-2 bg-gray-12 dark:bg-graydark-1 text-white rounded-sm border-gray-12 dark:border-graydark-1 border text-xs py-1 px-1">
 					{children}
 				</div>
 			) : (

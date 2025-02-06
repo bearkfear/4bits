@@ -6,12 +6,12 @@ import { forwardRef } from "react";
 import { cn } from "../../lib/utils";
 
 export const buttonVariants = cva(
-	"inline-flex items-center justify-center whitespace-nowrap rounded-md text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+	"inline-flex items-center justify-center whitespace-nowrap rounded-md text-xs font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
 	{
 		variants: {
 			variant: {
 				default:
-					"bg-gray-1 shadow hover:bg-gray-4 text-gray-12 dark:bg-graydark-1 dark:hover:bg-graydark-4 dark:text-graydark-12 border border-gray-7 dark:border-graydark-7",
+					"bg-gray-1 shadow-sm hover:bg-gray-4 text-gray-12 dark:bg-graydark-1 dark:hover:bg-graydark-4 dark:text-graydark-12 border border-gray-7 dark:border-graydark-7",
 				danger:
 					"bg-red-9 text-white hover:bg-red-10 dark:hover:bg-reddark-10 dark:bg-reddark-9",
 				danger__light:

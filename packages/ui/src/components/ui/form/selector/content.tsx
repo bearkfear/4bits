@@ -49,7 +49,7 @@ export function SelectorContent<Option extends TOption>({
 					<div className="flex items-center border-b border-gray-6 dark:border-graydark-6 px-3">
 						<Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
 						<input
-							className="text-xs flex h-8 w-full rounded-md bg-transparent py-3 outline-none placeholder:text-gray-10 dark:placeholder:text-graydark-10 disabled:cursor-not-allowed disabled:opacity-50"
+							className="text-xs flex h-8 w-full rounded-md bg-transparent py-3 outline-hidden placeholder:text-gray-10 dark:placeholder:text-graydark-10 disabled:cursor-not-allowed disabled:opacity-50"
 							placeholder={props.message.searchPlaceholder}
 							onChange={(event) => props.onSearch?.(event.target.value)}
 						/>
@@ -86,7 +86,7 @@ export function SelectorContent<Option extends TOption>({
 											"text-xs flex",
 											index > 0 && "mt-0.5",
 											props.getIsSelected(option) &&
-												"!bg-blue-5 dark:!bg-bluedark-5 hover:!bg-blue-4 dark:hover:!bg-bluedark-4",
+												"bg-blue-5! dark:bg-bluedark-5! hover:bg-blue-4! dark:hover:bg-bluedark-4!",
 										)}
 										onSelect={() => props.onSelect(option)}
 									>

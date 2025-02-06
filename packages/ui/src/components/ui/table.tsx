@@ -10,7 +10,7 @@ import { cn } from "../../lib/utils";
 
 const Root = forwardRef<HTMLTableElement, HTMLAttributes<HTMLTableElement>>(
 	({ className, ...props }, ref) => (
-		<div className="relative w-full rounded overflow-auto">
+		<div className="relative w-full rounded-sm overflow-auto">
 			<table
 				ref={ref}
 				className={cn("w-full caption-bottom text-xs", className)}

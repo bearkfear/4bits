@@ -19,7 +19,7 @@ export function Actions<C extends Columns>(props: ActionsProps<C>) {
     <Dropdown.Root open={open} onOpenChange={setOpen}>
       <Dropdown.Trigger asChild>
         <Button
-          className="p-2 rounded hover:bg-gray-3 dark:hover:bg-graydark-3"
+          className="p-2 rounded-sm hover:bg-gray-3 dark:hover:bg-graydark-3"
           variant="link"
           size="icon"
         >

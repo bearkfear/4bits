@@ -8,7 +8,7 @@ const Root = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
 		<div
 			ref={ref}
 			className={cn(
-				"rounded-lg border border-gray-6 dark:border-graydark-6 bg-gray-1 dark:bg-graydark-1 text-black dark:text-white shadow-sm",
+				"rounded-lg border border-gray-6 dark:border-graydark-6 bg-gray-1 dark:bg-graydark-1 text-black dark:text-white shadow-xs",
 				className,
 			)}
 			{...props}

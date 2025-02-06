@@ -128,7 +128,7 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 						<li
 							key={getValue(option)}
 							className={cn(
-								"rounded border divide-x text-xs flex items-center",
+								"rounded-sm border divide-x text-xs flex items-center",
 								color === "default" &&
 									"bg-gray-3 dark:bg-graydark-3 divide-gray-7 dark:divide-graydark-6 border-gray-7 dark:border-graydark-6",
 								color === "selected" &&

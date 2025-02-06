@@ -26,8 +26,8 @@ const Rate = forwardRef<HTMLDivElement, RateProps>(
 						key={element}
 						type="button"
 						className={cn(
-							"rounded p-1 hover:bg-gray-3 dark:hover:bg-graydark-3 text-base dark:text-white",
-							element <= value && "!text-yellow-10",
+							"rounded-sm p-1 hover:bg-gray-3 dark:hover:bg-graydark-3 text-base dark:text-white",
+							element <= value && "text-yellow-10!",
 						)}
 						onClick={() => onChange(element)}
 					>

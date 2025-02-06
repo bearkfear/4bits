@@ -8,7 +8,7 @@ import { cn } from "../../../lib/utils";
 import type { Delimiter, TagType } from "@4bits/formbuilder/dist/model/tag";
 
 export const selectInputVariants = cva(
-  "flex w-full rounded-md border border-gray-6 dark:border-graydark-6 bg-gray-1 dark:bg-graydark-1 px-3 text-xs ring-offset-transparent file:border-0 file:bg-transparent file:text-xs file:font-medium placeholder:text-gray-11 dark:placeholder:text-graydark-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-7 dark:focus-visible:ring-bluedark-7 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 text-black dark:text-white"
+  "flex w-full rounded-md border border-gray-6 dark:border-graydark-6 bg-gray-1 dark:bg-graydark-1 px-3 text-xs ring-offset-transparent file:border-0 file:bg-transparent file:text-xs file:font-medium placeholder:text-gray-11 dark:placeholder:text-graydark-11 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-7 dark:focus-visible:ring-bluedark-7 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 text-black dark:text-white"
 );
 
 export type tagVariant =
@@ -131,7 +131,7 @@ const InputTag = React.forwardRef<HTMLInputElement, InputProps>(
     };
 
     return (
-      <div className="flex w-full min-h-8 items-center p-1 flex-wrap gap-1 rounded border border-gray-6 dark:border-graydark-6 bg-gray-1 dark:bg-graydark-1 text-xs ring-offset-transparent file:border-0 file:bg-transparent file:text-xs file:font-medium placeholder:text-gray-11 dark:placeholder:text-graydark-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-7 dark:focus-visible:ring-bluedark-7 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 text-black dark:text-white">
+      <div className="flex w-full min-h-8 items-center p-1 flex-wrap gap-1 rounded-sm border border-gray-6 dark:border-graydark-6 bg-gray-1 dark:bg-graydark-1 text-xs ring-offset-transparent file:border-0 file:bg-transparent file:text-xs file:font-medium placeholder:text-gray-11 dark:placeholder:text-graydark-11 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-7 dark:focus-visible:ring-bluedark-7 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 text-black dark:text-white">
         {defaultTags?.map((tag, index) => (
           <Tag
             // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
@@ -182,7 +182,7 @@ function Tag({
   return (
     <div
       className={cn(
-        "flex hover:opacity-95 rounded space-x-2 px-2 py-1",
+        "flex hover:opacity-95 rounded-sm space-x-2 px-2 py-1",
         tagsVariants({ body: variant })
       )}
     >

@@ -22,7 +22,7 @@ export function ButtonSort(props: ButtonSortProps) {
     <button
       type="button"
       onClick={() => handleSort(columnId)}
-      className="hover:bg-gray-1 text-gray-11 dark:text-graydark-11 dark:hover:bg-graydark-2 px-2 py-1 rounded"
+      className="hover:bg-gray-1 text-gray-11 dark:text-graydark-11 dark:hover:bg-graydark-2 px-2 py-1 rounded-sm"
     >
       {sortBy === columnId &&
         (sortDirection === "ASC" ? (

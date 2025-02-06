@@ -26,7 +26,7 @@ const Trigger = React.forwardRef<
 	<TabsPrimitive.Trigger
 		ref={ref}
 		className={cn(
-			"inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-gray-1 dark:ring-offset-graydark-1 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-7 dark:focus-visible:ring-graydark-7 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-gray-1 dark:data-[state=active]:bg-graydark-1 data-[state=active]:text-gray-12 dark:data-[state=active]:text-graydark-12 data-[state=active]:shadow-sm",
+			"inline-flex items-center justify-center whitespace-nowrap rounded-xs px-3 py-1.5 text-sm font-medium ring-offset-gray-1 dark:ring-offset-graydark-1 transition-all focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-gray-7 dark:focus-visible:ring-graydark-7 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-gray-1 dark:data-[state=active]:bg-graydark-1 data-[state=active]:text-gray-12 dark:data-[state=active]:text-graydark-12 data-[state=active]:shadow-xs",
 			className,
 		)}
 		{...props}
@@ -41,7 +41,7 @@ const Content = React.forwardRef<
 	<TabsPrimitive.Content
 		ref={ref}
 		className={cn(
-			"mt-2 ring-offset-gray-1 dark:ring-offset-graydark-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-7 dark:focus-visible:ring-graydark-7 focus-visible:ring-offset-2 text-black dark:text-white text-sm",
+			"mt-2 ring-offset-gray-1 dark:ring-offset-graydark-1 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-gray-7 dark:focus-visible:ring-graydark-7 focus-visible:ring-offset-2 text-black dark:text-white text-sm",
 			className,
 		)}
 		{...props}
