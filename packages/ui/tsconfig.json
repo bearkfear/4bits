@@ -1,22 +1,35 @@
 {
 	"compilerOptions": {
-		"lib": ["dom", "esnext"],
-		"allowJs": true,
-		"skipLibCheck": true,
-		"strict": true,
-		"noEmit": true,
-		"esModuleInterop": true,
-		"module": "esnext",
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"target": "esnext",
-		"declaration": true,
-		"downlevelIteration": true,
-		"jsx": "react-jsx",
-		"allowSyntheticDefaultImports": true,
-		"baseUrl": "."
+		"target": "esnext", // Modern target (ES2020 or later is often good too)
+		"module": "esnext", // Essential for Rollup and modern JS
+		"lib": [
+			"dom",
+			"esnext"
+		], // Include DOM types and the latest ES features
+		"jsx": "react-jsx", // Use the new JSX transform (more efficient)
+		"declaration": true, // Generate .d.ts files (highly recommended)
+		"outDir": "dist", // Output directory
+		"rootDir": "./", // Root directory of your source files
+		"strict": true, // Enable all strict type-checking options (good!)
+		"moduleResolution": "bundler", // Node.js module resolution
+		"esModuleInterop": true, // Interoperability between CommonJS and ES Modules
+		"skipLibCheck": true, // Skip type checking of declaration files (can speed up compilation)
+		"forceConsistentCasingInFileNames": true, // Consistent casing (good practice)
+		"noEmitOnError": true, // Don't emit outputs if there are errors (prevents broken builds)
+		"noImplicitAny": true, // Raise error on implicit any usages (helps with type safety)
+		"noImplicitThis": true, // Raise error on 'this' expressions with an implied 'any' type
+		"alwaysStrict": true, // Parse in strict mode and emit 'use strict' on top of each file
+		"noUnusedLocals": true, // Report errors on unused locals
+		"noUnusedParameters": true, // Report errors on unused parameters
+		"noFallthroughCasesInSwitch": true // Report errors for fallthrough cases in switch statements
 	},
-	"include": ["**/*.ts", "**/*.tsx", "**/*.stories.tsx"],
-	"exclude": ["node_modules"]
+	"include": [
+		"src"
+	],
+	"exclude": [
+		"node_modules",
+		"dist",
+		"**/*.test.tsx",
+		"**/*.spec.tsx"
+	] // Exclude test files
 }

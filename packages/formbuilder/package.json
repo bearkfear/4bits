@@ -5,7 +5,9 @@
 	"main": "dist/index.cjs.js",
 	"module": "dist/index.esm.js",
 	"types": "dist/index.d.ts",
-
+	"files": [
+		"dist"
+	],
 	"peerDependencies": {
 		"date-fns": "^4.1.0",
 		"react": "^19.0.0",

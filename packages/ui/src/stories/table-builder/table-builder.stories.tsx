@@ -1,8 +1,7 @@
 import type { Meta } from "@storybook/react";
 import { useState } from "react";
 import { LuPencilRuler } from "react-icons/lu";
-import { TableBuilderActionButton } from "src/components/ui/table-builder/body/action-button";
-import { Button, TableBuilder } from "../../index";
+import { Button, TableBuilder, TableBuilderActionButton } from "../..";
 
 const meta = {
 	title: "Table-builder/Table",

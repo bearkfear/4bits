@@ -1,7 +1,7 @@
 "use client";
 
 import { Fragment, useState, type ReactNode } from "react";
-import { LuMoreHorizontal } from "react-icons/lu";
+import { MoreHorizontal } from "lucide-react"
 import { Button } from "../../button";
 import { Dropdown } from "../../dropdown";
 import type { Action, Columns, Row } from "../types";
@@ -23,7 +23,7 @@ export function Actions<C extends Columns>(props: ActionsProps<C>) {
           variant="link"
           size="icon"
         >
-          <LuMoreHorizontal size={18} />
+          <MoreHorizontal size={18} />
         </Button>
       </Dropdown.Trigger>
       <ActionContent {...props} close={() => setOpen(false)} />

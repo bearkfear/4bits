@@ -1,10 +1,10 @@
 "use client";
+
 import { Search } from "lucide-react";
 import { cn } from "../../../../lib/utils";
 import { Command } from "../../command";
 import { PageLoader } from "../../page-loader";
 import { Popover } from "../../popover";
-import { Input } from "../input";
 import type { SelectorCommonProps, SelectorMessages, TOption } from "./model";
 
 type SelectorContentProps<Option> = {

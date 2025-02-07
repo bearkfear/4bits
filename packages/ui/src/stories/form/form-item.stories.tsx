@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { useForm } from "react-hook-form";
 import { Button, FormBuilder } from "../../index";
 import {
@@ -14,7 +14,6 @@ const meta = {
   component: FormBuilder.FormFields,
 } satisfies Meta<typeof FormBuilder.FormFields>;
 
-type Story = StoryObj<typeof meta>;
 
 export default meta;
 
@@ -26,7 +25,7 @@ export const Text = () => {
   });
 
   return (
-    <form onSubmit={form.handleSubmit(() => {})}>
+    <form onSubmit={form.handleSubmit(() => { })}>
       <FormBuilder.Root>
         <FormBuilder.FormFields
           control={form.control}
@@ -56,7 +55,7 @@ export const TextMask = () => {
   });
 
   return (
-    <form onSubmit={form.handleSubmit(() => {})}>
+    <form onSubmit={form.handleSubmit(() => { })}>
       <FormBuilder.Root>
         <FormBuilder.FormFields
           control={form.control}
@@ -92,7 +91,7 @@ export const Color = () => {
   });
 
   return (
-    <form onSubmit={form.handleSubmit(() => {})}>
+    <form onSubmit={form.handleSubmit(() => { })}>
       <FormBuilder.Root>
         <FormBuilder.FormFields
           control={form.control}
@@ -260,7 +259,7 @@ export const SingleSelector = () => {
   });
 
   return (
-    <form onSubmit={form.handleSubmit(() => {})}>
+    <form onSubmit={form.handleSubmit(() => { })}>
       <FormBuilder.Root>
         <FormBuilder.FormFields
           control={form.control}
@@ -400,7 +399,7 @@ export const Email = () => {
   });
 
   return (
-    <form onSubmit={form.handleSubmit(() => {})}>
+    <form onSubmit={form.handleSubmit(() => { })}>
       <FormBuilder.Root>
         <FormBuilder.FormFields
           control={form.control}
@@ -456,7 +455,7 @@ export const Textarea = () => {
   });
 
   return (
-    <form onSubmit={form.handleSubmit(() => {})}>
+    <form onSubmit={form.handleSubmit(() => { })}>
       <FormBuilder.Root>
         <FormBuilder.FormFields
           control={form.control}
@@ -512,7 +511,7 @@ export const Radio = () => {
   });
 
   return (
-    <form onSubmit={form.handleSubmit(() => {})}>
+    <form onSubmit={form.handleSubmit(() => { })}>
       <FormBuilder.Root>
         <FormBuilder.FormFields
           control={form.control}
@@ -545,7 +544,7 @@ export const MultiCheckbox = () => {
   });
 
   return (
-    <form onSubmit={form.handleSubmit(() => {})}>
+    <form onSubmit={form.handleSubmit(() => { })}>
       <FormBuilder.Root>
         <FormBuilder.FormFields
           control={form.control}
@@ -633,7 +632,7 @@ export const InputDate = () => {
   });
 
   return (
-    <form onSubmit={form.handleSubmit(() => {})}>
+    <form onSubmit={form.handleSubmit(() => { })}>
       <FormBuilder.Root>
         <FormBuilder.FormFields
           control={form.control}
@@ -659,7 +658,7 @@ export const InputDatetime = () => {
   const form = useForm<{ datetime: Date }>();
 
   return (
-    <form onSubmit={form.handleSubmit(() => {})}>
+    <form onSubmit={form.handleSubmit(() => { })}>
       <FormBuilder.Root>
         <FormBuilder.FormFields
           control={form.control}
@@ -686,7 +685,7 @@ export const InputTime = () => {
   const form = useForm<{ time: Date }>();
 
   return (
-    <form onSubmit={form.handleSubmit(() => {})}>
+    <form onSubmit={form.handleSubmit(() => { })}>
       <FormBuilder.Root>
         <FormBuilder.FormFields
           control={form.control}
@@ -712,7 +711,7 @@ export const InputMonth = () => {
   const form = useForm<{ month: Date }>();
 
   return (
-    <form onSubmit={form.handleSubmit(() => {})}>
+    <form onSubmit={form.handleSubmit(() => { })}>
       <FormBuilder.Root>
         <FormBuilder.FormFields
           control={form.control}

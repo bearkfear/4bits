@@ -2,22 +2,15 @@
 	"name": "@4bits/ui",
 	"version": "2.0.0",
 	"private": false,
-	"main": "dist/index.js",
-	"module": "dist/esm/index.js",
+	"main": "dist/index.cjs.js",
+	"module": "dist/index.esm.js",
 	"types": "dist/index.d.ts",
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/esm/index.js",
-			"require": "./dist/index.js"
-		},
-		"./*": "./dist/*"
-	},
-	"dependencies": {
-		"@4bits/formbuilder": "workspace:^",
-		"@tailwindcss/postcss": "^4.0.4"
-	},
+	"files": [
+		"dist"
+	],
+	"dependencies": {},
 	"peerDependencies": {
+		"@4bits/formbuilder": "workspace:^",
 		"@radix-ui/colors": "^3.0.0",
 		"@radix-ui/react-alert-dialog": "^1.1.6",
 		"@radix-ui/react-checkbox": "^1.1.4",
@@ -50,12 +43,12 @@
 		"sonner": "^1.7.4",
 		"tailwind-merge": "^3.0.1",
 		"tailwindcss-animate": "^1.0.7",
-		"usehooks-ts": "^3.1.1"
-	},
-	"devDependencies": {
+		"usehooks-ts": "^3.1.1",
 		"@dnd-kit/core": "^6.3.1",
 		"@dnd-kit/sortable": "^10.0.0",
-		"@dnd-kit/utilities": "^3.2.2",
+		"@dnd-kit/utilities": "^3.2.2"
+	},
+	"devDependencies": {
 		"@rsbuild/core": "^1.2.4",
 		"@rsbuild/plugin-react": "^1.1.0",
 		"@storybook/addon-essentials": "^8.5.3",
@@ -73,17 +66,17 @@
 		"@types/node": "^22.13.1",
 		"@types/react": "^19.0.8",
 		"@types/react-dom": "^19.0.3",
-		"autoprefixer": "^10.4.20",
 		"postcss": "^8.5.1",
 		"storybook": "^8.5.3",
 		"storybook-react-rsbuild": "^0.1.9",
 		"storybook-version": "^0.1.2",
 		"tailwindcss": "^4.0.4",
-		"tailwindcss-radix-colors": "^2.0.0"
+		"tailwindcss-radix-colors": "^2.0.0",
+		"@tailwindcss/postcss": "^4.0.4"
 	},
 	"scripts": {
 		"build:storybook": "storybook build",
-		"build": "tsup && rm -rf dist/esm/styles",
+		"build": "rollup -c",
 		"dev": "storybook dev -p 6006",
 		"lint": "biome check",
 		"lint:fix": "biome check --fix",

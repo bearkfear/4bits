@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import { tailwindcssPreset } from "./src/tailwindcss-preset";
+import { tailwindcssPreset } from "./tailwindcss-preset";
 
 const config: Config = {
 	darkMode: "class",
