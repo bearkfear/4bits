@@ -16,7 +16,15 @@ jobs:
         run: bun install
       - run: bun run build
       - name: Configure npm authentication
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > packages/formbuilder/.npmrc
+          echo "access=public" >> packages/formbuilder/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > packages/ui/.npmrc
+          echo "access=public" >> packages/ui/.npmrc
+      - name: Add .npmrc to .npmignore
+        run: |
+          echo ".npmrc" >> packages/formbuilder/.npmignore
+          echo ".npmrc" >> packages/ui/.npmignore
       - name: Publish formbuilder package
         run: |
           cd packages/formbuilder
