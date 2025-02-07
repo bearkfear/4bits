@@ -17,6 +17,15 @@ jobs:
       - run: bun run build
       - name: Configure npm authentication
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-      - run: bun -r publish --provenance --access public
+      - name: Publish formbuilder package
+        run: |
+          cd packages/formbuilder
+          bun publish --provenance --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish ui package
+        run: |
+          cd packages/ui
+          bun publish --provenance --access public
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
