@@ -9,7 +9,7 @@ import { cn } from "../../lib/utils";
 import { Button } from "./button";
 
 const Root = React.forwardRef<
-	React.ElementRef<typeof CommandPrimitive>,
+	React.ComponentRef<typeof CommandPrimitive>,
 	React.ComponentPropsWithoutRef<typeof CommandPrimitive>
 >(({ className, ...props }, ref) => (
 	<CommandPrimitive
@@ -24,7 +24,7 @@ const Root = React.forwardRef<
 Root.displayName = CommandPrimitive.displayName;
 
 const Input = React.forwardRef<
-	React.ElementRef<typeof CommandPrimitive.Input>,
+	React.ComponentRef<typeof CommandPrimitive.Input>,
 	React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
 >(({ className, ...props }, ref) => (
 	<div
@@ -83,7 +83,7 @@ const Page = ({
 Page.displayName = CommandPrimitive.Input.displayName;
 
 const List = React.forwardRef<
-	React.ElementRef<typeof CommandPrimitive.List>,
+	React.ComponentRef<typeof CommandPrimitive.List>,
 	React.ComponentPropsWithoutRef<typeof CommandPrimitive.List>
 >(({ className, ...props }, ref) => (
 	<CommandPrimitive.List
@@ -99,7 +99,7 @@ const List = React.forwardRef<
 List.displayName = CommandPrimitive.List.displayName;
 
 const Empty = React.forwardRef<
-	React.ElementRef<typeof CommandPrimitive.Empty>,
+	React.ComponentRef<typeof CommandPrimitive.Empty>,
 	React.ComponentPropsWithoutRef<typeof CommandPrimitive.Empty>
 >((props, ref) => (
 	<CommandPrimitive.Empty
@@ -112,7 +112,7 @@ const Empty = React.forwardRef<
 Empty.displayName = CommandPrimitive.Empty.displayName;
 
 const Group = React.forwardRef<
-	React.ElementRef<typeof CommandPrimitive.Group>,
+	React.ComponentRef<typeof CommandPrimitive.Group>,
 	React.ComponentPropsWithoutRef<typeof CommandPrimitive.Group>
 >(({ className, ...props }, ref) => (
 	<CommandPrimitive.Group
@@ -128,7 +128,7 @@ const Group = React.forwardRef<
 Group.displayName = CommandPrimitive.Group.displayName;
 
 const Separator = React.forwardRef<
-	React.ElementRef<typeof CommandPrimitive.Separator>,
+	React.ComponentRef<typeof CommandPrimitive.Separator>,
 	React.ComponentPropsWithoutRef<typeof CommandPrimitive.Separator>
 >(({ className, ...props }, ref) => (
 	<CommandPrimitive.Separator
@@ -140,7 +140,7 @@ const Separator = React.forwardRef<
 Separator.displayName = CommandPrimitive.Separator.displayName;
 
 const Item = React.forwardRef<
-	React.ElementRef<typeof CommandPrimitive.Item>,
+	React.ComponentRef<typeof CommandPrimitive.Item>,
 	React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item>
 >(({ className, ...props }, ref) => (
 	<CommandPrimitive.Item

@@ -11,7 +11,7 @@ const Trigger = PopoverPrimitive.Trigger;
 const Arrow = PopoverPrimitive.Arrow;
 
 const Content = React.forwardRef<
-	React.ElementRef<typeof PopoverPrimitive.Content>,
+	React.ComponentRef<typeof PopoverPrimitive.Content>,
 	React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>
 >(({ className, align = "start", sideOffset = 4, ...props }, ref) => (
 	<PopoverPrimitive.Portal>

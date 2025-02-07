@@ -4,15 +4,14 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser'; // For minification (optional)
 import preserveDirectives from 'rollup-plugin-preserve-directives'; // Import the plugin
-import del from "rollup-plugin-delete"
 import fs from "node:fs"
-
+import del from "rollup-plugin-delete"
 const pkg = JSON.parse(fs.readFileSync("./package.json", "utf-8"))
 const externals = Object.keys(pkg.devDependencies)
 
 /** @type {import('rollup').RollupOptions} */
 export default {
-    input: ['./src/index.ts', "./src/tailwindcss-preset.ts"],
+    input: './src/index.ts',
     output: [
         {
             dir: 'dist', // Use "dir" instead of "file" for multiple outputs
@@ -42,5 +41,5 @@ export default {
         }),
         terser(), // Minify in production
     ],
-    external: externals, // Important: Don't bundle React!
+    external: [...externals, "@4bits/formbuilder"], // Important: Don't bundle React!
 }

@@ -1,7 +1,6 @@
-import type { Config } from "tailwindcss";
 import pluginAnimate from "tailwindcss-animate";
 
-export function tailwindcssPreset(): Omit<Config, "content"> {
+export function tailwindcssPreset() {
 	return {
 		theme: {
 			container: {

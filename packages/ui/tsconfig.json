@@ -9,9 +9,9 @@
 		"jsx": "react-jsx", // Use the new JSX transform (more efficient)
 		"declaration": true, // Generate .d.ts files (highly recommended)
 		"outDir": "dist", // Output directory
-		"rootDir": "./", // Root directory of your source files
+		"rootDir": "src", // Root directory of your source files
 		"strict": true, // Enable all strict type-checking options (good!)
-		"moduleResolution": "bundler", // Node.js module resolution
+		"moduleResolution": "node", // Node.js module resolution
 		"esModuleInterop": true, // Interoperability between CommonJS and ES Modules
 		"skipLibCheck": true, // Skip type checking of declaration files (can speed up compilation)
 		"forceConsistentCasingInFileNames": true, // Consistent casing (good practice)
@@ -30,6 +30,7 @@
 		"node_modules",
 		"dist",
 		"**/*.test.tsx",
-		"**/*.spec.tsx"
+		"**/*.spec.tsx",
+		"**/*.stories.tsx",
 	] // Exclude test files
 }

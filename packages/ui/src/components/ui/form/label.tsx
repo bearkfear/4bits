@@ -1,7 +1,7 @@
 "use client";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { type VariantProps, cva } from "class-variance-authority";
-import * as React from "react";
+import React from "react";
 
 import { LuAsterisk } from "react-icons/lu";
 import { cn } from "../../../lib/utils";
@@ -11,9 +11,9 @@ const labelVariants = cva(
 );
 
 const Label = React.forwardRef<
-	React.ElementRef<typeof LabelPrimitive.Root>,
+	React.ComponentRef<typeof LabelPrimitive.Root>,
 	React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
-		VariantProps<typeof labelVariants> & { required?: boolean }
+	VariantProps<typeof labelVariants> & { required?: boolean }
 >(({ className, required, ...props }, ref) => (
 	<div className="space-x-1 flex items-center">
 		<LabelPrimitive.Root

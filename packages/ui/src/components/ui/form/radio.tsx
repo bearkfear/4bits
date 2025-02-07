@@ -6,7 +6,7 @@ import * as React from "react";
 import { cn } from "../../../lib/utils";
 
 const Group = React.forwardRef<
-	React.ElementRef<typeof RadioGroupPrimitive.Root>,
+	React.ComponentRef<typeof RadioGroupPrimitive.Root>,
 	React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>
 >(({ className, ...props }, ref) => {
 	return (
@@ -20,7 +20,7 @@ const Group = React.forwardRef<
 Group.displayName = RadioGroupPrimitive.Root.displayName;
 
 const Item = React.forwardRef<
-	React.ElementRef<typeof RadioGroupPrimitive.Item>,
+	React.ComponentRef<typeof RadioGroupPrimitive.Item>,
 	React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>
 >(({ className, ...props }, ref) => {
 	return (

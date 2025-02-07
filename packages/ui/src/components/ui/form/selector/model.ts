@@ -5,7 +5,6 @@ export type DefaultHTMLSelectInput = Omit<
 	"prefix" | "value" | "onChange"
 >;
 
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export type TOption = Record<string, any>;
 
 export type SelectorMessages = {
