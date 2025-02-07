@@ -91,7 +91,7 @@ const Title = React.forwardRef<
 	<DialogPrimitive.Title
 		ref={ref}
 		className={cn(
-			"flex text-sm font-bold leading-none tracking-tight text-black dark:text-white",
+			"flex text-sm font-bold leading-none tracking-tight text-blacka-12 dark:text-white",
 			className,
 		)}
 		{...props}
@@ -129,7 +129,7 @@ const Body = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
 	({ className, ...props }, ref) => (
 		<div
 			ref={ref}
-			className={cn("text-xs text-black dark:text-white p-3", className)}
+			className={cn("text-xs text-blacka-12 dark:text-whitea-12 p-3", className)}
 			{...props}
 		/>
 	),

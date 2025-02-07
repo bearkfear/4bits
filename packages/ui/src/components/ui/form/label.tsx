@@ -7,7 +7,7 @@ import { LuAsterisk } from "react-icons/lu";
 import { cn } from "../../../lib/utils";
 
 const labelVariants = cva(
-	"text-xs text-black dark:text-white leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-bold",
+	"text-xs text-blacka-12 dark:text-whitea-12 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-bold",
 );
 
 const Label = React.forwardRef<

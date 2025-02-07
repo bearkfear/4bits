@@ -13,18 +13,18 @@ export const buttonVariants = cva(
 				default:
 					"bg-gray-1 shadow-sm hover:bg-gray-4 text-gray-12 dark:bg-graydark-1 dark:hover:bg-graydark-4 dark:text-graydark-12 border border-gray-7 dark:border-graydark-7",
 				danger:
-					"bg-red-9 text-white hover:bg-red-10 dark:hover:bg-reddark-10 dark:bg-reddark-9",
+					"bg-red-9 text-whitea-12 hover:bg-red-10 dark:hover:bg-reddark-10 dark:bg-reddark-9",
 				danger__light:
 					"bg-red-3 text-red-11 dark:text-reddark-11 hover:bg-red-4 dark:hover:bg-reddark-4 border border-red-7 dark:border-reddark-7 dark:bg-reddark-3",
 				warning:
-					"bg-yellow-9 text-black hover:bg-yellow-10 dark:hover:bg-yellowdark-10 dark:bg-yellowdark-9",
+					"bg-yellow-9 text-blacka-12 hover:bg-yellow-10 dark:hover:bg-yellowdark-10 dark:bg-yellowdark-9",
 				warning__light:
 					"bg-yellow-3 text-yellow-11 dark:text-yellowdark-11 hover:bg-yellow-4 dark:hover:bg-yellowdark-4 border border-yellow-7 dark:border-yellowdark-7 dark:bg-yellowdark-3",
 				success:
-					"bg-green-9 text-white hover:bg-green-10 dark:hover:bg-greendark-10 dark:bg-greendark-9",
+					"bg-green-9 text-whitea-12 hover:bg-green-10 dark:hover:bg-greendark-10 dark:bg-greendark-9",
 				success__light:
 					"bg-green-3 text-green-11 dark:text-greendark-11 hover:bg-green-4 dark:hover:bg-greendark-4 border border-green-7 dark:border-greendark-7 dark:bg-greendark-3",
-				info: "bg-blue-9 text-white hover:bg-blue-10 dark:hover:bg-bluedark-10 dark:bg-bluedark-9",
+				info: "bg-blue-9 text-whitea-12 hover:bg-blue-10 dark:hover:bg-bluedark-10 dark:bg-bluedark-9",
 				info__light:
 					"bg-blue-3 text-blue-11 dark:text-bluedark-11 hover:bg-blue-4 dark:hover:bg-bluedark-4 border border-blue-7 dark:border-bluedark-7 dark:bg-bluedark-3",
 

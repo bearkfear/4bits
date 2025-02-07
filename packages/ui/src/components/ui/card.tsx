@@ -8,7 +8,7 @@ const Root = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
 		<div
 			ref={ref}
 			className={cn(
-				"rounded-lg border border-gray-6 dark:border-graydark-6 bg-gray-1 dark:bg-graydark-1 text-black dark:text-white shadow-xs",
+				"rounded-lg border border-gray-6 dark:border-graydark-6 bg-gray-1 dark:bg-graydark-1 shadow-xs",
 				className,
 			)}
 			{...props}
@@ -35,7 +35,7 @@ const Title = forwardRef<
 	<h3
 		ref={ref}
 		className={cn(
-			"text-2xl font-semibold leading-none tracking-tight",
+			"text-2xl font-semibold leading-none tracking-tight text-blacka-12  dark:text-whitea-12",
 			className,
 		)}
 		{...props}

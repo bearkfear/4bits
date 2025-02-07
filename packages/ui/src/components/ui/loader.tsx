@@ -9,7 +9,7 @@ export type LoaderProps = {
 export function Loader({ className }: LoaderProps) {
 	return (
 		<LucideLoaderCircle
-			className={cn("animate-spin text-black dark:text-white", className)}
+			className={cn("animate-spin text-blacka-12 dark:text-white", className)}
 			size={18}
 		/>
 	);

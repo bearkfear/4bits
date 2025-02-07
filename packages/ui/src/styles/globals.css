@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-@config '../../tailwind.config.ts';
+@config '../../tailwind.config.js';
 
 @theme {
   /* This disables all Tailwind colors, but you don't have to. */

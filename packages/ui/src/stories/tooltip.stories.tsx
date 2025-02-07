@@ -11,7 +11,7 @@ export const Default = () => {
 		<Tooltip.Provider skipDelayDuration={0} delayDuration={0}>
 			<Tooltip.Root>
 				<Tooltip.Trigger>
-					<span className="dark:text-white text-black">
+					<span className="dark:text-whitea-12 text-black">
 						Elemento de exemplo
 					</span>
 				</Tooltip.Trigger>
