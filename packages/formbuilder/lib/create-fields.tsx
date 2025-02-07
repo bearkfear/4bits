@@ -4,6 +4,6 @@ import type { FormField } from "./model/field";
 export function createFields<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
->(control: Control<TFieldValues>, fields: FormField<TFieldValues, TName>[]) {
+>(_: Control<TFieldValues>, fields: FormField<TFieldValues, TName>[]) {
   return fields;
 }

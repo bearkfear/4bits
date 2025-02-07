@@ -1,19 +1,35 @@
 {
 	"compilerOptions": {
-		"target": "es5", // Specify ECMAScript target version
-		"module": "commonjs", // Specify module code generation
-		"lib": ["dom", "es2015"], // Specify library files to be included
-		"allowJs": true, // Allow JavaScript files to be compiled
-		"jsx": "react-jsx", // Specify JSX code generation
-		"declaration": true, // Generates corresponding '.d.ts' file
-		"outDir": "dist", // Redirect output structure to the directory
-		"rootDir": "lib", // Specify the root directory of input files
-		"strict": true, // Enable all strict type-checking options
-		"moduleResolution": "node", // Use Node.js module resolution strategy
-		"esModuleInterop": true, // Enable interoperability between CommonJS and ES Modules
-		"skipLibCheck": true, // Skip type checking of declaration files
-		"forceConsistentCasingInFileNames": true // Disallow inconsistently-cased references to the same file
+		"target": "esnext", // Modern target (ES2020 or later is often good too)
+		"module": "esnext", // Essential for Rollup and modern JS
+		"lib": [
+			"dom",
+			"esnext"
+		], // Include DOM types and the latest ES features
+		"jsx": "react-jsx", // Use the new JSX transform (more efficient)
+		"declaration": true, // Generate .d.ts files (highly recommended)
+		"outDir": "dist", // Output directory
+		"rootDir": "lib", // Root directory of your source files
+		"strict": true, // Enable all strict type-checking options (good!)
+		"moduleResolution": "node", // Node.js module resolution
+		"esModuleInterop": true, // Interoperability between CommonJS and ES Modules
+		"skipLibCheck": true, // Skip type checking of declaration files (can speed up compilation)
+		"forceConsistentCasingInFileNames": true, // Consistent casing (good practice)
+		"noEmitOnError": true, // Don't emit outputs if there are errors (prevents broken builds)
+		"noImplicitAny": true, // Raise error on implicit any usages (helps with type safety)
+		"noImplicitThis": true, // Raise error on 'this' expressions with an implied 'any' type
+		"alwaysStrict": true, // Parse in strict mode and emit 'use strict' on top of each file
+		"noUnusedLocals": true, // Report errors on unused locals
+		"noUnusedParameters": true, // Report errors on unused parameters
+		"noFallthroughCasesInSwitch": true // Report errors for fallthrough cases in switch statements
 	},
-	"include": ["lib"],
-	"exclude": ["node_modules", "dist"]
+	"include": [
+		"lib"
+	],
+	"exclude": [
+		"node_modules",
+		"dist",
+		"**/*.test.tsx",
+		"**/*.spec.tsx"
+	] // Exclude test files
 }
