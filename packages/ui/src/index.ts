@@ -1,28 +1,26 @@
 // Others exports for who is going to use the library
 export { cn } from "./lib/utils";
-export { AlertDialog } from "./components/ui/alert-dialog";
-export { Button, buttonVariants } from "./components/ui/button";
-export type { ButtonProps } from "./components/ui/button";
-export { Command } from "./components/ui/command";
-export { Loader } from "./components/ui/loader";
-export type { LoaderProps } from "./components/ui/loader";
-export { PageLoader } from "./components/ui/page-loader";
-export { Popover } from "./components/ui/popover";
-export { Toaster, toast } from "./components/ui/toaster";
-export { Tooltip } from "./components/ui/tooltip";
-export { Separator } from "./components/ui/separator";
-export { Dialog } from "./components/ui/dialog";
-export { Dropdown } from "./components/ui/dropdown";
-export { Stepper } from "./components/ui/stepper";
-export { Tabs } from "./components/ui/tabs";
-export { Card } from "./components/ui/card";
-export { Table } from "./components/ui/table";
-export {
-	TableBuilder,
-	TableBuilderActionButton,
-} from "./components/ui/table-builder";
-export type { TableBuilderProps } from "./components/ui/table-builder/types";
-export { Pagination } from "./components/ui/pagination";
+export { AlertDialog } from "./elements/alert-dialog";
+export { Button, buttonVariants } from "./elements/button";
+export type { ButtonProps } from "./elements/button";
+export { Command } from "./elements/command";
+export { Loader } from "./elements/loader";
+export type { LoaderProps } from "./elements/loader";
+export { PageLoader } from "./elements/page-loader";
+export { Popover } from "./elements/popover";
+export { Toaster, toast } from "./elements/toaster";
+export { Tooltip } from "./elements/tooltip";
+export { Separator } from "./elements/separator";
+export { Dialog } from "./elements/dialog";
+export { Dropdown } from "./elements/dropdown";
+export { Stepper } from "./elements/stepper";
+export { Tabs } from "./elements/tabs";
+export { Card } from "./elements/card";
+export { Table } from "./elements/table";
+
+export type { TableBuilderProps } from "./builders/table-builder/types";
+
+export { Pagination } from "./elements/pagination";
 export {
 	CEP_MASK,
 	CNPJ_MASK,
@@ -31,23 +29,22 @@ export {
 	PHONE_MASK,
 } from "./lib/mask/common-masks";
 
-
 // export forms
-export { Checkbox } from "./components/ui/form/checkbox";
-export { FormBuilder } from "./components/ui/form/builder";
-export { HelperText } from "./components/ui/form/helper-text";
-export type { HelperTextProps } from "./components/ui/form/helper-text";
-export { Input, inputVariants } from "./components/ui/form/input";
-export { Switch } from "./components/ui/form/switch";
-export type { InputProps } from "./components/ui/form/input";
-export { Label } from "./components/ui/form/label";
+export { Checkbox } from "./elements/form/checkbox";
+export { FormBuilder } from "./elements/form/builder";
+export { HelperText } from "./elements/form/helper-text";
+export type { HelperTextProps } from "./elements/form/helper-text";
+export { Input, inputVariants } from "./elements/form/input";
+export { Switch } from "./elements/form/switch";
+export type { InputProps } from "./elements/form/input";
+export { Label } from "./elements/form/label";
 
-export { Textarea } from "./components/ui/form/textarea";
-export type { TextareaProps } from "./components/ui/form/textarea";
-export { MultiSelector, SingleSelector } from "./components/ui/form/selector";
+export { Textarea } from "./elements/form/textarea";
+export type { TextareaProps } from "./elements/form/textarea";
+export { MultiSelector, SingleSelector } from "./elements/form/selector";
 export type {
 	MultiSelectorProps,
 	SingleSelectorProps,
-} from "./components/ui/form/selector";
+} from "./elements/form/selector";
 
 export { tailwindcssPreset } from "./tailwindcss-preset";
