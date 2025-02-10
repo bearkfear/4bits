@@ -4,7 +4,6 @@ import { X } from "lucide-react";
 import * as React from "react";
 
 import { cn } from "../lib/utils";
-import { buttonVariants } from "./button";
 import { Separator } from "./separator";
 
 const Root = DialogPrimitive.Root;
@@ -22,7 +21,7 @@ const DialogOverlay = React.forwardRef<
 	<DialogPrimitive.Overlay
 		ref={ref}
 		className={cn(
-			"fixed inset-0 z-50 bg-blacka-9  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+			"fixed inset-0 z-50 bg-blacka-9 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
 			className,
 		)}
 		{...props}
@@ -91,7 +90,7 @@ const Title = React.forwardRef<
 	<DialogPrimitive.Title
 		ref={ref}
 		className={cn(
-			"flex text-sm font-bold leading-none tracking-tight text-blacka-12 dark:text-white",
+			"flex text-base font-bold leading-none tracking-tight text-blacka-12 dark:text-white",
 			className,
 		)}
 		{...props}
@@ -105,7 +104,7 @@ const Description = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<DialogPrimitive.Description
 		ref={ref}
-		className={cn("flex text-xs text-gray-11", className)}
+		className={cn("flex text-sm text-gray-11", className)}
 		{...props}
 	/>
 ));
@@ -117,10 +116,10 @@ const CloseX = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<Close
 		ref={ref}
-		className={cn(buttonVariants({ size: "icon" }), className)}
+		className={cn("text-whitea-11 border rounded-full p-1 bg-blacka-10 hover:bg-blacka-11 shadow border-gray-10", className)}
 		{...props}
 	>
-		<X size={18} />
+		<X size={16} />
 	</Close>
 ));
 CloseX.displayName = "DialogCloseX";
@@ -129,7 +128,7 @@ const Body = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
 	({ className, ...props }, ref) => (
 		<div
 			ref={ref}
-			className={cn("text-xs text-blacka-12 dark:text-whitea-12 p-3", className)}
+			className={cn("text-blacka-12 dark:text-whitea-12 p-3", className)}
 			{...props}
 		/>
 	),
