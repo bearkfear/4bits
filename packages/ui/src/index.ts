@@ -17,6 +17,7 @@ export { Stepper } from "./elements/stepper";
 export { Tabs } from "./elements/tabs";
 export { Card } from "./elements/card";
 export { Table } from "./elements/table";
+export { Tag } from "./elements/tag";
 
 export type { TableBuilderProps } from "./builders/table-builder/types";
 
