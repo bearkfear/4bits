@@ -1,1 +1,1 @@
-export {FormBuilder} from "./form-fields";
+export { FormBuilder } from "./form-fields";

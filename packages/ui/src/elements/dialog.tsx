@@ -116,7 +116,10 @@ const CloseX = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<Close
 		ref={ref}
-		className={cn("text-whitea-11 border rounded-full p-1 bg-blacka-10 hover:bg-blacka-11 shadow border-gray-10", className)}
+		className={cn(
+			"text-whitea-11 border rounded-full p-1 bg-blacka-10 hover:bg-blacka-11 shadow border-gray-10",
+			className,
+		)}
 		{...props}
 	>
 		<X size={16} />

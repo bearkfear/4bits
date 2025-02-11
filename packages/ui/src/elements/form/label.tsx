@@ -13,7 +13,7 @@ const labelVariants = cva(
 const Label = React.forwardRef<
 	React.ComponentRef<typeof LabelPrimitive.Root>,
 	React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
-	VariantProps<typeof labelVariants> & { required?: boolean }
+		VariantProps<typeof labelVariants> & { required?: boolean }
 >(({ className, required, ...props }, ref) => (
 	<div className="space-x-1 flex items-center">
 		<LabelPrimitive.Root

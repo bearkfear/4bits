@@ -60,10 +60,10 @@ export function RowDraggable<C extends Columns>({
 				}}
 				className={cn(
 					rowIsChecked &&
-					"bg-blue-2 even:bg-blue-3 dark:bg-bluedark-3/50 dark:even:bg-bluedark-3",
+						"bg-blue-2 even:bg-blue-3 dark:bg-bluedark-3/50 dark:even:bg-bluedark-3",
 					isDragging && "bg-green-5! dark:bg-greendark-5! opacity-100!",
 					isOver &&
-					"even:bg-green-3! hover:opacity-100! bg-green-4! dark:even:bg-greendark-3! dark:bg-greendark-4!",
+						"even:bg-green-3! hover:opacity-100! bg-green-4! dark:even:bg-greendark-3! dark:bg-greendark-4!",
 				)}
 			>
 				{draggable && <DragItem />}

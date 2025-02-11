@@ -18,9 +18,9 @@ export const buttonVariants = cva(
 				danger__light:
 					"bg-red-3 text-red-11 dark:text-reddark-11 hover:bg-red-4 dark:hover:bg-reddark-4 border border-red-7 dark:border-reddark-7 dark:bg-reddark-3",
 				warning:
-					"bg-yellow-9 text-blacka-12 hover:bg-yellow-10 dark:hover:bg-yellowdark-10 dark:bg-yellowdark-9",
+					"bg-orange-9 text-orange-1 hover:bg-orange-10 dark:hover:bg-orangedark-10 dark:bg-orangedark-9",
 				warning__light:
-					"bg-yellow-3 text-yellow-11 dark:text-yellowdark-11 hover:bg-yellow-4 dark:hover:bg-yellowdark-4 border border-yellow-7 dark:border-yellowdark-7 dark:bg-yellowdark-3",
+					"bg-orange-3 text-orange-11 dark:text-orangedark-11 hover:bg-orange-4 dark:hover:bg-orangedark-4 border border-orange-7 dark:border-orangedark-7 dark:bg-orangedark-3",
 				success:
 					"bg-green-9 text-whitea-12 hover:bg-green-10 dark:hover:bg-greendark-10 dark:bg-greendark-9",
 				success__light:

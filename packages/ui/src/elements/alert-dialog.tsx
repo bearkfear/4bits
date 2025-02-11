@@ -103,7 +103,7 @@ Description.displayName = AlertDialogPrimitive.Description.displayName;
 const Action = React.forwardRef<
 	React.ComponentRef<typeof AlertDialogPrimitive.Action>,
 	React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Action> &
-	ButtonProps
+		ButtonProps
 >(({ className, variant, size, ...props }, ref) => (
 	<AlertDialogPrimitive.Action
 		ref={ref}
@@ -116,7 +116,7 @@ Action.displayName = AlertDialogPrimitive.Action.displayName;
 const Cancel = React.forwardRef<
 	React.ComponentRef<typeof AlertDialogPrimitive.Cancel>,
 	React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Cancel> &
-	ButtonProps
+		ButtonProps
 >(({ className, variant, size, ...props }, ref) => (
 	<AlertDialogPrimitive.Cancel
 		ref={ref}

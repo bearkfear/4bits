@@ -16,7 +16,9 @@ export { toast } from "sonner";
 type ToasterProps = React.ComponentProps<typeof Sonner>;
 
 const toaster = cva(
-	cn("flex items-center shadow-sm space-x-4 border w-full px-4 py-1 rounded-sm"),
+	cn(
+		"flex items-center shadow-sm space-x-4 border w-full px-4 py-1 rounded-sm",
+	),
 	{
 		variants: {
 			color: {

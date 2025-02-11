@@ -22,7 +22,7 @@ export interface InputProps
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
 	(
-		{ className, type, masks = [], tokens, onChange = () => { }, ...props },
+		{ className, type, masks = [], tokens, onChange = () => {}, ...props },
 		ref,
 	) => {
 		const inputRef = React.useRef<HTMLInputElement>(null);

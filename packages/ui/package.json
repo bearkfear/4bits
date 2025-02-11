@@ -1,13 +1,11 @@
 {
 	"name": "@4bits/ui",
-	"version": "2.0.1",
+	"version": "2.1.0",
 	"private": false,
 	"main": "dist/index.cjs.js",
 	"module": "dist/index.esm.js",
 	"types": "dist/index.d.ts",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"dependencies": {
 		"@4bits/formbuilder": "workspace:^"
 	},
