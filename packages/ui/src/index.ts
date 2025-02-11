@@ -19,6 +19,8 @@ export { Card } from "./elements/card";
 export { Table } from "./elements/table";
 export { Tag } from "./elements/tag";
 export { Avatar } from "./elements/avatar";
+export { Breadcrumb } from "./elements/breadcrumb";
+export { Panel } from "./elements/panel";
 
 export type { TableBuilderProps } from "./builders/table-builder/types";
 
