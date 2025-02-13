@@ -17,7 +17,7 @@ export const Default = () => {
 
 	return (
 		<Tabs.Root defaultValue="account" className="w-[400px]">
-			<Tabs.List className="w-full grid grid-cols-2">
+			<Tabs.List className="w-full grid grid-cols-2 h-full">
 				<Tabs.Trigger value="account">Acessar conta</Tabs.Trigger>
 				<Tabs.Trigger value="password">Restaurar senha</Tabs.Trigger>
 			</Tabs.List>
