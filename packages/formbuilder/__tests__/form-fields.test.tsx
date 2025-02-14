@@ -1,13 +1,15 @@
 import { render } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import { useRequiredFieldsByRules } from "../lib/use-required-fields";
-import { FormFields } from "../lib/form-fields";
 import { useForm } from "react-hook-form";
-import type { FormRenderProps } from "../lib/presentation/model/form-render-props";
 import userEvent from "@testing-library/user-event";
-import { FormStoreProvider } from "../lib/use-form-store";
-import { createFields } from "../lib/create-fields";
-import { Condition } from "../lib/domain/conditions";
+import {
+	createFields,
+	FormFields,
+	useRequiredFieldsByRules,
+	FormStoreProvider,
+	type FormRenderProps,
+	Condition,
+} from "../lib";
 
 function SimpleRender(props: FormRenderProps<any>) {
 	if (props.fieldConfig.type === "text") {
