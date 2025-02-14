@@ -17,9 +17,9 @@
 
 import type { FormRenderProps } from "@4bits/formbuilder";
 import type { FieldPath, FieldValues } from "react-hook-form";
-import { cn } from "../../../lib/utils";
-import { HelperText } from "../helper-text";
-import { Label } from "../label";
+import { cn } from "../../lib/utils";
+import { HelperText } from "../../elements/form/helper-text";
+import { Label } from "../../elements/form/label";
 import { FormControl } from "./form-control";
 
 export function FormAnatomy<

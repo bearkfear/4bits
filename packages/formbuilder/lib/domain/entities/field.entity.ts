@@ -1,12 +1,65 @@
+import type {
+	Control,
+	FieldPath,
+	FieldValues,
+	ValidateResult,
+} from "react-hook-form";
+import type { FieldSettingsByType } from "../field-settings-by-type";
+import type { Rule } from "./rule.entity";
 import { z } from "zod";
-import type { FormField } from "./model/field";
-import type { ValidateResult } from "react-hook-form";
 import { format } from "date-fns";
 
-export function validateField(
+export type FormField<
+	TFieldValues extends FieldValues = FieldValues,
+	TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+> = {
+	hidden?: boolean;
+	validate?: (value: any) => ValidateFieldResult;
+	name: TName;
+	label?: string;
+	required?: boolean;
+	leftAddon?: React.ReactNode; // Conteúdo para ser exibido à esquerda do rótulo
+	rightAddon?: React.ReactNode; // Conteúdo para ser exibido à direita do rótulo
+	disabled?: boolean;
+	size: number;
+	placeholder?: string;
+	helperText?: string;
+	className?: string;
+	style?: React.CSSProperties;
+	/**
+	 * If returns true, whould activate field
+	 */
+	rules?: Rule[];
+} & FieldSettingsByType;
+
+function getRequiredFieldNames(fields: FormField[][]) {
+	const requiredFieldsNames = Array<string>();
+
+	for (const fieldRows of fields) {
+		for (const field of fieldRows) {
+			if (!field.rules) continue;
+			for (const rule of field.rules) {
+				requiredFieldsNames.push(rule.dependentFieldName);
+			}
+		}
+	}
+
+	return requiredFieldsNames;
+}
+
+function createFields<
+	TFieldValues extends FieldValues = FieldValues,
+	TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+>(_: Control<TFieldValues>, fields: FormField<TFieldValues, TName>[]) {
+	return fields;
+}
+
+export type ValidateFieldResult = ValidateResult | Promise<ValidateResult>;
+
+function validateField(
 	value: any,
 	fieldConfig: FormField,
-): ValidateResult | Promise<ValidateResult> {
+): ValidateFieldResult {
 	let validation: z.ZodType | undefined;
 
 	const requiredError = `O campo ${fieldConfig.label} é obrigatório`;
@@ -387,3 +440,5 @@ export function validateField(
 		if (fieldConfig.validate) return fieldConfig.validate(value);
 	}
 }
+
+export { createFields, getRequiredFieldNames, validateField };

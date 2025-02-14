@@ -4,7 +4,7 @@ import { Button, FormBuilder } from "../../index";
 
 const meta = {
 	title: "Form/Builder",
-	component: FormBuilder.FormFields,
+	component: FormBuilder.Fields,
 } satisfies Meta<typeof FormBuilder.FormFields>;
 
 export default meta;
@@ -33,7 +33,7 @@ export const Builder = () => {
 	return (
 		<form onSubmit={form.handleSubmit(() => {})}>
 			<FormBuilder.Root>
-				<FormBuilder.FormFields
+				<FormBuilder.Fields
 					control={form.control}
 					fields={[
 						{

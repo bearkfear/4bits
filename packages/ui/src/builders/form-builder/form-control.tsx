@@ -1,20 +1,19 @@
-"use client";
 import type { FormRenderProps } from "@4bits/formbuilder";
 import type { FieldPath, FieldValues, PathValue } from "react-hook-form";
-import { cn } from "../../../lib/utils";
-import { Checkbox } from "../checkbox";
-import { InputDate } from "../date";
-import { InputFile } from "../file";
-import { Input } from "../input";
-import { InputTag } from "../input-tag";
-import { Label } from "../label";
-import { Money } from "../money";
-import * as MultiCheckbox from "../multi-checkbox";
-import * as Radio from "../radio";
-import { Rate } from "../rate";
-import { MultiSelector, SingleSelector } from "../selector";
-import { Switch } from "../switch";
-import { Textarea } from "../textarea";
+import { cn } from "../../lib/utils";
+import { Checkbox } from "../../elements/form/checkbox";
+import { InputDate } from "../../elements/form/date";
+import { InputFile } from "../../elements/form/file";
+import { Input } from "../../elements/form/input";
+import { InputTag } from "../../elements/form/input-tag";
+import { Label } from "../../elements/form/label";
+import { Money } from "../../elements/form/money";
+import * as MultiCheckbox from "../../elements/form/multi-checkbox";
+import * as Radio from "../../elements/form/radio";
+import { Rate } from "../../elements/form/rate";
+import { MultiSelector, SingleSelector } from "../../elements/form/selector";
+import { Switch } from "../../elements/form/switch";
+import { Textarea } from "../../elements/form/textarea";
 
 export function FormControl<
 	TFieldValues extends FieldValues = FieldValues,
@@ -170,9 +169,7 @@ export function FormControl<
 				required={props.fieldConfig.required}
 				className={props.fieldConfig.className}
 				style={props.fieldConfig.style}
-				onChange={(event) => {
-					handleOnChange(event.target.value);
-				}}
+				onChange={(event) => handleOnChange(event.target.value)}
 			/>
 		);
 	}

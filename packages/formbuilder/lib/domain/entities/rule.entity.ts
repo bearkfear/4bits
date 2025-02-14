@@ -1,6 +1,13 @@
-import { Condition } from "./model/conditions";
-import type { FormField } from "./model/field";
-import type { FormStore } from "./use-form-store";
+import type { FormField } from "./field.entity";
+import type { FormStore } from "../../use-form-store";
+
+import { Condition } from "../conditions";
+
+export interface Rule {
+	dependentFieldName: string;
+	condition: Condition;
+	value: any;
+}
 
 /**
  * Verifica se as regras de validação em um objeto de configuração são atendidas com base nos valores fornecidos.

@@ -35,7 +35,7 @@ export {
 
 // export forms
 export { Checkbox } from "./elements/form/checkbox";
-export { FormBuilder } from "./elements/form/builder";
+export { FormBuilder } from "./builders/form-builder";
 export { HelperText } from "./elements/form/helper-text";
 export type { HelperTextProps } from "./elements/form/helper-text";
 export { Input, inputVariants } from "./elements/form/input";

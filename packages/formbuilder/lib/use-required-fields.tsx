@@ -2,20 +2,10 @@
 
 import type { UseFormWatch } from "react-hook-form";
 import { useMemo } from "react";
-import type { FormField } from "./model/field";
-
-function getRequiredFieldNames(fields: FormField[][]) {
-	return fields.reduce<string[]>((acc, curr) => {
-		for (const field of curr) {
-			if (field.rules) {
-				for (const rule of field.rules) {
-					acc.push(rule.dependentFieldName);
-				}
-			}
-		}
-		return acc;
-	}, []);
-}
+import {
+	type FormField,
+	getRequiredFieldNames,
+} from "./domain/entities/field.entity";
 
 export function useRequiredFieldsByRules(
 	watch?: UseFormWatch<any>,

@@ -1,6 +1,6 @@
 import type { Control, FieldPath, FieldValues } from "react-hook-form";
-import type { FormField } from "./field";
 import type { FormRenderProps } from "./form-render-props";
+import type { FormField } from "./entities/field.entity";
 
 export interface FormConfig<
 	TFieldValues extends FieldValues = FieldValues,
