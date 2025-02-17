@@ -57,7 +57,7 @@ const Row = forwardRef<
 	<tr
 		ref={ref}
 		className={cn(
-			"border-b dark:even:bg-graydark-2 hover:opacity-75 even:bg-gray-2 last:border-b-0 border-gray-4 dark:border-graydark-4",
+			"border-b dark:even:bg-graydark-2 even:bg-gray-2 last:border-b-0 border-gray-4 dark:border-graydark-4",
 			className,
 		)}
 		{...props}
