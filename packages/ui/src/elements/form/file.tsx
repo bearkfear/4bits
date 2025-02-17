@@ -5,7 +5,7 @@ import { type DropzoneOptions, useDropzone } from "react-dropzone";
 import { cn } from "../../lib/utils";
 import { inputVariants } from "./input";
 
-const inputFileVariants = cva(inputVariants(), {
+const inputFileVariants = cva(inputVariants, {
 	variants: {
 		border: {
 			default: "",

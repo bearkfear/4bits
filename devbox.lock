@@ -48,6 +48,9 @@
           "store_path": "/nix/store/kg687hh67zf6m2avqrkdfg274c96sh21-bun-1.2.1"
         }
       }
+    },
+    "github:NixOS/nixpkgs/nixpkgs-unstable": {
+      "resolved": "github:NixOS/nixpkgs/b1b43d32be000928cc71250ed77f4a0a5f2bc23a?lastModified=1739698114&narHash=sha256-8S9n69Dnpg8DhfFlP0YvMGmSOY2X4kImGSPWXYNpaHM%3D"
     }
   }
 }

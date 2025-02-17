@@ -57,7 +57,7 @@ const InputDate = React.forwardRef<HTMLInputElement, InputDateProps>(
 			<input
 				{...props}
 				type={type}
-				className={cn(inputVariants(), className)}
+				className={cn(inputVariants, className)}
 				ref={ref}
 				value={date}
 				onChange={(event) => setDate(event.target.value)}

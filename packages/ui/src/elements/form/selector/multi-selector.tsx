@@ -7,10 +7,10 @@ import type { FieldPath } from "react-hook-form";
 import { LuX } from "react-icons/lu";
 import { mergeRefs } from "react-merge-refs";
 import { cn } from "../../../lib/utils";
-import { Popover } from "../../popover";
-import { selectInputVariants } from "../input";
+import { Popover } from "../../popover"; 
 import { SelectorContent } from "./content";
 import type { SelectorCommonProps, TOption } from "./model";
+import { inputVariants } from "../input";
 
 const OBJECT_SIZE = 18;
 const PADDING_Y = 8;
@@ -199,7 +199,7 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 		<Popover.Root modal open={open} onOpenChange={onOpenChange}>
 			<Popover.Trigger
 				className={cn(
-					selectInputVariants(),
+					inputVariants,
 					"justify-between items-center min-h-8 z-20",
 					(!pagination || pagination.selectedOptions.length === 0) &&
 						selectedOptions.length === 0 &&

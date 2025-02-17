@@ -93,7 +93,7 @@ const InputMoneyInner = (
 			ref={ref}
 			onKeyDown={onKeyDown}
 			className={cn(
-				inputVariants(),
+				inputVariants,
 				externalValue.length > 0 && "has-text-right",
 				className,
 			)}

@@ -117,8 +117,7 @@ function SingleSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 		<Popover.Root modal open={open} onOpenChange={onOpenChange}>
 			<Popover.Trigger
 				className={cn(
-					inputVariants(),
-					"justify-between",
+					inputVariants,
 					(!pagination || !pagination.selectedOption) &&
 						!selectedOption &&
 						"text-gray-11 dark:text-graydark-11",
