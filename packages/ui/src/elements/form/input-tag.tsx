@@ -5,7 +5,7 @@ import { mergeRefs } from "react-merge-refs";
 
 import { LuX } from "react-icons/lu";
 import { cn } from "../../lib/utils";
-import type { Delimiter, TagType } from "@4bits/formbuilder/dist/model/tag";
+import type { Delimiter, TagType } from "@4bits/formbuilder/dist/domain/tag";
 
 export const selectInputVariants = cva(
 	"flex w-full rounded-md border border-gray-6 dark:border-graydark-6 bg-gray-1 dark:bg-graydark-1 px-3 text-xs ring-offset-transparent file:border-0 file:bg-transparent file:text-xs file:font-medium placeholder:text-gray-11 dark:placeholder:text-graydark-11 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-7 dark:focus-visible:ring-bluedark-7 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 text-blacka-12 dark:text-white",
@@ -157,7 +157,7 @@ const InputTag = React.forwardRef<HTMLInputElement, InputProps>(
 					{...props}
 					type={type}
 					className="p-1 flex flex-1 min-w-50 bg-gray-1 dark:bg-graydark-1"
-					ref={mergeRefs([ref, inputRef])}
+					ref={mergeRefs([ref, inputRef]) as any}
 					value={localValue}
 					onKeyDown={onKeyDown}
 					onChange={onChangeValue}
