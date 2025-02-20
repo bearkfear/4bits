@@ -5,7 +5,8 @@
 		"ignore": [
 			"dist",
 			".turbo",
-			".expo"
+			".expo",
+      "**/*.css"
 		]
 	},
   "organizeImports": {
