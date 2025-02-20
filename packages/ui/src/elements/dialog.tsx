@@ -21,7 +21,7 @@ const DialogOverlay = React.forwardRef<
 	<DialogPrimitive.Overlay
 		ref={ref}
 		className={cn(
-			"fixed inset-0 z-50 bg-blacka-9 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+			"fixed inset-0 z-50 bg-blacka-10 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
 			className,
 		)}
 		{...props}
@@ -38,7 +38,7 @@ const Content = React.forwardRef<
 		<DialogPrimitive.Content
 			ref={ref}
 			className={cn(
-				"fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] border border-gray-6 dark:border-graydark-6 bg-gray-1 dark:bg-graydark-1 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg",
+				"fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] dark:border dark:border-graydark-6 bg-gray-1 dark:bg-graydark-1 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] rounded-lg",
 				className,
 			)}
 			{...props}
@@ -56,7 +56,7 @@ const Header = ({
 	<>
 		<div
 			className={cn(
-				"flex flex-col space-y-1.5 text-center sm:text-left p-3",
+				"flex flex-col text-left p-3 min-h-16 items-center",
 				className,
 			)}
 			{...props}
@@ -74,7 +74,7 @@ const Footer = ({
 		<Separator className="h-px w-full" />
 		<div
 			className={cn(
-				"flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2 p-3",
+				"min-h-16 flex flex-col-reverse lg:flex-row lg:justify-end gap-2 p-3 items-center",
 				className,
 			)}
 			{...props}
@@ -90,7 +90,7 @@ const Title = React.forwardRef<
 	<DialogPrimitive.Title
 		ref={ref}
 		className={cn(
-			"flex text-base font-bold leading-none tracking-tight text-blacka-12 dark:text-white",
+			"flex font-bold leading-none tracking-tight text-blacka-12 dark:text-whitea-12",
 			className,
 		)}
 		{...props}
@@ -104,7 +104,7 @@ const Description = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<DialogPrimitive.Description
 		ref={ref}
-		className={cn("flex text-sm text-gray-11", className)}
+		className={cn("flex text-sm text-gray-11 dark:text-graydark-11", className)}
 		{...props}
 	/>
 ));
@@ -117,7 +117,7 @@ const CloseX = React.forwardRef<
 	<Close
 		ref={ref}
 		className={cn(
-			"text-whitea-11 border rounded-full p-1 bg-blacka-10 hover:bg-blacka-11 shadow border-gray-10",
+			"text-whitea-11 rounded-full p-1 bg-blacka-11 dark:bg-blacka-10 hover:bg-gray-12 transition-colors dark:border-graydark-7 dark:border",
 			className,
 		)}
 		{...props}
@@ -131,7 +131,7 @@ const Body = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
 	({ className, ...props }, ref) => (
 		<div
 			ref={ref}
-			className={cn("text-blacka-12 dark:text-whitea-12 p-3", className)}
+			className={cn("text-blacka-12 dark:text-whitea-12 p-3 text-sm", className)}
 			{...props}
 		/>
 	),

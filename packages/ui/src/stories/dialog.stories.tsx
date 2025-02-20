@@ -8,7 +8,7 @@ export default {
 
 export const Default = () => {
 	return (
-		<Dialog.Root open>
+		<Dialog.Root defaultOpen>
 			<Dialog.Trigger asChild>
 				<Button variant="info">Open</Button>
 			</Dialog.Trigger>
@@ -18,9 +18,8 @@ export const Default = () => {
 						<Dialog.Title>Are you absolutely sure?</Dialog.Title>
 						<Dialog.Description>This will remove your data</Dialog.Description>
 					</div>
-					<span>
-						<Dialog.CloseX />
-					</span>
+
+					<Dialog.CloseX />
 				</Dialog.Header>
 				<Dialog.Body>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, maxime
