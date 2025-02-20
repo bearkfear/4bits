@@ -1,4 +1,3 @@
-"use client";
 import { type HTMLAttributes, forwardRef } from "react";
 
 import { cn } from "../lib/utils";
@@ -8,7 +7,7 @@ const Root = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
 		<div
 			ref={ref}
 			className={cn(
-				"rounded-lg border border-gray-7 dark:border-graydark-6 bg-gray-2 dark:bg-graydark-2 shadow overflow-hidden",
+				"rounded-lg border border-gray-7 dark:border-graydark-6 bg-gray-2 dark:bg-graydark-2 overflow-hidden",
 				className,
 			)}
 			{...props}
@@ -50,7 +49,11 @@ const Description = forwardRef<
 	HTMLParagraphElement,
 	HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-	<p ref={ref} className={cn("text-sm text-gray-11 dark:text-graydark-11", className)} {...props} />
+	<p
+		ref={ref}
+		className={cn("text-sm text-gray-11 dark:text-graydark-11", className)}
+		{...props}
+	/>
 ));
 Description.displayName = "PanelDescription";
 
