@@ -10,37 +10,37 @@ import { variants } from "./selector/styles";
 export const inputVariants = cn(variants);
 
 export interface InputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange"> {
-  masks?: string[];
-  tokens?: Tokens;
-  onChange?: (newValue: string) => void;
+	extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange"> {
+	masks?: string[];
+	tokens?: Tokens;
+	onChange?: (newValue: string) => void;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  (
-    { className, type, masks = [], tokens, onChange = () => {}, ...props },
-    ref
-  ) => {
-    const inputRef = React.useRef<HTMLInputElement>(null);
+	(
+		{ className, type, masks = [], tokens, onChange = () => {}, ...props },
+		ref,
+	) => {
+		const inputRef = React.useRef<HTMLInputElement>(null);
 
-    const { handleOnChangeMasker } = useMasker(
-      // @ts-ignore
-      inputRef,
-      masks,
-      onChange,
-      tokens
-    );
+		const { handleOnChangeMasker } = useMasker(
+			// @ts-ignore
+			inputRef,
+			masks,
+			onChange,
+			tokens,
+		);
 
-    return (
-      <input
-        {...props}
-        type={type}
-        className={cn(inputVariants, className)}
-        ref={mergeRefs([ref, inputRef])}
-        onChange={handleOnChangeMasker}
-      />
-    );
-  }
+		return (
+			<input
+				{...props}
+				type={type}
+				className={cn(inputVariants, className)}
+				ref={mergeRefs([ref, inputRef])}
+				onChange={handleOnChangeMasker}
+			/>
+		);
+	},
 );
 Input.displayName = "Input";
 

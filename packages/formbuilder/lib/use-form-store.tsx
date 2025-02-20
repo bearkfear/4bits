@@ -1,6 +1,5 @@
 "use client";
 
-
 import {
 	createContext,
 	useContext,
@@ -21,9 +20,7 @@ function storeGenerator() {
 	return create<Record<string, FormStoreItem>>(() => ({}));
 }
 
-export const formStore = createContext<Store>(
-	storeGenerator(),
-);
+export const formStore = createContext<Store>(storeGenerator());
 
 // biome-ignore lint/complexity/noBannedTypes: <explanation>
 export const FormStoreProvider = ({ children }: PropsWithChildren<{}>) => {

@@ -2,10 +2,7 @@
 	"compilerOptions": {
 		"target": "esnext", // Modern target (ES2020 or later is often good too)
 		"module": "esnext", // Essential for Rollup and modern JS
-		"lib": [
-			"dom",
-			"esnext"
-		], // Include DOM types and the latest ES features
+		"lib": ["dom", "esnext"], // Include DOM types and the latest ES features
 		"jsx": "react-jsx", // Use the new JSX transform (more efficient)
 		"declaration": true, // Generate .d.ts files (highly recommended)
 		"outDir": "dist", // Output directory
@@ -23,13 +20,6 @@
 		"noUnusedParameters": true, // Report errors on unused parameters
 		"noFallthroughCasesInSwitch": true // Report errors for fallthrough cases in switch statements
 	},
-	"include": [
-		"lib"
-, "__tests__/form-fields.test.tsx"	],
-	"exclude": [
-		"node_modules",
-		"dist",
-		"**/*.test.tsx",
-		"**/*.spec.tsx"
-	] // Exclude test files
+	"include": ["lib", "__tests__/form-fields.test.tsx"],
+	"exclude": ["node_modules", "dist", "**/*.test.tsx", "**/*.spec.tsx"] // Exclude test files
 }

@@ -7,7 +7,7 @@ const Root = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
 		<div
 			ref={ref}
 			className={cn(
-				"rounded-lg border border-gray-7 dark:border-graydark-6 bg-gray-2 dark:bg-graydark-2 overflow-hidden",
+				"rounded-lg border border-gray-7 dark:border-graydark-6 bg-gray-2 dark:bg-graydark-2 overflow-hidden divide-gray-7 divide-y dark:divide-graydark-7",
 				className,
 			)}
 			{...props}
@@ -21,7 +21,7 @@ const Header = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
 		<div
 			ref={ref}
 			className={cn(
-				"flex space-x-2 py-2 px-4 dark:bg-graydark-4  bg-gray-4 border-b border-gray-7 dark:border-graydark-7",
+				"flex space-x-2 py-2 px-4 dark:bg-graydark-4  bg-gray-3",
 				className,
 			)}
 			{...props}

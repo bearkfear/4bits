@@ -7,7 +7,7 @@ import type { FieldPath } from "react-hook-form";
 import { LuX } from "react-icons/lu";
 import { mergeRefs } from "react-merge-refs";
 import { cn } from "../../../lib/utils";
-import { Popover } from "../../popover"; 
+import { Popover } from "../../popover";
 import { SelectorContent } from "./content";
 import type { SelectorCommonProps, TOption } from "./model";
 import { inputVariants } from "../input";
