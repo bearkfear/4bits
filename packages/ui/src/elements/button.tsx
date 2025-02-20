@@ -12,7 +12,7 @@ export const buttonVariants = cva(
 		variants: {
 			variant: {
 				default:
-					"bg-gray-1 shadow-sm hover:bg-gray-4 text-gray-12 dark:bg-graydark-1 dark:hover:bg-graydark-4 dark:text-graydark-12 border border-gray-7 dark:border-graydark-7",
+					"bg-gray-1 hover:bg-gray-3 text-gray-12 dark:bg-graydark-1 dark:hover:bg-graydark-4 dark:text-graydark-12 border border-gray-7 dark:border-graydark-7 dark:hover:border-graydark-8 hover:border-gray-8",
 				danger:
 					"bg-red-9 text-whitea-12 hover:bg-red-10 dark:hover:bg-reddark-10 dark:bg-reddark-9",
 				danger__light:
