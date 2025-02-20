@@ -3,13 +3,13 @@ import type { Meta } from "@storybook/react";
 import { AlertDialog, Button } from "../index";
 
 export default {
-	title: "Dialog/Alert",
+	title: "Elements/Dialog/Alert",
 	component: AlertDialog.Root,
 } satisfies Meta<typeof AlertDialog.Root>;
 
 export const Default = () => {
 	return (
-		<AlertDialog.Root>
+		<AlertDialog.Root defaultOpen>
 			<AlertDialog.Trigger>
 				<Button variant="info">Open</Button>
 			</AlertDialog.Trigger>

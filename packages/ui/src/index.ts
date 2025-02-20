@@ -52,3 +52,8 @@ export type {
 } from "./elements/form/selector";
 
 export { tailwindcssPreset } from "./tailwindcss-preset";
+export {
+	TableBuilder,
+	TableBuilderActionButton,
+	TableBuilderActionButtonVariants,
+} from "./builders/table-builder";

@@ -1,10 +1,10 @@
 import type { Meta } from "@storybook/react";
 import { useState } from "react";
 import { LuPencilRuler } from "react-icons/lu";
-import { Button, TableBuilder, TableBuilderActionButton } from "../..";
+import { Button, TableBuilder, TableBuilderActionButton } from "../../../";
 
 const meta = {
-	title: "Table-builder/Table",
+	title: "Builders/Table",
 	component: TableBuilder,
 } satisfies Meta<typeof TableBuilder>;
 

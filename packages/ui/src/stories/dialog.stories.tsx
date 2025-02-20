@@ -2,7 +2,7 @@ import type { Meta } from "@storybook/react";
 import { Button, Dialog } from "../index";
 
 export default {
-	title: "Dialog/Modal",
+	title: "Elements/Dialog/Modal",
 	component: Dialog.Root,
 } satisfies Meta<typeof Dialog.Root>;
 
