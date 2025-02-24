@@ -5,7 +5,7 @@ import {
 	LuChevronsLeft,
 	LuChevronsRight,
 } from "react-icons/lu";
-import { SingleSelector } from "./form/selector";
+import { SingleSelector } from "./form/types/selectors/selector";
 
 interface PaginationProps {
 	total: number;

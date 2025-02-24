@@ -1,0 +1,41 @@
+import * as AvatarStories from "./avatar.stories";
+import { Canvas, Meta } from "@storybook/blocks";
+
+<Meta of={AvatarStories} />
+
+# Avatar
+
+O componente de Avatar pode ser utilizado para mostrar imagem, preferêncialmente como imagem de um perfil de usuário.
+
+
+<Canvas of={AvatarStories.Default} />
+
+
+E ele é composto por componentes como: 
+
+- Root
+- Image
+- Fallback
+
+O componente Root faz o papel de ser o principal. É necessário colocar ele sempre. Ele gerencia as trocas de informações entre o **Image** e o **Fallback**.
+
+
+```tsx
+<Avatar.Image
+    className="estilos customizados caso seja necessário"
+    src="URL para a imagem"
+/>
+```
+
+
+Caso a imagem não exista ou de erro ao carregar, use o **Fallback** para mostrar um texto alternativo. Recomenda-se que tenha no máximo 3 caracteres
+
+
+```tsx
+// Nesse caso seria User Name. Mas, por beleza, trocamos para UN que seriam as iniciais.
+<Avatar.Fallback>UN</Avatar.Fallback>
+```
+
+o que resultará em algo como: 
+
+<Canvas of={AvatarStories.Fallbacked} />

@@ -1,6 +1,6 @@
 "use client";
 
-import { Checkbox } from "../../../elements/form/checkbox";
+import { Checkbox } from "../../../elements/form/types/selectors/checkbox";
 import { Table } from "../../../elements/table";
 import type { Columns, Row } from "../types";
 

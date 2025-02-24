@@ -1,25 +1,10 @@
 "use client";
-// this is necessary to compile with tailwindcss
-`--ignore;
- * lg:col-span-12
- * lg:col-span-11
- * lg:col-span-10
- * lg:col-span-9
- * lg:col-span-8
- * lg:col-span-7
- * lg:col-span-6
- * lg:col-span-5
- * lg:col-span-4
- * lg:col-span-3
- * lg:col-span-2
- * lg:col-span-1
-`;
 
 import type { FormRenderProps } from "@4bits/formbuilder";
 import type { FieldPath, FieldValues } from "react-hook-form";
 import { cn } from "../../lib/utils";
-import { HelperText } from "../../elements/form/helper-text";
-import { Label } from "../../elements/form/label";
+import { HelperText } from "../../elements/form/item/helper-text";
+import { Label } from "../../elements/form/item/label";
 import { FormControl } from "./form-control";
 
 export function FormAnatomy<

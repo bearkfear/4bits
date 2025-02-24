@@ -34,22 +34,22 @@ export {
 } from "./lib/mask/common-masks";
 
 // export forms
-export { Checkbox } from "./elements/form/checkbox";
+export { Checkbox } from "./elements/form/types/selectors/checkbox";
 export { FormBuilder } from "./builders/form-builder";
-export { HelperText } from "./elements/form/helper-text";
-export type { HelperTextProps } from "./elements/form/helper-text";
-export { Input, inputVariants } from "./elements/form/input";
-export { Switch } from "./elements/form/switch";
-export type { InputProps } from "./elements/form/input";
-export { Label } from "./elements/form/label";
+export { HelperText } from "./elements/form/item/helper-text";
+export type { HelperTextProps } from "./elements/form/item/helper-text";
+export { Input, inputVariants } from "./elements/form/types/inputs/input";
+export { Switch } from "./elements/form/types/selectors/switch";
+export type { InputProps } from "./elements/form/types/inputs/input";
+export { Label } from "./elements/form/item/label";
 
-export { Textarea } from "./elements/form/textarea";
-export type { TextareaProps } from "./elements/form/textarea";
-export { MultiSelector, SingleSelector } from "./elements/form/selector";
+export { Textarea } from "./elements/form/types/inputs/textarea";
+export type { TextareaProps } from "./elements/form/types/inputs/textarea";
+export { MultiSelector, SingleSelector } from "./elements/form/types/selectors/selector";
 export type {
 	MultiSelectorProps,
 	SingleSelectorProps,
-} from "./elements/form/selector";
+} from "./elements/form/types/selectors/selector";
 
 export { tailwindcssPreset } from "./tailwindcss-preset";
 export {
