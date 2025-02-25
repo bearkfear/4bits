@@ -2,6 +2,7 @@
 
 import { DndContext, type DragEndEvent } from "@dnd-kit/core";
 import { useEffect, useMemo, useState } from "react";
+import { PageLoader } from "../../elements/page-loader";
 import { Table } from "../../elements/table";
 import { Body } from "./body";
 import { Footer } from "./footer";
@@ -9,7 +10,6 @@ import { Header } from "./header";
 import { ToolBar } from "./toolbar";
 import type { Columns, Row, Rows, TableBuilderProps } from "./types";
 import { reOrderList } from "./utils/functions";
-import { PageLoader } from "../../elements/page-loader";
 
 export function TableBuilder<C extends Columns>(props: TableBuilderProps<C>) {
 	const [rowsChecked, setRowsChecked] = useState<Rows<C>>([]);

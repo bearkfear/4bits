@@ -8,9 +8,9 @@ import { LuX } from "react-icons/lu";
 import { mergeRefs } from "react-merge-refs";
 import { cn } from "../../../../../lib/utils";
 import { Popover } from "../../../../popover";
+import { inputVariants } from "../../inputs/input";
 import { SelectorContent } from "./content";
 import type { SelectorCommonProps, TOption } from "./model";
-import { inputVariants } from "../../inputs/input";
 
 const OBJECT_SIZE = 18;
 const PADDING_Y = 8;

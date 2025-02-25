@@ -1,8 +1,8 @@
-import { Footer } from "./dialog-footer";
+import { Close, Root, Trigger } from "@radix-ui/react-dialog";
 import { Body } from "./dialog-body";
-import { CloseX, Description, Title, Header } from "./dialog-header";
 import { Content } from "./dialog-content";
-import { Root, Trigger, Close } from "@radix-ui/react-dialog";
+import { Footer } from "./dialog-footer";
+import { CloseX, Description, Header, Title } from "./dialog-header";
 
 export const Dialog = {
 	Footer,

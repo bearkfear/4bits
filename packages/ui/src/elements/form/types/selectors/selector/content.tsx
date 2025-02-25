@@ -1,12 +1,12 @@
 "use client";
 
+import { useVirtualizer } from "@tanstack/react-virtual";
 import { Search } from "lucide-react";
+import { useEffect, useRef } from "react";
 import { cn } from "../../../../../lib/utils";
 import { Command } from "../../../../command";
 import { PageLoader } from "../../../../page-loader";
 import type { SelectorCommonProps, SelectorMessages, TOption } from "./model";
-import { useVirtualizer } from "@tanstack/react-virtual";
-import { useEffect, useRef } from "react";
 
 type SelectorContentProps<Option> = {
 	onSelect(option?: Option): void;

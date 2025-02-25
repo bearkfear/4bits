@@ -1,6 +1,7 @@
 "use client";
 
 import { SortableContext } from "@dnd-kit/sortable";
+import { Table } from "../../../elements/table";
 import type {
 	ClassNameCol,
 	Columns,
@@ -10,7 +11,6 @@ import type {
 } from "../types";
 import { RowDraggable } from "./row-draggable";
 import { RowEmpty } from "./row-empty";
-import { Table } from "../../../elements/table";
 
 export type BodyProps<C extends Columns> = CommonPropsBodyHeader<C> & {
 	rows: Rows<C>;

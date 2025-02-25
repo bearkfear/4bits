@@ -6,12 +6,12 @@ import { useMemo } from "react";
 import type { BodyProps } from ".";
 import { Table } from "../../../elements/table";
 
+import { cn } from "../../../lib/utils";
 import type { Columns, Row } from "../types";
 import { DragItem, SortableItemContext } from "./drag-item";
 import { RowCellActions } from "./row-cell-actions";
 import { RowCellSelectable } from "./row-cell-selectable";
 import { RowCells } from "./row-cells";
-import { cn } from "../../../lib/utils";
 
 export function RowDraggable<C extends Columns>({
 	columns,

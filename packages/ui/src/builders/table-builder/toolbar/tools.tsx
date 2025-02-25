@@ -2,9 +2,9 @@
 import debounce from "lodash.debounce";
 import type { ToolbarProps } from ".";
 import { Button } from "../../../elements/button";
-import type { Columns } from "../types";
-import { SingleSelector } from "../../../elements/form/types/selectors/selector";
 import { Input } from "../../../elements/form/types/inputs/input";
+import { SingleSelector } from "../../../elements/form/types/selectors/selector";
+import type { Columns } from "../types";
 
 export function Tools<C extends Columns>(props: ToolbarProps<C>) {
 	const { rows, rowsChecked, setRowsChecked, selectable, toolBar } = props;

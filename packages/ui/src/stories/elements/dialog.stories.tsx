@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
-import { Button, Card, Dialog, FormBuilder, Panel } from "../../index";
 import { useForm } from "react-hook-form";
+import { Button, Card, Dialog, FormBuilder, Panel } from "../../index";
 
 export default {
 	title: "Elements/Dialog/Modal",

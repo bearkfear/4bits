@@ -1,11 +1,11 @@
 "use client";
 
-import { Fragment, useState, type ReactNode } from "react";
 import { MoreHorizontal } from "lucide-react";
+import { Fragment, type ReactNode, useState } from "react";
+import { Button } from "../../../elements/button";
+import { Dropdown } from "../../../elements/dropdown";
 import type { Action, Columns, Row } from "../types";
 import { TableBuilderActionButton } from "./action-button";
-import { Dropdown } from "../../../elements/dropdown";
-import { Button } from "../../../elements/button";
 
 type ActionsProps<C extends Columns> = {
 	actions: Action<C>[];

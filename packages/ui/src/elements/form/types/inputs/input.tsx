@@ -2,9 +2,9 @@
 import * as React from "react";
 import { mergeRefs } from "react-merge-refs";
 
-import { cn } from "../../../../lib/utils";
-import type { Tokens } from "../../../../lib/mask/tokens";
 import { useMasker } from "../../../../hooks/use-masker";
+import type { Tokens } from "../../../../lib/mask/tokens";
+import { cn } from "../../../../lib/utils";
 import { variants } from "../selectors/selector/styles";
 
 export const inputVariants = cn(variants);

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { SingleSelector } from "../../../../elements/form/types/selectors/selector";
 import { useState } from "react";
+import { SingleSelector } from "../../../../elements/form/types/selectors/selector";
 
 const options = new Array(100)
 	.fill({ label: "", value: "" })
