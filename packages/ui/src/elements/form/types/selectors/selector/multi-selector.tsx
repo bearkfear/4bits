@@ -2,7 +2,7 @@
 import get from "lodash.get";
 import isEqual from "lodash.isequal";
 import { CheckSquare2, ChevronsUpDown, Square } from "lucide-react";
-import { forwardRef, useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import type { FieldPath } from "react-hook-form";
 import { LuX } from "react-icons/lu";
 import { mergeRefs } from "react-merge-refs";

@@ -18,6 +18,7 @@ const Rate = forwardRef<HTMLDivElement, RateProps>(
 		return (
 			<div
 				{...props}
+				// @ts-ignore
 				ref={mergeRefs([ref, divRef])}
 				className={cn("flex gap-0.5 h-8 items-center", props.className)}
 			>

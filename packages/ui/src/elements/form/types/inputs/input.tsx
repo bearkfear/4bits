@@ -36,6 +36,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 				{...props}
 				type={type}
 				className={cn(inputVariants, className)}
+				// @ts-ignore
 				ref={mergeRefs([ref, inputRef])}
 				onChange={handleOnChangeMasker}
 			/>
