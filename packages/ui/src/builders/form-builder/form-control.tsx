@@ -11,7 +11,10 @@ import { Money } from "../../elements/form/types/inputs/money";
 import * as MultiCheckbox from "../../elements/form/types/selectors/multi-checkbox";
 import * as Radio from "../../elements/form/types/selectors/radio";
 import { Rate } from "../../elements/form/types/inputs/rate";
-import { MultiSelector, SingleSelector } from "../../elements/form/types/selectors/selector";
+import {
+	MultiSelector,
+	SingleSelector,
+} from "../../elements/form/types/selectors/selector";
 import { Switch } from "../../elements/form/types/selectors/switch";
 import { Textarea } from "../../elements/form/types/inputs/textarea";
 

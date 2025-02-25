@@ -45,7 +45,10 @@ export { Label } from "./elements/form/item/label";
 
 export { Textarea } from "./elements/form/types/inputs/textarea";
 export type { TextareaProps } from "./elements/form/types/inputs/textarea";
-export { MultiSelector, SingleSelector } from "./elements/form/types/selectors/selector";
+export {
+	MultiSelector,
+	SingleSelector,
+} from "./elements/form/types/selectors/selector";
 export type {
 	MultiSelectorProps,
 	SingleSelectorProps,

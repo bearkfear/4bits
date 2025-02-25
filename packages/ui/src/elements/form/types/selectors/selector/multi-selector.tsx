@@ -21,6 +21,7 @@ export type MultiSelectorProps<
 	VP extends FieldPath<O>,
 	TV = O[VP],
 > = SelectorCommonProps & {
+	ref?: React.ForwardedRef<HTMLButtonElement>;
 	className?: string;
 	style?: React.CSSProperties;
 	lines?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | "noLimit";
@@ -41,24 +42,22 @@ export type MultiSelectorProps<
 	onCloseSelect?: () => void;
 };
 
-function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
-	{
-		extraActions,
-		onChange = () => {},
-		value = [],
-		className,
-		checkAll = false,
-		style,
-		lines = 3,
-		color = "default",
-		onSearch,
-		loadingOptions,
-		pagination,
-		onCloseSelect,
-		...props
-	}: MultiSelectorProps<O, VP>,
-	ref: React.ForwardedRef<HTMLButtonElement>,
-) {
+export function MultiSelector<O extends TOption, VP extends FieldPath<O>>({
+	ref,
+	extraActions,
+	onChange = () => {},
+	value = [],
+	className,
+	checkAll = false,
+	style,
+	lines = 3,
+	color = "default",
+	onSearch,
+	loadingOptions,
+	pagination,
+	onCloseSelect,
+	...props
+}: MultiSelectorProps<O, VP>) {
 	const [width, setWidth] = useState(1);
 	const [open, setOpen] = useState(false);
 
@@ -214,33 +213,33 @@ function MultiSelectorInner<O extends TOption, VP extends FieldPath<O>>(
 				{getSelectedOption()}
 				<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 			</Popover.Trigger>
-			<SelectorContent
-				getLabel={getLabel}
-				getValue={getValue}
-				options={props.options}
-				onSelect={onSelect}
-				onSelectAll={onSelectAll}
-				getIsSelected={getIsSelected}
-				searchable={props.searchable}
-				onSearch={onSearch}
-				loadingOptions={loadingOptions}
-				pagination={pagination}
-				checkAll={checkAll}
-				checkeds={value.length}
-				width={width}
-				message={{
-					...props.messages,
-					empty: props.messages?.empty || "Nenhuma opção disponível",
-					searchPlaceholder:
-						props.messages?.searchPlaceholder || "Pesquisar por um item",
-					optionSelected: (
-						<CheckSquare2 className={cn("mr-2 h-4 min-w-4 w-4")} />
-					),
-					optionUnselected: <Square className={cn("mr-2 h-4 min-w-4 w-4")} />,
-				}}
-			/>
+			<Popover.Content className="p-0" align="start">
+				<SelectorContent
+					getLabel={getLabel}
+					getValue={getValue}
+					options={props.options}
+					onSelect={onSelect}
+					onSelectAll={onSelectAll}
+					getIsSelected={getIsSelected}
+					searchable={props.searchable}
+					onSearch={onSearch}
+					loadingOptions={loadingOptions}
+					pagination={pagination}
+					checkAll={checkAll}
+					checkeds={value.length}
+					width={width}
+					message={{
+						...props.messages,
+						empty: props.messages?.empty || "Nenhuma opção disponível",
+						searchPlaceholder:
+							props.messages?.searchPlaceholder || "Pesquisar por um item",
+						optionSelected: (
+							<CheckSquare2 className={cn("mr-2 h-4 min-w-4 w-4")} />
+						),
+						optionUnselected: <Square className={cn("mr-2 h-4 min-w-4 w-4")} />,
+					}}
+				/>
+			</Popover.Content>
 		</Popover.Root>
 	);
 }
-
-export const MultiSelector = forwardRef(MultiSelectorInner);
