@@ -1,15 +1,15 @@
 {
 	"name": "@4bits/ui",
-	"version": "2.5.0",
+	"version": "2.5.1",
 	"private": false,
 	"main": "dist/index.cjs.js",
 	"module": "dist/index.esm.js",
 	"types": "dist/index.d.ts",
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"dependencies": {
-		"@4bits/formbuilder": "workspace:^",
-		"@radix-ui/react-scroll-area": "^1.2.3",
-		"@tanstack/react-virtual": "^3.13.2"
+		"@4bits/formbuilder": "workspace:^"
 	},
 	"peerDependencies": {
 		"@radix-ui/react-avatar": "^1.1.3",
@@ -48,7 +48,9 @@
 		"usehooks-ts": "^3.1.1",
 		"@dnd-kit/core": "^6.3.1",
 		"@dnd-kit/sortable": "^10.0.0",
-		"@dnd-kit/utilities": "^3.2.2"
+		"@dnd-kit/utilities": "^3.2.2",
+		"@radix-ui/react-scroll-area": "^1.2.3",
+		"@tanstack/react-virtual": "^3.13.2"
 	},
 	"devDependencies": {
 		"@rsbuild/core": "^1.2.11",

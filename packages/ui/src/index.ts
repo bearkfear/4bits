@@ -22,8 +22,6 @@ export { Avatar } from "./elements/avatar";
 export { Breadcrumb } from "./elements/breadcrumb";
 export { Panel } from "./elements/panel";
 
-export type { TableBuilderProps } from "./builders/table-builder/types";
-
 export { Pagination } from "./elements/pagination";
 export {
 	CEP_MASK,
@@ -33,9 +31,10 @@ export {
 	PHONE_MASK,
 } from "./lib/mask/common-masks";
 
-// export forms
+/**
+ * forms exports
+ */
 export { Checkbox } from "./elements/form/types/selectors/checkbox";
-export { FormBuilder } from "./builders/form-builder";
 export { HelperText } from "./elements/form/item/helper-text";
 export type { HelperTextProps } from "./elements/form/item/helper-text";
 export { Input, inputVariants } from "./elements/form/types/inputs/input";
@@ -54,9 +53,20 @@ export type {
 	SingleSelectorProps,
 } from "./elements/form/types/selectors/selector";
 
-export { tailwindcssPreset } from "./tailwindcss-preset";
+/**
+ * builders exports
+ */
 export {
 	TableBuilder,
 	TableBuilderActionButton,
 	TableBuilderActionButtonVariants,
 } from "./builders/table-builder";
+
+export type { TableBuilderProps } from "./builders/table-builder/types";
+
+export { FormBuilder } from "./builders/form-builder";
+
+/**
+ * tailwindcss preset exports
+ */
+export { tailwindcssPreset } from "./tailwindcss-preset";
