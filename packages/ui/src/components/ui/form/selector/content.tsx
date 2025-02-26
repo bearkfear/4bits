@@ -82,6 +82,7 @@ export function SelectorContent<Option extends TOption>({
 									<Command.Item
 										key={`${index} ${optionValue as string}`}
 										value={optionValue as string}
+										tabIndex={0}
 										className={cn(
 											"text-xs flex",
 											index > 0 && "mt-0.5",
