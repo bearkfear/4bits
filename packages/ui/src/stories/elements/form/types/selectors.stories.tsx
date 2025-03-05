@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { SingleSelector } from "../../../../elements/form/types/selectors/selector";
 
-const options = new Array(100)
+const options = new Array(6)
 	.fill({ label: "", value: "" })
 	.map((item, index) => ({ value: index, label: `Label index ${index}` }));
 
@@ -15,13 +15,14 @@ const meta = {
 export default meta;
 
 export function Select() {
-	const [state, setState] = useState(null);
+	const [state, setState] = useState<number | null>(null);
 	return (
 		<SingleSelector
 			labelPath="label"
 			valuePath="value"
 			options={options}
 			value={state}
+			searchable
 			onChange={setState}
 		/>
 	);

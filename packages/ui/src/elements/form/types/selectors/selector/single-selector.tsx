@@ -23,8 +23,8 @@ export type SingleSelectorProps<
 	options: O[];
 	labelPath: FieldPath<O>;
 	valuePath: VP;
-	value: TV;
-	onChange?(value?: TV | null): void;
+	value?: TV | null;
+	onChange?(value: TV | null): void;
 	onSearch?: (search: string) => void;
 	loadingOptions?: boolean;
 	onCloseSelect?: () => void;
@@ -38,7 +38,7 @@ export type SingleSelectorProps<
 export function SingleSelector<O extends TOption, VP extends FieldPath<O>>({
 	extraActions,
 	onChange = () => {},
-	value,
+	value = null,
 	className,
 	style,
 	onSearch,
