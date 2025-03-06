@@ -6,6 +6,10 @@
 			"outputs": ["dist/**"],
 			"cache": true
 		},
+		"build:storybook": {
+			"dependsOn": ["^build"],
+			"outputs": ["storybook-static/**"]
+		},
 		"dev": {
 			"dependsOn": ["@4bits/formbuilder#build"],
 			"outputs": [],
