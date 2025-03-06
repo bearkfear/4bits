@@ -35,13 +35,12 @@ export function SelectorContent<Option extends TOption>({
 	onSearch = () => {},
 	...props
 }: SelectorContentProps<Option>) {
+	const isFirstRender = useRef(false);
 	const parentRef = useRef<HTMLDivElement>(null);
 
 	const { onChange, value, search } = useSearcher(options, props.searchable);
 
 	const list = props.searchable ? search(value) : options;
-
-	console.log(list, value);
 
 	const { getVirtualItems, scrollToIndex, getTotalSize, measureElement } =
 		useVirtualizer({
@@ -50,17 +49,21 @@ export function SelectorContent<Option extends TOption>({
 			estimateSize: () => 32,
 		});
 
-	// useEffect(() => {
-	// 	const selectedItem = list.findIndex((option) =>
-	// 		props.getIsSelected(option),
-	// 	);
+	useEffect(() => {
+		if (isFirstRender.current) return;
 
-	// 	if (selectedItem === -1) {
-	// 		return;
-	// 	}
+		const selectedItem = list.findIndex((option) =>
+			props.getIsSelected(option),
+		);
 
-	// 	scrollToIndex(selectedItem);
-	// }, [list, props.getIsSelected, scrollToIndex]);
+		if (selectedItem === -1) {
+			return;
+		}
+
+		scrollToIndex(selectedItem);
+		
+		isFirstRender.current = true;
+	}, [list, props.getIsSelected, scrollToIndex]);
 
 	const onChangeSearch = (newValue: string) => {
 		onChange(newValue);
