@@ -100,7 +100,7 @@ export function SelectorContent<Option extends TOption>({
 					{props.message.empty}
 				</Command.Empty>
 
-				<Command.Group className="w-full h-full">
+				<Command.Group className="w-full h-full py-1">
 					{props.checkAll && (
 						<Command.Item
 							className="text-xs flex mb-0.5"
@@ -114,7 +114,7 @@ export function SelectorContent<Option extends TOption>({
 					)}
 					<div
 						ref={parentRef}
-						className="w-full p-0 m-0"
+						className="w-full"
 						style={{
 							minHeight: 400,
 							overflowY: "auto",
@@ -124,7 +124,7 @@ export function SelectorContent<Option extends TOption>({
 						<div
 							className="w-full"
 							style={{
-								height: getTotalSize() + 40,
+								height: getTotalSize(),
 							}}
 						>
 							<div
