@@ -1,7 +1,7 @@
 "use client";
 
 import { useVirtualizer } from "@tanstack/react-virtual";
-import { Search, Utensils } from "lucide-react";
+import { Search } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { cn } from "../../../../../lib/utils";
 import { Command } from "../../../../command";
