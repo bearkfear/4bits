@@ -2,11 +2,12 @@
 
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { Search } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { cn } from "../../../../../lib/utils";
 import { Command } from "../../../../command";
 import { PageLoader } from "../../../../page-loader";
 import type { SelectorCommonProps, SelectorMessages, TOption } from "./model";
+import { useSearcher } from "./searcher";
 
 type SelectorContentProps<Option> = {
 	onSelect(option?: Option): void;
@@ -36,59 +37,67 @@ export function SelectorContent<Option extends TOption>({
 }: SelectorContentProps<Option>) {
 	const parentRef = useRef<HTMLDivElement>(null);
 
+	const { onChange, value, search } = useSearcher(options, props.searchable);
+
+	const list = props.searchable ? search(value) : options;
+
+	console.log(list, value);
+
 	const { getVirtualItems, scrollToIndex, getTotalSize, measureElement } =
 		useVirtualizer({
-			count: options.length,
+			count: list.length,
 			getScrollElement: () => parentRef.current,
 			estimateSize: () => 32,
 		});
 
-	useEffect(() => {
-		const selectedItem = options.findIndex((option) =>
-			props.getIsSelected(option),
-		);
+	// useEffect(() => {
+	// 	const selectedItem = list.findIndex((option) =>
+	// 		props.getIsSelected(option),
+	// 	);
 
-		if (selectedItem === -1) {
-			return;
-		}
+	// 	if (selectedItem === -1) {
+	// 		return;
+	// 	}
 
-		scrollToIndex(selectedItem);
-	}, [options, props.getIsSelected, scrollToIndex]);
+	// 	scrollToIndex(selectedItem);
+	// }, [list, props.getIsSelected, scrollToIndex]);
+
+	const onChangeSearch = (newValue: string) => {
+		onChange(newValue);
+		onSearch(newValue);
+	};
 
 	const items = getVirtualItems();
 
 	return (
 		<Command.Root
+			className="min-h-[400px]"
 			style={{
 				width: props.width,
 			}}
 		>
-			{props.searchable && onSearch === undefined && (
-				<Command.Input
-					className="text-xs"
-					placeholder={props.message.searchPlaceholder}
-				/>
-			)}
+			{/* usa o search externo */}
 
-			{onSearch !== undefined && (
+			{props.searchable && (
 				<div className="flex items-center border-b border-gray-6 dark:border-graydark-6 px-3">
 					<Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
 					<input
 						className="text-xs flex h-8 w-full rounded-md bg-transparent py-3 outline-hidden placeholder:text-gray-10 dark:placeholder:text-graydark-10 disabled:cursor-not-allowed disabled:opacity-50"
 						placeholder={props.message.searchPlaceholder}
-						onChange={(event) => onSearch(event.target.value)}
+						onChange={({ target }) => onChangeSearch(target.value)}
+						value={value}
 					/>
 				</div>
 			)}
 
 			{props.loadingOptions && <PageLoader />}
 
-			<Command.List>
+			<Command.List className="h-full">
 				<Command.Empty className="text-xs px-4 py-3">
 					{props.message.empty}
 				</Command.Empty>
 
-				<Command.Group className="w-full">
+				<Command.Group className="w-full h-full">
 					{props.checkAll && (
 						<Command.Item
 							className="text-xs flex mb-0.5"
@@ -102,28 +111,28 @@ export function SelectorContent<Option extends TOption>({
 					)}
 					<div
 						ref={parentRef}
-						className="w-full"
+						className="w-full p-0 m-0"
 						style={{
-							height: 400,
+							minHeight: 400,
 							overflowY: "auto",
 							contain: "strict",
 						}}
 					>
 						<div
-							className="w-full h-full"
+							className="w-full"
 							style={{
-								height: getTotalSize(),
+								height: getTotalSize() + 40,
 							}}
 						>
 							<div
-								className="absolute left-0 top-0 w-full"
+								className="absolute left-0 top-0 w-full px-1"
 								style={{
 									transform: `translateY(${items[0]?.start ?? 0}px)`,
 								}}
 							>
 								{items.map((virtualRow) => {
 									const index = virtualRow.index;
-									const option = options[index];
+									const option = list[index];
 									const optionValue = props.getValue(option);
 									const isSelected = props.getIsSelected(option);
 									return (
@@ -158,7 +167,7 @@ export function SelectorContent<Option extends TOption>({
 				<Command.Page
 					page={pagination.page}
 					onClick={(newPage) => pagination.onChangePage(newPage)}
-					total={pagination.totalItems ? pagination.totalItems : options.length}
+					total={pagination.totalItems ? pagination.totalItems : list.length}
 				/>
 			)}
 		</Command.Root>

@@ -27,7 +27,7 @@ export type SingleSelectorProps<
 	onChange?(value: TV | null): void;
 	onSearch?: (search: string) => void;
 	loadingOptions?: boolean;
-	onCloseSelect?: () => void;
+	onClose?: () => void;
 	pagination?: {
 		selectedOption: O;
 		page: number;
@@ -44,7 +44,7 @@ export function SingleSelector<O extends TOption, VP extends FieldPath<O>>({
 	onSearch,
 	loadingOptions,
 	pagination,
-	onCloseSelect,
+	onClose,
 	ref,
 	...props
 }: SingleSelectorProps<O, VP>) {
@@ -119,9 +119,9 @@ export function SingleSelector<O extends TOption, VP extends FieldPath<O>>({
 		(newValue: boolean) => {
 			setOpen(newValue);
 
-			if (!newValue) onCloseSelect?.();
+			if (!newValue) onClose?.();
 		},
-		[onCloseSelect],
+		[onClose],
 	);
 
 	return (

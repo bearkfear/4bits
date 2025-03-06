@@ -192,7 +192,7 @@ export function FormControl<
 				onSearch={props.fieldConfig.onSearch}
 				loadingOptions={props.fieldConfig.loadingOptions}
 				pagination={props.fieldConfig.pagination}
-				onCloseSelect={props.fieldConfig.onCloseSelect}
+				onClose={props.fieldConfig.onCloseSelect}
 				required={props.fieldConfig.required}
 				className={props.fieldConfig.className}
 				style={props.fieldConfig.style}

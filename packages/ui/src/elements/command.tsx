@@ -89,7 +89,7 @@ const List = React.forwardRef<
 	<CommandPrimitive.List
 		ref={ref}
 		className={cn(
-			"max-h-[230px] w-full overflow-y-auto overflow-x-hidden",
+			"w-full",
 			className,
 		)}
 		{...props}
@@ -118,7 +118,7 @@ const Group = React.forwardRef<
 	<CommandPrimitive.Group
 		ref={ref}
 		className={cn(
-			"overflow-hidden p-1 text-blacka-12 dark:text-whitea-12 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-gray-11 dark:[&_[cmdk-group-heading]]:text-graydark-11",
+			"text-blacka-12 dark:text-whitea-12 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-gray-11 dark:[&_[cmdk-group-heading]]:text-graydark-11",
 			className,
 		)}
 		{...props}
