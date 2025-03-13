@@ -98,3 +98,26 @@ export function SelectMultipleIcons() {
 		</div>
 	);
 }
+
+export function SelectMultipleIconsNative() {
+	const [state, setState] = useState<string[]>([]);
+
+	return (
+		<div className="max-w-60">
+			<select
+				value={state}
+				onChange={(e) =>
+					setState((st) => [...st, iconsAsOptions[st.target.value].value])
+				}
+				multiple
+			>
+				{iconsAsOptions.map((it) => (
+					<option value={it.value} key={it.value}>
+						{it.label}
+					</option>
+				))}
+			</select>
+			{JSON.stringify(state)}
+		</div>
+	);
+}
