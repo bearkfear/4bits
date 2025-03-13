@@ -199,7 +199,7 @@ export function MultiSelector<O extends TOption, VP extends FieldPath<O>>({
 			<Popover.Trigger
 				className={cn(
 					inputVariants,
-					"justify-between items-center min-h-8 z-20",
+					"justify-between items-center min-h-8 z-20 overflow-hidden",
 					(!pagination || pagination.selectedOptions.length === 0) &&
 						selectedOptions.length === 0 &&
 						"text-gray-11 dark:text-graydark-11",
