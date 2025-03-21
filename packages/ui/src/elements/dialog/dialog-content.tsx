@@ -8,7 +8,7 @@ import {
 import { cn } from "../../lib/utils";
 
 export const dialogContentStyles = cva(
-	"fixed left-[50%] top-[50%] z-50 w-full m-x translate-x-[-50%] translate-y-[-50%] gap-3 border border-gray-6 dark:border-graydark-6 bg-gray-1 dark:bg-graydark-1 shadow-lg sm:rounded-lg max-h-9/10 flex flex-col overflow-hidden",
+	"fixed left-[50%] top-[50%] z-50 w-full m-x translate-x-[-50%] translate-y-[-50%] gap-3 border border-gray-6 dark:border-graydark-6 bg-gray-1 dark:bg-graydark-1 sm:rounded-lg max-h-9/10 flex flex-col overflow-hidden",
 	{
 		variants: {
 			openAnimation: {
