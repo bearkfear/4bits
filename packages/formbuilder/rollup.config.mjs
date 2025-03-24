@@ -5,6 +5,10 @@ import commonjs from "@rollup/plugin-commonjs";
 import { terser } from "rollup-plugin-terser"; // For minification (optional)
 import preserveDirectives from "rollup-plugin-preserve-directives"; // Import the plugin
 import del from "rollup-plugin-delete";
+import fs from "node:fs"
+
+const pkg = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
+const externals = Object.keys(pkg.devDependencies);
 
 /** @type {import('rollup').RollupOptions} */
 export default {
@@ -38,5 +42,5 @@ export default {
 		}),
 		terser(), // Minify in production
 	],
-	external: ["react", "react-dom"], // Important: Don't bundle React!
+	external: externals, // Important: Don't bundle React!
 };
