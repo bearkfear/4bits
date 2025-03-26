@@ -4,10 +4,11 @@ import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
 import del from "rollup-plugin-delete";
 import peerDepsExternal from "rollup-plugin-peer-deps-external"; // Important!
-import preserveDirectives from "rollup-plugin-preserve-directives"; // Import the plugin
+import { preserveDirectives } from "rollup-plugin-preserve-directives"; // Import the plugin
 import { terser } from "rollup-plugin-terser"; // For minification (optional)
+
 const pkg = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
-const externals = Object.keys(pkg.devDependencies);
+const externals = Object.keys(pkg.peerDependencies);
 
 /** @type {import('rollup').RollupOptions} */
 export default {
@@ -30,7 +31,7 @@ export default {
 	],
 	plugins: [
 		del(),
-		preserveDirectives(), // Add the plugin FIRST
+		preserveDirectives({ suppressPreserveModulesWarning: true }), // Add the plugin FIRST
 		peerDepsExternal(), // Crucial: Prevents bundling React
 		resolve(),
 		commonjs(),
