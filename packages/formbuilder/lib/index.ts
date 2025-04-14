@@ -5,8 +5,8 @@ export {
 	Store,
 	formStore,
 	useFormStoreApi,
-} from "./use-form-store";
-export { useRequiredFieldsByRules } from "./use-required-fields";
+} from "./presentation/hooks/use-form-store";
+export { useRequiredFieldsByRules } from "./presentation/hooks/use-required-fields";
 export {
 	FieldController,
 	FieldControllerProps,

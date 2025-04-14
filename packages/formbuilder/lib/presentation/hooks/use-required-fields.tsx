@@ -5,7 +5,7 @@ import { useMemo } from "react";
 import {
 	type FormField,
 	getRequiredFieldNames,
-} from "./domain/entities/field.entity";
+} from "../../domain/entities/field.entity";
 
 export function useRequiredFieldsByRules(
 	watch?: UseFormWatch<any>,

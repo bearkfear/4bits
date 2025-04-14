@@ -106,14 +106,16 @@ export function MultiSelector<O extends TOption, VP extends FieldPath<O>>({
 			(pagination && pagination.selectedOptions.length > 0) ||
 			selectedOptions.length > 0
 		) {
-			const list =
-				pagination && pagination.selectedOptions.length > 0
-					? pagination.selectedOptions
-					: selectedOptions;
+			let list: O[] = selectedOptions;
+
+			if (pagination && pagination.selectedOptions.length > 0) {
+				list = pagination.selectedOptions;
+			}
+
 			return (
 				<ul
 					className={cn(
-						"flex flex-wrap justify-start gap-1.5 py-1",
+						"flex flex-wrap justify-start gap-1.5 py-1 overflow-auto",
 						lines !== "noLimit" && "overflow-y-auto",
 					)}
 					style={{
@@ -199,7 +201,7 @@ export function MultiSelector<O extends TOption, VP extends FieldPath<O>>({
 			<Popover.Trigger
 				className={cn(
 					inputVariants,
-					"justify-between items-center min-h-8 z-20 overflow-hidden",
+					"justify-between items-center min-h-8 z-20 overflow-hidden h-auto",
 					(!pagination || pagination.selectedOptions.length === 0) &&
 						selectedOptions.length === 0 &&
 						"text-gray-11 dark:text-graydark-11",

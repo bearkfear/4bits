@@ -88,10 +88,7 @@ const List = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<CommandPrimitive.List
 		ref={ref}
-		className={cn(
-			"w-full",
-			className,
-		)}
+		className={cn("w-full", className)}
 		{...props}
 	/>
 ));

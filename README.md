@@ -1,5 +1,9 @@
 # Form kit for React
 
+- form builder [npm](https://www.npmjs.com/package/@4bits/formbuilder)
+- ui [npm](https://www.npmjs.com/package/@4bits/ui)
+
+
 ### UI
 
 [![npm version](https://badge.fury.io/js/@continha%2Fui.svg)](https://badge.fury.io/js/@continha%2Fui)

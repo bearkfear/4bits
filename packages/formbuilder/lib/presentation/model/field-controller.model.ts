@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import type { Store } from "../../use-form-store";
+import type { Store } from "../hooks/use-form-store";
 import type { FormField } from "../../domain/entities/field.entity";
 import type { FormConfig } from "../../domain/form-config";
 import type { FieldPath, FieldValues } from "react-hook-form";

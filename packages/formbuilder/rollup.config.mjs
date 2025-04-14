@@ -5,7 +5,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import { terser } from "rollup-plugin-terser"; // For minification (optional)
 import preserveDirectives from "rollup-plugin-preserve-directives"; // Import the plugin
 import del from "rollup-plugin-delete";
-import fs from "node:fs"
+import fs from "node:fs";
 
 const pkg = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
 const externals = Object.keys(pkg.peerDependencies);

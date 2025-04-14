@@ -1,5 +1,5 @@
 import type { FormField } from "./field.entity";
-import type { FormStore } from "../../use-form-store";
+import type { FormStore } from "../../presentation/hooks/use-form-store";
 
 import { Condition } from "../conditions";
 

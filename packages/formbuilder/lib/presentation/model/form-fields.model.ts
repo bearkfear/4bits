@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { type FormStore, useFormStoreApi } from "../../use-form-store";
+import { type FormStore, useFormStoreApi } from "../hooks/use-form-store";
 import type { FormConfig } from "../../domain/form-config";
 import type { FieldValues } from "react-hook-form";
 

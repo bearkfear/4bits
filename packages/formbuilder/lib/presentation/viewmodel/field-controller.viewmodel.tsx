@@ -6,7 +6,7 @@ import {
 	validateField,
 	type FormField,
 } from "../../domain/entities/field.entity";
-import type { Store } from "../../use-form-store";
+import type { Store } from "../hooks/use-form-store";
 
 export type FieldControllerProps<
 	TFieldValues extends FieldValues = FieldValues,

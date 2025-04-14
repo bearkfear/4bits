@@ -61,7 +61,7 @@ export function SelectorContent<Option extends TOption>({
 		}
 
 		scrollToIndex(selectedItem);
-		
+
 		isFirstRender.current = true;
 	}, [list, props.getIsSelected, scrollToIndex]);
 
@@ -74,7 +74,6 @@ export function SelectorContent<Option extends TOption>({
 
 	return (
 		<Command.Root
-			className="min-h-[400px]"
 			style={{
 				width: props.width,
 			}}
@@ -116,7 +115,7 @@ export function SelectorContent<Option extends TOption>({
 						ref={parentRef}
 						className="w-full"
 						style={{
-							minHeight: 400,
+							minHeight: 178,
 							overflowY: "auto",
 							contain: "strict",
 						}}
