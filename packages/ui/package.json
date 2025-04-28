@@ -1,16 +1,14 @@
 {
 	"name": "@4bits/ui",
-	"version": "2.5.7",
+	"version": "2.5.8",
 	"private": false,
 	"main": "dist/index.cjs.js",
 	"module": "dist/index.esm.js",
 	"types": "dist/index.d.ts",
 	"type": "module",
 	"files": ["dist"],
-	"dependencies": {
-		"@4bits/formbuilder": "workspace:^"
-	},
 	"peerDependencies": {
+		"@4bits/formbuilder": "2.5.8",
 		"@dnd-kit/core": "^6.3.1",
 		"@dnd-kit/sortable": "^10.0.0",
 		"@dnd-kit/utilities": "^3.2.2",
