@@ -14,7 +14,9 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - name: Install dependencies
         run: bun install
-      - run: bun run build
+      - run: |
+          bun run build --filter @4bits/formbuilder
+          bun run build --filter @4bits/ui
       - name: Configure npm authentication
         run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > packages/formbuilder/.npmrc

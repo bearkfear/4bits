@@ -33,7 +33,8 @@
 		"tsc": "turbo run tsc"
 	},
 	"workspaces": [
-		"packages/*"
+		"packages/ui",
+		"packages/formbuilder"
 	],
 	"dependencies": {},
 	"packageManager": "bun@1.2.0"
