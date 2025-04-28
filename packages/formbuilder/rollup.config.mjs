@@ -40,7 +40,7 @@ export default {
 			declaration: true, // Generate .d.ts files (highly recommended)
 			declarationDir: "dist", // Where to put the .d.ts files
 		}),
-		terser(), // Minify in production
+		// terser(), // Minify in production
 	],
 	external: externals, // Important: Don't bundle React!
 };

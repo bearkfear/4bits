@@ -1,5 +1,7 @@
+"use client";
+
 import type { FieldPath, FieldValues } from "react-hook-form";
-import { Controller } from "react-hook-form/dist/controller";
+import { Controller } from "react-hook-form";
 import type { FormRenderProps } from "../../domain/form-render-props";
 import type { FormConfig } from "../../domain/form-config";
 import type { FormField } from "../../domain/entities/field.entity";
