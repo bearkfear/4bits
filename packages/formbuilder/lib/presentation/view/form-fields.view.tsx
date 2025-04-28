@@ -1,8 +1,9 @@
-import { Controller, type FieldValues } from "react-hook-form";
+import type { FieldValues } from "react-hook-form";
 import type {
 	FormField,
 	ValidateFieldResult,
 } from "../../domain/entities/field.entity";
+import { Controller } from "react-hook-form/dist/controller";
 import type { FormConfig } from "../../domain/form-config";
 
 export type FormFieldsViewProps<

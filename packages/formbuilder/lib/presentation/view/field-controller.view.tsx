@@ -1,4 +1,5 @@
-import { Controller, type FieldPath, type FieldValues } from "react-hook-form";
+import type { FieldPath, FieldValues } from "react-hook-form";
+import { Controller } from "react-hook-form/dist/controller";
 import type { FormRenderProps } from "../../domain/form-render-props";
 import type { FormConfig } from "../../domain/form-config";
 import type { FormField } from "../../domain/entities/field.entity";
