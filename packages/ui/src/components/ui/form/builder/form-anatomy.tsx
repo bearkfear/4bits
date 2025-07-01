@@ -78,6 +78,18 @@ export function FormAnatomy<
 						{props.fieldConfig.leftAddon}
 						{FormItemControl}
 						{props.fieldConfig.label !== undefined && FormItemLabel}
+						{props.fieldConfig.tooltip && (
+							<Tooltip.Provider skipDelayDuration={0} delayDuration={0}>
+								<Tooltip.Root>
+									<Tooltip.Trigger>
+										{props.fieldConfig.tooltip.trigger}
+									</Tooltip.Trigger>
+									<Tooltip.Content side={props.fieldConfig.tooltip.side}>
+										{props.fieldConfig.tooltip.content}
+									</Tooltip.Content>
+								</Tooltip.Root>
+							</Tooltip.Provider>
+						)}
 					</div>
 					{FormItemHelperText}
 				</div>

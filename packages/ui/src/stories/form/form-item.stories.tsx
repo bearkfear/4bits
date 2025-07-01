@@ -503,6 +503,11 @@ export const Checkbox = () => {
 						size: 12,
 						helperText: "You must agree with terms to proceed",
 						required: true,
+						tooltip: {
+							trigger: <LuAlertCircle />,
+							content: "Exemplo de tooltip",
+							side: "bottom",
+						},
 					},
 				]}
 			/>
@@ -594,6 +599,11 @@ export const Switch = () => {
 						size: 12,
 						helperText:
 							"When a new user is created, you will receive an notification",
+						tooltip: {
+							trigger: <LuAlertCircle />,
+							content: "Exemplo de tooltip",
+							side: "bottom",
+						},
 					},
 				]}
 			/>
