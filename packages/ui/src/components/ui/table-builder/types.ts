@@ -8,6 +8,11 @@ export type Column = {
 	id: string;
 	className?: string;
 	position?: "start" | "center" | "end";
+	tooltip?: {
+		trigger: ReactNode;
+		content: ReactNode;
+		side?: "top" | "right" | "bottom" | "left";
+	};
 };
 
 export type Columns = readonly Column[];

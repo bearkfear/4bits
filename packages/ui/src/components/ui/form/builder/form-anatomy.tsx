@@ -21,6 +21,7 @@ import { cn } from "../../../../lib/utils";
 import { HelperText } from "../helper-text";
 import { Label } from "../label";
 import { FormControl } from "./form-control";
+import { Tooltip } from "../../tooltip";
 
 export function FormAnatomy<
 	TFieldValues extends FieldValues = FieldValues,
@@ -99,6 +100,18 @@ export function FormAnatomy<
 					<div className="flex space-x-2">
 						{props.fieldConfig.leftAddon}
 						{props.fieldConfig.label !== undefined && FormItemLabel}
+						{props.fieldConfig.tooltip && (
+							<Tooltip.Provider skipDelayDuration={0} delayDuration={0}>
+								<Tooltip.Root>
+									<Tooltip.Trigger>
+										{props.fieldConfig.tooltip.trigger}
+									</Tooltip.Trigger>
+									<Tooltip.Content side={props.fieldConfig.tooltip.side}>
+										{props.fieldConfig.tooltip.content}
+									</Tooltip.Content>
+								</Tooltip.Root>
+							</Tooltip.Provider>
+						)}
 					</div>
 					{props.fieldConfig.rightAddon}
 				</div>
