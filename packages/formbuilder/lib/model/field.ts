@@ -18,6 +18,11 @@ export type FormField<
 	size: number;
 	placeholder?: string;
 	helperText?: string;
+	tooltip?: {
+		trigger: React.ReactNode;
+		content: React.ReactNode;
+		side?: "top" | "right" | "bottom" | "left";
+	};
 	className?: string;
 	style?: React.CSSProperties;
 	/**

@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
 import { useState } from "react";
-import { LuPencilRuler } from "react-icons/lu";
+import { LuAlertCircle, LuPencilRuler } from "react-icons/lu";
 import { TableBuilderActionButton } from "src/components/ui/table-builder/body/action-button";
 import { Button, TableBuilder } from "../../index";
 
@@ -16,7 +16,14 @@ export const Basic = () => {
 		<TableBuilder
 			columns={
 				[
-					{ id: "name", title: "Name" },
+					{
+						id: "name",
+						title: "Name",
+						tooltip: {
+							trigger: <LuAlertCircle />,
+							content: "Name of the person",
+						},
+					},
 					{ id: "age", title: "Age" },
 					{ id: "sex", title: "Sex", position: "end" },
 				] as const

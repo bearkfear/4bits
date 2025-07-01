@@ -2,35 +2,48 @@
 
 import { cn } from "../../../../lib/utils";
 import { Table } from "../../table";
+import { Tooltip } from "../../tooltip";
 import type { Column, Columns, SortableType } from "../types";
 import { ButtonSort } from "./button-sort";
 
 type ColumnDefaultProps<C extends Columns> = SortableType<C> & {
-  column: Column;
+	column: Column;
 };
 
 export function ColumnItem<C extends Columns>({
-  column,
-  sortable,
+	column,
+	sortable,
 }: ColumnDefaultProps<C>) {
-  return (
-    <Table.Head key={column.id} className={column.className}>
-      <div
-        className={cn(
-          "flex space-x-1 items-center",
-          column.position && `justify-${column.position}`
-        )}
-      >
-        <div className="text-xs">{column.title}</div>
-        {sortable?.cols.includes(column.id) && (
-          <ButtonSort
-            columnId={column.id}
-            sortBy={sortable.sortBy}
-            sortDirection={sortable.sortDirection}
-            onSort={sortable.onSort}
-          />
-        )}
-      </div>
-    </Table.Head>
-  );
+	return (
+		<Table.Head key={column.id} className={column.className}>
+			<div
+				className={cn(
+					"flex space-x-1 items-center",
+					column.position && `justify-${column.position}`,
+				)}
+			>
+				<div className="text-xs">{column.title}</div>
+
+				{column.tooltip && (
+					<Tooltip.Provider skipDelayDuration={0} delayDuration={0}>
+						<Tooltip.Root>
+							<Tooltip.Trigger>{column.tooltip.trigger}</Tooltip.Trigger>
+							<Tooltip.Content side={column.tooltip.side}>
+								{column.tooltip.content}
+							</Tooltip.Content>
+						</Tooltip.Root>
+					</Tooltip.Provider>
+				)}
+
+				{sortable?.cols.includes(column.id) && (
+					<ButtonSort
+						columnId={column.id}
+						sortBy={sortable.sortBy}
+						sortDirection={sortable.sortDirection}
+						onSort={sortable.onSort}
+					/>
+				)}
+			</div>
+		</Table.Head>
+	);
 }
